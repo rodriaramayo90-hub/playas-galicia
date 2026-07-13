@@ -36,7 +36,40 @@ const playas = [
     lon: -8.511
   }
 ];
+function puntosTemperatura(temp) {
+  if (temp < 18) return -30;
+  if (temp < 22) return -10;
+  if (temp < 25) return 10;
+  if (temp <= 28) return 25;
+  return 20;
+}
 
+function puntosViento(viento) {
+  if (viento <= 10) return 25;
+  if (viento <= 20) return 10;
+  if (viento <= 30) return -10;
+  return -30;
+}
+
+function puntosLluvia(lluvia) {
+  if (lluvia <= 10) return 20;
+  if (lluvia <= 30) return 10;
+  if (lluvia <= 50) return -10;
+  return -40;
+}
+
+function calcularPuntuacion(temperatura, viento, lluvia) {
+  let puntuacion = 50;
+
+  puntuacion += puntosTemperatura(temperatura);
+  puntuacion += puntosViento(viento);
+  puntuacion += puntosLluvia(lluvia);
+
+  // Limitar la puntuación entre 0 y 100
+  puntuacion = Math.max(0, Math.min(100, puntuacion));
+
+  return Math.round(puntuacion);
+}
 async function obtenerDatosPlaya(playa) {
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max&forecast_days=1`;
 
@@ -47,11 +80,11 @@ async function obtenerDatosPlaya(playa) {
   const lluvia = datos.daily.precipitation_probability_max[0];
   const viento = datos.daily.wind_speed_10m_max[0];
 
-  let puntuacion = 100;
-
-  puntuacion += temperatura;
-  puntuacion -= lluvia;
-  puntuacion -= viento;
+const puntuacion = calcularPuntuacion(
+  temperatura,
+  viento,
+  lluvia
+);
 
   return {
     nombre: playa.nombre,
