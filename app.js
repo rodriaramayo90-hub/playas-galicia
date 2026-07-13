@@ -179,8 +179,7 @@ async function obtenerDatosPlaya(playa) {
   const direccionViento =
     gradosADireccion(direccionVientoGrados);
 
-  const agua =
-    datos.hourly?.sea_surface_temperature?.[12] ?? null;
+const agua = null;
 
   const puntuacion = calcularPuntuacion(
     temperatura,
@@ -241,7 +240,7 @@ async function cargarRanking() {
         <td>${playa.temperatura}°C</td>
         <td>${playa.viento} km/h (${playa.direccionViento})</td>
         <td>${playa.lluvia}%</td>
-        <td>${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
+        <td>${playa.agua ?? "-"}</td>
         <td>${playa.estado}</td>
         <td>${playa.puntuacion}</td>
         <td>${playa.explicacion}</td>
