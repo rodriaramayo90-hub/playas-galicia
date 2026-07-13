@@ -72,7 +72,17 @@ function puntosAgua(agua) {
   if (agua < 20) return 5;
   return 10;
 }
+function puntosOleaje(oleaje) {
 
+  if (oleaje === null) return 0;
+
+  if (oleaje < 0.5) return 15;
+  if (oleaje < 1) return 10;
+  if (oleaje < 1.5) return 0;
+  if (oleaje < 2) return -10;
+
+  return -25;
+}
 function gradosADireccion(grados) {
   const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
   return direcciones[Math.round(grados / 45) % 8];
@@ -109,6 +119,7 @@ function calcularPuntuacion(
   viento,
   lluvia,
   agua,
+  oleaje,
   orientacion,
   direccionViento
 ) {
@@ -117,6 +128,7 @@ function calcularPuntuacion(
   puntuacion += puntosTemperatura(temperatura);
   puntuacion += puntosViento(viento);
   puntuacion += puntosLluvia(lluvia);
+  puntuacion += puntosOleaje(oleaje);
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOrientacion(
     orientacion,
@@ -166,9 +178,12 @@ async function obtenerDatosPlaya(playa) {
 
   const url =
     `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&hourly=sea_surface_temperature&forecast_days=1`;
-
+const marineUrl =
+  `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
   const respuesta = await fetch(url);
   const datos = await respuesta.json();
+  const respuestaMarine = await fetch(marineUrl);
+const datosMarine = await respuestaMarine.json();
 
   const temperatura = datos.daily.temperature_2m_max[0];
   const lluvia = datos.daily.precipitation_probability_max[0];
@@ -179,16 +194,21 @@ async function obtenerDatosPlaya(playa) {
   const direccionViento =
     gradosADireccion(direccionVientoGrados);
 
-const agua = null;
+const agua =
+  datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
 
-  const puntuacion = calcularPuntuacion(
-    temperatura,
-    viento,
-    lluvia,
-    agua,
-    playa.orientacion,
-    direccionViento
-  );
+const oleaje =
+  datosMarine.hourly?.wave_height?.[12] ?? null;
+
+const puntuacion = calcularPuntuacion(
+  temperatura,
+  viento,
+  lluvia,
+  agua,
+  oleaje,
+  playa.orientacion,
+  direccionViento
+);
 
   const estado = obtenerEstado(puntuacion);
 
@@ -208,6 +228,7 @@ const agua = null;
     direccionViento,
     lluvia,
     agua,
+    oleaje,
     puntuacion,
     estado,
     explicacion
