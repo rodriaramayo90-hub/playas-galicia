@@ -261,7 +261,8 @@ async function cargarRanking() {
         <td>${playa.temperatura}°C</td>
         <td>${playa.viento} km/h (${playa.direccionViento})</td>
         <td>${playa.lluvia}%</td>
-        <td>${playa.agua ?? "-"}</td>
+        <td>${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
+        <td>${playa.oleaje ? playa.oleaje.toFixed(1) + " m" : "-"}</td>
         <td>${playa.estado}</td>
         <td>${playa.puntuacion}</td>
         <td>${playa.explicacion}</td>
