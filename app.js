@@ -44,51 +44,74 @@ const playas = [
 ];
 
 function puntosTemperatura(temp) {
-  if (temp < 18) return -30;
-  if (temp < 22) return -10;
-  if (temp < 25) return 10;
-  if (temp <= 28) return 25;
-  return 20;
+
+  if (temp < 18) return -20;
+  if (temp < 21) return -10;
+  if (temp < 24) return 10;
+  if (temp <= 28) return 20;
+
+  return 15;
 }
 
 function puntosViento(viento) {
-  if (viento <= 10) return 25;
-  if (viento <= 20) return 10;
-  if (viento <= 30) return -10;
-  return -30;
+
+  if (viento <= 10) return 10;
+  if (viento <= 20) return 5;
+  if (viento <= 30) return -5;
+
+  return -10;
 }
 
 function puntosLluvia(lluvia) {
-  if (lluvia <= 10) return 20;
+
+  if (lluvia <= 5) return 25;
+  if (lluvia <= 15) return 20;
   if (lluvia <= 30) return 10;
   if (lluvia <= 50) return -10;
-  return -40;
+
+  return -25;
 }
 
 function puntosAgua(agua) {
+
   if (!agua) return 0;
-  if (agua < 16) return -15;
-  if (agua < 18) return -5;
-  if (agua < 20) return 5;
-  return 10;
+
+  if (agua < 16) return -7;
+  if (agua < 18) return -3;
+  if (agua < 20) return 3;
+
+  return 7;
+}
+function puntosNubosidad(nubosidad) {
+
+  if (nubosidad <= 10) return 30;
+  if (nubosidad <= 25) return 25;
+  if (nubosidad <= 40) return 15;
+  if (nubosidad <= 60) return 0;
+  if (nubosidad <= 80) return -15;
+
+  return -30;
 }
 function puntosOleaje(oleaje) {
 
-  if (oleaje === null) return 0;
+  if (!oleaje) return 0;
 
-  if (oleaje < 0.5) return 15;
-  if (oleaje < 1) return 10;
+  if (oleaje < 0.5) return 3;
+  if (oleaje < 1) return 2;
   if (oleaje < 1.5) return 0;
-  if (oleaje < 2) return -10;
+  if (oleaje < 2) return -2;
 
-  return -25;
+  return -3;
 }
 function gradosADireccion(grados) {
   const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
   return direcciones[Math.round(grados / 45) % 8];
 }
 
-function puntosOrientacion(orientacion, direccionViento) {
+function puntosOrientacion(
+  orientacion,
+  direccionViento
+) {
 
   const opuestas = {
     N: "S",
@@ -101,41 +124,49 @@ function puntosOrientacion(orientacion, direccionViento) {
     NW: "SE"
   };
 
-  // viento entrando directamente a la playa
   if (orientacion === direccionViento) {
-    return -20;
+    return -5;
   }
 
-  // viento desde tierra hacia mar
   if (opuestas[orientacion] === direccionViento) {
-    return 10;
+    return 5;
   }
 
   return 0;
 }
-
 function calcularPuntuacion(
   temperatura,
   viento,
   lluvia,
+  nubosidad,
   agua,
   oleaje,
   orientacion,
   direccionViento
 ) {
+
   let puntuacion = 50;
 
-  puntuacion += puntosTemperatura(temperatura);
-  puntuacion += puntosViento(viento);
+  puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
-  puntuacion += puntosOleaje(oleaje);
-  puntuacion += puntosAgua(agua);
+  puntuacion += puntosTemperatura(temperatura);
+
+  puntuacion += puntosViento(viento);
   puntuacion += puntosOrientacion(
     orientacion,
     direccionViento
   );
 
-  return Math.max(0, Math.min(100, Math.round(puntuacion)));
+  puntuacion += puntosAgua(agua);
+  puntuacion += puntosOleaje(oleaje);
+
+  return Math.max(
+    0,
+    Math.min(
+      100,
+      Math.round(puntuacion)
+    )
+  );
 }
 
 function obtenerEstado(puntos) {
@@ -144,7 +175,15 @@ function obtenerEstado(puntos) {
   if (puntos >= 50) return "🟡 Aceptable";
   return "🔴 Mejor evitar";
 }
+function obtenerCielo(nubosidad) {
 
+  if (nubosidad <= 10) return "☀️ Despejado";
+  if (nubosidad <= 30) return "🌤️ Poco nuboso";
+  if (nubosidad <= 60) return "⛅ Intervalos";
+  if (nubosidad <= 80) return "☁️ Nuboso";
+
+  return "🌫️ Muy cubierto";
+}
 function generarExplicacion(
   temperatura,
   viento,
@@ -176,8 +215,8 @@ function generarExplicacion(
 
 async function obtenerDatosPlaya(playa) {
 
-  const url =
-    `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&hourly=sea_surface_temperature&forecast_days=1`;
+ const url =
+  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean&hourly=sea_surface_temperature&forecast_days=1`;
 const marineUrl =
   `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
   const respuesta = await fetch(url);
@@ -187,12 +226,15 @@ const datosMarine = await respuestaMarine.json();
 
   const temperatura = datos.daily.temperature_2m_max[0];
   const lluvia = datos.daily.precipitation_probability_max[0];
+  const nubosidad = datos.daily.cloud_cover_mean[0];
   const viento = datos.daily.wind_speed_10m_max[0];
   const direccionVientoGrados =
     datos.daily.wind_direction_10m_dominant[0];
 
   const direccionViento =
     gradosADireccion(direccionVientoGrados);
+  
+  const cielo = obtenerCielo(nubosidad);
 
 const agua =
   datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
@@ -204,6 +246,7 @@ const puntuacion = calcularPuntuacion(
   temperatura,
   viento,
   lluvia,
+  nubosidad,
   agua,
   oleaje,
   playa.orientacion,
@@ -227,10 +270,12 @@ const puntuacion = calcularPuntuacion(
     viento,
     direccionViento,
     lluvia,
+    cielo,
     agua,
     oleaje,
     puntuacion,
     estado,
+    nubosidad,
     explicacion
   };
 }
@@ -266,6 +311,7 @@ async function cargarRanking() {
         <td>${playa.estado}</td>
         <td>${playa.puntuacion}</td>
         <td>${playa.explicacion}</td>
+        <td>${playa.cielo}</td>
       </tr>
     `;
   });
