@@ -85,12 +85,12 @@ function puntosAgua(agua) {
 function puntosNubosidad(nubosidad) {
 
   if (nubosidad <= 10) return 30;
-  if (nubosidad <= 25) return 25;
-  if (nubosidad <= 40) return 15;
-  if (nubosidad <= 60) return 0;
-  if (nubosidad <= 80) return -15;
+  if (nubosidad <= 25) return 20;
+  if (nubosidad <= 40) return 10;
+  if (nubosidad <= 60) return -5;
+  if (nubosidad <= 80) return -25;
 
-  return -30;
+  return -45;
 }
 function puntosOleaje(oleaje) {
 
@@ -169,10 +169,15 @@ function calcularPuntuacion(
   );
 }
 
-function obtenerEstado(puntos) {
+function obtenerEstado(puntos, nubosidad) {
+
+  if (nubosidad > 80 && puntos >= 70)
+    return "🟡 Aceptable (muy cubierto)";
+
   if (puntos >= 85) return "🟢 Excelente";
   if (puntos >= 70) return "🟢 Muy buena";
   if (puntos >= 50) return "🟡 Aceptable";
+
   return "🔴 Mejor evitar";
 }
 function obtenerCielo(nubosidad) {
@@ -190,10 +195,24 @@ function generarExplicacion(
   direccionViento,
   lluvia,
   agua,
-  orientacion
+  orientacion,
+  nubosidad
 ) {
 
   let mensajes = [];
+
+  if (nubosidad <= 10)
+    mensajes.push("cielo despejado");
+
+  else if (nubosidad <= 40)
+    mensajes.push("cielo con pocas nubes");
+
+  else if (nubosidad <= 80)
+    mensajes.push("cielo bastante nuboso");
+
+  else
+    mensajes.push("cielo muy cubierto");
+
 
   if (temperatura >= 25)
     mensajes.push("temperatura ideal");
@@ -253,16 +272,20 @@ const puntuacion = calcularPuntuacion(
   direccionViento
 );
 
-  const estado = obtenerEstado(puntuacion);
+  const estado = obtenerEstado(
+  puntuacion,
+  nubosidad
+);
 
-  const explicacion = generarExplicacion(
+ const explicacion = generarExplicacion(
     temperatura,
     viento,
     direccionViento,
     lluvia,
     agua,
-    playa.orientacion
-  );
+    playa.orientacion,
+    nubosidad
+);
 
   return {
     nombre: playa.nombre,
