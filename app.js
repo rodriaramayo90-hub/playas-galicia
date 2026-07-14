@@ -359,9 +359,8 @@ tabla.innerHTML += `
     <td>${playa.estado}</td>
     <td>${playa.puntuacion}</td>
     <td>${playa.explicacion}</td>
-  </tr>
+   </tr>
 `;
-    `;
   });
 
 }
