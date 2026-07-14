@@ -235,7 +235,7 @@ function generarExplicacion(
 async function obtenerDatosPlaya(playa) {
 
 const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean&hourly=temperature_2m&forecast_days=1`;
+  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean&hourly=temperature_2m&forecast_days=1&timezone=Europe%2FMadrid`;
 const marineUrl =
   `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
   const respuesta = await fetch(url);
@@ -300,7 +300,7 @@ const puntuacion = calcularPuntuacion(
 );
 
  const explicacion = generarExplicacion(
-    temperatura,
+    temperaturaMediaPlaya,
     viento,
     direccionViento,
     lluvia,
