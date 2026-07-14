@@ -135,7 +135,7 @@ function puntosOrientacion(
   return 0;
 }
 function calcularPuntuacion(
-  temperatura,
+  temperaturaMediaPlaya,
   viento,
   lluvia,
   nubosidad,
@@ -149,7 +149,7 @@ function calcularPuntuacion(
 
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
-  puntuacion += puntosTemperatura(temperatura);
+  puntuacion += puntosTemperatura(temperaturaMediaPlaya);
 
   puntuacion += puntosViento(viento);
   puntuacion += puntosOrientacion(
@@ -234,8 +234,8 @@ function generarExplicacion(
 
 async function obtenerDatosPlaya(playa) {
 
- const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean&hourly=sea_surface_temperature&forecast_days=1`;
+const url =
+  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean&hourly=temperature_2m&forecast_days=1`;
 const marineUrl =
   `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
   const respuesta = await fetch(url);
@@ -243,7 +243,28 @@ const marineUrl =
   const respuestaMarine = await fetch(marineUrl);
 const datosMarine = await respuestaMarine.json();
 
-  const temperatura = datos.daily.temperature_2m_max[0];
+ const horas = datos.hourly.time;
+const temperaturas = datos.hourly.temperature_2m;
+
+const temperaturasPlaya = horas
+  .map((hora, indice) => ({
+    hora,
+    temperatura: temperaturas[indice]
+  }))
+  .filter(registro => {
+    const horaLocal = parseInt(
+      registro.hora.split("T")[1].split(":")[0]
+    );
+
+    return horaLocal >= 11 && horaLocal <= 20;
+  });
+
+const temperaturaMediaPlaya =
+  temperaturasPlaya.reduce(
+    (suma, registro) => suma + registro.temperatura,
+    0
+  ) / temperaturasPlaya.length;
+  const temperaturaMaxima = datos.daily.temperature_2m_max[0];
   const lluvia = datos.daily.precipitation_probability_max[0];
   const nubosidad = datos.daily.cloud_cover_mean[0];
   const viento = datos.daily.wind_speed_10m_max[0];
@@ -260,9 +281,10 @@ const agua =
 
 const oleaje =
   datosMarine.hourly?.wave_height?.[12] ?? null;
+  
 
 const puntuacion = calcularPuntuacion(
-  temperatura,
+  temperaturaMediaPlaya,
   viento,
   lluvia,
   nubosidad,
@@ -287,20 +309,21 @@ const puntuacion = calcularPuntuacion(
     nubosidad
 );
 
-  return {
-    nombre: playa.nombre,
-    temperatura,
-    viento,
-    direccionViento,
-    lluvia,
-    cielo,
-    agua,
-    oleaje,
-    puntuacion,
-    estado,
-    nubosidad,
-    explicacion
-  };
+return {
+  nombre: playa.nombre,
+  temperaturaMaxima,
+  temperaturaMediaPlaya,
+  viento,
+  direccionViento,
+  lluvia,
+  cielo,
+  agua,
+  oleaje,
+  puntuacion,
+  estado,
+  nubosidad,
+  explicacion
+};
 }
 
 async function cargarRanking() {
@@ -327,6 +350,8 @@ async function cargarRanking() {
         <td>${index + 1}</td>
         <td>${playa.nombre}</td>
         <td>${playa.cielo}</td>
+        <td>${playa.temperaturaMaxima}°C</td>
+        <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
         <td>${playa.temperatura}°C</td>
         <td>${playa.viento} km/h (${playa.direccionViento})</td>
         <td>${playa.lluvia}%</td>
