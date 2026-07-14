@@ -303,6 +303,7 @@ async function cargarRanking() {
       <tr>
         <td>${index + 1}</td>
         <td>${playa.nombre}</td>
+        <td>${playa.cielo}</td>
         <td>${playa.temperatura}°C</td>
         <td>${playa.viento} km/h (${playa.direccionViento})</td>
         <td>${playa.lluvia}%</td>
@@ -311,7 +312,6 @@ async function cargarRanking() {
         <td>${playa.estado}</td>
         <td>${playa.puntuacion}</td>
         <td>${playa.explicacion}</td>
-        <td>${playa.cielo}</td>
       </tr>
     `;
   });
