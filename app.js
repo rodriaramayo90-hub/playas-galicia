@@ -41,7 +41,7 @@ const playas = [
     lat: 43.307,
     lon: -8.511,
     orientacion: "NW"
-  }
+  },
     {
     nombre: "Playa de Orzán",
     municipio: "A Coruña",
