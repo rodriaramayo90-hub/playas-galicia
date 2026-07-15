@@ -84,13 +84,13 @@ function puntosAgua(agua) {
 }
 function puntosNubosidad(nubosidad) {
 
-  if (nubosidad <= 10) return 30;
-  if (nubosidad <= 25) return 20;
-  if (nubosidad <= 40) return 10;
-  if (nubosidad <= 60) return -5;
-  if (nubosidad <= 80) return -25;
+  if (nubosidad <= 10) return 25;   // despejado
+  if (nubosidad <= 25) return 15;   // pocas nubes
+  if (nubosidad <= 40) return 5;    // intervalos nubosos
+  if (nubosidad <= 60) return -15;  // nuboso
+  if (nubosidad <= 80) return -35;  // muy nuboso
 
-  return -45;
+  return -50;                       // cubierto
 }
 function puntosOleaje(oleaje) {
 
@@ -151,7 +151,7 @@ function calcularPuntuacion(
   direccionViento
 ) {
 
-  let puntuacion = 50;
+  let puntuacion = 40;
 
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
@@ -178,12 +178,27 @@ function calcularPuntuacion(
 
 function obtenerEstado(puntos, nubosidad) {
 
-  if (nubosidad > 80 && puntos >= 70)
+  // Mucha nube impide una valoración alta
+  if (nubosidad > 80)
     return "🟡 Aceptable (muy cubierto)";
 
-  if (puntos >= 85) return "🟢 Excelente";
-  if (puntos >= 70) return "🟢 Muy buena";
-  if (puntos >= 50) return "🟡 Aceptable";
+  if (nubosidad > 60)
+    return "🟡 Aceptable (nuboso)";
+
+
+  // Días realmente buenos
+  if (puntos >= 85)
+    return "🟢 Excelente";
+
+
+  // Nuevo estado para días buenos pero con nubes
+  if (puntos >= 70)
+    return "🟢 Buen día de playa con algo de nubes";
+
+
+  if (puntos >= 50)
+    return "🟡 Aceptable";
+
 
   return "🔴 Mejor evitar";
 }
@@ -208,16 +223,22 @@ function generarExplicacion(
 
   let mensajes = [];
 
-  if (nubosidad <= 10)
+if (nubosidad <= 10)
     mensajes.push("cielo despejado");
 
-  else if (nubosidad <= 40)
+else if (nubosidad <= 25)
     mensajes.push("cielo con pocas nubes");
 
-  else if (nubosidad <= 80)
-    mensajes.push("cielo bastante nuboso");
+else if (nubosidad <= 40)
+    mensajes.push("intervalos nubosos");
 
-  else
+else if (nubosidad <= 60)
+    mensajes.push("cielo nuboso");
+
+else if (nubosidad <= 80)
+    mensajes.push("cielo bastante cubierto");
+
+else
     mensajes.push("cielo muy cubierto");
 
 
@@ -227,8 +248,17 @@ function generarExplicacion(
   if (viento <= 15)
     mensajes.push("poco viento");
 
-  if (lluvia <= 10)
-    mensajes.push("muy poca probabilidad de lluvia");
+if (lluvia <= 10)
+    mensajes.push("muy baja probabilidad de lluvia");
+
+else if (lluvia <= 30)
+    mensajes.push("baja probabilidad de lluvia");
+
+else if (lluvia <= 60)
+    mensajes.push("posibilidad de lluvia");
+
+else
+    mensajes.push("riesgo alto de lluvia");
 
   if (agua >= 19)
     mensajes.push("agua agradable");
