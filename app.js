@@ -110,7 +110,8 @@ function gradosADireccion(grados) {
 
 function puntosOrientacion(
   orientacion,
-  direccionViento
+  direccionViento,
+  viento
 ) {
 
   const opuestas = {
@@ -123,6 +124,11 @@ function puntosOrientacion(
     W: "E",
     NW: "SE"
   };
+
+  // Si el viento es flojo, la orientación no influye
+  if (viento <= 20) {
+    return 0;
+  }
 
   if (orientacion === direccionViento) {
     return -5;
@@ -153,9 +159,10 @@ function calcularPuntuacion(
 
   puntuacion += puntosViento(viento);
   puntuacion += puntosOrientacion(
-    orientacion,
-    direccionViento
-  );
+  orientacion,
+  direccionViento,
+  viento
+);
 
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOleaje(oleaje);
@@ -225,9 +232,32 @@ function generarExplicacion(
 
   if (agua >= 19)
     mensajes.push("agua agradable");
+const opuestas = {
+  N: "S",
+  NE: "SW",
+  E: "W",
+  SE: "NW",
+  S: "N",
+  SW: "NE",
+  W: "E",
+  NW: "SE"
+};
 
-  if (orientacion === direccionViento)
-    mensajes.push("el viento entra directamente en la playa");
+if (
+  orientacion === direccionViento &&
+  viento > 20
+)
+  mensajes.push(
+    "viento fuerte entrando directamente en la playa"
+  );
+
+if (
+  opuestas[orientacion] === direccionViento &&
+  viento > 20
+)
+  mensajes.push(
+    "viento favorable, sopla hacia el mar"
+  );
 
   return mensajes.join(", ") + ".";
 }
