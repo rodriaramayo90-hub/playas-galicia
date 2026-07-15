@@ -103,6 +103,24 @@ function puntosOleaje(oleaje) {
 
   return -3;
 }
+
+function obtenerEstadoOleaje(oleaje) {
+
+  if (!oleaje)
+    return "-";
+
+  if (oleaje < 0.5)
+    return "🌊 Mar calmo";
+
+  if (oleaje < 1)
+    return "🌊 Algunas olas";
+
+  if (oleaje < 2)
+    return "🌊 Muchas olas";
+
+  return "🌊 Temporal";
+}
+
 function gradosADireccion(grados) {
   const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
   return direcciones[Math.round(grados / 45) % 8];
@@ -402,7 +420,9 @@ const agua =
 const oleaje =
   datosMarine.hourly?.wave_height?.[12] ?? null;
   
-
+const estadoOleaje =
+  obtenerEstadoOleaje(oleaje);
+  
 const puntuacion = calcularPuntuacion(
   temperaturaMediaPlaya,
   viento,
@@ -438,7 +458,7 @@ return {
   lluvia,
   cielo,
   agua,
-  oleaje,
+  estadoOleaje,
   puntuacion,
   estado,
   nubosidad,
@@ -475,7 +495,7 @@ tabla.innerHTML += `
     <td>${playa.viento} km/h (${playa.direccionViento})</td>
     <td>${playa.lluvia}%</td>
     <td>${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
-    <td>${playa.oleaje ? playa.oleaje.toFixed(1) + " m" : "-"}</td>
+    <td>${playa.estadoOleaje}</td>
     <td>${playa.estado}</td>
     <td>${playa.puntuacion}</td>
     <td>${playa.explicacion}</td>
