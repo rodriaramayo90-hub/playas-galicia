@@ -46,21 +46,50 @@ const playas = [
 
 function puntosTemperatura(temp) {
 
-  if (temp < 18) return -20;
-  if (temp < 21) return -10;
-  if (temp < 24) return 10;
-  if (temp <= 28) return 20;
+  if (temp < 16) return -20;
+  if (temp < 16.5) return -18;
+  if (temp < 17) return -16;
+  if (temp < 17.5) return -14;
+  if (temp < 18) return -12;
+  if (temp < 18.5) return -10;
+  if (temp < 19) return -8;
+  if (temp < 19.5) return -6;
+  if (temp < 20) return -4;
+  if (temp < 20.5) return -2;
+  if (temp < 21) return 0;
+  if (temp < 21.5) return 2;
+  if (temp < 22) return 4;
+  if (temp < 22.5) return 6;
+  if (temp < 23) return 8;
+  if (temp < 23.5) return 10;
+  if (temp < 24) return 12;
+  if (temp < 24.5) return 14;
+  if (temp < 25) return 16;
+  if (temp < 25.5) return 18;
+  if (temp < 26) return 20;
+  if (temp < 27) return 20;
+  if (temp < 28) return 20;
+  if (temp < 29) return 20;
+  if (temp < 30) return 20;
 
-  return 15;
+  return 20;
 }
 
 function puntosViento(viento) {
 
-  if (viento <= 10) return 10;
-  if (viento <= 20) return 5;
-  if (viento <= 30) return -5;
+  if (viento <= 5) return 10;
+  if (viento <= 7.5) return 9;
+  if (viento <= 10) return 8;
+  if (viento <= 12.5) return 7;
+  if (viento <= 15) return 6;
+  if (viento <= 17.5) return 5;
+  if (viento <= 20) return 4;
+  if (viento <= 22.5) return 2;
+  if (viento <= 25) return 0;
+  if (viento <= 27.5) return -2;
+  if (viento <= 30) return -4;
 
-  return -10;
+  return -8;
 }
 
 function puntosLluvia(lluvia) {
