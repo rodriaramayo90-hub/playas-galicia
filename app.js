@@ -1,3 +1,4 @@
+let ubicacionUsuario = null;
 const playas = [
   {
     nombre: "Playa de la Magdalena",
