@@ -3,7 +3,18 @@ body {
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 30px;
-    background: #f4f8fb;
+
+    background-image:
+        linear-gradient(
+            rgba(244,248,251,0.92),
+            rgba(244,248,251,0.92)
+        ),
+        url("imagenes/fondo-playa.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
     color: #333;
 }
 
