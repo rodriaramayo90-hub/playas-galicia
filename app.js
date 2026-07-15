@@ -121,6 +121,25 @@ function obtenerEstadoOleaje(oleaje) {
   return "🌊 Temporal";
 }
 
+function obtenerEstadoAgua(agua) {
+
+  if (!agua)
+    return null;
+
+  if (agua < 14)
+    return "agua congelada";
+
+  if (agua < 18)
+    return "agua muy fría";
+
+  if (agua <= 21)
+    return "agua fría pero metible";
+
+  if (agua <= 25)
+    return "agua agradable";
+
+  return "agua cálida";
+}
 function gradosADireccion(grados) {
   const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
   return direcciones[Math.round(grados / 45) % 8];
@@ -275,8 +294,10 @@ else if (lluvia <= 60)
 else
     mensajes.push("riesgo alto de lluvia");
 
-  if (agua >= 19)
-    mensajes.push("agua agradable");
+const estadoAgua = obtenerEstadoAgua(agua);
+
+if (estadoAgua)
+    mensajes.push(estadoAgua);
 const opuestas = {
   N: "S",
   NE: "SW",
