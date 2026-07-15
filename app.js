@@ -180,10 +180,10 @@ function obtenerEstado(puntos, nubosidad) {
 
   // Mucha nube impide una valoración alta
   if (nubosidad > 80)
-    return "🟡 Aceptable (muy cubierto)";
+    return "🟡 Aceptable (muy nublado)";
 
   if (nubosidad > 60)
-    return "🟡 Aceptable (nuboso)";
+    return "🟡 Aceptable (nublado)";
 
 
   // Días realmente buenos
@@ -205,11 +205,11 @@ function obtenerEstado(puntos, nubosidad) {
 function obtenerCielo(nubosidad) {
 
   if (nubosidad <= 10) return "☀️ Despejado";
-  if (nubosidad <= 30) return "🌤️ Poco nuboso";
-  if (nubosidad <= 60) return "⛅ Intervalos";
-  if (nubosidad <= 80) return "☁️ Nuboso";
+  if (nubosidad <= 30) return "🌤️ Algunas nubes";
+  if (nubosidad <= 60) return "⛅ Parcialmente nublado";
+  if (nubosidad <= 80) return "☁️ Nublado";
 
-  return "🌫️ Muy cubierto";
+  return "🌫️ Muy nublado";
 }
 function generarExplicacion(
   temperatura,
@@ -226,20 +226,17 @@ function generarExplicacion(
 if (nubosidad <= 10)
     mensajes.push("cielo despejado");
 
-else if (nubosidad <= 25)
-    mensajes.push("cielo con pocas nubes");
-
-else if (nubosidad <= 40)
-    mensajes.push("intervalos nubosos");
+else if (nubosidad <= 30)
+    mensajes.push("algunas nubes");
 
 else if (nubosidad <= 60)
-    mensajes.push("cielo nuboso");
+    mensajes.push("cielo parcialmente nublado");
 
 else if (nubosidad <= 80)
-    mensajes.push("cielo bastante cubierto");
+    mensajes.push("cielo nublado");
 
 else
-    mensajes.push("cielo muy cubierto");
+    mensajes.push("cielo muy nublado");
 
 
   if (temperatura >= 25)
