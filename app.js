@@ -295,7 +295,7 @@ if (
 async function obtenerDatosPlaya(playa) {
 
 const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean&hourly=temperature_2m,precipitation_probability&forecast_days=1&timezone=Europe%2FMadrid`;
+  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
 const marineUrl =
   `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
   const respuesta = await fetch(url);
@@ -303,10 +303,12 @@ const marineUrl =
   const respuestaMarine = await fetch(marineUrl);
 const datosMarine = await respuestaMarine.json();
 
- const horas = datos.hourly.time;
+const horas = datos.hourly.time;
 const temperaturas = datos.hourly.temperature_2m;
 const probabilidadesLluvia = datos.hourly.precipitation_probability;
-
+const velocidadesViento = datos.hourly.wind_speed_10m;
+const nubosidades = datos.hourly.cloud_cover;
+  
 const temperaturasPlaya = horas
   .map((hora, indice) => ({
     hora,
@@ -343,10 +345,52 @@ const lluviaMediaPlaya =
     (suma, registro) => suma + registro.lluvia,
     0
   ) / lluviaPlaya.length;
+  
+  const vientoPlaya = horas
+  .map((hora, indice) => ({
+    hora,
+    viento: velocidadesViento[indice]
+  }))
+  .filter(registro => {
+
+    const horaLocal = parseInt(
+      registro.hora.split("T")[1].split(":")[0]
+    );
+
+    return horaLocal >= 11 && horaLocal <= 20;
+  });
+
+
+const vientoMedioPlaya =
+  vientoPlaya.reduce(
+    (suma, registro) => suma + registro.viento,
+    0
+  ) / vientoPlaya.length;
+  const nubosidadPlaya = horas
+  .map((hora, indice) => ({
+    hora,
+    nubosidad: nubosidades[indice]
+  }))
+  .filter(registro => {
+
+    const horaLocal = parseInt(
+      registro.hora.split("T")[1].split(":")[0]
+    );
+
+    return horaLocal >= 11 && horaLocal <= 20;
+  });
+
+
+const nubosidadMediaPlaya =
+  nubosidadPlaya.reduce(
+    (suma, registro) => suma + registro.nubosidad,
+    0
+  ) / nubosidadPlaya.length;
+  
   const temperaturaMaxima = datos.daily.temperature_2m_max[0];
   const lluvia = Math.round(lluviaMediaPlaya);
-  const nubosidad = datos.daily.cloud_cover_mean[0];
-  const viento = datos.daily.wind_speed_10m_max[0];
+  const nubosidad = Math.round(nubosidadMediaPlaya);
+  const viento = Math.round(vientoMedioPlaya);
   const direccionVientoGrados =
     datos.daily.wind_direction_10m_dominant[0];
 
