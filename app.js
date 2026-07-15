@@ -42,6 +42,76 @@ const playas = [
     lon: -8.511,
     orientacion: "NW"
   }
+    {
+    nombre: "Playa de Orzán",
+    municipio: "A Coruña",
+    lat: 43.370,
+    lon: -8.406,
+    orientacion: "NW"
+  },
+  {
+    nombre: "Playa de las Lapas",
+    municipio: "A Coruña",
+    lat: 43.382,
+    lon: -8.405,
+    orientacion: "W"
+  },
+  {
+    nombre: "Playa de Louro",
+    municipio: "Muros",
+    lat: 42.771,
+    lon: -9.065,
+    orientacion: "NW"
+  },
+  {
+    nombre: "Playa de Carnota",
+    municipio: "Carnota",
+    lat: 42.826,
+    lon: -9.087,
+    orientacion: "NW"
+  },
+  {
+    nombre: "Playa de San Xurxo",
+    municipio: "Ferrol",
+    lat: 43.548,
+    lon: -8.319,
+    orientacion: "NW"
+  },
+  {
+    nombre: "Playa de Sonreiras",
+    municipio: "Cedeira",
+    lat: 43.661,
+    lon: -8.057,
+    orientacion: "NW"
+  },
+  {
+    nombre: "Playa de las Dunas de Corrubedo",
+    municipio: "Ribeira",
+    lat: 42.565,
+    lon: -9.069,
+    orientacion: "NW"
+  },
+  {
+    nombre: "Playa de Samil",
+    municipio: "Vigo",
+    lat: 42.207,
+    lon: -8.786,
+    orientacion: "SW"
+  },
+  {
+    nombre: "Playa de Bao",
+    municipio: "Vigo",
+    lat: 42.200,
+    lon: -8.790,
+    orientacion: "SW"
+  },
+  {
+    nombre: "Playa de Rodas (Islas Cíes)",
+    municipio: "Vigo",
+    lat: 42.220,
+    lon: -8.900,
+    orientacion: "SW"
+  }
 ];
 
 function puntosTemperatura(temp) {
