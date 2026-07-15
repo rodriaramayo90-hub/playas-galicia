@@ -6,23 +6,25 @@ body {
 
     background-image:
         linear-gradient(
-            rgba(244,248,251,0.92),
-            rgba(244,248,251,0.92)
+            rgba(244,248,251,0.75),
+            rgba(244,248,251,0.75)
         ),
         url("imagenes/fondo-playa.jpg");
 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
 
     color: #333;
 }
+
 
 /* Contenedor principal */
 .contenedor {
     max-width: 1200px;
     margin: auto;
 }
+
 
 /* Título principal */
 h1 {
@@ -99,4 +101,33 @@ tbody td:first-child {
 
 tbody td:last-child {
     border-radius: 0 12px 12px 0;
+}
+
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+
+        background-position: center top;
+        background-attachment: scroll;
+    }
+
+
+    h1 {
+        font-size: 1.7rem;
+        margin-bottom: 25px;
+    }
+
+
+    table {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+
+
+    td {
+        padding: 12px 8px;
+    }
 }
