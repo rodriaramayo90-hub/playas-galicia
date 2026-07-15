@@ -7,6 +7,11 @@ body {
     color: #333;
 }
 
+/* Contenedor principal */
+.contenedor {
+    max-width: 1200px;
+    margin: auto;
+}
 
 /* Título principal */
 h1 {
