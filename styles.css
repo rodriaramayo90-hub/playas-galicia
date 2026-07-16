@@ -23,8 +23,8 @@ body {
 .contenedor {
     max-width: 1200px;
     margin: auto;
+    overflow-x: auto;
 }
-
 
 /* Título principal */
 h1 {
@@ -38,11 +38,11 @@ h1 {
 
 /* Tabla general */
 table {
-    width: 95%;
+    width: max-content;
+    min-width: 95%;
     margin: auto;
     border-collapse: separate;
     border-spacing: 0 12px;
-    overflow: visible;
 }
 
 
@@ -50,12 +50,14 @@ table {
 thead th {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 
     background: #0b7285;
     color: white;
     padding: 15px;
     font-size: 0.95rem;
+
+    -webkit-position: sticky;
 }
 
 
@@ -135,4 +137,10 @@ tbody td:last-child {
     td {
         padding: 12px 8px;
     }
+
+    thead {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 }
