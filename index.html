@@ -31,13 +31,15 @@ Buscar
 </button>
 
 
-<select onchange="cambiarDistancia(this.value)">
-<option value="">Todas las distancias</option>
-<option value="10">Menos de 10 km</option>
-<option value="25">Menos de 25 km</option>
-<option value="50">Menos de 50 km</option>
-<option value="100">Menos de 100 km</option>
-</select>
+<label>
+Distancia máxima (km):
+<input 
+type="number" 
+min="0"
+step="1"
+placeholder="Ej: 50"
+oninput="cambiarDistancia(this.value)">
+</label>
 
 </div>
     
