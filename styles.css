@@ -51,12 +51,13 @@ thead {
     top: 0;
     z-index: 100;
 }
-
-thead th {
+thead {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+}
 
+thead th {
     background: #0b7285;
     color: white;
     padding: 15px;
@@ -117,6 +118,7 @@ tbody td:last-child {
 
 .tabla-scroll {
     overflow-x: auto;
+    overflow-y: visible;
 }
 
 /* Ajustes para móviles */
