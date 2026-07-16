@@ -23,7 +23,6 @@ body {
 .contenedor {
     max-width: 1200px;
     margin: auto;
-    overflow-x: auto;
 }
 
 /* Título principal */
