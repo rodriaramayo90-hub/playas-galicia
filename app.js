@@ -166,13 +166,15 @@ function obtenerUbicacionGPS() {
     posicion => {
 
       ubicacionUsuario = {
-        lat: posicion.coords.latitude,
-        lon: posicion.coords.longitude
+      lat: posicion.coords.latitude,
+      lon: posicion.coords.longitude
       };
 
 
-      
-      cargarRanking();
+     // Forzamos recalcular distancias
+    resultadosCache = null;
+
+    cargarRanking();
 
     },
     error => {
