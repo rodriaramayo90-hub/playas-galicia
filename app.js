@@ -1,4 +1,6 @@
 let ubicacionUsuario = null;
+let distanciaMaxima = null;
+
 const playas = [
   {
     nombre: "Playa de la Magdalena",
@@ -113,6 +115,78 @@ const playas = [
     orientacion: "SW"
   }
 ];
+
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+
+  const R = 6371;
+
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1 * Math.PI / 180) *
+    Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) ** 2;
+
+  const c = 2 * Math.atan2(
+    Math.sqrt(a),
+    Math.sqrt(1 - a)
+  );
+
+  return R * c;
+}
+
+
+function obtenerUbicacionGPS() {
+
+  if (!navigator.geolocation) {
+    alert("Tu dispositivo no permite ubicación");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    posicion => {
+
+      ubicacionUsuario = {
+        lat: posicion.coords.latitude,
+        lon: posicion.coords.longitude
+      };
+
+      cargarRanking();
+
+    },
+    error => {
+      alert("No se pudo obtener tu ubicación");
+    }
+  );
+}
+
+
+async function buscarCodigoPostal(codigo) {
+
+  const url =
+  `https://nominatim.openstreetmap.org/search?format=json&q=${codigo}, España`;
+
+  const respuesta = await fetch(url);
+  const datos = await respuesta.json();
+
+
+  if(datos.length === 0){
+    alert("No encontrado");
+    return;
+  }
+
+
+  ubicacionUsuario = {
+    lat: parseFloat(datos[0].lat),
+    lon: parseFloat(datos[0].lon)
+  };
+
+
+  cargarRanking();
+
+}
 
 function puntosTemperatura(temp) {
 
@@ -570,8 +644,24 @@ const puntuacion = calcularPuntuacion(
     nubosidad
 );
 
+let distancia = null;
+
+if(ubicacionUsuario){
+
+  distancia = calcularDistancia(
+    ubicacionUsuario.lat,
+    ubicacionUsuario.lon,
+    playa.lat,
+    playa.lon
+  );
+
+}  
+  
 return {
   nombre: playa.nombre,
+  lat: playa.lat,
+  lon: playa.lon,
+  distancia,
   temperaturaMaxima,
   temperaturaMediaPlaya,
   viento,
@@ -597,6 +687,18 @@ async function cargarRanking() {
     );
   }
 
+  if(distanciaMaxima){
+
+  resultados.splice(
+    0,
+    resultados.length,
+    ...resultados.filter(
+      playa => playa.distancia <= distanciaMaxima
+    )
+  );
+
+}
+  
   resultados.sort(
     (a, b) => b.puntuacion - a.puntuacion
   );
@@ -610,6 +712,15 @@ tabla.innerHTML += `
   <tr>
     <td>${index + 1}</td>
     <td>${playa.nombre}</td>
+    <td>
+    ${
+    playa.distancia
+    ?
+    playa.distancia.toFixed(1)+" km"
+    :
+    "-"
+    }
+    </td>
     <td>${playa.cielo}</td>
     <td>${playa.temperaturaMaxima}°C</td>
     <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
