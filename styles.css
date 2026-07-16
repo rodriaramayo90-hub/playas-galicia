@@ -42,11 +42,16 @@ table {
     margin: auto;
     border-collapse: separate;
     border-spacing: 0 12px;
+    overflow: visible;
 }
 
 
-/* Cabecera */
+/* Cabecera fija */
 thead th {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
     background: #0b7285;
     color: white;
     padding: 15px;
