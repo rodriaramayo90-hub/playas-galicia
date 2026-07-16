@@ -1,5 +1,6 @@
 let ubicacionUsuario = null;
 let distanciaMaxima = null;
+let resultadosCache = null;
 
 function cambiarDistancia(valor){
 
@@ -698,12 +699,29 @@ return {
 
 async function cargarRanking() {
 
-  const resultados = [];
+  let resultados;
 
-  for (const playa of playas) {
-    resultados.push(
-      await obtenerDatosPlaya(playa)
-    );
+
+  // Primera carga: calculamos todos los datos
+  if(resultadosCache === null){
+
+    resultados = [];
+
+    for (const playa of playas) {
+      resultados.push(
+        await obtenerDatosPlaya(playa)
+      );
+    }
+
+    resultadosCache = resultados;
+
+  }
+
+  // Siguientes veces: usamos la caché
+  else {
+
+    resultados = [...resultadosCache];
+
   }
 
   if(distanciaMaxima !== null){
