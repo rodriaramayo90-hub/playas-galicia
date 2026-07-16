@@ -41,9 +41,7 @@ table {
     min-width: 95%;
     margin: auto;
     border-collapse: separate;
-    border-spacing: 0;
-
-    position: relative;
+    border-spacing: 0 12px;
 }
 
 
