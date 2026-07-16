@@ -200,12 +200,15 @@ async function buscarCodigoPostal(codigo) {
 
 
   ubicacionUsuario = {
-    lat: parseFloat(datos[0].lat),
-    lon: parseFloat(datos[0].lon)
-  };
+  lat: parseFloat(datos[0].lat),
+  lon: parseFloat(datos[0].lon)
+};
 
 
-  cargarRanking();
+// Forzamos recalcular distancias
+resultadosCache = null;
+
+cargarRanking();
 
 }
 
