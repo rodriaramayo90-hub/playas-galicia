@@ -665,16 +665,16 @@ const puntuacion = calcularPuntuacion(
 
 let distancia = null;
 
-if(ubicacionUsuario){
+if (ubicacionUsuario) {
 
-  distancia = calcularDistancia(
+  distancia = await calcularDistanciaCoche(
     ubicacionUsuario.lat,
     ubicacionUsuario.lon,
     playa.lat,
     playa.lon
   );
 
-}  
+}
   
 return {
   nombre: playa.nombre,
