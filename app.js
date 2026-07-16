@@ -122,6 +122,62 @@ const playas = [
     orientacion: "SW"
   },
   {
+    nombre: "Playa Niño do Corvo",
+    municipio: "Moaña",
+    lat: 42.278,
+    lon: -8.742,
+    orientacion: "S"
+  },
+  {
+    nombre: "Playa do Con",
+    municipio: "Moaña",
+    lat: 42.285,
+    lon: -8.729,
+    orientacion: "S"
+  },
+  {
+    nombre: "Praia Borna",
+    municipio: "Moaña",
+    lat: 42.290,
+    lon: -8.704,
+    orientacion: "S"
+  },
+  {
+    nombre: "Praia Viño",
+    municipio: "Cangas",
+    lat: 42.257,
+    lon: -8.849,
+    orientacion: "S"
+  },
+  {
+    nombre: "Playa de Limens",
+    municipio: "Cangas",
+    lat: 42.261,
+    lon: -8.816,
+    orientacion: "S"
+  },
+  {
+    nombre: "Playa de Lapaman",
+    municipio: "Marín",
+    lat: 42.336,
+    lon: -8.783,
+    orientacion: "W"
+  },
+  {
+    nombre: "Playa de Mogor",
+    municipio: "Marín",
+    lat: 42.393,
+    lon: -8.722,
+    orientacion: "W"
+  },
+  {
+    nombre: "Playa de Portocelo",
+    municipio: "Marín",
+    lat: 42.400,
+    lon: -8.713,
+    orientacion: "W"
+  },
+  {
     nombre: "Playa de Rodas (Islas Cíes)",
     municipio: "Vigo",
     lat: 42.220,
