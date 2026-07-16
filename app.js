@@ -179,14 +179,14 @@ function obtenerUbicacionGPS() {
 async function buscarCodigoPostal(codigo) {
 
   const url =
-  `https://nominatim.openstreetmap.org/search?format=json&q=${codigo}, España`;
+  `https://nominatim.openstreetmap.org/search?format=json&postalcode=${codigo}&country=Spain`;
 
   const respuesta = await fetch(url);
   const datos = await respuesta.json();
 
 
   if(datos.length === 0){
-    alert("No encontrado");
+    alert("Código postal no encontrado");
     return;
   }
 
@@ -200,6 +200,7 @@ async function buscarCodigoPostal(codigo) {
   cargarRanking();
 
 }
+
 
 function puntosTemperatura(temp) {
 
