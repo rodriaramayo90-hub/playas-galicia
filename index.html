@@ -15,6 +15,32 @@
 
 <h1>🏖️ Ranking diario de las mejores playas de Galicia</h1>
 
+<div class="filtros">
+
+<button onclick="obtenerUbicacionGPS()">
+📍 Usar mi ubicación
+</button>
+
+<input 
+type="number" 
+id="codigoPostal"
+placeholder="Código postal">
+
+<button onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
+Buscar
+</button>
+
+
+<select onchange="cambiarDistancia(this.value)">
+<option value="">Todas las distancias</option>
+<option value="10">Menos de 10 km</option>
+<option value="25">Menos de 25 km</option>
+<option value="50">Menos de 50 km</option>
+<option value="100">Menos de 100 km</option>
+</select>
+
+</div>
+    
 <div class="contenedor">
 
 <table>
