@@ -153,6 +153,19 @@ function obtenerUbicacionGPS() {
         lon: posicion.coords.longitude
       };
 
+      function cambiarDistancia(valor){
+
+  if(valor === ""){
+    distanciaMaxima = null;
+  }
+  else{
+    distanciaMaxima = Number(valor);
+  }
+
+  cargarRanking();
+
+}
+      
       cargarRanking();
 
     },
