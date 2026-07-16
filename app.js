@@ -1,6 +1,18 @@
 let ubicacionUsuario = null;
 let distanciaMaxima = null;
 
+function cambiarDistancia(valor){
+
+  if(valor === ""){
+    distanciaMaxima = null;
+  }
+  else{
+    distanciaMaxima = Number(valor);
+  }
+
+  cargarRanking();
+
+}
 const playas = [
   {
     nombre: "Playa de la Magdalena",
@@ -153,18 +165,7 @@ function obtenerUbicacionGPS() {
         lon: posicion.coords.longitude
       };
 
-      function cambiarDistancia(valor){
 
-  if(valor === ""){
-    distanciaMaxima = null;
-  }
-  else{
-    distanciaMaxima = Number(valor);
-  }
-
-  cargarRanking();
-
-}
       
       cargarRanking();
 
@@ -701,15 +702,17 @@ async function cargarRanking() {
     );
   }
 
-  if(distanciaMaxima){
+  if(distanciaMaxima !== null){
 
-  resultados.splice(
-    0,
-    resultados.length,
-    ...resultados.filter(
-      playa => playa.distancia <= distanciaMaxima
-    )
+  const filtrados = resultados.filter(
+    playa =>
+      playa.distancia !== null &&
+      playa.distancia <= distanciaMaxima
   );
+
+  resultados.length = 0;
+
+  resultados.push(...filtrados);
 
 }
   
