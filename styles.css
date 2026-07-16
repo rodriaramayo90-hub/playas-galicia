@@ -43,21 +43,23 @@ table {
     margin: auto;
     border-collapse: separate;
     border-spacing: 0 12px;
+
+    position: relative;
 }
 
 
-/* Cabecera fija */
+/* Cabecera fija de la tabla */
 thead th {
     position: sticky;
-    top: 0px;
-    z-index: 1000;
+    top: 0;
+    z-index: 10;
 
     background: #0b7285;
     color: white;
     padding: 15px;
     font-size: 0.95rem;
 
-    -webkit-position: sticky;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 
@@ -138,9 +140,5 @@ tbody td:last-child {
         padding: 12px 8px;
     }
 
-    thead {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+    
 }
