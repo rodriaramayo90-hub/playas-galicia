@@ -1,6 +1,7 @@
 let ubicacionUsuario = null;
 let distanciaMaxima = null;
-let resultadosCache = null;
+
+let datosPlayasCache = null;
 
 function cambiarDistancia(valor){
 
@@ -172,9 +173,13 @@ function obtenerUbicacionGPS() {
 
 
      // Forzamos recalcular distancias
-    resultadosCache = null;
+    ubicacionUsuario = {
+  lat: posicion.coords.latitude,
+  lon: posicion.coords.longitude
+};
 
-    cargarRanking();
+
+cargarRanking();
 
     },
     error => {
@@ -206,7 +211,11 @@ async function buscarCodigoPostal(codigo) {
 
 
 // Forzamos recalcular distancias
-resultadosCache = null;
+ubicacionUsuario = {
+  lat: parseFloat(datos[0].lat),
+  lon: parseFloat(datos[0].lon)
+};
+
 
 cargarRanking();
 
@@ -707,18 +716,43 @@ async function cargarRanking() {
   let resultados;
 
 
-  // Primera carga: calculamos todos los datos
-  if(resultadosCache === null){
+  // Primera carga: obtener clima y datos del mar
+  if(datosPlayasCache === null){
 
     resultados = [];
 
     for (const playa of playas) {
+
       resultados.push(
         await obtenerDatosPlaya(playa)
       );
+
     }
 
-    resultadosCache = resultados;
+    datosPlayasCache = resultados;
+
+  }
+
+  else {
+
+    resultados = [...datosPlayasCache];
+
+  }
+
+
+  // Recalcular distancias si hay ubicación
+  if(ubicacionUsuario){
+
+    for(const playa of resultados){
+
+      playa.distancia = await calcularDistanciaCoche(
+        ubicacionUsuario.lat,
+        ubicacionUsuario.lon,
+        playa.lat,
+        playa.lon
+      );
+
+    }
 
   }
 
