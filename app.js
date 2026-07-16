@@ -735,9 +735,9 @@ tabla.innerHTML += `
     <td>${playa.nombre}</td>
     <td>
     ${
-    playa.distancia
+    playa.distancia !== null
     ?
-    playa.distancia.toFixed(1)+" km"
+    playa.distancia.toFixed(1) + " km"
     :
     "-"
     }
