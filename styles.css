@@ -41,17 +41,23 @@ table {
     min-width: 95%;
     margin: auto;
     border-collapse: separate;
-    border-spacing: 0 12px;
+    border-spacing: 0;
 
     position: relative;
 }
 
 
 /* Cabecera fija de la tabla */
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 thead th {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 
     background: #0b7285;
     color: white;
