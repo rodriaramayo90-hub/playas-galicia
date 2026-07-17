@@ -128,16 +128,81 @@ tbody td:last-child {
 }
 
 .col-estado {
-    width: 150px;
+    width: 180px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.col-explicacion {
+    width: 350px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* Anchos específicos de columnas */
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 40px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 180px;
     white-space: normal;
     overflow-wrap: break-word;
 }
 
-.col-explicacion {
-    width: 280px;
-    white-space: normal;
-    overflow-wrap: break-word;
+th:nth-child(3),
+td:nth-child(3) {
+    width: 90px;
 }
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 130px;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+    width: 90px;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+    width: 90px;
+}
+
+th:nth-child(7),
+td:nth-child(7) {
+    width: 70px;
+}
+
+th:nth-child(8),
+td:nth-child(8) {
+    width: 90px;
+}
+
+th:nth-child(9),
+td:nth-child(9) {
+    width: 100px;
+}
+
+th:nth-child(10),
+td:nth-child(10) {
+    width: 180px;
+}
+
+th:nth-child(11),
+td:nth-child(11) {
+    width: 80px;
+}
+
+th:nth-child(12),
+td:nth-child(12) {
+    width: 350px;
+}
+
 }
 thead th {
     position: sticky;
