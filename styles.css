@@ -37,11 +37,12 @@ h1 {
 
 /* Tabla general */
 table {
-    width: max-content;
+    width: 100%;
     min-width: 95%;
     margin: auto;
     border-collapse: separate;
     border-spacing: 0 12px;
+    table-layout: fixed;
 }
 
 
@@ -127,15 +128,16 @@ tbody td:last-child {
 }
 
 .col-estado {
-    max-width: 180px;
+    width: 150px;
     white-space: normal;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .col-explicacion {
-    max-width: 300px;
+    width: 280px;
     white-space: normal;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 }
 thead th {
     position: sticky;
