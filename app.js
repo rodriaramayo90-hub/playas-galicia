@@ -816,13 +816,6 @@ async function cargarRanking() {
 
   }
 
-  // Siguientes veces: usamos la caché
-  else {
-
-    resultados = [...resultadosCache];
-
-  }
-
   if(distanciaMaxima !== null){
 
   const filtrados = resultados.filter(
