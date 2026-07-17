@@ -126,6 +126,17 @@ tbody td:last-child {
     display: none;
 }
 
+.col-estado {
+    max-width: 180px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.col-explicacion {
+    max-width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+}
 thead th {
     position: sticky;
     top: 0;
