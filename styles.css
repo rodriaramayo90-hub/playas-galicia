@@ -122,6 +122,10 @@ tbody td:last-child {
     max-height: 70vh;
 }
 
+.oculto {
+    display: none;
+}
+
 thead th {
     position: sticky;
     top: 0;
