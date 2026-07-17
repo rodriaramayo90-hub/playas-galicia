@@ -868,9 +868,9 @@ tabla.innerHTML += `
     <td class="detalle oculto">${playa.lluvia}%</td>
     <td class="detalle oculto">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
     <td class="detalle oculto">${playa.estadoOleaje}</td>
-    <td>${playa.estado}</td>
+    <td class="col-estado">${playa.estado}</td>
     <td class="detalle oculto">${playa.puntuacion}</td>
-    <td>${playa.explicacion}</td>
+    <td class="col-explicacion">${playa.explicacion}</td>
    </tr>
 `;
   });
