@@ -2,6 +2,7 @@ let ubicacionUsuario = null;
 let distanciaMaxima = null;
 
 let datosPlayasCache = null;
+let detallesVisibles = false;
 
 function cambiarDistancia(valor){
 
@@ -17,10 +18,19 @@ function cambiarDistancia(valor){
 }
 function toggleDetalles() {
 
+  detallesVisibles = !detallesVisibles;
+
   document
     .querySelectorAll(".detalle")
     .forEach(elemento => {
-      elemento.classList.toggle("oculto");
+
+      if(detallesVisibles){
+        elemento.classList.remove("oculto");
+      }
+      else{
+        elemento.classList.add("oculto");
+      }
+
     });
 
 }
@@ -862,14 +872,16 @@ tabla.innerHTML += `
     }
     </td>
     <td>${playa.cielo}</td>
-    <td class="detalle oculto">${playa.temperaturaMaxima}°C</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">
+    ${playa.temperaturaMaxima}°C
+    </td>
     <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
-    <td class="detalle oculto">${playa.viento} km/h (${playa.direccionViento})</td>
-    <td class="detalle oculto">${playa.lluvia}%</td>
-    <td class="detalle oculto">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
-    <td class="detalle oculto">${playa.estadoOleaje}</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h (${playa.direccionViento})</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.lluvia}%</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.estadoOleaje}</td>
     <td class="col-estado">${playa.estado}</td>
-    <td class="detalle oculto">${playa.puntuacion}</td>
+   <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.puntuacion}</td>
     <td class="col-explicacion">${playa.explicacion}</td>
    </tr>
 `;
