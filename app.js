@@ -862,14 +862,14 @@ tabla.innerHTML += `
     }
     </td>
     <td>${playa.cielo}</td>
-    <td>${playa.temperaturaMaxima}°C</td>
+    <td class="detalle oculto">${playa.temperaturaMaxima}°C</td>
     <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
-    <td>${playa.viento} km/h (${playa.direccionViento})</td>
-    <td>${playa.lluvia}%</td>
-    <td>${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
-    <td>${playa.estadoOleaje}</td>
+    <td class="detalle oculto">${playa.viento} km/h (${playa.direccionViento})</td>
+    <td class="detalle oculto">${playa.lluvia}%</td>
+    <td class="detalle oculto">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
+    <td class="detalle oculto">${playa.estadoOleaje}</td>
     <td>${playa.estado}</td>
-    <td>${playa.puntuacion}</td>
+    <td class="detalle oculto">${playa.puntuacion}</td>
     <td>${playa.explicacion}</td>
    </tr>
 `;
