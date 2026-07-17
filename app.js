@@ -16,22 +16,11 @@ function cambiarDistancia(valor){
   cargarRanking();
 
 }
-function toggleDetalles() {
+function toggleDetalles(){
 
   detallesVisibles = !detallesVisibles;
 
-  document
-    .querySelectorAll(".detalle")
-    .forEach(elemento => {
-
-      if(detallesVisibles){
-        elemento.classList.remove("oculto");
-      }
-      else{
-        elemento.classList.add("oculto");
-      }
-
-    });
+  actualizarVisibilidadDetalles();
 
 }
 const playas = [
@@ -230,6 +219,22 @@ async function calcularDistanciaCoche(
   return datos.routes[0].distance / 1000;
 }
 
+function actualizarVisibilidadDetalles(){
+
+  document
+    .querySelectorAll(".detalle")
+    .forEach(elemento => {
+
+      if(detallesVisibles){
+        elemento.classList.remove("oculto");
+      }
+      else{
+        elemento.classList.add("oculto");
+      }
+
+    });
+
+}
 
 function obtenerUbicacionGPS() {
 
@@ -855,7 +860,7 @@ async function cargarRanking() {
 
   const tabla = document.getElementById("ranking");
   tabla.innerHTML = "";
-
+  
   resultados.forEach((playa, index) => {
 
 tabla.innerHTML += `
@@ -886,7 +891,7 @@ tabla.innerHTML += `
    </tr>
 `;
   });
-
+actualizarVisibilidadDetalles();
 }
 
 cargarRanking();
