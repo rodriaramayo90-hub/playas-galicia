@@ -15,6 +15,15 @@ function cambiarDistancia(valor){
   cargarRanking();
 
 }
+function toggleDetalles() {
+
+  document
+    .querySelectorAll(".detalle")
+    .forEach(elemento => {
+      elemento.classList.toggle("oculto");
+    });
+
+}
 const playas = [
   {
     nombre: "Playa de la Magdalena",
