@@ -598,10 +598,15 @@ const url =
   `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
 const marineUrl =
   `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
-  const respuesta = await fetch(url);
-  const datos = await respuesta.json();
-  const respuestaMarine = await fetch(marineUrl);
-const datosMarine = await respuestaMarine.json();
+  const [respuesta, respuestaMarine] = await Promise.all([
+  fetch(url),
+  fetch(marineUrl)
+]);
+
+const [datos, datosMarine] = await Promise.all([
+  respuesta.json(),
+  respuestaMarine.json()
+]);
 
 const horas = datos.hourly.time;
 const temperaturas = datos.hourly.temperature_2m;
@@ -775,15 +780,11 @@ async function cargarRanking() {
   // Primera carga: obtener clima y datos del mar
   if(datosPlayasCache === null){
 
-    resultados = [];
-
-    for (const playa of playas) {
-
-      resultados.push(
-        await obtenerDatosPlaya(playa)
-      );
-
-    }
+   resultados = await Promise.all(
+  playas.map(playa =>
+    obtenerDatosPlaya(playa)
+  )
+);
 
     datosPlayasCache = resultados;
 
@@ -799,16 +800,19 @@ async function cargarRanking() {
   // Recalcular distancias si hay ubicación
   if(ubicacionUsuario){
 
-    for(const playa of resultados){
+    await Promise.all(
+  resultados.map(async playa => {
 
-      playa.distancia = await calcularDistanciaCoche(
+    playa.distancia =
+      await calcularDistanciaCoche(
         ubicacionUsuario.lat,
         ubicacionUsuario.lon,
         playa.lat,
         playa.lon
       );
 
-    }
+  })
+);
 
   }
 
