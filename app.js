@@ -1030,9 +1030,9 @@ tabla.innerHTML += `
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.lluvia}%</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.estadoOleaje}</td>
-    <td class="col-estado">${playa.estado}</td>
-   <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.puntuacion}</td>
-    <td class="col-explicacion">${playa.explicacion}</td>
+    <td class="col-estado"> ${ modo==="dia" ? playa.estado : playa.estadoArdora } </td>
+   <td class="detalle ${detallesVisibles ? '' : 'oculto'}"> ${ modo==="dia" ? playa.puntuacion : playa.puntuacionArdora } </td>
+    <td class="col-explicacion"> ${ modo==="dia" ? playa.explicacion : playa.explicacionArdora } </td>
    </tr>
 `;
   });
