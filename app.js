@@ -427,6 +427,31 @@ function obtenerEstadoOleaje(oleaje) {
   return "🌊 Temporal";
 }
 
+function obtenerNombreFaseLunar(fase){
+
+    if(fase < 0.03)
+        return "🌑 Luna nueva";
+
+    if(fase < 0.22)
+        return "🌒 Creciente";
+
+    if(fase < 0.28)
+        return "🌓 Cuarto creciente";
+
+    if(fase < 0.47)
+        return "🌔 Gibosa creciente";
+
+    if(fase < 0.53)
+        return "🌕 Luna llena";
+
+    if(fase < 0.72)
+        return "🌖 Gibosa menguante";
+
+    if(fase < 0.78)
+        return "🌗 Cuarto menguante";
+
+    return "🌘 Menguante";
+}
 function obtenerEstadoAgua(agua) {
 
   if (!agua)
@@ -519,6 +544,30 @@ function calcularPuntuacion(
   );
 }
 
+function calcularPuntuacionArdora(
+    nubosidad,
+    lluvia,
+    faseLunar
+){
+
+    let puntos = 100;
+
+    // Nubes
+    puntos -= nubosidad * 0.7;
+
+    // Lluvia
+    puntos -= lluvia * 0.5;
+
+    // Luna
+
+    puntos -= faseLunar * 40;
+
+    return Math.max(
+        0,
+        Math.min(100, Math.round(puntos))
+    );
+
+}
 function obtenerEstado(puntos, nubosidad) {
 
   // Mucha nube impide una valoración alta
@@ -544,6 +593,20 @@ function obtenerEstado(puntos, nubosidad) {
 
 
   return "🔴 Mejor evitar";
+}
+
+function obtenerEstadoArdora(puntos){
+
+    if(puntos>=85)
+        return "🟢 Condiciones excelentes";
+
+    if(puntos>=70)
+        return "🟢 Muy buenas";
+
+    if(puntos>=50)
+        return "🟡 Posibles";
+
+    return "🔴 Muy difíciles";
 }
 function obtenerCielo(nubosidad) {
 
@@ -632,6 +695,31 @@ if (
   );
 
   return mensajes.join(", ") + ".";
+}
+
+function generarExplicacionArdora(
+    nubosidad,
+    lluvia,
+    fase
+){
+
+    let mensajes=[];
+
+    if(nubosidad<20)
+        mensajes.push("cielo muy despejado");
+    else if(nubosidad<50)
+        mensajes.push("algo de nubosidad");
+    else
+        mensajes.push("demasiadas nubes");
+
+    if(lluvia<20)
+        mensajes.push("escasa probabilidad de lluvia");
+    else
+        mensajes.push("riesgo de lluvia");
+
+    mensajes.push(obtenerNombreFaseLunar(fase));
+
+    return mensajes.join(", ") + ".";
 }
 
 async function obtenerDatosPlaya(playa) {
@@ -735,6 +823,7 @@ const nubosidadMediaPlaya =
   ) / nubosidadPlaya.length;
   
   const temperaturaMaxima = datos.daily.temperature_2m_max[0];
+  const faseLunar = datos.daily.moon_phase[0];
   const lluvia = Math.round(lluviaMediaPlaya);
   const nubosidad = Math.round(nubosidadMediaPlaya);
   const viento = Math.round(vientoMedioPlaya);
