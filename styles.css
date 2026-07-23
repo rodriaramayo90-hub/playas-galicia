@@ -211,6 +211,36 @@ thead th {
     background: #0b7285;
     color: white;
 }
+.selector-modo{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
+
+}
+
+.modo{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.modo.activo{
+
+    background:#0077cc;
+
+    color:white;
+
+}
 
 /* Ajustes para móviles */
 @media (max-width: 600px) {
