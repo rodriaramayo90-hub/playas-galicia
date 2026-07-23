@@ -26,9 +26,19 @@ function toggleDetalles(){
 }
 function cambiarModo(nuevoModo){
 
-  modo = nuevoModo;
+    modo = nuevoModo;
 
-  cargarRanking();
+    document
+        .getElementById("btnDia")
+        .classList
+        .toggle("activo", modo==="dia");
+
+    document
+        .getElementById("btnArdora")
+        .classList
+        .toggle("activo", modo==="ardora");
+
+    cargarRanking();
 
 }
 const playas = [
