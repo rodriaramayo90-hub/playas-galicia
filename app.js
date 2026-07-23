@@ -637,7 +637,7 @@ if (
 async function obtenerDatosPlaya(playa) {
 
 const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
+`https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant,moon_phase&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
 const marineUrl =
   `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
   const [respuesta, respuestaMarine] = await Promise.all([
