@@ -3,6 +3,7 @@ let distanciaMaxima = null;
 
 let datosPlayasCache = null;
 let detallesVisibles = false;
+let modo = "dia";
 
 function cambiarDistancia(valor){
 
@@ -21,6 +22,13 @@ function toggleDetalles(){
   detallesVisibles = !detallesVisibles;
 
   actualizarVisibilidadDetalles();
+
+}
+function cambiarModo(nuevoModo){
+
+  modo = nuevoModo;
+
+  cargarRanking();
 
 }
 const playas = [
