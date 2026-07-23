@@ -870,6 +870,25 @@ const puntuacion = calcularPuntuacion(
     nubosidad
 );
 
+const puntuacionArdora =
+    calcularPuntuacionArdora(
+        nubosidad,
+        lluvia,
+        faseLunar
+    );
+
+const estadoArdora =
+    obtenerEstadoArdora(
+        puntuacionArdora
+    );
+
+const explicacionArdora =
+    generarExplicacionArdora(
+        nubosidad,
+        lluvia,
+        faseLunar
+    );
+
 let distancia = null;
 
 if (ubicacionUsuario) {
@@ -888,6 +907,7 @@ return {
   lat: playa.lat,
   lon: playa.lon,
   distancia,
+
   temperaturaMaxima,
   temperaturaMediaPlaya,
   viento,
@@ -896,10 +916,17 @@ return {
   cielo,
   agua,
   estadoOleaje,
+
   puntuacion,
   estado,
-  nubosidad,
-  explicacion
+  explicacion,
+
+  faseLunar,
+  puntuacionArdora,
+  estadoArdora,
+  explicacionArdora,
+
+  nubosidad
 };
 }
 
@@ -961,9 +988,20 @@ async function cargarRanking() {
 
 }
   
-  resultados.sort(
-    (a, b) => b.puntuacion - a.puntuacion
-  );
+if(modo==="dia"){
+
+    resultados.sort(
+        (a,b)=>b.puntuacion-a.puntuacion
+    );
+
+}
+else{
+
+    resultados.sort(
+        (a,b)=>b.puntuacionArdora-a.puntuacionArdora
+    );
+
+}
 
   const tabla = document.getElementById("ranking");
   tabla.innerHTML = "";
