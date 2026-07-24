@@ -6,256 +6,79 @@ let detallesVisibles = false;
 let modo = "dia";
 
 function cambiarDistancia(valor){
-
   if(valor === ""){
     distanciaMaxima = null;
-  }
-  else{
+  } else {
     distanciaMaxima = Number(valor);
   }
-
   cargarRanking();
-
 }
+
 function toggleDetalles(){
-
   detallesVisibles = !detallesVisibles;
-
   actualizarVisibilidadDetalles();
-
 }
+
 function cambiarModo(nuevoModo){
-
-    modo = nuevoModo;
-
-    document
-        .getElementById("btnDia")
-        .classList
-        .toggle("activo", modo==="dia");
-
-    document
-        .getElementById("btnArdora")
-        .classList
-        .toggle("activo", modo==="ardora");
-
-    cargarRanking();
-
+  modo = nuevoModo;
+  document.getElementById("btnDia")?.classList.toggle("activo", modo==="dia");
+  document.getElementById("btnArdora")?.classList.toggle("activo", modo==="ardora");
+  cargarRanking();
 }
+
 const playas = [
-  {
-    nombre: "Playa de la Magdalena",
-    municipio: "Cabanas",
-    lat: 43.426,
-    lon: -8.165,
-    orientacion: "N"
-  },
-  {
-    nombre: "Playa de Miño",
-    municipio: "Miño",
-    lat: 43.348,
-    lon: -8.207,
-    orientacion: "N"
-  },
-  {
-    nombre: "Playa de Perbes",
-    municipio: "Miño",
-    lat: 43.364,
-    lon: -8.186,
-    orientacion: "N"
-  },
-  {
-    nombre: "Playa de Sada",
-    municipio: "Sada",
-    lat: 43.356,
-    lon: -8.258,
-    orientacion: "NE"
-  },
-  {
-    nombre: "Playa de Mera",
-    municipio: "Oleiros",
-    lat: 43.367,
-    lon: -8.380,
-    orientacion: "NE"
-  },
-  {
-    nombre: "Playa de Sabón",
-    municipio: "Arteixo",
-    lat: 43.307,
-    lon: -8.511,
-    orientacion: "NW"
-  },
-    {
-    nombre: "Playa de Orzán",
-    municipio: "A Coruña",
-    lat: 43.370,
-    lon: -8.406,
-    orientacion: "NW"
-  },
-  {
-    nombre: "Playa de las Lapas",
-    municipio: "A Coruña",
-    lat: 43.382,
-    lon: -8.405,
-    orientacion: "W"
-  },
-  {
-    nombre: "Playa de Louro",
-    municipio: "Muros",
-    lat: 42.771,
-    lon: -9.065,
-    orientacion: "NW"
-  },
-  {
-    nombre: "Playa de Carnota",
-    municipio: "Carnota",
-    lat: 42.826,
-    lon: -9.087,
-    orientacion: "NW"
-  },
-  {
-    nombre: "Playa de San Xurxo",
-    municipio: "Ferrol",
-    lat: 43.548,
-    lon: -8.319,
-    orientacion: "NW"
-  },
-  {
-    nombre: "Playa de Sonreiras",
-    municipio: "Cedeira",
-    lat: 43.661,
-    lon: -8.057,
-    orientacion: "NW"
-  },
-  {
-    nombre: "Playa de las Dunas de Corrubedo",
-    municipio: "Ribeira",
-    lat: 42.565,
-    lon: -9.069,
-    orientacion: "NW"
-  },
-  {
-    nombre: "Playa de Samil",
-    municipio: "Vigo",
-    lat: 42.207,
-    lon: -8.786,
-    orientacion: "SW"
-  },
-  {
-    nombre: "Playa de Bao",
-    municipio: "Vigo",
-    lat: 42.200,
-    lon: -8.790,
-    orientacion: "SW"
-  },
-  {
-    nombre: "Playa Niño do Corvo",
-    municipio: "Moaña",
-    lat: 42.278,
-    lon: -8.742,
-    orientacion: "S"
-  },
-  {
-    nombre: "Playa do Con",
-    municipio: "Moaña",
-    lat: 42.285,
-    lon: -8.729,
-    orientacion: "S"
-  },
-  {
-    nombre: "Praia Borna",
-    municipio: "Moaña",
-    lat: 42.290,
-    lon: -8.704,
-    orientacion: "S"
-  },
-  {
-    nombre: "Praia Viño",
-    municipio: "Cangas",
-    lat: 42.257,
-    lon: -8.849,
-    orientacion: "S"
-  },
-  {
-    nombre: "Playa de Limens",
-    municipio: "Cangas",
-    lat: 42.261,
-    lon: -8.816,
-    orientacion: "S"
-  },
-  {
-    nombre: "Playa de Lapaman",
-    municipio: "Marín",
-    lat: 42.336,
-    lon: -8.783,
-    orientacion: "W"
-  },
-  {
-    nombre: "Playa de Mogor",
-    municipio: "Marín",
-    lat: 42.393,
-    lon: -8.722,
-    orientacion: "W"
-  },
-  {
-    nombre: "Playa de Portocelo",
-    municipio: "Marín",
-    lat: 42.400,
-    lon: -8.713,
-    orientacion: "W"
-  },
-  {
-    nombre: "Playa de Rodas (Islas Cíes)",
-    municipio: "Vigo",
-    lat: 42.220,
-    lon: -8.900,
-    orientacion: "SW"
-  }
+  { nombre: "Playa de la Magdalena", municipio: "Cabanas", lat: 43.426, lon: -8.165, orientacion: "N" },
+  { nombre: "Playa de Miño", municipio: "Miño", lat: 43.348, lon: -8.207, orientacion: "N" },
+  { nombre: "Playa de Perbes", municipio: "Miño", lat: 43.364, lon: -8.186, orientacion: "N" },
+  { nombre: "Playa de Sada", municipio: "Sada", lat: 43.356, lon: -8.258, orientacion: "NE" },
+  { nombre: "Playa de Mera", municipio: "Oleiros", lat: 43.367, lon: -8.380, orientacion: "NE" },
+  { nombre: "Playa de Sabón", municipio: "Arteixo", lat: 43.307, lon: -8.511, orientacion: "NW" },
+  { nombre: "Playa de Orzán", municipio: "A Coruña", lat: 43.370, lon: -8.406, orientacion: "NW" },
+  { nombre: "Playa de las Lapas", municipio: "A Coruña", lat: 43.382, lon: -8.405, orientacion: "W" },
+  { nombre: "Playa de Louro", municipio: "Muros", lat: 42.771, lon: -9.065, orientacion: "NW" },
+  { nombre: "Playa de Carnota", municipio: "Carnota", lat: 42.826, lon: -9.087, orientacion: "NW" },
+  { nombre: "Playa de San Xurxo", municipio: "Ferrol", lat: 43.548, lon: -8.319, orientacion: "NW" },
+  { nombre: "Playa de Sonreiras", municipio: "Cedeira", lat: 43.661, lon: -8.057, orientacion: "NW" },
+  { nombre: "Playa de las Dunas de Corrubedo", municipio: "Ribeira", lat: 42.565, lon: -9.069, orientacion: "NW" },
+  { nombre: "Playa de Samil", municipio: "Vigo", lat: 42.207, lon: -8.786, orientacion: "SW" },
+  { nombre: "Playa de Bao", municipio: "Vigo", lat: 42.200, lon: -8.790, orientacion: "SW" },
+  { nombre: "Playa Niño do Corvo", municipio: "Moaña", lat: 42.278, lon: -8.742, orientacion: "S" },
+  { nombre: "Playa do Con", municipio: "Moaña", lat: 42.285, lon: -8.729, orientacion: "S" },
+  { nombre: "Praia Borna", municipio: "Moaña", lat: 42.290, lon: -8.704, orientacion: "S" },
+  { nombre: "Praia Viño", municipio: "Cangas", lat: 42.257, lon: -8.849, orientacion: "S" },
+  { nombre: "Playa de Limens", municipio: "Cangas", lat: 42.261, lon: -8.816, orientacion: "S" },
+  { nombre: "Playa de Lapaman", municipio: "Marín", lat: 42.336, lon: -8.783, orientacion: "W" },
+  { nombre: "Playa de Mogor", municipio: "Marín", lat: 42.393, lon: -8.722, orientacion: "W" },
+  { nombre: "Playa de Portocelo", municipio: "Marín", lat: 42.400, lon: -8.713, orientacion: "W" },
+  { nombre: "Playa de Rodas (Islas Cíes)", municipio: "Vigo", lat: 42.220, lon: -8.900, orientacion: "SW" }
 ];
 
-async function calcularDistanciaCoche(
-  lat1,
-  lon1,
-  lat2,
-  lon2
-) {
+async function calcularDistanciaCoche(lat1, lon1, lat2, lon2) {
+  try {
+    const url = `https://router.project-osrm.org/route/v1/driving/${lon1},${lat1};${lon2},${lat2}?overview=false`;
+    const respuesta = await fetch(url);
+    if (!respuesta.ok) return null;
+    const datos = await respuesta.json();
 
-  const url =
-    `https://router.project-osrm.org/route/v1/driving/` +
-    `${lon1},${lat1};${lon2},${lat2}` +
-    `?overview=false`;
-
-  const respuesta = await fetch(url);
-  const datos = await respuesta.json();
-
-  if (
-    !datos.routes ||
-    datos.routes.length === 0
-  ) {
+    if (!datos.routes || datos.routes.length === 0) return null;
+    return datos.routes[0].distance / 1000;
+  } catch (e) {
+    console.warn("Error al calcular distancia OSRM:", e);
     return null;
   }
-
-  return datos.routes[0].distance / 1000;
 }
 
 function actualizarVisibilidadDetalles(){
-
-  document
-    .querySelectorAll(".detalle")
-    .forEach(elemento => {
-
-      if(detallesVisibles){
-        elemento.classList.remove("oculto");
-      }
-      else{
-        elemento.classList.add("oculto");
-      }
-
-    });
-
+  document.querySelectorAll(".detalle").forEach(elemento => {
+    if(detallesVisibles){
+      elemento.classList.remove("oculto");
+    } else {
+      elemento.classList.add("oculto");
+    }
+  });
 }
 
 function obtenerUbicacionGPS() {
-
   if (!navigator.geolocation) {
     alert("Tu dispositivo no permite ubicación");
     return;
@@ -263,22 +86,11 @@ function obtenerUbicacionGPS() {
 
   navigator.geolocation.getCurrentPosition(
     posicion => {
-
       ubicacionUsuario = {
-      lat: posicion.coords.latitude,
-      lon: posicion.coords.longitude
+        lat: posicion.coords.latitude,
+        lon: posicion.coords.longitude
       };
-
-
-     // Forzamos recalcular distancias
-    ubicacionUsuario = {
-  lat: posicion.coords.latitude,
-  lon: posicion.coords.longitud
-};
-
-
-cargarRanking();
-
+      cargarRanking();
     },
     error => {
       alert("No se pudo obtener tu ubicación");
@@ -286,42 +98,29 @@ cargarRanking();
   );
 }
 
-
 async function buscarCodigoPostal(codigo) {
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&postalcode=${codigo}&country=Spain`;
+    const respuesta = await fetch(url);
+    const datos = await respuesta.json();
 
-  const url =
-  `https://nominatim.openstreetmap.org/search?format=json&postalcode=${codigo}&country=Spain`;
+    if (!datos || datos.length === 0) {
+      alert("Código postal no encontrado");
+      return;
+    }
 
-  const respuesta = await fetch(url);
-  const datos = await respuesta.json();
+    ubicacionUsuario = {
+      lat: parseFloat(datos[0].lat),
+      lon: parseFloat(datos[0].lon)
+    };
 
-
-  if(datos.length === 0){
-    alert("Código postal no encontrado");
-    return;
+    cargarRanking();
+  } catch (e) {
+    alert("Error al buscar el código postal");
   }
-
-
-  ubicacionUsuario = {
-  lat: parseFloat(datos[0].lat),
-  lon: parseFloat(datos[0].lon)
-};
-
-
-// Forzamos recalcular distancias
-ubicacionUsuario = {
-  lat: parseFloat(datos[0].lat),
-  lon: parseFloat(datos[0].lon)
-};
-
-
-cargarRanking();
-
 }
 
-
 function puntosTemperatura(temp) {
-
   if (temp < 16) return -20;
   if (temp < 16.5) return -18;
   if (temp < 17) return -16;
@@ -342,17 +141,10 @@ function puntosTemperatura(temp) {
   if (temp < 24.5) return 14;
   if (temp < 25) return 16;
   if (temp < 25.5) return 18;
-  if (temp < 26) return 20;
-  if (temp < 27) return 20;
-  if (temp < 28) return 20;
-  if (temp < 29) return 20;
-  if (temp < 30) return 20;
-
   return 20;
 }
 
 function puntosViento(viento) {
-
   if (viento <= 5) return 10;
   if (viento <= 7.5) return 9;
   if (viento <= 10) return 8;
@@ -364,362 +156,172 @@ function puntosViento(viento) {
   if (viento <= 25) return 0;
   if (viento <= 27.5) return -2;
   if (viento <= 30) return -4;
-
   return -8;
 }
 
 function puntosLluvia(lluvia) {
-
   if (lluvia <= 5) return 25;
   if (lluvia <= 15) return 20;
   if (lluvia <= 30) return 10;
   if (lluvia <= 50) return -10;
-
   return -25;
 }
 
 function puntosAgua(agua) {
-
   if (!agua) return 0;
-
   if (agua < 16) return -7;
   if (agua < 18) return -3;
   if (agua < 20) return 3;
-
   return 7;
 }
+
 function puntosNubosidad(nubosidad) {
-
-  if (nubosidad <= 10) return 25;   // despejado
-  if (nubosidad <= 25) return 15;   // pocas nubes
-  if (nubosidad <= 40) return 5;    // intervalos nubosos
-  if (nubosidad <= 60) return -15;  // nuboso
-  if (nubosidad <= 80) return -35;  // muy nuboso
-
-  return -50;                       // cubierto
+  if (nubosidad <= 10) return 25;
+  if (nubosidad <= 25) return 15;
+  if (nubosidad <= 40) return 5;
+  if (nubosidad <= 60) return -15;
+  if (nubosidad <= 80) return -35;
+  return -50;
 }
+
 function puntosOleaje(oleaje) {
-
   if (!oleaje) return 0;
-
   if (oleaje < 0.5) return 3;
   if (oleaje < 1) return 2;
   if (oleaje < 1.5) return 0;
   if (oleaje < 2) return -2;
-
   return -3;
 }
 
 function obtenerEstadoOleaje(oleaje) {
-
-  if (!oleaje)
-    return "-";
-
-  if (oleaje < 0.5)
-    return "🌊 Mar calmo";
-
-  if (oleaje < 1)
-    return "🌊 Algunas olas";
-
-  if (oleaje < 2)
-    return "🌊 Muchas olas";
-
+  if (!oleaje) return "-";
+  if (oleaje < 0.5) return "🌊 Mar calmo";
+  if (oleaje < 1) return "🌊 Algunas olas";
+  if (oleaje < 2) return "🌊 Muchas olas";
   return "🌊 Temporal";
 }
 
 function obtenerNombreFaseLunar(fase){
-
-    if(fase < 0.03)
-        return "🌑 Luna nueva";
-
-    if(fase < 0.22)
-        return "🌒 Creciente";
-
-    if(fase < 0.28)
-        return "🌓 Cuarto creciente";
-
-    if(fase < 0.47)
-        return "🌔 Gibosa creciente";
-
-    if(fase < 0.53)
-        return "🌕 Luna llena";
-
-    if(fase < 0.72)
-        return "🌖 Gibosa menguante";
-
-    if(fase < 0.78)
-        return "🌗 Cuarto menguante";
-
-    return "🌘 Menguante";
+  if(fase < 0.03) return "🌑 Luna nueva";
+  if(fase < 0.22) return "🌒 Creciente";
+  if(fase < 0.28) return "🌓 Cuarto creciente";
+  if(fase < 0.47) return "🌔 Gibosa creciente";
+  if(fase < 0.53) return "🌕 Luna llena";
+  if(fase < 0.72) return "🌖 Gibosa menguante";
+  if(fase < 0.78) return "🌗 Cuarto menguante";
+  return "🌘 Menguante";
 }
+
 function obtenerEstadoAgua(agua) {
-
-  if (!agua)
-    return null;
-
-  if (agua < 14)
-    return "agua congelada";
-
-  if (agua < 18)
-    return "agua muy fría";
-
-  if (agua <= 21)
-    return "agua fría pero metible";
-
-  if (agua <= 25)
-    return "agua agradable";
-
+  if (!agua) return null;
+  if (agua < 14) return "agua congelada";
+  if (agua < 18) return "agua muy fría";
+  if (agua <= 21) return "agua fría pero metible";
+  if (agua <= 25) return "agua agradable";
   return "agua cálida";
 }
+
 function gradosADireccion(grados) {
   const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
   return direcciones[Math.round(grados / 45) % 8];
 }
 
-function puntosOrientacion(
-  orientacion,
-  direccionViento,
-  viento
-) {
-
-  const opuestas = {
-    N: "S",
-    NE: "SW",
-    E: "W",
-    SE: "NW",
-    S: "N",
-    SW: "NE",
-    W: "E",
-    NW: "SE"
-  };
-
-  // Si el viento es flojo, la orientación no influye
-  if (viento <= 20) {
-    return 0;
-  }
-
-  if (orientacion === direccionViento) {
-    return -5;
-  }
-
-  if (opuestas[orientacion] === direccionViento) {
-    return 5;
-  }
-
+function puntosOrientacion(orientacion, direccionViento, viento) {
+  const opuestas = { N: "S", NE: "SW", E: "W", SE: "NW", S: "N", SW: "NE", W: "E", NW: "SE" };
+  if (viento <= 20) return 0;
+  if (orientacion === direccionViento) return -5;
+  if (opuestas[orientacion] === direccionViento) return 5;
   return 0;
 }
-function calcularPuntuacion(
-  temperaturaMediaPlaya,
-  viento,
-  lluvia,
-  nubosidad,
-  agua,
-  oleaje,
-  orientacion,
-  direccionViento
-) {
 
+function calcularPuntuacion(temperaturaMediaPlaya, viento, lluvia, nubosidad, agua, oleaje, orientacion, direccionViento) {
   let puntuacion = 40;
-
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
   puntuacion += puntosTemperatura(temperaturaMediaPlaya);
-
   puntuacion += puntosViento(viento);
-  puntuacion += puntosOrientacion(
-  orientacion,
-  direccionViento,
-  viento
-);
-
+  puntuacion += puntosOrientacion(orientacion, direccionViento, viento);
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOleaje(oleaje);
 
-  return Math.max(
-    0,
-    Math.min(
-      100,
-      Math.round(puntuacion)
-    )
-  );
+  return Math.max(0, Math.min(100, Math.round(puntuacion)));
 }
 
-function calcularPuntuacionArdora(
-    nubosidad,
-    lluvia,
-    faseLunar
-){
-
-    let puntos = 100;
-
-    // Nubes
-    puntos -= nubosidad * 0.7;
-
-    // Lluvia
-    puntos -= lluvia * 0.5;
-
-    // Luna
-
-    puntos -= faseLunar * 40;
-
-    return Math.max(
-        0,
-        Math.min(100, Math.round(puntos))
-    );
-
+function calcularPuntuacionArdora(nubosidad, lluvia, faseLunar){
+  let puntos = 100;
+  puntos -= nubosidad * 0.7;
+  puntos -= lluvia * 0.5;
+  puntos -= faseLunar * 40;
+  return Math.max(0, Math.min(100, Math.round(puntos)));
 }
+
 function obtenerEstado(puntos, nubosidad) {
-
-  // Mucha nube impide una valoración alta
-  if (nubosidad > 80)
-    return "🟡 Aceptable (muy nublado)";
-
-  if (nubosidad > 60)
-    return "🟡 Aceptable (nublado)";
-
-
-  // Días realmente buenos
-  if (puntos >= 85)
-    return "🟢 Excelente";
-
-
-  // Nuevo estado para días buenos pero con nubes
-  if (puntos >= 70)
-    return "🟢 Buen día de playa con algo de nubes";
-
-
-  if (puntos >= 50)
-    return "🟡 Aceptable";
-
-
+  if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
+  if (nubosidad > 60) return "🟡 Aceptable (nublado)";
+  if (puntos >= 85) return "🟢 Excelente";
+  if (puntos >= 70) return "🟢 Buen día de playa con algo de nubes";
+  if (puntos >= 50) return "🟡 Aceptable";
   return "🔴 Mejor evitar";
 }
 
 function obtenerEstadoArdora(puntos){
-
-    if(puntos>=85)
-        return "🟢 Condiciones excelentes";
-
-    if(puntos>=70)
-        return "🟢 Muy buenas";
-
-    if(puntos>=50)
-        return "🟡 Posibles";
-
-    return "🔴 Muy difíciles";
+  if(puntos>=85) return "🟢 Condiciones excelentes";
+  if(puntos>=70) return "🟢 Muy buenas";
+  if(puntos>=50) return "🟡 Posibles";
+  return "🔴 Muy difíciles";
 }
-function obtenerCielo(nubosidad) {
 
+function obtenerCielo(nubosidad) {
   if (nubosidad <= 10) return "☀️ Despejado";
   if (nubosidad <= 30) return "🌤️ Algunas nubes";
   if (nubosidad <= 60) return "⛅ Parcialmente nublado";
   if (nubosidad <= 80) return "☁️ Nublado";
-
   return "🌫️ Muy nublado";
 }
-function generarExplicacion(
-  temperatura,
-  viento,
-  direccionViento,
-  lluvia,
-  agua,
-  orientacion,
-  nubosidad
-) {
 
+function generarExplicacion(temperatura, viento, direccionViento, lluvia, agua, orientacion, nubosidad) {
   let mensajes = [];
+  if (nubosidad <= 10) mensajes.push("cielo despejado");
+  else if (nubosidad <= 30) mensajes.push("algunas nubes");
+  else if (nubosidad <= 60) mensajes.push("cielo parcialmente nublado");
+  else if (nubosidad <= 80) mensajes.push("cielo nublado");
+  else mensajes.push("cielo muy nublado");
 
-if (nubosidad <= 10)
-    mensajes.push("cielo despejado");
+  if (temperatura >= 25) mensajes.push("temperatura ideal");
+  if (viento <= 15) mensajes.push("poco viento");
 
-else if (nubosidad <= 30)
-    mensajes.push("algunas nubes");
+  if (lluvia <= 10) mensajes.push("muy baja probabilidad de lluvia");
+  else if (lluvia <= 30) mensajes.push("baja probabilidad de lluvia");
+  else if (lluvia <= 60) mensajes.push("posibilidad de lluvia");
+  else mensajes.push("riesgo alto de lluvia");
 
-else if (nubosidad <= 60)
-    mensajes.push("cielo parcialmente nublado");
+  const estadoAgua = obtenerEstadoAgua(agua);
+  if (estadoAgua) mensajes.push(estadoAgua);
 
-else if (nubosidad <= 80)
-    mensajes.push("cielo nublado");
+  const opuestas = { N: "S", NE: "SW", E: "W", SE: "NW", S: "N", SW: "NE", W: "E", NW: "SE" };
 
-else
-    mensajes.push("cielo muy nublado");
-
-
-  if (temperatura >= 25)
-    mensajes.push("temperatura ideal");
-
-  if (viento <= 15)
-    mensajes.push("poco viento");
-
-if (lluvia <= 10)
-    mensajes.push("muy baja probabilidad de lluvia");
-
-else if (lluvia <= 30)
-    mensajes.push("baja probabilidad de lluvia");
-
-else if (lluvia <= 60)
-    mensajes.push("posibilidad de lluvia");
-
-else
-    mensajes.push("riesgo alto de lluvia");
-
-const estadoAgua = obtenerEstadoAgua(agua);
-
-if (estadoAgua)
-    mensajes.push(estadoAgua);
-const opuestas = {
-  N: "S",
-  NE: "SW",
-  E: "W",
-  SE: "NW",
-  S: "N",
-  SW: "NE",
-  W: "E",
-  NW: "SE"
-};
-
-if (
-  orientacion === direccionViento &&
-  viento > 20
-)
-  mensajes.push(
-    "viento fuerte entrando directamente en la playa"
-  );
-
-if (
-  opuestas[orientacion] === direccionViento &&
-  viento > 20
-)
-  mensajes.push(
-    "viento favorable, sopla hacia el mar"
-  );
+  if (orientacion === direccionViento && viento > 20) {
+    mensajes.push("viento fuerte entrando directamente en la playa");
+  }
+  if (opuestas[orientacion] === direccionViento && viento > 20) {
+    mensajes.push("viento favorable, sopla hacia el mar");
+  }
 
   return mensajes.join(", ") + ".";
 }
 
-function generarExplicacionArdora(
-    nubosidad,
-    lluvia,
-    fase
-){
+function generarExplicacionArdora(nubosidad, lluvia, fase){
+  let mensajes=[];
+  if(nubosidad<20) mensajes.push("cielo muy despejado");
+  else if(nubosidad<50) mensajes.push("algo de nubosidad");
+  else mensajes.push("demasiadas nubes");
 
-    let mensajes=[];
+  if(lluvia<20) mensajes.push("escasa probabilidad de lluvia");
+  else mensajes.push("riesgo de lluvia");
 
-    if(nubosidad<20)
-        mensajes.push("cielo muy despejado");
-    else if(nubosidad<50)
-        mensajes.push("algo de nubosidad");
-    else
-        mensajes.push("demasiadas nubes");
+  mensajes.push(obtenerNombreFaseLunar(fase));
 
-    if(lluvia<20)
-        mensajes.push("escasa probabilidad de lluvia");
-    else
-        mensajes.push("riesgo de lluvia");
-
-    mensajes.push(obtenerNombreFaseLunar(fase));
-
-    return mensajes.join(", ") + ".";
+  return mensajes.join(", ") + ".";
 }
 
 async function obtenerDatosPlaya(playa) {
@@ -732,10 +334,14 @@ async function obtenerDatosPlaya(playa) {
       fetch(marineUrl)
     ]);
 
+    if (!respuesta.ok) return null;
+
     const datos = await respuesta.json();
     let datosMarine = {};
     try {
-      datosMarine = await respuestaMarine.json();
+      if (respuestaMarine.ok) {
+        datosMarine = await respuestaMarine.json();
+      }
     } catch (e) {
       console.warn("Marine API no disponible para:", playa.nombre);
     }
@@ -746,7 +352,6 @@ async function obtenerDatosPlaya(playa) {
     const velocidadesViento = datos.hourly?.wind_speed_10m || [];
     const nubosidades = datos.hourly?.cloud_cover || [];
 
-    // Mapeamos y filtramos las horas de playa (de 11:00 a 20:00) usando Date.getHours()
     const registrosPlaya = horas
       .map((hora, indice) => ({
         horaLocal: new Date(hora).getHours(),
@@ -757,7 +362,6 @@ async function obtenerDatosPlaya(playa) {
       }))
       .filter(reg => reg.horaLocal >= 11 && reg.horaLocal <= 20);
 
-    // Si por algún motivo la API devuelve menos horas, usamos todo el día como respaldo
     const datosValidos = registrosPlaya.length > 0 ? registrosPlaya : horas.map((_, i) => ({
       temperatura: temperaturas[i] ?? 0,
       lluvia: probabilidadesLluvia[i] ?? 0,
@@ -765,7 +369,7 @@ async function obtenerDatosPlaya(playa) {
       nubosidad: nubosidades[i] ?? 0
     }));
 
-    const totalRegistros = datosValidos.length;
+    const totalRegistros = datosValidos.length || 1;
 
     const temperaturaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.temperatura, 0) / totalRegistros;
     const lluviaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.lluvia, 0) / totalRegistros;
@@ -813,21 +417,11 @@ async function obtenerDatosPlaya(playa) {
     const estadoArdora = obtenerEstadoArdora(puntuacionArdora);
     const explicacionArdora = generarExplicacionArdora(nubosidad, lluvia, faseLunar);
 
-    let distancia = null;
-    if (ubicacionUsuario) {
-      distancia = await calcularDistanciaCoche(
-        ubicacionUsuario.lat,
-        ubicacionUsuario.lon,
-        playa.lat,
-        playa.lon
-      );
-    }
-
     return {
       nombre: playa.nombre,
       lat: playa.lat,
       lon: playa.lon,
-      distancia,
+      distancia: null,
       temperaturaMaxima,
       temperaturaMediaPlaya,
       viento,
@@ -855,21 +449,17 @@ async function cargarRanking() {
   const tabla = document.getElementById("ranking");
 
   try {
-    // 1. Primera carga: obtener clima y datos del mar
-if (datosPlayasCache === null) {
-  if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
-  
-  const resultados = await Promise.all(
-    playas.map(playa => obtenerDatosPlaya(playa))
-  );
-  // Filtramos las que hayan podido fallar
-  datosPlayasCache = resultados.filter(res => res !== null);
-}
+    if (datosPlayasCache === null) {
+      if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
+      
+      const resultados = await Promise.all(
+        playas.map(playa => obtenerDatosPlaya(playa))
+      );
+      datosPlayasCache = resultados.filter(res => res !== null);
+    }
 
-    // Trabajamos siempre sobre una copia limpia del cache original
     let resultados = JSON.parse(JSON.stringify(datosPlayasCache));
 
-    // 2. Recalcular distancias solo si hay ubicación de usuario
     if (ubicacionUsuario) {
       await Promise.all(
         resultados.map(async playa => {
@@ -883,21 +473,18 @@ if (datosPlayasCache === null) {
       );
     }
 
-    // 3. Filtrar por distancia MÁXIMA (solo si hay ubicación y un filtro activo)
     if (distanciaMaxima !== null && ubicacionUsuario) {
       resultados = resultados.filter(
         playa => playa.distancia !== null && playa.distancia <= distanciaMaxima
       );
     }
 
-    // 4. Ordenar según el modo (Día o Ardora)
     if (modo === "dia") {
       resultados.sort((a, b) => b.puntuacion - a.puntuacion);
     } else {
       resultados.sort((a, b) => b.puntuacionArdora - a.puntuacionArdora);
     }
 
-    // 5. Renderizar en el DOM
     if (!tabla) return;
     tabla.innerHTML = "";
 
