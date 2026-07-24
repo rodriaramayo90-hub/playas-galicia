@@ -517,7 +517,7 @@ function calcularPuntuacion(
 
 function obtenerEstado(puntos, nubosidad) {
 
-  if (puntos < 50)
+  if (puntos < 20)
     return "🔴 Mejor evitar";
 
   if (nubosidad > 80)
