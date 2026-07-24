@@ -931,112 +931,91 @@ return {
 }
 
 async function cargarRanking() {
-
-  let resultados;
-
-
-  // Primera carga: obtener clima y datos del mar
-  if(datosPlayasCache === null){
-
-   resultados = await Promise.all(
-  playas.map(playa =>
-    obtenerDatosPlaya(playa)
-  )
-);
-
-    datosPlayasCache = resultados;
-
-  }
-
-  else {
-
-    resultados = [...datosPlayasCache];
-
-  }
-
-
-  // Recalcular distancias si hay ubicación
-  if(ubicacionUsuario){
-
-    await Promise.all(
-  resultados.map(async playa => {
-
-    playa.distancia =
-      await calcularDistanciaCoche(
-        ubicacionUsuario.lat,
-        ubicacionUsuario.lon,
-        playa.lat,
-        playa.lon
-      );
-
-  })
-);
-
-  }
-
-  if(distanciaMaxima !== null){
-
-  const filtrados = resultados.filter(
-    playa =>
-      playa.distancia !== null &&
-      playa.distancia <= distanciaMaxima
-  );
-
-  resultados.length = 0;
-
-  resultados.push(...filtrados);
-
-}
-  
-if(modo==="dia"){
-
-    resultados.sort(
-        (a,b)=>b.puntuacion-a.puntuacion
-    );
-
-}
-else{
-
-    resultados.sort(
-        (a,b)=>b.puntuacionArdora-a.puntuacionArdora
-    );
-
-}
-
   const tabla = document.getElementById("ranking");
-  tabla.innerHTML = "";
-  
-  resultados.forEach((playa, index) => {
 
-tabla.innerHTML += `
-  <tr>
-    <td>${index + 1}</td>
-    <td>${playa.nombre}</td>
-    <td>
-    ${
-    playa.distancia !== null
-    ?
-    playa.distancia.toFixed(1) + " km"
-    :
-    "-"
+  try {
+    // 1. Primera carga: obtener clima y datos del mar
+    if (datosPlayasCache === null) {
+      if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
+      
+      const resultados = await Promise.all(
+        playas.map(playa => obtenerDatosPlaya(playa))
+      );
+      datosPlayasCache = resultados;
     }
-    </td>
-    <td>${playa.cielo}</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">
-    ${playa.temperaturaMaxima}°C
-    </td>
-    <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h (${playa.direccionViento})</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.lluvia}%</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.estadoOleaje}</td>
-    <td class="col-estado"> ${ modo==="dia" ? playa.estado : playa.estadoArdora } </td>
-   <td class="detalle ${detallesVisibles ? '' : 'oculto'}"> ${ modo==="dia" ? playa.puntuacion : playa.puntuacionArdora } </td>
-    <td class="col-explicacion"> ${ modo==="dia" ? playa.explicacion : playa.explicacionArdora } </td>
-   </tr>
-`;
-  });
-actualizarVisibilidadDetalles();
+
+    // Trabajamos siempre sobre una copia limpia del cache original
+    let resultados = JSON.parse(JSON.stringify(datosPlayasCache));
+
+    // 2. Recalcular distancias solo si hay ubicación de usuario
+    if (ubicacionUsuario) {
+      await Promise.all(
+        resultados.map(async playa => {
+          playa.distancia = await calcularDistanciaCoche(
+            ubicacionUsuario.lat,
+            ubicacionUsuario.lon,
+            playa.lat,
+            playa.lon
+          );
+        })
+      );
+    }
+
+    // 3. Filtrar por distancia MÁXIMA (solo si hay ubicación y un filtro activo)
+    if (distanciaMaxima !== null && ubicacionUsuario) {
+      resultados = resultados.filter(
+        playa => playa.distancia !== null && playa.distancia <= distanciaMaxima
+      );
+    }
+
+    // 4. Ordenar según el modo (Día o Ardora)
+    if (modo === "dia") {
+      resultados.sort((a, b) => b.puntuacion - a.puntuacion);
+    } else {
+      resultados.sort((a, b) => b.puntuacionArdora - a.puntuacionArdora);
+    }
+
+    // 5. Renderizar en el DOM
+    if (!tabla) return;
+    tabla.innerHTML = "";
+
+    if (resultados.length === 0) {
+      tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">No hay playas dentro de la distancia seleccionada.</td></tr>`;
+      return;
+    }
+
+    resultados.forEach((playa, index) => {
+      tabla.innerHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${playa.nombre}</td>
+          <td>
+            ${playa.distancia !== null ? playa.distancia.toFixed(1) + " km" : "-"}
+          </td>
+          <td>${playa.cielo}</td>
+          <td class="detalle ${detallesVisibles ? '' : 'oculto'}">
+            ${playa.temperaturaMaxima}°C
+          </td>
+          <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
+          <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h (${playa.direccionViento})</td>
+          <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.lluvia}%</td>
+          <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
+          <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.estadoOleaje}</td>
+          <td class="col-estado">${modo === "dia" ? playa.estado : playa.estadoArdora}</td>
+          <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${modo === "dia" ? playa.puntuacion : playa.puntuacionArdora}</td>
+          <td class="col-explicacion">${modo === "dia" ? playa.explicacion : playa.explicacionArdora}</td>
+        </tr>
+      `;
+    });
+
+    actualizarVisibilidadDetalles();
+
+  } catch (error) {
+    console.error("Error al cargar el ranking de playas:", error);
+    if (tabla) {
+      tabla.innerHTML = `<tr><td colspan="13" style="text-align:center; color: red;">Error al consultar el tiempo en las playas. Inténtalo de nuevo más tarde.</td></tr>`;
+    }
+  }
 }
 
 cargarRanking();
