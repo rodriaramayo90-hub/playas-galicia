@@ -60,8 +60,9 @@ const playas = [
 
 async function calcularDistanciaCoche(lat1, lon1, lat2, lon2) {
   try {
-    const url = `https://router.project-osrm.org/route/v1/driving/${lon1},${lat1};${lon2},${lat2}?overview=false`;
+    const url = `https://router.project-osrm.org/route/v1/driving/${lon2},${lat2};${lon1},${lat1}?overview=false`;
     const respuesta = await fetch(url);
+    if (!respuesta.ok) return null;
     const datos = await respuesta.json();
 
     if (!datos.routes || datos.routes.length === 0) return null;
@@ -148,7 +149,7 @@ function puntosLluvia(lluvia) {
 }
 
 function puntosAgua(agua) {
-  if (!agua) return 0;
+  if (agua === null || agua === undefined) return 0;
   if (agua < 16) return -7;
   if (agua < 18) return -3;
   return 7;
@@ -161,14 +162,14 @@ function puntosNubosidad(nubosidad) {
 }
 
 function puntosOleaje(oleaje) {
-  if (!oleaje) return 0;
+  if (oleaje === null || oleaje === undefined) return 0;
   if (oleaje < 1) return 2;
   if (oleaje < 2) return -2;
   return -3;
 }
 
 function obtenerEstadoOleaje(oleaje) {
-  if (!oleaje && oleaje !== 0) return "-";
+  if (oleaje === null || oleaje === undefined) return "-";
   if (oleaje < 0.5) return "🌊 Mar calmo";
   if (oleaje < 1) return "🌊 Algunas olas";
   if (oleaje < 2) return "🌊 Muchas olas";
@@ -183,7 +184,7 @@ function obtenerNombreFaseLunar(fase) {
 }
 
 function obtenerEstadoAgua(agua) {
-  if (!agua && agua !== 0) return null;
+  if (agua === null || agua === undefined) return null;
   if (agua < 16) return "agua fría";
   if (agua <= 21) return "agua fresquita metible";
   return "agua agradable";
@@ -264,12 +265,16 @@ function generarExplicacionArdora(nubosidad, lluvia, fase) {
 }
 
 async function obtenerDatosPlaya(playa) {
+  // URLs formateadas correctamente
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant,moon_phase&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=auto`;
   const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
 
   try {
     const resp = await fetch(url);
-    if (!resp.ok) return null;
+    if (!resp.ok) {
+      console.warn(`Error ${resp.status} al obtener meteo para: ${playa.nombre}`);
+      return null;
+    }
     const datos = await resp.json();
 
     let datosMarine = {};
@@ -309,7 +314,6 @@ async function obtenerDatosPlaya(playa) {
     const vientoMedioPlaya = datosValidos.reduce((sum, r) => sum + r.viento, 0) / totalRegistros;
     const nubosidadMediaPlaya = datosValidos.reduce((sum, r) => sum + r.nubosidad, 0) / totalRegistros;
 
-    // AQUÍ ESTÁ LA PROTECCIÓN CONTRA NULOS:
     const tempMaxRaw = datos.daily?.temperature_2m_max?.[0];
     const temperaturaMaxima = (tempMaxRaw !== null && tempMaxRaw !== undefined) ? tempMaxRaw : temperaturaMediaPlaya;
 
@@ -372,7 +376,9 @@ async function cargarRanking() {
       const resultados = [];
       for (const playa of playas) {
         const res = await obtenerDatosPlaya(playa);
-        if (res) resultados.push(res);
+        if (res !== null) {
+          resultados.push(res);
+        }
       }
       datosPlayasCache = resultados;
     }
@@ -408,14 +414,17 @@ async function cargarRanking() {
     tabla.innerHTML = "";
 
     if (resultados.length === 0) {
-      tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">No hay playas dentro de la distancia seleccionada.</td></tr>`;
+      tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">No hay datos disponibles o no hay playas dentro de la distancia seleccionada.</td></tr>`;
       return;
     }
 
     resultados.forEach((playa, index) => {
-      // Formateo seguro para evitar que rompa si viene algún valor anormal
-      const tempMaxTxt = (playa.temperaturaMaxima ?? 0).toFixed(1);
-      const tempMediaTxt = (playa.temperaturaMediaPlaya ?? 0).toFixed(1);
+      // Formateo seguro garantizando fallback numérico
+      const tempMax = typeof playa.temperaturaMaxima === "number" ? playa.temperaturaMaxima : 0;
+      const tempMedia = typeof playa.temperaturaMediaPlaya === "number" ? playa.temperaturaMediaPlaya : 0;
+
+      const tempMaxTxt = tempMax.toFixed(1);
+      const tempMediaTxt = tempMedia.toFixed(1);
       const aguaTxt = playa.agua !== null && playa.agua !== undefined ? playa.agua.toFixed(1) + "°C" : "-";
       const distTxt = playa.distancia !== null && playa.distancia !== undefined ? playa.distancia.toFixed(1) + " km" : "-";
 
