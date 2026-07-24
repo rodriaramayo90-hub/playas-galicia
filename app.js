@@ -517,29 +517,22 @@ function calcularPuntuacion(
 
 function obtenerEstado(puntos, nubosidad) {
 
-  // Mucha nube impide una valoración alta
+  if (puntos < 50)
+    return "🔴 Mejor evitar";
+
   if (nubosidad > 80)
     return "🟡 Aceptable (muy nublado)";
 
   if (nubosidad > 60)
     return "🟡 Aceptable (nublado)";
 
-
-  // Días realmente buenos
   if (puntos >= 85)
     return "🟢 Excelente";
 
-
-  // Nuevo estado para días buenos pero con nubes
   if (puntos >= 70)
-    return "🟢 Buen día de playa con algo de nubes";
+    return "🟢 Buen día de playa";
 
-
-  if (puntos >= 50)
-    return "🟡 Aceptable";
-
-
-  return "🔴 Mejor evitar";
+  return "🟡 Aceptable";
 }
 function obtenerCielo(nubosidad) {
 
