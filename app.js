@@ -481,29 +481,30 @@ function calcularPuntuacion(
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
   puntuacion += puntosTemperatura(temperaturaMediaPlaya);
-
   puntuacion += puntosViento(viento);
   puntuacion += puntosOrientacion(
-  orientacion,
-  direccionViento,
-  viento
-);
-  console.log({
-  base: 40,
-  puntosNubosidad: puntosNubosidad(nubosidad),
-  puntosLluvia: puntosLluvia(lluvia),
-  puntosTemperatura: puntosTemperatura(temperaturaMediaPlaya),
-  puntosViento: puntosViento(viento),
-  puntosOrientacion: puntosOrientacion(
     orientacion,
     direccionViento,
     viento
-  ),
-  puntosAgua: puntosAgua(agua),
-  puntosOleaje: puntosOleaje(oleaje)
-});
+  );
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOleaje(oleaje);
+
+  console.log({
+    base: 40,
+    nubosidad: puntosNubosidad(nubosidad),
+    lluvia: puntosLluvia(lluvia),
+    temperatura: puntosTemperatura(temperaturaMediaPlaya),
+    viento: puntosViento(viento),
+    orientacion: puntosOrientacion(
+      orientacion,
+      direccionViento,
+      viento
+    ),
+    agua: puntosAgua(agua),
+    oleaje: puntosOleaje(oleaje),
+    total: puntuacion
+  });
 
   return Math.max(
     0,
