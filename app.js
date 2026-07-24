@@ -370,15 +370,15 @@ function puntosAgua(agua) {
 
   return 7;
 }
-function puntosNubosidad(nubosidad) {
+function puntosNubosidad(nubosidad){
 
-  if (nubosidad <= 10) return 25;   // despejado
-  if (nubosidad <= 25) return 15;   // pocas nubes
-  if (nubosidad <= 40) return 5;    // intervalos nubosos
-  if (nubosidad <= 60) return -15;  // nuboso
-  if (nubosidad <= 80) return -35;  // muy nuboso
+  if (nubosidad <= 10) return 25;
+  if (nubosidad <= 25) return 18;
+  if (nubosidad <= 40) return 10;
+  if (nubosidad <= 60) return -5;
+  if (nubosidad <= 80) return -15;
 
-  return -50;                       // cubierto
+  return -25;
 }
 function puntosOleaje(oleaje) {
 
