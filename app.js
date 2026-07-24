@@ -264,105 +264,121 @@ function generarExplicacionArdora(nubosidad, lluvia, fase) {
   return `${nubosidad < 30 ? 'Cielo despejado' : 'Nubes presentes'}, ${obtenerNombreFaseLunar(fase)}.`;
 }
 
-async function obtenerDatosPlaya(playa) {
-  // URLs formateadas correctamente
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant,moon_phase&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=auto`;
-  const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
+// Carga masiva de todas las playas para evitar rate-limits y parámetros erróneos
+async function obtenerTodosLosDatos() {
+  const lats = playas.map(p => p.lat).join(",");
+  const lons = playas.map(p => p.lon).join(",");
+
+  // 1. Predicción atmosférica (sin moon_phase)
+  const urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=auto`;
+  
+  // 2. Datos astronómicos (para la fase lunar)
+  const urlAstro = `https://api.open-meteo.com/v1/astronomy?latitude=${lats}&longitude=${lons}&daily=moon_phase&forecast_days=1&timezone=auto`;
+  
+  // 3. Datos de mar
+  const urlMarine = `https://marine-api.open-meteo.com/v1/marine?latitude=${lats}&longitude=${lons}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
 
   try {
-    const resp = await fetch(url);
-    if (!resp.ok) {
-      console.warn(`Error ${resp.status} al obtener meteo para: ${playa.nombre}`);
-      return null;
-    }
-    const datos = await resp.json();
+    const [resMeteo, resAstro, resMarine] = await Promise.all([
+      fetch(urlMeteo).then(r => r.ok ? r.json() : null),
+      fetch(urlAstro).then(r => r.ok ? r.json() : null),
+      fetch(urlMarine).then(r => r.ok ? r.json() : null)
+    ]);
 
-    let datosMarine = {};
-    try {
-      const respMarine = await fetch(marineUrl);
-      if (respMarine.ok) datosMarine = await respMarine.json();
-    } catch (e) {
-      console.warn("Marine API no respondió para:", playa.nombre);
+    if (!resMeteo) {
+      console.error("Error crítico cargando Open-Meteo");
+      return [];
     }
 
-    const horas = datos.hourly?.time || [];
-    const temperaturas = datos.hourly?.temperature_2m || [];
-    const probabilidadesLluvia = datos.hourly?.precipitation_probability || [];
-    const velocidadesViento = datos.hourly?.wind_speed_10m || [];
-    const nubosidades = datos.hourly?.cloud_cover || [];
+    // Adaptar si la respuesta viene como array (múltiples puntos) o como objeto único (si fuese 1 sola playa)
+    const datosMeteoArray = Array.isArray(resMeteo) ? resMeteo : [resMeteo];
+    const datosAstroArray = resAstro ? (Array.isArray(resAstro) ? resAstro : [resAstro]) : [];
+    const datosMarineArray = resMarine ? (Array.isArray(resMarine) ? resMarine : [resMarine]) : [];
 
-    const registrosPlaya = horas
-      .map((hora, indice) => ({
-        horaLocal: new Date(hora).getHours(),
-        temperatura: temperaturas[indice] ?? 0,
-        lluvia: probabilidadesLluvia[indice] ?? 0,
-        viento: velocidadesViento[indice] ?? 0,
-        nubosidad: nubosidades[indice] ?? 0
-      }))
-      .filter(reg => reg.horaLocal >= 11 && reg.horaLocal <= 20);
+    return playas.map((playa, idx) => {
+      const datos = datosMeteoArray[idx] || {};
+      const datosAstro = datosAstroArray[idx] || {};
+      const datosMarine = datosMarineArray[idx] || {};
 
-    const datosValidos = registrosPlaya.length > 0 ? registrosPlaya : horas.map((_, i) => ({
-      temperatura: temperaturas[i] ?? 0,
-      lluvia: probabilidadesLluvia[i] ?? 0,
-      viento: velocidadesViento[i] ?? 0,
-      nubosidad: nubosidades[i] ?? 0
-    }));
+      const horas = datos.hourly?.time || [];
+      const temperaturas = datos.hourly?.temperature_2m || [];
+      const probabilidadesLluvia = datos.hourly?.precipitation_probability || [];
+      const velocidadesViento = datos.hourly?.wind_speed_10m || [];
+      const nubosidades = datos.hourly?.cloud_cover || [];
 
-    const totalRegistros = datosValidos.length || 1;
-    const temperaturaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.temperatura, 0) / totalRegistros;
-    const lluviaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.lluvia, 0) / totalRegistros;
-    const vientoMedioPlaya = datosValidos.reduce((sum, r) => sum + r.viento, 0) / totalRegistros;
-    const nubosidadMediaPlaya = datosValidos.reduce((sum, r) => sum + r.nubosidad, 0) / totalRegistros;
+      const registrosPlaya = horas
+        .map((hora, indice) => ({
+          horaLocal: new Date(hora).getHours(),
+          temperatura: temperaturas[indice] ?? 0,
+          lluvia: probabilidadesLluvia[indice] ?? 0,
+          viento: velocidadesViento[indice] ?? 0,
+          nubosidad: nubosidades[indice] ?? 0
+        }))
+        .filter(reg => reg.horaLocal >= 11 && reg.horaLocal <= 20);
 
-    const tempMaxRaw = datos.daily?.temperature_2m_max?.[0];
-    const temperaturaMaxima = (tempMaxRaw !== null && tempMaxRaw !== undefined) ? tempMaxRaw : temperaturaMediaPlaya;
+      const datosValidos = registrosPlaya.length > 0 ? registrosPlaya : horas.map((_, i) => ({
+        temperatura: temperaturas[i] ?? 0,
+        lluvia: probabilidadesLluvia[i] ?? 0,
+        viento: velocidadesViento[i] ?? 0,
+        nubosidad: nubosidades[i] ?? 0
+      }));
 
-    const faseLunar = datos.daily?.moon_phase?.[0] ?? 0;
-    const lluvia = Math.round(lluviaMediaPlaya);
-    const nubosidad = Math.round(nubosidadMediaPlaya);
-    const viento = Math.round(vientoMedioPlaya);
-    const direccionVientoGrados = datos.daily?.wind_direction_10m_dominant?.[0] ?? 0;
+      const totalRegistros = datosValidos.length || 1;
+      const temperaturaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.temperatura, 0) / totalRegistros;
+      const lluviaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.lluvia, 0) / totalRegistros;
+      const vientoMedioPlaya = datosValidos.reduce((sum, r) => sum + r.viento, 0) / totalRegistros;
+      const nubosidadMediaPlaya = datosValidos.reduce((sum, r) => sum + r.nubosidad, 0) / totalRegistros;
 
-    const direccionViento = gradosADireccion(direccionVientoGrados);
-    const cielo = obtenerCielo(nubosidad);
+      const tempMaxRaw = datos.daily?.temperature_2m_max?.[0];
+      const temperaturaMaxima = (tempMaxRaw !== null && tempMaxRaw !== undefined) ? tempMaxRaw : temperaturaMediaPlaya;
 
-    const agua = datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
-    const oleaje = datosMarine.hourly?.wave_height?.[12] ?? null;
-    const estadoOleaje = obtenerEstadoOleaje(oleaje);
+      const faseLunar = datosAstro.daily?.moon_phase?.[0] ?? 0;
+      const lluvia = Math.round(lluviaMediaPlaya);
+      const nubosidad = Math.round(nubosidadMediaPlaya);
+      const viento = Math.round(vientoMedioPlaya);
+      const direccionVientoGrados = datos.daily?.wind_direction_10m_dominant?.[0] ?? 0;
 
-    const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, lluvia, nubosidad, agua, oleaje, playa.orientacion, direccionViento);
-    const estado = obtenerEstado(puntuacion, nubosidad);
-    const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, direccionViento, lluvia, agua, playa.orientacion, nubosidad);
+      const direccionViento = gradosADireccion(direccionVientoGrados);
+      const cielo = obtenerCielo(nubosidad);
 
-    const puntuacionArdora = calcularPuntuacionArdora(nubosidad, lluvia, faseLunar);
-    const estadoArdora = obtenerEstadoArdora(puntuacionArdora);
-    const explicacionArdora = generarExplicacionArdora(nubosidad, lluvia, faseLunar);
+      const agua = datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
+      const oleaje = datosMarine.hourly?.wave_height?.[12] ?? null;
+      const estadoOleaje = obtenerEstadoOleaje(oleaje);
 
-    return {
-      nombre: playa.nombre,
-      lat: playa.lat,
-      lon: playa.lon,
-      distancia: null,
-      temperaturaMaxima: Number(temperaturaMaxima) || 0,
-      temperaturaMediaPlaya: Number(temperaturaMediaPlaya) || 0,
-      viento,
-      direccionViento,
-      lluvia,
-      cielo,
-      agua,
-      estadoOleaje,
-      puntuacion,
-      estado,
-      explicacion,
-      faseLunar,
-      puntuacionArdora,
-      estadoArdora,
-      explicacionArdora,
-      nubosidad
-    };
+      const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, lluvia, nubosidad, agua, oleaje, playa.orientacion, direccionViento);
+      const estado = obtenerEstado(puntuacion, nubosidad);
+      const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, direccionViento, lluvia, agua, playa.orientacion, nubosidad);
+
+      const puntuacionArdora = calcularPuntuacionArdora(nubosidad, lluvia, faseLunar);
+      const estadoArdora = obtenerEstadoArdora(puntuacionArdora);
+      const explicacionArdora = generarExplicacionArdora(nubosidad, lluvia, faseLunar);
+
+      return {
+        nombre: playa.nombre,
+        lat: playa.lat,
+        lon: playa.lon,
+        distancia: null,
+        temperaturaMaxima: Number(temperaturaMaxima) || 0,
+        temperaturaMediaPlaya: Number(temperaturaMediaPlaya) || 0,
+        viento,
+        direccionViento,
+        lluvia,
+        cielo,
+        agua,
+        estadoOleaje,
+        puntuacion,
+        estado,
+        explicacion,
+        faseLunar,
+        puntuacionArdora,
+        estadoArdora,
+        explicacionArdora,
+        nubosidad
+      };
+    });
   } catch (err) {
-    console.error("Error al obtener datos para " + playa.nombre, err);
-    return null;
+    console.error("Error al procesar los datos de las playas:", err);
+    return [];
   }
 }
 
@@ -372,15 +388,7 @@ async function cargarRanking() {
   try {
     if (datosPlayasCache === null) {
       if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
-
-      const resultados = [];
-      for (const playa of playas) {
-        const res = await obtenerDatosPlaya(playa);
-        if (res !== null) {
-          resultados.push(res);
-        }
-      }
-      datosPlayasCache = resultados;
+      datosPlayasCache = await obtenerTodosLosDatos();
     }
 
     let resultados = JSON.parse(JSON.stringify(datosPlayasCache));
@@ -419,7 +427,6 @@ async function cargarRanking() {
     }
 
     resultados.forEach((playa, index) => {
-      // Formateo seguro garantizando fallback numérico
       const tempMax = typeof playa.temperaturaMaxima === "number" ? playa.temperaturaMaxima : 0;
       const tempMedia = typeof playa.temperaturaMediaPlaya === "number" ? playa.temperaturaMediaPlaya : 0;
 
