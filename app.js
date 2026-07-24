@@ -886,14 +886,15 @@ async function cargarRanking() {
 
   try {
     // 1. Primera carga: obtener clima y datos del mar
-    if (datosPlayasCache === null) {
-      if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
-      
-      const resultados = await Promise.all(
-        playas.map(playa => obtenerDatosPlaya(playa))
-      );
-      datosPlayasCache = resultados;
-    }
+if (datosPlayasCache === null) {
+  if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
+  
+  const resultados = await Promise.all(
+    playas.map(playa => obtenerDatosPlaya(playa))
+  );
+  // Filtramos las que hayan podido fallar
+  datosPlayasCache = resultados.filter(res => res !== null);
+}
 
     // Trabajamos siempre sobre una copia limpia del cache original
     let resultados = JSON.parse(JSON.stringify(datosPlayasCache));
