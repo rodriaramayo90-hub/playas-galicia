@@ -5,8 +5,8 @@ let datosPlayasCache = null;
 let detallesVisibles = false;
 let modo = "dia";
 
-function cambiarDistancia(valor){
-  if(valor === ""){
+function cambiarDistancia(valor) {
+  if (valor === "") {
     distanciaMaxima = null;
   } else {
     distanciaMaxima = Number(valor);
@@ -14,15 +14,22 @@ function cambiarDistancia(valor){
   cargarRanking();
 }
 
-function toggleDetalles(){
+function toggleDetalles() {
   detallesVisibles = !detallesVisibles;
   actualizarVisibilidadDetalles();
 }
 
-function cambiarModo(nuevoModo){
+function cambiarModo(nuevoModo) {
   modo = nuevoModo;
-  document.getElementById("btnDia")?.classList.toggle("activo", modo==="dia");
-  document.getElementById("btnArdora")?.classList.toggle("activo", modo==="ardora");
+
+  document
+    .getElementById("btnDia")
+    .classList.toggle("activo", modo === "dia");
+
+  document
+    .getElementById("btnArdora")
+    .classList.toggle("activo", modo === "ardora");
+
   cargarRanking();
 }
 
@@ -57,20 +64,21 @@ async function calcularDistanciaCoche(lat1, lon1, lat2, lon2) {
   try {
     const url = `https://router.project-osrm.org/route/v1/driving/${lon1},${lat1};${lon2},${lat2}?overview=false`;
     const respuesta = await fetch(url);
-    if (!respuesta.ok) return null;
     const datos = await respuesta.json();
 
-    if (!datos.routes || datos.routes.length === 0) return null;
+    if (!datos.routes || datos.routes.length === 0) {
+      return null;
+    }
     return datos.routes[0].distance / 1000;
   } catch (e) {
-    console.warn("Error al calcular distancia OSRM:", e);
+    console.warn("No se pudo calcular la ruta OSRM:", e);
     return null;
   }
 }
 
-function actualizarVisibilidadDetalles(){
+function actualizarVisibilidadDetalles() {
   document.querySelectorAll(".detalle").forEach(elemento => {
-    if(detallesVisibles){
+    if (detallesVisibles) {
       elemento.classList.remove("oculto");
     } else {
       elemento.classList.add("oculto");
@@ -139,8 +147,6 @@ function puntosTemperatura(temp) {
   if (temp < 23.5) return 10;
   if (temp < 24) return 12;
   if (temp < 24.5) return 14;
-  if (temp < 25) return 16;
-  if (temp < 25.5) return 18;
   return 20;
 }
 
@@ -201,14 +207,14 @@ function obtenerEstadoOleaje(oleaje) {
   return "🌊 Temporal";
 }
 
-function obtenerNombreFaseLunar(fase){
-  if(fase < 0.03) return "🌑 Luna nueva";
-  if(fase < 0.22) return "🌒 Creciente";
-  if(fase < 0.28) return "🌓 Cuarto creciente";
-  if(fase < 0.47) return "🌔 Gibosa creciente";
-  if(fase < 0.53) return "🌕 Luna llena";
-  if(fase < 0.72) return "🌖 Gibosa menguante";
-  if(fase < 0.78) return "🌗 Cuarto menguante";
+function obtenerNombreFaseLunar(fase) {
+  if (fase < 0.03) return "🌑 Luna nueva";
+  if (fase < 0.22) return "🌒 Creciente";
+  if (fase < 0.28) return "🌓 Cuarto creciente";
+  if (fase < 0.47) return "🌔 Gibosa creciente";
+  if (fase < 0.53) return "🌕 Luna llena";
+  if (fase < 0.72) return "🌖 Gibosa menguante";
+  if (fase < 0.78) return "🌗 Cuarto menguante";
   return "🌘 Menguante";
 }
 
@@ -222,7 +228,7 @@ function obtenerEstadoAgua(agua) {
 }
 
 function gradosADireccion(grados) {
-  const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
+  const direcciones = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   return direcciones[Math.round(grados / 45) % 8];
 }
 
@@ -247,7 +253,7 @@ function calcularPuntuacion(temperaturaMediaPlaya, viento, lluvia, nubosidad, ag
   return Math.max(0, Math.min(100, Math.round(puntuacion)));
 }
 
-function calcularPuntuacionArdora(nubosidad, lluvia, faseLunar){
+function calcularPuntuacionArdora(nubosidad, lluvia, faseLunar) {
   let puntos = 100;
   puntos -= nubosidad * 0.7;
   puntos -= lluvia * 0.5;
@@ -264,10 +270,10 @@ function obtenerEstado(puntos, nubosidad) {
   return "🔴 Mejor evitar";
 }
 
-function obtenerEstadoArdora(puntos){
-  if(puntos>=85) return "🟢 Condiciones excelentes";
-  if(puntos>=70) return "🟢 Muy buenas";
-  if(puntos>=50) return "🟡 Posibles";
+function obtenerEstadoArdora(puntos) {
+  if (puntos >= 85) return "🟢 Condiciones excelentes";
+  if (puntos >= 70) return "🟢 Muy buenas";
+  if (puntos >= 50) return "🟡 Posibles";
   return "🔴 Muy difíciles";
 }
 
@@ -281,6 +287,7 @@ function obtenerCielo(nubosidad) {
 
 function generarExplicacion(temperatura, viento, direccionViento, lluvia, agua, orientacion, nubosidad) {
   let mensajes = [];
+
   if (nubosidad <= 10) mensajes.push("cielo despejado");
   else if (nubosidad <= 30) mensajes.push("algunas nubes");
   else if (nubosidad <= 60) mensajes.push("cielo parcialmente nublado");
@@ -303,6 +310,7 @@ function generarExplicacion(temperatura, viento, direccionViento, lluvia, agua, 
   if (orientacion === direccionViento && viento > 20) {
     mensajes.push("viento fuerte entrando directamente en la playa");
   }
+
   if (opuestas[orientacion] === direccionViento && viento > 20) {
     mensajes.push("viento favorable, sopla hacia el mar");
   }
@@ -310,13 +318,14 @@ function generarExplicacion(temperatura, viento, direccionViento, lluvia, agua, 
   return mensajes.join(", ") + ".";
 }
 
-function generarExplicacionArdora(nubosidad, lluvia, fase){
-  let mensajes=[];
-  if(nubosidad<20) mensajes.push("cielo muy despejado");
-  else if(nubosidad<50) mensajes.push("algo de nubosidad");
+function generarExplicacionArdora(nubosidad, lluvia, fase) {
+  let mensajes = [];
+
+  if (nubosidad < 20) mensajes.push("cielo muy despejado");
+  else if (nubosidad < 50) mensajes.push("algo de nubosidad");
   else mensajes.push("demasiadas nubes");
 
-  if(lluvia<20) mensajes.push("escasa probabilidad de lluvia");
+  if (lluvia < 20) mensajes.push("escasa probabilidad de lluvia");
   else mensajes.push("riesgo de lluvia");
 
   mensajes.push(obtenerNombreFaseLunar(fase));
@@ -334,14 +343,10 @@ async function obtenerDatosPlaya(playa) {
       fetch(marineUrl)
     ]);
 
-    if (!respuesta.ok) return null;
-
     const datos = await respuesta.json();
     let datosMarine = {};
     try {
-      if (respuestaMarine.ok) {
-        datosMarine = await respuestaMarine.json();
-      }
+      datosMarine = await respuestaMarine.json();
     } catch (e) {
       console.warn("Marine API no disponible para:", playa.nombre);
     }
@@ -369,7 +374,7 @@ async function obtenerDatosPlaya(playa) {
       nubosidad: nubosidades[i] ?? 0
     }));
 
-    const totalRegistros = datosValidos.length || 1;
+    const totalRegistros = datosValidos.length;
 
     const temperaturaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.temperatura, 0) / totalRegistros;
     const lluviaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.lluvia, 0) / totalRegistros;
@@ -417,11 +422,21 @@ async function obtenerDatosPlaya(playa) {
     const estadoArdora = obtenerEstadoArdora(puntuacionArdora);
     const explicacionArdora = generarExplicacionArdora(nubosidad, lluvia, faseLunar);
 
+    let distancia = null;
+    if (ubicacionUsuario) {
+      distancia = await calcularDistanciaCoche(
+        ubicacionUsuario.lat,
+        ubicacionUsuario.lon,
+        playa.lat,
+        playa.lon
+      );
+    }
+
     return {
       nombre: playa.nombre,
       lat: playa.lat,
       lon: playa.lon,
-      distancia: null,
+      distancia,
       temperaturaMaxima,
       temperaturaMediaPlaya,
       viento,
@@ -451,7 +466,7 @@ async function cargarRanking() {
   try {
     if (datosPlayasCache === null) {
       if (tabla) tabla.innerHTML = `<tr><td colspan="13" style="text-align:center;">Cargando datos meteorológicos...</td></tr>`;
-      
+
       const resultados = await Promise.all(
         playas.map(playa => obtenerDatosPlaya(playa))
       );
@@ -503,7 +518,7 @@ async function cargarRanking() {
           </td>
           <td>${playa.cielo}</td>
           <td class="detalle ${detallesVisibles ? '' : 'oculto'}">
-            ${playa.temperaturaMaxima}°C
+            ${playa.temperaturaMaxima.toFixed(1)}°C
           </td>
           <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
           <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h (${playa.direccionViento})</td>
