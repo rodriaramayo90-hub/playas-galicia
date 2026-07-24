@@ -125,86 +125,71 @@ async function buscarCodigoPostal(codigo) {
   }
 }
 
+// --- FUNCIONES DE PUNTUACIÓN RECALIBRADAS ---
+
 function puntosTemperatura(temp) {
-  if (temp < 16) return -20;
-  if (temp < 18) return -12;
-  if (temp < 20) return -4;
-  if (temp < 22) return 4;
-  if (temp < 24) return 12;
-  return 20;
+  if (temp < 16) return -15;
+  if (temp < 18) return -5;
+  if (temp < 20) return 5;
+  if (temp < 22) return 15;
+  if (temp < 25) return 25;
+  return 30;
 }
 
 function puntosViento(viento) {
-  if (viento <= 10) return 8;
-  if (viento <= 20) return 4;
-  if (viento <= 30) return -4;
-  return -8;
+  if (viento <= 10) return 15;
+  if (viento <= 20) return 8;
+  if (viento <= 30) return -5;
+  return -20;
 }
 
 function puntosLluvia(lluvia) {
-  if (lluvia <= 5) return 25;
-  if (lluvia <= 15) return 20;
-  if (lluvia <= 30) return 10;
-  return -25;
+  // Lluvia es probabilidad en %
+  if (lluvia <= 10) return 20;
+  if (lluvia <= 30) return 5;
+  if (lluvia <= 50) return -10;
+  return -30;
 }
 
 function puntosAgua(agua) {
   if (agua === null || agua === undefined) return 0;
-  if (agua < 16) return -7;
-  if (agua < 18) return -3;
-  return 7;
+  if (agua < 15) return -10;
+  if (agua < 17) return -2;
+  if (agua < 19) return 5;
+  return 10;
 }
 
 function puntosNubosidad(nubosidad) {
-  if (nubosidad <= 25) return 15;
-  if (nubosidad <= 60) return -15;
-  return -50;
+  if (nubosidad <= 20) return 20;  // Muy despejado
+  if (nubosidad <= 50) return 10;  // Poca nube
+  if (nubosidad <= 75) return -5;  // Nubes y claros
+  return -20;                      // Muy cubierto
 }
 
 function puntosOleaje(oleaje) {
   if (oleaje === null || oleaje === undefined) return 0;
-  if (oleaje < 1) return 2;
-  if (oleaje < 2) return -2;
-  return -3;
+  if (oleaje < 0.8) return 5;
+  if (oleaje < 1.5) return 0;
+  return -10;
 }
 
-function obtenerEstadoOleaje(oleaje) {
-  if (oleaje === null || oleaje === undefined) return "-";
-  if (oleaje < 0.5) return "🌊 Mar calmo";
-  if (oleaje < 1) return "🌊 Algunas olas";
-  if (oleaje < 2) return "🌊 Muchas olas";
-  return "🌊 Temporal";
+function obtenerCielo(nubosidad) {
+  if (nubosidad <= 15) return "☀️ Despejado";
+  if (nubosidad <= 40) return "🌤️ Mayormente despejado";
+  if (nubosidad <= 75) return "⛅ Nubes y claros";
+  return "☁️ Nublado";
 }
 
-function obtenerNombreFaseLunar(fase) {
-  if (fase < 0.03 || fase > 0.97) return "🌑 Luna nueva";
-  if (fase < 0.25) return "🌒 Creciente";
-  if (fase < 0.53) return "🌕 Luna llena";
-  return "🌘 Menguante";
-}
-
-function obtenerEstadoAgua(agua) {
-  if (agua === null || agua === undefined) return null;
-  if (agua < 16) return "agua fría";
-  if (agua <= 21) return "agua fresquita metible";
-  return "agua agradable";
-}
-
-function gradosADireccion(grados) {
-  const direcciones = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-  return direcciones[Math.round(grados / 45) % 8];
-}
-
-function puntosOrientacion(orientacion, direccionViento, viento) {
-  const opuestas = { N: "S", NE: "SW", E: "W", SE: "NW", S: "N", SW: "NE", W: "E", NW: "SE" };
-  if (viento <= 20) return 0;
-  if (orientacion === direccionViento) return -5;
-  if (opuestas[orientacion] === direccionViento) return 5;
-  return 0;
+function obtenerEstado(puntos, nubosidad) {
+  if (puntos >= 80) return "🟢 Excelente";
+  if (puntos >= 60) return "🟢 Buen día de playa";
+  if (puntos >= 40) return "🟡 Aceptable";
+  return "🔴 Mejor evitar";
 }
 
 function calcularPuntuacion(temperatura, viento, lluvia, nubosidad, agua, oleaje, orientacion, direccionViento) {
-  let puntuacion = 40;
+  let puntuacion = 30; // Base neutral
+
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
   puntuacion += puntosTemperatura(temperatura);
@@ -222,14 +207,6 @@ function calcularPuntuacionArdora(nubosidad, lluvia, faseLunar) {
   puntos -= lluvia * 0.5;
   puntos -= faseLunar * 40;
   return Math.max(0, Math.min(100, Math.round(puntos)));
-}
-
-function obtenerEstado(puntos, nubosidad) {
-  if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
-  if (puntos >= 85) return "🟢 Excelente";
-  if (puntos >= 70) return "🟢 Buen día de playa";
-  if (puntos >= 50) return "🟡 Aceptable";
-  return "🔴 Mejor evitar";
 }
 
 function obtenerEstadoArdora(puntos) {
