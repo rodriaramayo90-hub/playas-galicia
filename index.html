@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mejores playas de Galicia</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,83 +17,69 @@
 
 <div class="filtros">
 
-    <button onclick="obtenerUbicacionGPS()">
-    📍 Usar mi ubicación
-    </button>
+<button onclick="obtenerUbicacionGPS()">
+📍 Usar mi ubicación
+</button>
 
-    <input 
-        type="number" 
-        id="codigoPostal"
-        placeholder="Código postal">
+<input 
+type="number" 
+id="codigoPostal"
+placeholder="Código postal">
 
-    <button onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
-    Buscar
-    </button>
+<button onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
+Buscar
+</button>
 
-    <label>
-    Distancia máxima (km):
-    <input 
-        type="number" 
-        min="0"
-        step="1"
-        placeholder="Ej: 50"
-        oninput="cambiarDistancia(this.value)">
-    </label>
 
-    <button onclick="toggleDetalles()">
-    Ver detalles
-    </button>
+<label>
+Distancia máxima (km):
+<input 
+type="number" 
+min="0"
+step="1"
+placeholder="Ej: 50"
+oninput="cambiarDistancia(this.value)">
+</label>
+
+<button onclick="toggleDetalles()">
+Ver detalles
+</button>
     
 </div>
     
 <div class="contenedor">
 
-    <!-- El selector de modo queda fuera del scroll de la tabla -->
-    <div class="selector-modo">
-        <button
-            id="btnDia"
-            class="modo activo"
-            onclick="cambiarModo('dia')">
-            🏖️ Día de playa
-        </button>
+<div class="tabla-scroll">
 
-        <button
-            id="btnArdora"
-            class="modo"
-            onclick="cambiarModo('ardora')">
-            ✨ Mar de ardora
-        </button>
-    </div>
+<table>
+<thead>
+    <tr>
+        <th>#</th>
+        <th>Playa</th>
+        <th>Distancia</th>
+        <th>Cielo</th>
+        <th class="detalle">T. Máx</th>
+        <th>T. Playa</th>
+        <th class="detalle">Viento</th>
+        <th class="detalle">Lluvia</th>
+        <th class="detalle">Agua</th>
+        <th class="detalle">Oleaje</th>
+        <th class="col-estado">Estado</th>
+        <th class="detalle">Puntaje</th>
+        <th class="col-explicacion">Explicación</th>
+    </tr>
+</thead>
 
-    <div class="tabla-scroll">
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Playa</th>
-                    <th>Distancia</th>
-                    <th>Cielo</th>
-                    <!-- Cabeceras condicionales marcadas con 'detalle' y 'oculto' -->
-                    <th class="detalle oculto">T. Máx</th>
-                    <th>T. Playa</th>
-                    <th class="detalle oculto">Viento</th>
-                    <th class="detalle oculto">Lluvia</th>
-                    <th class="detalle oculto">Agua</th>
-                    <th class="detalle oculto">Oleaje</th>
-                    <th class="col-estado">Estado</th>
-                    <th class="detalle oculto">Puntaje</th>
-                    <th class="col-explicacion">Explicación</th>
-                </tr>
-            </thead>
+<tbody id="ranking">
 
-            <tbody id="ranking">
-                <!-- Se rellena dinámicamente desde app.js -->
-            </tbody>
-        </table>
-    </div>
+</tbody>
+
+</table>
+
+</div>
 </div>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
 </html>
