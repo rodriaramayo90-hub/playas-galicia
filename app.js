@@ -488,7 +488,20 @@ function calcularPuntuacion(
   direccionViento,
   viento
 );
-
+  console.log({
+  base: 40,
+  puntosNubosidad: puntosNubosidad(nubosidad),
+  puntosLluvia: puntosLluvia(lluvia),
+  puntosTemperatura: puntosTemperatura(temperaturaMediaPlaya),
+  puntosViento: puntosViento(viento),
+  puntosOrientacion: puntosOrientacion(
+    orientacion,
+    direccionViento,
+    viento
+  ),
+  puntosAgua: puntosAgua(agua),
+  puntosOleaje: puntosOleaje(oleaje)
+});
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOleaje(oleaje);
 
