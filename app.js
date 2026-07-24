@@ -748,6 +748,18 @@ const puntuacion = calcularPuntuacion(
   direccionViento
 );
 
+console.log(playa.nombre);
+
+console.log({
+  temperatura: temperaturaMediaPlaya,
+  viento,
+  lluvia,
+  nubosidad,
+  agua,
+  oleaje,
+  puntuacion
+});  
+  
   const estado = obtenerEstado(
   puntuacion,
   nubosidad
