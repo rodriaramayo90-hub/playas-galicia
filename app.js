@@ -723,7 +723,7 @@ function generarExplicacionArdora(
 }
 
 async function obtenerDatosPlaya(playa) {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant,moon_phase&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant,moon_phase&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=auto`;
   const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
 
   try {
@@ -746,63 +746,33 @@ async function obtenerDatosPlaya(playa) {
     const velocidadesViento = datos.hourly?.wind_speed_10m || [];
     const nubosidades = datos.hourly?.cloud_cover || [];
 
-    const temperaturasPlaya = horas
+    // Mapeamos y filtramos las horas de playa (de 11:00 a 20:00) usando Date.getHours()
+    const registrosPlaya = horas
       .map((hora, indice) => ({
-        hora,
-        temperatura: temperaturas[indice]
+        horaLocal: new Date(hora).getHours(),
+        temperatura: temperaturas[indice] ?? 0,
+        lluvia: probabilidadesLluvia[indice] ?? 0,
+        viento: velocidadesViento[indice] ?? 0,
+        nubosidad: nubosidades[indice] ?? 0
       }))
-      .filter(registro => {
-        const horaLocal = parseInt(registro.hora.split("T")[1].split(":")[0]);
-        return horaLocal >= 11 && horaLocal <= 20;
-      });
+      .filter(reg => reg.horaLocal >= 11 && reg.horaLocal <= 20);
 
-    const temperaturaMediaPlaya = temperaturasPlaya.length > 0
-      ? temperaturasPlaya.reduce((suma, registro) => suma + registro.temperatura, 0) / temperaturasPlaya.length
-      : 0;
+    // Si por algún motivo la API devuelve menos horas, usamos todo el día como respaldo
+    const datosValidos = registrosPlaya.length > 0 ? registrosPlaya : horas.map((_, i) => ({
+      temperatura: temperaturas[i] ?? 0,
+      lluvia: probabilidadesLluvia[i] ?? 0,
+      viento: velocidadesViento[i] ?? 0,
+      nubosidad: nubosidades[i] ?? 0
+    }));
 
-    const lluviaPlaya = horas
-      .map((hora, indice) => ({
-        hora,
-        lluvia: probabilidadesLluvia[indice]
-      }))
-      .filter(registro => {
-        const horaLocal = parseInt(registro.hora.split("T")[1].split(":")[0]);
-        return horaLocal >= 11 && horaLocal <= 20;
-      });
+    const totalRegistros = datosValidos.length;
 
-    const lluviaMediaPlaya = lluviaPlaya.length > 0
-      ? lluviaPlaya.reduce((suma, registro) => suma + registro.lluvia, 0) / lluviaPlaya.length
-      : 0;
+    const temperaturaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.temperatura, 0) / totalRegistros;
+    const lluviaMediaPlaya = datosValidos.reduce((sum, r) => sum + r.lluvia, 0) / totalRegistros;
+    const vientoMedioPlaya = datosValidos.reduce((sum, r) => sum + r.viento, 0) / totalRegistros;
+    const nubosidadMediaPlaya = datosValidos.reduce((sum, r) => sum + r.nubosidad, 0) / totalRegistros;
 
-    const vientoPlaya = horas
-      .map((hora, indice) => ({
-        hora,
-        viento: velocidadesViento[indice]
-      }))
-      .filter(registro => {
-        const horaLocal = parseInt(registro.hora.split("T")[1].split(":")[0]);
-        return horaLocal >= 11 && horaLocal <= 20;
-      });
-
-    const vientoMedioPlaya = vientoPlaya.length > 0
-      ? vientoPlaya.reduce((suma, registro) => suma + registro.viento, 0) / vientoPlaya.length
-      : 0;
-
-    const nubosidadPlaya = horas
-      .map((hora, indice) => ({
-        hora,
-        nubosidad: nubosidades[indice]
-      }))
-      .filter(registro => {
-        const horaLocal = parseInt(registro.hora.split("T")[1].split(":")[0]);
-        return horaLocal >= 11 && horaLocal <= 20;
-      });
-
-    const nubosidadMediaPlaya = nubosidadPlaya.length > 0
-      ? nubosidadPlaya.reduce((suma, registro) => suma + registro.nubosidad, 0) / nubosidadPlaya.length
-      : 0;
-
-    const temperaturaMaxima = datos.daily?.temperature_2m_max?.[0] ?? 0;
+    const temperaturaMaxima = datos.daily?.temperature_2m_max?.[0] ?? temperaturaMediaPlaya;
     const faseLunar = datos.daily?.moon_phase?.[0] ?? 0;
     const lluvia = Math.round(lluviaMediaPlaya);
     const nubosidad = Math.round(nubosidadMediaPlaya);
