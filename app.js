@@ -32,6 +32,55 @@ const playas = [
     orientacion: "N"
   },
   {
+  nombre: "Playa de Langosteira",
+  municipio: "Fisterra",
+  lat: 42.893,
+  lon: -9.290,
+  orientacion: "W"
+},
+{
+  nombre: "Playa de Mar de Fóra",
+  municipio: "Fisterra",
+  lat: 42.905,
+  lon: -9.285,
+  orientacion: "W"
+},
+{
+  nombre: "Playa de O Rostro",
+  municipio: "Fisterra",
+  lat: 42.928,
+  lon: -9.287,
+  orientacion: "NW"
+},
+{
+  nombre: "Playa de Talón",
+  municipio: "Fisterra",
+  lat: 42.9285,
+  lon: -9.2417,
+  orientacion: "W"
+},
+{
+  nombre: "Playa de Arnela",
+  municipio: "Fisterra",
+  lat: 42.9425,
+  lon: -9.2837,
+  orientacion: "W"
+},
+{
+  nombre: "Playa de Sardiñeiro",
+  municipio: "Fisterra",
+  lat: 42.908,
+  lon: -9.222,
+  orientacion: "NW"
+},
+{
+  nombre: "Playa A Ribeira / O Corbeiro",
+  municipio: "Fisterra",
+  lat: 42.906,
+  lon: -9.263,
+  orientacion: "E"
+},
+  {
     nombre: "Playa de Miño",
     municipio: "Miño",
     lat: 43.348,
