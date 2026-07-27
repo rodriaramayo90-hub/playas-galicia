@@ -32,7 +32,8 @@ function ordenarResultados(resultados){
 
     let valorA = a[columnaOrden];
     let valorB = b[columnaOrden];
-
+    if(valorA === null) valorA = Infinity;
+    if(valorB === null) valorB = Infinity;
     // Para textos
     if(typeof valorA === "string"){
       return direccionOrden === "asc"
