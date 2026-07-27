@@ -564,17 +564,46 @@ function calcularPuntuacion(
   );
 }
 
-function obtenerEstado(puntos, nubosidad) {
+function obtenerEstado(
+  puntos,
+  nubosidad,
+  orientacion,
+  direccionViento,
+  viento
+) {
 
+  const vientoEnContra =
+    viento > 20 &&
+    orientacion === direccionViento;
+
+  // Muy mala puntuación
   if (puntos < 20)
     return "🔴 Mejor evitar";
 
+  // Mucha nubosidad + viento en contra
+  if (vientoEnContra && nubosidad > 80)
+    return "🟡 Aceptable (muy nublado y viento en contra)";
+
+  if (vientoEnContra && nubosidad > 60)
+    return "🟡 Aceptable (nublado y viento en contra)";
+
+  // Solo nubosidad
   if (nubosidad > 80)
     return "🟡 Aceptable (muy nublado)";
 
   if (nubosidad > 60)
     return "🟡 Aceptable (nublado)";
 
+  // Viento en contra pero cielo aceptable
+  if (vientoEnContra) {
+
+    if (puntos >= 70)
+      return "🟡 Aceptable (viento en contra)";
+
+    return "🟡 Aceptable";
+  }
+
+  // Sin viento en contra
   if (puntos >= 85)
     return "🟢 Excelente";
 
@@ -818,7 +847,10 @@ console.log({
   
   const estado = obtenerEstado(
   puntuacion,
-  nubosidad
+  nubosidad,
+  playa.orientacion,
+  direccionViento,
+  viento
 );
 
  const explicacion = generarExplicacion(
