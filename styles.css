@@ -139,6 +139,15 @@ tbody td:last-child {
     overflow-wrap: anywhere;
 }
 
+th[onclick]{
+    cursor:pointer;
+    user-select:none;
+}
+
+th[onclick]:hover{
+    background:#e8f4ff;
+}
+
 /* Anchos específicos de columnas */
 
 th:nth-child(1),
