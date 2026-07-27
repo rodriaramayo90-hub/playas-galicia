@@ -37,8 +37,8 @@ h1 {
 
 /* Tabla general */
 table {
-    width: 100%;
-    min-width: 95%;
+    width: max-content;
+    min-width: 100%;
     margin: auto;
     border-collapse: separate;
     border-spacing: 0 12px;
@@ -135,8 +135,10 @@ tbody td:last-child {
 
 .col-explicacion {
     width: 350px;
+    max-width: 350px;
     white-space: normal;
-    overflow-wrap: anywhere;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 th[onclick]{
@@ -210,9 +212,12 @@ td:nth-child(11) {
 th:nth-child(12),
 td:nth-child(12) {
     width: 350px;
+    max-width: 350px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
-}
 thead th {
     position: sticky;
     top: 0;
