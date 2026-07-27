@@ -1,3 +1,5 @@
+let columnaOrden = "puntuacion";
+let direccionOrden = "desc";
 let ubicacionUsuario = null;
 let distanciaMaxima = null;
 
@@ -21,6 +23,50 @@ function toggleDetalles(){
   detallesVisibles = !detallesVisibles;
 
   actualizarVisibilidadDetalles();
+
+}
+
+function ordenarResultados(resultados){
+
+  resultados.sort((a,b)=>{
+
+    let valorA = a[columnaOrden];
+    let valorB = b[columnaOrden];
+
+    // Para textos
+    if(typeof valorA === "string"){
+      return direccionOrden === "asc"
+      ? valorA.localeCompare(valorB)
+      : valorB.localeCompare(valorA);
+    }
+
+    // Para números
+    return direccionOrden === "asc"
+    ? valorA - valorB
+    : valorB - valorA;
+
+  });
+
+}
+
+function cambiarOrden(columna){
+
+  if(columnaOrden === columna){
+
+    direccionOrden =
+      direccionOrden === "asc"
+      ? "desc"
+      : "asc";
+
+  }
+  else{
+
+    columnaOrden = columna;
+    direccionOrden = "desc";
+
+  }
+
+  cargarRanking();
 
 }
 const playas = [
@@ -954,9 +1000,7 @@ async function cargarRanking() {
 
 }
   
-  resultados.sort(
-    (a, b) => b.puntuacion - a.puntuacion
-  );
+  ordenarResultados(resultados);
 
   const tabla = document.getElementById("ranking");
   tabla.innerHTML = "";
