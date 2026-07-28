@@ -1070,7 +1070,7 @@ playa.distancia.toFixed(1)+" km"
 <p>
 ${playa.explicacion}
 </p>
-<button class="btn-detalles">
+<button class="btn-detalles" onclick="toggleDetalleMobile(this)">
 Ver detalles ▼
 </button>
 
@@ -1101,3 +1101,22 @@ actualizarVisibilidadDetalles();
 }
 
 cargarRanking();
+
+function toggleDetalleMobile(boton){
+
+  const detalles = boton.nextElementSibling;
+
+  detalles.classList.toggle("oculto");
+
+  if(detalles.classList.contains("oculto")){
+
+    boton.innerHTML = "Ver detalles ▼";
+
+  }
+  else{
+
+    boton.innerHTML = "Ocultar detalles ▲";
+
+  }
+
+}
