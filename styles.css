@@ -121,6 +121,7 @@ tbody td:last-child {
     overflow-x: auto;
     overflow-y: auto;
     max-height: 70vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 .oculto {
@@ -130,7 +131,7 @@ tbody td:last-child {
 .col-estado {
     width: 180px;
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
 }
 
 .col-explicacion {
@@ -253,14 +254,30 @@ thead th {
 
 
     table {
-        width: 100%;
-        font-size: 0.85rem;
-    }
+    width: max-content;
+    min-width: 100%;
+    font-size: 0.85rem;
+}
 
 
     td {
         padding: 12px 8px;
     }
+th:nth-child(13),
+td:nth-child(13) {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+}
 
+th:nth-child(2),
+td:nth-child(2) {
+    width: 140px;
+}
+
+th:nth-child(11),
+td:nth-child(11) {
+    width: 140px;
+}
     
 }
