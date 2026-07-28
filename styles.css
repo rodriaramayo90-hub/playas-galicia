@@ -236,6 +236,10 @@ thead th {
     color: white;
 }
 
+#ranking-mobile{
+    display:none;
+}
+
 /* Ajustes para móviles */
 @media (max-width: 600px) {
 
@@ -286,9 +290,7 @@ th:nth-child(11),
 td:nth-child(11) {
     width: 140px;
 }
-#ranking-mobile{
-    display:none;
-}    
+ 
 }
 .tarjeta-playa{
 
