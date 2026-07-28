@@ -204,14 +204,23 @@ td:nth-child(10) {
     width: 180px;
 }
 
+/* Estado */
 th:nth-child(11),
 td:nth-child(11) {
+    width: 180px;
+}
+
+/* Puntaje */
+th:nth-child(12),
+td:nth-child(12) {
     width: 80px;
 }
 
-th:nth-child(12),
-td:nth-child(12) {
+/* Explicación */
+th:nth-child(13),
+td:nth-child(13) {
     width: 350px;
+    min-width: 350px;
     max-width: 350px;
     white-space: normal;
     word-break: normal;
