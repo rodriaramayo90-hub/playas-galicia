@@ -151,8 +151,8 @@ const playas = [
   {
     nombre: "Playa de Mera",
     municipio: "Oleiros",
-    lat: 43.367,
-    lon: -8.380,
+    lat: 43.380657,
+    lon: -8.33860,
     orientacion: "NE"
   },
   {
