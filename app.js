@@ -1005,6 +1005,10 @@ async function cargarRanking() {
 
   const tabla = document.getElementById("ranking");
   tabla.innerHTML = "";
+  const rankingMobile =
+  document.getElementById("ranking-mobile");
+
+rankingMobile.innerHTML="";
   
   resultados.forEach((playa, index) => {
 
@@ -1034,6 +1038,55 @@ tabla.innerHTML += `
    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.puntuacion}</td>
     <td class="col-explicacion">${playa.explicacion}</td>
    </tr>
+`;
+    rankingMobile.innerHTML += `
+
+<div class="tarjeta-playa">
+
+<h2>
+🏖️ ${playa.nombre}
+</h2>
+
+<div class="estado">
+${playa.estado}
+</div>
+
+<p>📍 ${
+playa.distancia!==null
+?
+playa.distancia.toFixed(1)+" km"
+:
+"-"
+}</p>
+
+<p>${playa.cielo}</p>
+
+<p>🌡️ Temperatura: ${playa.temperaturaMediaPlaya.toFixed(1)}°C</p>
+
+<p>🌊 Agua: ${
+playa.agua
+?
+playa.agua.toFixed(1)+"°C"
+:
+"-"
+}</p>
+
+<p>💨 ${playa.viento} km/h (${playa.direccionViento})</p>
+
+<p>🌧️ ${playa.lluvia}%</p>
+
+<p>${playa.estadoOleaje}</p>
+
+<div class="puntuacion">
+⭐ ${playa.puntuacion}/100
+</div>
+
+<p>
+${playa.explicacion}
+</p>
+
+</div>
+
 `;
   });
 actualizarVisibilidadDetalles();
