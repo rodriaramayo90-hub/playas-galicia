@@ -259,6 +259,13 @@ thead th {
     font-size: 0.85rem;
 }
 
+    table{
+    display:none;
+}
+
+#ranking-mobile{
+    display:block;
+}
 
     td {
         padding: 12px 8px;
@@ -282,4 +289,55 @@ td:nth-child(11) {
 #ranking-mobile{
     display:none;
 }    
+}
+.tarjeta-playa{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+
+}
+
+.tarjeta-playa h2{
+
+    margin:0 0 12px;
+
+    color:#0b7285;
+
+    font-size:1.2rem;
+
+}
+
+.tarjeta-playa .estado{
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+.tarjeta-playa p{
+
+    margin:6px 0;
+
+    line-height:1.4;
+
+}
+
+.tarjeta-playa .puntuacion{
+
+    margin-top:12px;
+
+    font-size:1.15rem;
+
+    font-weight:bold;
+
+    color:#0b7285;
+
 }
