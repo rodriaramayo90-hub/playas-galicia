@@ -1075,7 +1075,10 @@ Ver detalles ▼
 </button>
 
 <div class="detalles-mobile oculto">
-<p>🌊 Agua:
+<p>🌡️ Temperatura máxima:
+${playa.temperaturaMaxima}°C
+</p>
+<p>🌡️💧 Agua:
 ${
 playa.agua
 ?
