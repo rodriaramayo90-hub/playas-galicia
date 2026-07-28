@@ -1063,13 +1063,27 @@ playa.distancia.toFixed(1)+" km"
 
 <p>🌡️ Temperatura: ${playa.temperaturaMediaPlaya.toFixed(1)}°C</p>
 
-<p>🌊 Agua: ${
+
+<div class="puntuacion">
+⭐ ${playa.puntuacion}/100
+</div>
+<p>
+${playa.explicacion}
+</p>
+<button class="btn-detalles">
+Ver detalles ▼
+</button>
+
+<div class="detalles-mobile oculto">
+<p>🌊 Agua:
+${
 playa.agua
 ?
 playa.agua.toFixed(1)+"°C"
 :
 "-"
-}</p>
+}
+</p>
 
 <p>💨 ${playa.viento} km/h (${playa.direccionViento})</p>
 
@@ -1077,13 +1091,7 @@ playa.agua.toFixed(1)+"°C"
 
 <p>${playa.estadoOleaje}</p>
 
-<div class="puntuacion">
-⭐ ${playa.puntuacion}/100
 </div>
-
-<p>
-${playa.explicacion}
-</p>
 
 </div>
 
