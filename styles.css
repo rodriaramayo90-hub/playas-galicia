@@ -127,7 +127,11 @@ tbody td:last-child {
 .oculto {
     display: none;
 }
-
+.detalles-mobile{
+    margin-top:15px;
+    padding-top:10px;
+    border-top:1px solid #ddd;
+}
 .col-estado {
     width: 180px;
     white-space: normal;
