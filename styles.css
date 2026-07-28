@@ -239,7 +239,9 @@ thead th {
 #ranking-mobile{
     display:none;
 }
-
+.btn-tabla{
+    display:inline-block;
+}
 /* Ajustes para móviles */
 @media (max-width: 600px) {
 
@@ -290,7 +292,9 @@ th:nth-child(11),
 td:nth-child(11) {
     width: 140px;
 }
- 
+.btn-tabla{
+    display:none;
+}
 }
 .tarjeta-playa{
 
