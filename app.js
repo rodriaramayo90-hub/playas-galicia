@@ -1,3 +1,4 @@
+let modoVista = "";
 let columnaOrden = "puntuacion";
 let direccionOrden = "desc";
 let ubicacionUsuario = null;
@@ -610,7 +611,60 @@ function calcularPuntuacion(
     )
   );
 }
+function inicializarVista(){
 
+    if(window.innerWidth <= 600){
+
+        modoVista = "tarjetas";
+
+    }else{
+
+        modoVista = "tabla";
+
+    }
+
+}
+function cambiarVista(){
+
+    modoVista =
+        modoVista === "tabla"
+        ? "tarjetas"
+        : "tabla";
+
+    actualizarVista();
+
+}
+function actualizarVista(){
+
+    const tabla = document.querySelector(".tabla-scroll");
+
+    const tarjetas =
+        document.getElementById("ranking-mobile");
+
+    const boton =
+        document.getElementById("btnVista");
+
+    if(modoVista==="tabla"){
+
+        tabla.style.display="block";
+
+        tarjetas.style.display="none";
+
+        boton.innerHTML="📋 Tarjetas";
+
+    }
+
+    else{
+
+        tabla.style.display="none";
+
+        tarjetas.style.display="block";
+
+        boton.innerHTML="📊 Tabla";
+
+    }
+
+}
 function obtenerEstado(
   puntos,
   nubosidad,
@@ -1123,4 +1177,10 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 }
 
-cargarRanking();
+inicializarVista();
+
+cargarRanking().then(() => {
+
+    actualizarVista();
+
+});
