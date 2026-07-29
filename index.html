@@ -17,34 +17,77 @@
 
 <div class="filtros">
 
-<button onclick="obtenerUbicacionGPS()">
-📍 Usar mi ubicación
+<div class="filtros">
+
+<button class="btn-ubicacion" onclick="obtenerUbicacionGPS()">
+📍 Mi ubicación
 </button>
 
-<input 
-type="number" 
-id="codigoPostal"
-placeholder="Código postal">
+<div class="grupo-filtro">
 
-<button onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
+<label>Código postal</label>
+
+<div class="input-con-boton">
+
+<input
+id="codigoPostal"
+type="number"
+placeholder="15002">
+
+<button
+class="btn-buscar"
+onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
 Buscar
 </button>
 
+</div>
 
-<label>
-Distancia máxima (km):
-<input 
-type="number" 
-min="0"
-step="1"
-placeholder="Ej: 50"
-oninput="cambiarDistancia(this.value)">
-</label>
+</div>
 
-<button class="btn-tabla" onclick="toggleDetalles()">
-Ver detalles
+<div class="grupo-filtro">
+
+<label>Distancia máxima</label>
+
+<div class="input-con-boton">
+
+<input
+id="distanciaMaxima"
+list="distancias"
+placeholder="Sin límite"
+onchange="cambiarDistancia(this.value)">
+
+<datalist id="distancias">
+
+<option value="25">
+<option value="50">
+<option value="75">
+<option value="100">
+<option value="150">
+<option value="200">
+<option value="300">
+
+</datalist>
+
+<button class="btn-buscar" onclick="cargarRanking()">
+Buscar
 </button>
-    
+
+</div>
+
+</div>
+
+<div class="grupo-filtro">
+
+<label>Vista</label>
+
+<button
+id="btnVista"
+class="btn-vista"
+onclick="cambiarVista()">
+</button>
+
+</div>
+
 </div>
     
 <div class="contenedor">
