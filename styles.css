@@ -262,17 +262,12 @@ thead th {
 
 }
 .filtros{
-
     display:flex;
-
-    flex-wrap:wrap;
-
-    gap:20px;
-
     align-items:flex-end;
-
+    justify-content:center;
+    gap:20px;
     margin-bottom:25px;
-
+    flex-wrap:nowrap;
 }
 .grupo-filtro{
 
@@ -352,6 +347,11 @@ thead th {
         background-position: center top;
         background-attachment: scroll;
     }
+
+    .filtros{
+    flex-direction:column;
+    align-items:stretch;
+}
 
 
     h1 {
