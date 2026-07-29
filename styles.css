@@ -47,6 +47,16 @@ table {
 
 
 /* Cabecera fija de la tabla */
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
 thead th {
     background: #0b7285;
@@ -262,12 +272,17 @@ thead th {
 
 }
 .filtros{
+
     display:flex;
-    align-items:flex-end;
-    justify-content:center;
+
+    flex-wrap:wrap;
+
     gap:20px;
+
+    align-items:flex-end;
+
     margin-bottom:25px;
-    flex-wrap:nowrap;
+
 }
 .grupo-filtro{
 
@@ -347,11 +362,6 @@ thead th {
         background-position: center top;
         background-attachment: scroll;
     }
-
-    .filtros{
-    flex-direction:column;
-    align-items:stretch;
-}
 
 
     h1 {
