@@ -27,18 +27,6 @@ function toggleDetalles(){
 
 }
 
-async function buscar(){
-
-    cambiarDistancia(
-        document.getElementById("distanciaMaxima").value
-    );
-
-    await buscarCodigoPostal(
-        document.getElementById("codigoPostal").value
-    );
-
-}
-
 function ordenarResultados(resultados){
 
   resultados.sort((a,b)=>{
@@ -649,27 +637,30 @@ function cambiarVista(){
 function actualizarVista(){
 
     const tabla = document.querySelector(".tabla-scroll");
-    const tarjetas = document.getElementById("ranking-mobile");
-    const boton = document.getElementById("btnVista");
 
-    // En móviles siempre comenzar mostrando tarjetas
-      if(window.innerWidth<=600){
+    const tarjetas =
+        document.getElementById("ranking-mobile");
 
-        modoVista="tarjetas";
+    const boton =
+        document.getElementById("btnVista");
+
+    if(modoVista==="tabla"){
+
+        tabla.style.display="block";
+
+        tarjetas.style.display="none";
+
+        boton.innerHTML="📋 Tarjetas";
 
     }
 
-    if(modoVista === "tabla"){
+    else{
 
-        tabla.style.display = "block";
-        tarjetas.style.display = "none";
-        boton.innerHTML = "📋 Tarjetas";
+        tabla.style.display="none";
 
-    }else{
+        tarjetas.style.display="block";
 
-        tabla.style.display = "none";
-        tarjetas.style.display = "block";
-        boton.innerHTML = "📊 Tabla";
+        boton.innerHTML="📊 Tabla";
 
     }
 
@@ -1164,8 +1155,7 @@ playa.agua.toFixed(1)+"°C"
 `;
   });
 actualizarVisibilidadDetalles();
-actualizarVista();
-  
+
 document.querySelectorAll(".btn-detalles").forEach(boton => {
 
   boton.addEventListener("click", () => {
@@ -1187,10 +1177,10 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 }
 
-window.addEventListener("load", () => {
+inicializarVista();
 
-    inicializarVista();
+cargarRanking().then(() => {
 
-    cargarRanking();
+    actualizarVista();
 
 });
