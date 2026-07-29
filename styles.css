@@ -47,16 +47,6 @@ table {
 
 
 /* Cabecera fija de la tabla */
-thead {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-thead {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
 
 thead th {
     background: #0b7285;
