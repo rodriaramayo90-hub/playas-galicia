@@ -1155,7 +1155,8 @@ playa.agua.toFixed(1)+"°C"
 `;
   });
 actualizarVisibilidadDetalles();
-
+actualizarVista();
+  
 document.querySelectorAll(".btn-detalles").forEach(boton => {
 
   boton.addEventListener("click", () => {
