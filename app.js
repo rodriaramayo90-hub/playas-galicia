@@ -637,30 +637,25 @@ function cambiarVista(){
 function actualizarVista(){
 
     const tabla = document.querySelector(".tabla-scroll");
+    const tarjetas = document.getElementById("ranking-mobile");
+    const boton = document.getElementById("btnVista");
 
-    const tarjetas =
-        document.getElementById("ranking-mobile");
-
-    const boton =
-        document.getElementById("btnVista");
-
-    if(modoVista==="tabla"){
-
-        tabla.style.display="block";
-
-        tarjetas.style.display="none";
-
-        boton.innerHTML="📋 Tarjetas";
-
+    // En móviles siempre comenzar mostrando tarjetas
+    if(window.innerWidth <= 600 && modoVista === ""){
+        modoVista = "tarjetas";
     }
 
-    else{
+    if(modoVista === "tabla"){
 
-        tabla.style.display="none";
+        tabla.style.display = "block";
+        tarjetas.style.display = "none";
+        boton.innerHTML = "📋 Tarjetas";
 
-        tarjetas.style.display="block";
+    }else{
 
-        boton.innerHTML="📊 Tabla";
+        tabla.style.display = "none";
+        tarjetas.style.display = "block";
+        boton.innerHTML = "📊 Tabla";
 
     }
 
@@ -1178,10 +1173,10 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 }
 
-inicializarVista();
+window.addEventListener("load", () => {
 
-cargarRanking().then(() => {
+    inicializarVista();
 
-    actualizarVista();
+    cargarRanking();
 
 });
