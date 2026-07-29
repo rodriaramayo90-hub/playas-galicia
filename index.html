@@ -17,6 +17,8 @@
 
 <div class="filtros">
 
+<div class="filtros">
+
 <button class="btn-ubicacion" onclick="obtenerUbicacionGPS()">
 📍 Mi ubicación
 </button>
@@ -34,9 +36,11 @@ placeholder="15002">
 
 <button
 class="btn-buscar"
-onclick="buscar()">
+onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
 Buscar
 </button>
+
+</div>
 
 </div>
 
@@ -63,6 +67,10 @@ onchange="cambiarDistancia(this.value)">
 <option value="300">
 
 </datalist>
+
+<button class="btn-buscar" onclick="cargarRanking()">
+Buscar
+</button>
 
 </div>
 
