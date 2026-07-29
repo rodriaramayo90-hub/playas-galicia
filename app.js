@@ -27,6 +27,18 @@ function toggleDetalles(){
 
 }
 
+async function buscar(){
+
+    cambiarDistancia(
+        document.getElementById("distanciaMaxima").value
+    );
+
+    await buscarCodigoPostal(
+        document.getElementById("codigoPostal").value
+    );
+
+}
+
 function ordenarResultados(resultados){
 
   resultados.sort((a,b)=>{
@@ -641,8 +653,10 @@ function actualizarVista(){
     const boton = document.getElementById("btnVista");
 
     // En móviles siempre comenzar mostrando tarjetas
-    if(window.innerWidth <= 600 && modoVista === ""){
-        modoVista = "tarjetas";
+      if(window.innerWidth<=600){
+
+        modoVista="tarjetas";
+
     }
 
     if(modoVista === "tabla"){
