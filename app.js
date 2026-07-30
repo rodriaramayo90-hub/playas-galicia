@@ -612,33 +612,108 @@ function puntosNubosidad(nubosidad){
 
   return -25;
 }
+function diferenciaAngular(anguloA, anguloB) {
+  const diferencia = Math.abs(anguloA - anguloB) % 360;
+  return diferencia > 180 ? 360 - diferencia : diferencia;
+}
+
+function factorExposicionOleaje(anguloPlaya, direccionOlas) {
+  if (!Number.isFinite(anguloPlaya) || !Number.isFinite(direccionOlas)) {
+    return 0.6;
+  }
+
+  const diferencia = diferenciaAngular(anguloPlaya, direccionOlas);
+  const componenteFrontal = Math.max(
+    0,
+    Math.cos(diferencia * Math.PI / 180)
+  );
+
+  // Incluso una playa protegida puede conservar algo de mar local o refractado.
+  return 0.08 + 0.92 * Math.pow(componenteFrontal, 1.5);
+}
+
+function calcularOleajeEfectivo(playa, datosMarine) {
+  const horas = datosMarine.hourly?.time ?? [];
+  const valores = [];
+
+  horas.forEach((hora, indice) => {
+    const horaLocal = Number(hora.split("T")[1]?.split(":")[0]);
+    if (horaLocal < 11 || horaLocal > 20) return;
+
+    const alturaTotal = datosMarine.hourly?.wave_height?.[indice];
+    const direccionTotal = datosMarine.hourly?.wave_direction?.[indice];
+    const alturaMarFondo = datosMarine.hourly?.swell_wave_height?.[indice];
+    const direccionMarFondo = datosMarine.hourly?.swell_wave_direction?.[indice];
+    const alturaMarViento = datosMarine.hourly?.wind_wave_height?.[indice];
+    const direccionMarViento = datosMarine.hourly?.wind_wave_direction?.[indice];
+
+    let alturaEnPlaya = null;
+
+    if (Number.isFinite(alturaMarFondo) || Number.isFinite(alturaMarViento)) {
+      const marFondoAjustado = Number.isFinite(alturaMarFondo)
+        ? alturaMarFondo * factorExposicionOleaje(
+            playa.anguloAproximado,
+            direccionMarFondo
+          )
+        : 0;
+      const marVientoAjustado = Number.isFinite(alturaMarViento)
+        ? alturaMarViento * factorExposicionOleaje(
+            playa.anguloAproximado,
+            direccionMarViento
+          )
+        : 0;
+
+      alturaEnPlaya = Math.hypot(marFondoAjustado, marVientoAjustado);
+    } else if (Number.isFinite(alturaTotal)) {
+      alturaEnPlaya = alturaTotal * factorExposicionOleaje(
+        playa.anguloAproximado,
+        direccionTotal
+      );
+    }
+
+    if (!Number.isFinite(alturaEnPlaya)) return;
+
+    const periodo = datosMarine.hourly?.wave_period?.[indice];
+    const factorPeriodo = Number.isFinite(periodo)
+      ? Math.min(1.35, Math.max(0.75, Math.sqrt(periodo / 8)))
+      : 1;
+
+    valores.push(alturaEnPlaya * factorPeriodo);
+  });
+
+  if (valores.length === 0) return null;
+
+  return valores.reduce((suma, valor) => suma + valor, 0) / valores.length;
+}
+
 function puntosOleaje(oleaje) {
+  if (!Number.isFinite(oleaje)) return 0;
 
-  if (!oleaje) return 0;
-
-  if (oleaje < 0.5) return 3;
-  if (oleaje < 1) return 2;
-  if (oleaje < 1.5) return 0;
-  if (oleaje < 2) return -2;
+  if (oleaje < 0.25) return 3;
+  if (oleaje < 0.5) return 2;
+  if (oleaje < 1) return 0;
+  if (oleaje < 1.5) return -2;
 
   return -3;
 }
 
 function obtenerEstadoOleaje(oleaje) {
-
-  if (!oleaje)
+  if (!Number.isFinite(oleaje))
     return "-";
 
+  if (oleaje < 0.25)
+    return "🌊 Mar prácticamente plano";
+
   if (oleaje < 0.5)
-    return "🌊 Mar calmo";
+    return "🌊 Oleaje suave";
 
   if (oleaje < 1)
-    return "🌊 Algunas olas";
+    return "🌊 Oleaje moderado";
 
-  if (oleaje < 2)
-    return "🌊 Muchas olas";
+  if (oleaje < 1.5)
+    return "🌊 Mar movido";
 
-  return "🌊 Temporal";
+  return "🌊 Oleaje fuerte";
 }
 
 function obtenerEstadoAgua(agua) {
@@ -945,7 +1020,7 @@ async function obtenerDatosPlayas() {
     `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
 
   const marineUrl =
-    `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height&forecast_days=1&timezone=Europe%2FMadrid`;
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=1&timezone=Europe%2FMadrid`;
 
   const [respuesta, respuestaMarine] = await Promise.all([
     fetch(url),
@@ -1088,8 +1163,7 @@ const nubosidadMediaPlaya =
 const agua =
   datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
 
-const oleaje =
-  datosMarine.hourly?.wave_height?.[12] ?? null;
+const oleaje = calcularOleajeEfectivo(playa, datosMarine);
   
 const estadoOleaje =
   obtenerEstadoOleaje(oleaje);
