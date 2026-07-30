@@ -241,7 +241,7 @@ thead th {
 }
 
 #ranking-mobile{
-    display:block;
+    display:none;
 }
 .btn-tabla{
     display:inline-block;
