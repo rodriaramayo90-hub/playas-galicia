@@ -7,6 +7,41 @@ let distanciaMaxima = null;
 let datosPlayasCache = null;
 let detallesVisibles = false;
 
+function mostrarEstado(mensaje, tipo = "info") {
+  const estado = document.getElementById("estadoCarga");
+  if (!estado) return;
+  estado.textContent = mensaje;
+  estado.dataset.tipo = tipo;
+}
+
+function establecerControlesBloqueados(bloqueados) {
+  document.querySelectorAll(".filtros button, .filtros input").forEach(control => {
+    control.disabled = bloqueados;
+  });
+}
+
+function actualizarOrdenAccesible() {
+  document.querySelectorAll(".ordenable").forEach(cabecera => {
+    const activa = cabecera.dataset.orden === columnaOrden;
+    cabecera.setAttribute(
+      "aria-sort",
+      activa ? (direccionOrden === "asc" ? "ascending" : "descending") : "none"
+    );
+  });
+}
+
+function configurarCabecerasOrdenables() {
+  document.querySelectorAll(".ordenable").forEach(cabecera => {
+    cabecera.addEventListener("keydown", evento => {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        cambiarOrden(cabecera.dataset.orden);
+      }
+    });
+  });
+  actualizarOrdenAccesible();
+}
+
 
 function toggleDetalles() {
 
@@ -16,9 +51,10 @@ function toggleDetalles() {
 
     const boton = document.getElementById("btnDetalles");
 
-    boton.innerHTML = detallesVisibles
+    boton.textContent = detallesVisibles
         ? "Ocultar detalles"
         : "Ver detalles";
+    boton.setAttribute("aria-expanded", String(detallesVisibles));
 }
 
 function ordenarResultados(resultados){
@@ -62,6 +98,7 @@ function cambiarOrden(columna){
 
   }
 
+  actualizarOrdenAccesible();
   cargarRanking();
 
 }
@@ -291,23 +328,22 @@ async function calcularDistanciaCoche(
   lat2,
   lon2
 ) {
-
   const url =
     `https://router.project-osrm.org/route/v1/driving/` +
-    `${lon1},${lat1};${lon2},${lat2}` +
-    `?overview=false`;
+    `${lon1},${lat1};${lon2},${lat2}?overview=false`;
 
-  const respuesta = await fetch(url);
-  const datos = await respuesta.json();
+  try {
+    const respuesta = await fetch(url);
+    if (!respuesta.ok) return null;
 
-  if (
-    !datos.routes ||
-    datos.routes.length === 0
-  ) {
+    const datos = await respuesta.json();
+    if (!datos.routes || datos.routes.length === 0) return null;
+
+    return datos.routes[0].distance / 1000;
+  } catch (error) {
+    console.warn("No se pudo calcular una distancia por carretera", error);
     return null;
   }
-
-  return datos.routes[0].distance / 1000;
 }
 
 function actualizarVisibilidadDetalles(){
@@ -328,34 +364,28 @@ function actualizarVisibilidadDetalles(){
 }
 
 function obtenerUbicacionGPS() {
-
   if (!navigator.geolocation) {
-    alert("Tu dispositivo no permite ubicación");
+    mostrarEstado("Tu dispositivo no permite utilizar la ubicación.", "error");
     return;
   }
 
+  mostrarEstado("Obteniendo tu ubicación…", "info");
+
   navigator.geolocation.getCurrentPosition(
     posicion => {
-
       ubicacionUsuario = {
-      lat: posicion.coords.latitude,
-      lon: posicion.coords.longitude
+        lat: posicion.coords.latitude,
+        lon: posicion.coords.longitude
       };
-
-
-     // Forzamos recalcular distancias
-    ubicacionUsuario = {
-  lat: posicion.coords.latitude,
-  lon: posicion.coords.longitude
-};
-
-
-cargarRanking();
-
+      cargarRanking();
     },
-    error => {
-      alert("No se pudo obtener tu ubicación");
-    }
+    () => {
+      mostrarEstado(
+        "No se pudo obtener tu ubicación. Puedes introducir un código postal.",
+        "error"
+      );
+    },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
   );
 }
 
@@ -420,37 +450,48 @@ async function aplicarBusqueda() {
 }
 
 async function buscarCodigoPostal(codigo) {
-
-  const url =
-  `https://nominatim.openstreetmap.org/search?format=json&postalcode=${codigo}&country=Spain`;
-
-  const respuesta = await fetch(url);
-  const datos = await respuesta.json();
-
-
-  if(datos.length === 0){
-    alert("Código postal no encontrado");
+  if (!/^\d{5}$/.test(codigo)) {
+    mostrarEstado("Introduce un código postal español de cinco cifras.", "error");
     return;
   }
 
+  const parametros = new URLSearchParams({
+    format: "json",
+    postalcode: codigo,
+    countrycodes: "es",
+    limit: "1"
+  });
 
-  ubicacionUsuario = {
-  lat: parseFloat(datos[0].lat),
-  lon: parseFloat(datos[0].lon)
-};
+  try {
+    mostrarEstado("Buscando el código postal…", "info");
+    const respuesta = await fetch(
+      `https://nominatim.openstreetmap.org/search?${parametros}`
+    );
 
+    if (!respuesta.ok) {
+      throw new Error(`Nominatim respondió con ${respuesta.status}`);
+    }
 
-// Forzamos recalcular distancias
-ubicacionUsuario = {
-  lat: parseFloat(datos[0].lat),
-  lon: parseFloat(datos[0].lon)
-};
+    const datos = await respuesta.json();
+    if (datos.length === 0) {
+      mostrarEstado("No se encontró ese código postal.", "error");
+      return;
+    }
 
+    ubicacionUsuario = {
+      lat: Number(datos[0].lat),
+      lon: Number(datos[0].lon)
+    };
 
-cargarRanking();
-
+    await cargarRanking();
+  } catch (error) {
+    console.error(error);
+    mostrarEstado(
+      "No se pudo consultar el código postal. Inténtalo de nuevo.",
+      "error"
+    );
+  }
 }
-
 
 function puntosTemperatura(temp) {
 
@@ -666,11 +707,16 @@ function calcularPuntuacion(
 }
 function inicializarVista() {
 
-    if (window.innerWidth <= 600) {
-        modoVista = "tarjetas";
-    } else {
-        modoVista = "tabla";
-    }
+    const anchoVisible = Math.min(
+        window.innerWidth,
+        window.screen?.width ?? window.innerWidth
+    );
+
+    const esPantallaMovil =
+        anchoVisible <= 768 ||
+        window.matchMedia("(max-width: 768px)").matches;
+
+    modoVista = esPantallaMovil ? "tarjetas" : "tabla";
 
 }
 
@@ -850,21 +896,57 @@ if (
   return mensajes.join(", ") + ".";
 }
 
-async function obtenerDatosPlaya(playa) {
+async function obtenerDatosPlayas() {
+  const latitudes = playas.map(playa => playa.lat).join(",");
+  const longitudes = playas.map(playa => playa.lon).join(",");
 
-const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
-const marineUrl =
-  `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1`;
+  const url =
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
+
+  const marineUrl =
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height&forecast_days=1&timezone=Europe%2FMadrid`;
+
   const [respuesta, respuestaMarine] = await Promise.all([
-  fetch(url),
-  fetch(marineUrl)
-]);
+    fetch(url),
+    fetch(marineUrl)
+  ]);
 
-const [datos, datosMarine] = await Promise.all([
-  respuesta.json(),
-  respuestaMarine.json()
-]);
+  if (!respuesta.ok || !respuestaMarine.ok) {
+    throw new Error("No se pudieron consultar las condiciones meteorológicas.");
+  }
+
+  const [respuestaMeteorologica, respuestaMaritima] = await Promise.all([
+    respuesta.json(),
+    respuestaMarine.json()
+  ]);
+
+  const datosMeteorologicos = Array.isArray(respuestaMeteorologica)
+    ? respuestaMeteorologica
+    : [respuestaMeteorologica];
+
+  const datosMaritimos = Array.isArray(respuestaMaritima)
+    ? respuestaMaritima
+    : [respuestaMaritima];
+
+  if (
+    datosMeteorologicos.length !== playas.length ||
+    datosMaritimos.length !== playas.length
+  ) {
+    throw new Error("La respuesta meteorológica está incompleta.");
+  }
+
+  return Promise.all(
+    playas.map((playa, indice) =>
+      procesarDatosPlaya(
+        playa,
+        datosMeteorologicos[indice],
+        datosMaritimos[indice]
+      )
+    )
+  );
+}
+
+async function procesarDatosPlaya(playa, datos, datosMarine) {
 
 const horas = datos.hourly.time;
 const temperaturas = datos.hourly.temperature_2m;
@@ -1045,7 +1127,7 @@ return {
 };
 }
 
-async function cargarRanking() {
+async function cargarRankingInterno() {
 
   let resultados;
 
@@ -1053,11 +1135,7 @@ async function cargarRanking() {
   // Primera carga: obtener clima y datos del mar
   if(datosPlayasCache === null){
 
-   resultados = await Promise.all(
-  playas.map(playa =>
-    obtenerDatosPlaya(playa)
-  )
-);
+   resultados = await obtenerDatosPlayas();
 
     datosPlayasCache = resultados;
 
@@ -1171,7 +1249,7 @@ playa.distancia.toFixed(1)+" km"
 <p>
 ${playa.explicacion}
 </p>
-<button class="btn-detalles">
+<button class="btn-detalles" type="button" aria-expanded="false">
 Ver detalles ▼
 </button>
 
@@ -1211,12 +1289,11 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
     detalles.classList.toggle("oculto");
 
-    if(detalles.classList.contains("oculto")){
-      boton.innerHTML = "Ver detalles ▼";
-    }
-    else{
-      boton.innerHTML = "Ocultar detalles ▲";
-    }
+    const estaOculto = detalles.classList.contains("oculto");
+    boton.textContent = estaOculto
+      ? "Ver detalles ▼"
+      : "Ocultar detalles ▲";
+    boton.setAttribute("aria-expanded", String(!estaOculto));
 
   });
 
@@ -1224,12 +1301,33 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 }
 
-window.addEventListener("load", async () => {
+async function cargarRanking() {
+  mostrarEstado("Actualizando las condiciones de las playas…", "info");
+  establecerControlesBloqueados(true);
 
+  try {
+    await cargarRankingInterno();
+    const total = document.querySelectorAll("#ranking tr").length;
+    mostrarEstado(
+      total === 0
+        ? "No hay playas que coincidan con los filtros seleccionados."
+        : `Ranking actualizado: ${total} playas disponibles.`,
+      "exito"
+    );
+  } catch (error) {
+    console.error(error);
+    mostrarEstado(
+      "No se pudieron cargar todos los datos. Revisa tu conexión y vuelve a intentarlo.",
+      "error"
+    );
+  } finally {
+    establecerControlesBloqueados(false);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", async () => {
     inicializarVista();
-
     actualizarVista();
-
+    configurarCabecerasOrdenables();
     await cargarRanking();
-
 });

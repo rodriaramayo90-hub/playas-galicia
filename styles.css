@@ -50,11 +50,6 @@ table {
 thead {
     position: sticky;
     top: 0;
-    z-index: 100;
-}
-thead {
-    position: sticky;
-    top: 0;
     z-index: 1000;
 }
 
@@ -146,13 +141,17 @@ tbody td:last-child {
     overflow-wrap: break-word;
 }
 
-th[onclick]{
-    cursor:pointer;
-    user-select:none;
+.ordenable {
+    cursor: pointer;
+    user-select: none;
 }
 
-th[onclick]:hover{
-    background:#e8f4ff;
+.ordenable:hover,
+.ordenable:focus-visible {
+    background: #095b69;
+    color: #fff;
+    outline: 3px solid #ffd166;
+    outline-offset: -3px;
 }
 
 /* Anchos específicos de columnas */
@@ -451,4 +450,98 @@ td:nth-child(11) {
 
     color:#0b7285;
 
+}
+
+
+/* Accesibilidad y estados de la interfaz */
+.cabecera {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.cabecera h1 {
+    margin-bottom: 0;
+}
+
+.etiqueta-grupo,
+.grupo-filtro label {
+    font-weight: 600;
+    color: #17394d;
+}
+
+.estado-carga {
+    max-width: 1200px;
+    margin: 0 auto 12px;
+    padding: 0 4px;
+    color: #526b78;
+    font-size: 0.9rem;
+}
+
+.estado-carga[data-tipo="error"] {
+    color: #9b2c20;
+}
+
+.estado-carga[data-tipo="exito"] {
+    color: #526b78;
+}
+
+button:focus-visible,
+input:focus-visible,
+.tabla-scroll:focus-visible {
+    outline: 3px solid #f4a261;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 600px) {
+    .filtros {
+        gap: 14px;
+    }
+
+    .grupo-filtro,
+    .input-con-boton {
+        max-width: 100%;
+    }
+
+    .estado-carga {
+        margin-bottom: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+
+/* Evita que la tabla aparezca antes de inicializar JavaScript en móviles */
+@media (max-width: 768px) {
+    .tabla-scroll {
+        display: none;
+    }
+
+    #ranking-mobile {
+        display: block;
+    }
 }
