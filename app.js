@@ -19,12 +19,17 @@ function cambiarDistancia(valor){
   cargarRanking();
 
 }
-function toggleDetalles(){
+function toggleDetalles() {
 
-  detallesVisibles = !detallesVisibles;
+    detallesVisibles = !detallesVisibles;
 
-  actualizarVisibilidadDetalles();
+    actualizarVisibilidadDetalles();
 
+    const boton = document.getElementById("btnDetalles");
+
+    boton.innerHTML = detallesVisibles
+        ? "Ocultar detalles"
+        : "Ver detalles";
 }
 
 function ordenarResultados(resultados){
@@ -611,46 +616,32 @@ function calcularPuntuacion(
     )
   );
 }
-function inicializarVista() {
-
-    if (window.innerWidth <= 600) {
-        modoVista = "tarjetas";
-    } else {
-        modoVista = "tabla";
-    }
-
-}
-function cambiarVista() {
-
-    modoVista =
-        modoVista === "tabla"
-        ? "tarjetas"
-        : "tabla";
-
-    actualizarVista();
-
-}
 function actualizarVista() {
 
     const tabla = document.querySelector(".tabla-scroll");
     const tarjetas = document.getElementById("ranking-mobile");
-    const boton = document.getElementById("btnVista");
+    const botonVista = document.getElementById("btnVista");
+    const botonDetalles = document.getElementById("btnDetalles");
 
     if (modoVista === "tabla") {
 
         tabla.style.display = "block";
         tarjetas.style.display = "none";
 
-        // El botón muestra la vista a la que se puede cambiar
-        boton.innerHTML = "🗂️ Ver tarjetas";
+        botonVista.innerHTML = "🗂️ Ver tarjetas";
+
+        // En tabla mostramos el botón general de detalles
+        botonDetalles.style.display = "inline-block";
 
     } else {
 
         tabla.style.display = "none";
         tarjetas.style.display = "block";
 
-        // El botón muestra la vista a la que se puede cambiar
-        boton.innerHTML = "📊 Ver tabla";
+        botonVista.innerHTML = "📊 Ver tabla";
+
+        // Las tarjetas ya tienen su propio botón de detalles
+        botonDetalles.style.display = "none";
 
     }
 }
