@@ -7,18 +7,7 @@ let distanciaMaxima = null;
 let datosPlayasCache = null;
 let detallesVisibles = false;
 
-function cambiarDistancia(valor){
 
-  if(valor === ""){
-    distanciaMaxima = null;
-  }
-  else{
-    distanciaMaxima = Number(valor);
-  }
-
-  cargarRanking();
-
-}
 function toggleDetalles() {
 
     detallesVisibles = !detallesVisibles;
@@ -370,7 +359,35 @@ cargarRanking();
   );
 }
 
+async function aplicarBusqueda() {
 
+    const codigoPostal =
+        document.getElementById("codigoPostal").value.trim();
+
+    const valorDistancia =
+        document.getElementById("distanciaMaxima").value.trim();
+
+    // Aplicar distancia máxima
+    if (valorDistancia === "") {
+        distanciaMaxima = null;
+    } else {
+        distanciaMaxima = Number(valorDistancia);
+    }
+
+    // Si se escribió un código postal,
+    // primero buscamos sus coordenadas
+    if (codigoPostal !== "") {
+
+        await buscarCodigoPostal(codigoPostal);
+
+    } else {
+
+        // Si no hay código postal, usamos la ubicación que ya exista
+        // y aplicamos únicamente el filtro de distancia
+        cargarRanking();
+
+    }
+}
 async function buscarCodigoPostal(codigo) {
 
   const url =
