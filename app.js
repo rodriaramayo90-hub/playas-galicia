@@ -102,6 +102,8 @@ function cambiarOrden(columna){
   cargarRanking();
 
 }
+// Ángulo aproximado de apertura al mar: 0° = N, 90° = E, 180° = S, 270° = W.
+// Las fórmulas actuales siguen utilizando `orientacion`; este valor queda preparado para refinarlas.
 const playas = [
   {
     nombre: "Playa de la Magdalena",
