@@ -644,23 +644,29 @@ function actualizarVista(){
     const boton =
         document.getElementById("btnVista");
 
-    if(modoVista==="tabla"){
+    // Si estamos en móvil y todavía no se definió la vista,
+    // forzamos tarjetas como vista inicial
+    if(window.innerWidth <= 600 && modoVista === ""){
+        modoVista = "tarjetas";
+    }
 
-        tabla.style.display="block";
+    if(modoVista === "tabla"){
 
-        tarjetas.style.display="none";
+        tabla.style.display = "block";
 
-        boton.innerHTML="📋 Tarjetas";
+        tarjetas.style.display = "none";
+
+        boton.innerHTML = "📋 Tarjetas";
 
     }
 
     else{
 
-        tabla.style.display="none";
+        tabla.style.display = "none";
 
-        tarjetas.style.display="block";
+        tarjetas.style.display = "block";
 
-        boton.innerHTML="📊 Tabla";
+        boton.innerHTML = "📊 Tabla";
 
     }
 
@@ -1177,10 +1183,10 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 }
 
-inicializarVista();
+window.addEventListener("load", () => {
 
-cargarRanking().then(() => {
+    inicializarVista();
 
-    actualizarVista();
+    cargarRanking();
 
 });
