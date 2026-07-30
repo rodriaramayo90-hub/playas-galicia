@@ -707,11 +707,16 @@ function calcularPuntuacion(
 }
 function inicializarVista() {
 
-    if (window.innerWidth <= 600) {
-        modoVista = "tarjetas";
-    } else {
-        modoVista = "tabla";
-    }
+    const anchoVisible = Math.min(
+        window.innerWidth,
+        window.screen?.width ?? window.innerWidth
+    );
+
+    const esPantallaMovil =
+        anchoVisible <= 768 ||
+        window.matchMedia("(max-width: 768px)").matches;
+
+    modoVista = esPantallaMovil ? "tarjetas" : "tabla";
 
 }
 
