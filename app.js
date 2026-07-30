@@ -896,25 +896,57 @@ if (
   return mensajes.join(", ") + ".";
 }
 
-async function obtenerDatosPlaya(playa) {
+async function obtenerDatosPlayas() {
+  const latitudes = playas.map(playa => playa.lat).join(",");
+  const longitudes = playas.map(playa => playa.lon).join(",");
 
-const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${playa.lat}&longitude=${playa.lon}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
-const marineUrl =
-  `https://marine-api.open-meteo.com/v1/marine?latitude=${playa.lat}&longitude=${playa.lon}&hourly=sea_surface_temperature,wave_height&forecast_days=1&timezone=Europe%2FMadrid`;
+  const url =
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
+
+  const marineUrl =
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height&forecast_days=1&timezone=Europe%2FMadrid`;
+
   const [respuesta, respuestaMarine] = await Promise.all([
-  fetch(url),
-  fetch(marineUrl)
-]);
+    fetch(url),
+    fetch(marineUrl)
+  ]);
 
-if (!respuesta.ok || !respuestaMarine.ok) {
-  throw new Error(`Error al consultar las condiciones de ${playa.nombre}`);
+  if (!respuesta.ok || !respuestaMarine.ok) {
+    throw new Error("No se pudieron consultar las condiciones meteorológicas.");
+  }
+
+  const [respuestaMeteorologica, respuestaMaritima] = await Promise.all([
+    respuesta.json(),
+    respuestaMarine.json()
+  ]);
+
+  const datosMeteorologicos = Array.isArray(respuestaMeteorologica)
+    ? respuestaMeteorologica
+    : [respuestaMeteorologica];
+
+  const datosMaritimos = Array.isArray(respuestaMaritima)
+    ? respuestaMaritima
+    : [respuestaMaritima];
+
+  if (
+    datosMeteorologicos.length !== playas.length ||
+    datosMaritimos.length !== playas.length
+  ) {
+    throw new Error("La respuesta meteorológica está incompleta.");
+  }
+
+  return Promise.all(
+    playas.map((playa, indice) =>
+      procesarDatosPlaya(
+        playa,
+        datosMeteorologicos[indice],
+        datosMaritimos[indice]
+      )
+    )
+  );
 }
 
-const [datos, datosMarine] = await Promise.all([
-  respuesta.json(),
-  respuestaMarine.json()
-]);
+async function procesarDatosPlaya(playa, datos, datosMarine) {
 
 const horas = datos.hourly.time;
 const temperaturas = datos.hourly.temperature_2m;
@@ -1103,11 +1135,7 @@ async function cargarRankingInterno() {
   // Primera carga: obtener clima y datos del mar
   if(datosPlayasCache === null){
 
-   resultados = await Promise.all(
-  playas.map(playa =>
-    obtenerDatosPlaya(playa)
-  )
-);
+   resultados = await obtenerDatosPlayas();
 
     datosPlayasCache = resultados;
 
@@ -1297,7 +1325,7 @@ async function cargarRanking() {
   }
 }
 
-window.addEventListener("load", async () => {
+window.addEventListener("DOMContentLoaded", async () => {
     inicializarVista();
     actualizarVista();
     configurarCabecerasOrdenables();
