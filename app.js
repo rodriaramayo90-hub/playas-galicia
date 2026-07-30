@@ -566,7 +566,6 @@ function puntosTemperatura(temp) {
 }
 
 function puntosViento(viento) {
-
   if (viento <= 5) return 10;
   if (viento <= 7.5) return 9;
   if (viento <= 10) return 8;
@@ -578,7 +577,13 @@ function puntosViento(viento) {
   if (viento <= 25) return 0;
   if (viento <= 27.5) return -2;
   if (viento <= 30) return -4;
+  return -8;
+}
 
+function puntosRachas(racha) {
+  if (!Number.isFinite(racha) || racha <= 25) return 0;
+  if (racha <= 35) return -2;
+  if (racha <= 45) return -5;
   return -8;
 }
 
@@ -612,33 +617,119 @@ function puntosNubosidad(nubosidad){
 
   return -25;
 }
+function diferenciaAngular(anguloA, anguloB) {
+  const diferencia = Math.abs(anguloA - anguloB) % 360;
+  return diferencia > 180 ? 360 - diferencia : diferencia;
+}
+
+function factorExposicionOleaje(anguloPlaya, direccionOlas) {
+  if (!Number.isFinite(anguloPlaya) || !Number.isFinite(direccionOlas)) {
+    return 0.65;
+  }
+
+  const diferencia = diferenciaAngular(anguloPlaya, direccionOlas);
+  const componenteFrontal = Math.max(
+    0,
+    Math.cos(diferencia * Math.PI / 180)
+  );
+
+  // Conservamos una fracción del oleaje por refracción y mar local.
+  return 0.15 + 0.85 * Math.pow(componenteFrontal, 1.35);
+}
+
+function calcularOleajeEfectivo(playa, datosMarine) {
+  const horas = datosMarine.hourly?.time ?? [];
+  const valores = [];
+
+  horas.forEach((hora, indice) => {
+    const horaLocal = Number(hora.split("T")[1]?.split(":")[0]);
+    if (horaLocal < 11 || horaLocal > 20) return;
+
+    const alturaTotal = datosMarine.hourly?.wave_height?.[indice];
+    const direccionTotal = datosMarine.hourly?.wave_direction?.[indice];
+    const alturaMarFondo = datosMarine.hourly?.swell_wave_height?.[indice];
+    const direccionMarFondo = datosMarine.hourly?.swell_wave_direction?.[indice];
+    const alturaMarViento = datosMarine.hourly?.wind_wave_height?.[indice];
+    const direccionMarViento = datosMarine.hourly?.wind_wave_direction?.[indice];
+
+    if (!Number.isFinite(alturaTotal)) return;
+
+    let factorExposicion = factorExposicionOleaje(
+      playa.anguloAproximado,
+      direccionTotal
+    );
+
+    // Los componentes ayudan a ponderar la dirección, pero no sustituyen
+    // la altura total significativa proporcionada por el modelo.
+    if (Number.isFinite(alturaMarFondo) || Number.isFinite(alturaMarViento)) {
+      const energiaMarFondo = Number.isFinite(alturaMarFondo)
+        ? Math.pow(alturaMarFondo, 2)
+        : 0;
+      const energiaMarViento = Number.isFinite(alturaMarViento)
+        ? Math.pow(alturaMarViento, 2)
+        : 0;
+      const energiaTotal = energiaMarFondo + energiaMarViento;
+
+      if (energiaTotal > 0) {
+        const factorMarFondo = factorExposicionOleaje(
+          playa.anguloAproximado,
+          direccionMarFondo
+        );
+        const factorMarViento = factorExposicionOleaje(
+          playa.anguloAproximado,
+          direccionMarViento
+        );
+
+        factorExposicion = Math.sqrt(
+          (
+            energiaMarFondo * Math.pow(factorMarFondo, 2) +
+            energiaMarViento * Math.pow(factorMarViento, 2)
+          ) / energiaTotal
+        );
+      }
+    }
+
+    const periodo = datosMarine.hourly?.wave_period?.[indice];
+    const factorPeriodo = Number.isFinite(periodo)
+      ? Math.min(1.3, Math.max(0.8, Math.sqrt(periodo / 8)))
+      : 1;
+
+    valores.push(alturaTotal * factorExposicion * factorPeriodo);
+  });
+
+  if (valores.length === 0) return null;
+
+  return valores.reduce((suma, valor) => suma + valor, 0) / valores.length;
+}
+
 function puntosOleaje(oleaje) {
+  if (!Number.isFinite(oleaje)) return 0;
 
-  if (!oleaje) return 0;
-
-  if (oleaje < 0.5) return 3;
-  if (oleaje < 1) return 2;
-  if (oleaje < 1.5) return 0;
-  if (oleaje < 2) return -2;
+  if (oleaje < 0.15) return 3;
+  if (oleaje < 0.4) return 2;
+  if (oleaje < 0.8) return 0;
+  if (oleaje < 1.4) return -2;
 
   return -3;
 }
 
 function obtenerEstadoOleaje(oleaje) {
-
-  if (!oleaje)
+  if (!Number.isFinite(oleaje))
     return "-";
 
-  if (oleaje < 0.5)
-    return "🌊 Mar calmo";
+  if (oleaje < 0.15)
+    return "🌊 Mar prácticamente plano";
 
-  if (oleaje < 1)
-    return "🌊 Algunas olas";
+  if (oleaje < 0.4)
+    return "🌊 Oleaje suave";
 
-  if (oleaje < 2)
-    return "🌊 Muchas olas";
+  if (oleaje < 0.8)
+    return "🌊 Oleaje moderado";
 
-  return "🌊 Temporal";
+  if (oleaje < 1.4)
+    return "🌊 Mar movido";
+
+  return "🌊 Oleaje fuerte";
 }
 
 function obtenerEstadoAgua(agua) {
@@ -660,91 +751,57 @@ function obtenerEstadoAgua(agua) {
 
   return "agua cálida";
 }
+function promedioDireccionViento(direcciones, velocidades) {
+  let este = 0;
+  let norte = 0;
+  direcciones.forEach((direccion, indice) => {
+    if (!Number.isFinite(direccion)) return;
+    const peso = Number.isFinite(velocidades[indice]) ? Math.max(velocidades[indice], 1) : 1;
+    const radianes = direccion * Math.PI / 180;
+    este += Math.sin(radianes) * peso;
+    norte += Math.cos(radianes) * peso;
+  });
+  if (este === 0 && norte === 0) return null;
+  return (Math.atan2(este, norte) * 180 / Math.PI + 360) % 360;
+}
+
 function gradosADireccion(grados) {
   const direcciones = ["N","NE","E","SE","S","SW","W","NW"];
   return direcciones[Math.round(grados / 45) % 8];
 }
 
-function puntosOrientacion(
-  orientacion,
-  direccionViento,
-  viento
-) {
-
-  const opuestas = {
-    N: "S",
-    NE: "SW",
-    E: "W",
-    SE: "NW",
-    S: "N",
-    SW: "NE",
-    W: "E",
-    NW: "SE"
-  };
-
-  // Si el viento es flojo, la orientación no influye
-  if (viento <= 20) {
-    return 0;
-  }
-
-  if (orientacion === direccionViento) {
-    return -5;
-  }
-
-  if (opuestas[orientacion] === direccionViento) {
-    return 5;
-  }
-
-  return 0;
+function puntosOrientacion(anguloPlaya, direccionVientoGrados, viento) {
+  if (!Number.isFinite(anguloPlaya) || !Number.isFinite(direccionVientoGrados) || viento <= 15) return 0;
+  const diferencia = diferenciaAngular(anguloPlaya, direccionVientoGrados);
+  const componenteFrontal = Math.cos(diferencia * Math.PI / 180);
+  const intensidad = Math.min(1, (viento - 15) / 15);
+  return componenteFrontal > 0
+    ? Math.round(-5 * componenteFrontal * intensidad)
+    : Math.round(3 * Math.abs(componenteFrontal) * intensidad);
 }
-function calcularPuntuacion(
-  temperaturaMediaPlaya,
-  viento,
-  lluvia,
-  nubosidad,
-  agua,
-  oleaje,
-  orientacion,
-  direccionViento
-) {
 
+function esVientoEnContra(anguloPlaya, direccionVientoGrados, viento) {
+  if (viento <= 20 || !Number.isFinite(direccionVientoGrados)) return false;
+  const diferencia = diferenciaAngular(anguloPlaya, direccionVientoGrados);
+  return Math.cos(diferencia * Math.PI / 180) > 0.5;
+}
+
+function esVientoFavorable(anguloPlaya, direccionVientoGrados, viento) {
+  if (viento <= 20 || !Number.isFinite(direccionVientoGrados)) return false;
+  const diferencia = diferenciaAngular(anguloPlaya, direccionVientoGrados);
+  return Math.cos(diferencia * Math.PI / 180) < -0.5;
+}
+function calcularPuntuacion(temperaturaMediaPlaya, viento, rachaViento, lluvia, nubosidad, agua, oleaje, anguloPlaya, direccionVientoGrados) {
   let puntuacion = 40;
-
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
   puntuacion += puntosTemperatura(temperaturaMediaPlaya);
   puntuacion += puntosViento(viento);
-  puntuacion += puntosOrientacion(
-    orientacion,
-    direccionViento,
-    viento
-  );
+  puntuacion += puntosRachas(rachaViento);
+  puntuacion += puntosOrientacion(anguloPlaya, direccionVientoGrados, viento);
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOleaje(oleaje);
-
-  console.log({
-    base: 40,
-    nubosidad: puntosNubosidad(nubosidad),
-    lluvia: puntosLluvia(lluvia),
-    temperatura: puntosTemperatura(temperaturaMediaPlaya),
-    viento: puntosViento(viento),
-    orientacion: puntosOrientacion(
-      orientacion,
-      direccionViento,
-      viento
-    ),
-    agua: puntosAgua(agua),
-    oleaje: puntosOleaje(oleaje),
-    total: puntuacion
-  });
-
-  return Math.max(
-    0,
-    Math.min(
-      100,
-      Math.round(puntuacion)
-    )
-  );
+  return Math.max(0, Math.min(100, Math.round(puntuacion)));
 }
 function inicializarVista() {
 
@@ -800,52 +857,16 @@ function actualizarVista() {
 
     }
 }
-function obtenerEstado(
-  puntos,
-  nubosidad,
-  orientacion,
-  direccionViento,
-  viento
-) {
-
-  const vientoEnContra =
-    viento > 20 &&
-    orientacion === direccionViento;
-
-  // Muy mala puntuación
-  if (puntos < 20)
-    return "🔴 Mejor evitar";
-
-  // Mucha nubosidad + viento en contra
-  if (vientoEnContra && nubosidad > 80)
-    return "🟡 Aceptable (muy nublado y viento en contra)";
-
-  if (vientoEnContra && nubosidad > 60)
-    return "🟡 Aceptable (nublado y viento en contra)";
-
-  // Solo nubosidad
-  if (nubosidad > 80)
-    return "🟡 Aceptable (muy nublado)";
-
-  if (nubosidad > 60)
-    return "🟡 Aceptable (nublado)";
-
-  // Viento en contra pero cielo aceptable
-  if (vientoEnContra) {
-
-    if (puntos >= 70)
-      return "🟡 Aceptable (viento en contra)";
-
-    return "🟡 Aceptable";
-  }
-
-  // Sin viento en contra
-  if (puntos >= 85)
-    return "🟢 Excelente";
-
-  if (puntos >= 70)
-    return "🟢 Buen día de playa";
-
+function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, viento) {
+  const vientoEnContra = esVientoEnContra(anguloPlaya, direccionVientoGrados, viento);
+  if (puntos < 20) return "🔴 Mejor evitar";
+  if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
+  if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
+  if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
+  if (nubosidad > 60) return "🟡 Aceptable (nublado)";
+  if (vientoEnContra) return puntos >= 70 ? "🟡 Aceptable (viento en contra)" : "🟡 Aceptable";
+  if (puntos >= 85) return "🟢 Excelente";
+  if (puntos >= 70) return "🟢 Buen día de playa";
   return "🟡 Aceptable";
 }
 function obtenerCielo(nubosidad) {
@@ -857,83 +878,26 @@ function obtenerCielo(nubosidad) {
 
   return "🌫️ Muy nublado";
 }
-function generarExplicacion(
-  temperatura,
-  viento,
-  direccionViento,
-  lluvia,
-  agua,
-  orientacion,
-  nubosidad
-) {
-
-  let mensajes = [];
-
-if (nubosidad <= 10)
-    mensajes.push("cielo despejado");
-
-else if (nubosidad <= 30)
-    mensajes.push("algunas nubes");
-
-else if (nubosidad <= 60)
-    mensajes.push("cielo parcialmente nublado");
-
-else if (nubosidad <= 80)
-    mensajes.push("cielo nublado");
-
-else
-    mensajes.push("cielo muy nublado");
-
-
-  if (temperatura >= 25)
-    mensajes.push("temperatura ideal");
-
-  if (viento <= 15)
-    mensajes.push("poco viento");
-
-if (lluvia <= 10)
-    mensajes.push("muy baja probabilidad de lluvia");
-
-else if (lluvia <= 30)
-    mensajes.push("baja probabilidad de lluvia");
-
-else if (lluvia <= 60)
-    mensajes.push("posibilidad de lluvia");
-
-else
-    mensajes.push("riesgo alto de lluvia");
-
-const estadoAgua = obtenerEstadoAgua(agua);
-
-if (estadoAgua)
-    mensajes.push(estadoAgua);
-const opuestas = {
-  N: "S",
-  NE: "SW",
-  E: "W",
-  SE: "NW",
-  S: "N",
-  SW: "NE",
-  W: "E",
-  NW: "SE"
-};
-
-if (
-  orientacion === direccionViento &&
-  viento > 20
-)
-  mensajes.push(
-    "viento fuerte entrando directamente en la playa"
-  );
-
-if (
-  opuestas[orientacion] === direccionViento &&
-  viento > 20
-)
-  mensajes.push(
-    "viento favorable, sopla hacia el mar"
-  );
-
+function generarExplicacion(temperatura, viento, rachaViento, direccionVientoGrados, lluvia, agua, anguloPlaya, nubosidad) {
+  const mensajes = [];
+  if (nubosidad <= 10) mensajes.push("cielo despejado");
+  else if (nubosidad <= 30) mensajes.push("algunas nubes");
+  else if (nubosidad <= 60) mensajes.push("cielo parcialmente nublado");
+  else if (nubosidad <= 80) mensajes.push("cielo nublado");
+  else mensajes.push("cielo muy nublado");
+  if (temperatura >= 25) mensajes.push("temperatura ideal");
+  if (viento <= 15) mensajes.push("poco viento");
+  if (rachaViento > 45) mensajes.push("rachas de viento muy fuertes");
+  else if (rachaViento > 35) mensajes.push("rachas de viento fuertes");
+  else if (rachaViento > 25) mensajes.push("rachas de viento notables");
+  if (lluvia <= 10) mensajes.push("muy baja probabilidad de lluvia");
+  else if (lluvia <= 30) mensajes.push("baja probabilidad de lluvia");
+  else if (lluvia <= 60) mensajes.push("posibilidad de lluvia");
+  else mensajes.push("riesgo alto de lluvia");
+  const estadoAgua = obtenerEstadoAgua(agua);
+  if (estadoAgua) mensajes.push(estadoAgua);
+  if (esVientoEnContra(anguloPlaya, direccionVientoGrados, viento)) mensajes.push("viento fuerte entrando en la playa");
+  if (esVientoFavorable(anguloPlaya, direccionVientoGrados, viento)) mensajes.push("viento favorable, sopla hacia el mar");
   return mensajes.join(", ") + ".";
 }
 
@@ -942,10 +906,10 @@ async function obtenerDatosPlayas() {
   const longitudes = playas.map(playa => playa.lon).join(",");
 
   const url =
-    `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max,wind_direction_10m_dominant&hourly=temperature_2m,precipitation_probability,wind_speed_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover&forecast_days=1&timezone=Europe%2FMadrid`;
 
   const marineUrl =
-    `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height&forecast_days=1&timezone=Europe%2FMadrid`;
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=1&timezone=Europe%2FMadrid`;
 
   const [respuesta, respuestaMarine] = await Promise.all([
     fetch(url),
@@ -988,184 +952,38 @@ async function obtenerDatosPlayas() {
 }
 
 async function procesarDatosPlaya(playa, datos, datosMarine) {
-
-const horas = datos.hourly.time;
-const temperaturas = datos.hourly.temperature_2m;
-const probabilidadesLluvia = datos.hourly.precipitation_probability;
-const velocidadesViento = datos.hourly.wind_speed_10m;
-const nubosidades = datos.hourly.cloud_cover;
-  
-const temperaturasPlaya = horas
-  .map((hora, indice) => ({
+  const horas = datos.hourly.time;
+  const registros = horas.map((hora, indice) => ({
     hora,
-    temperatura: temperaturas[indice]
-  }))
-  .filter(registro => {
-    const horaLocal = parseInt(
-      registro.hora.split("T")[1].split(":")[0]
-    );
-
+    temperatura: datos.hourly.temperature_2m[indice],
+    lluvia: datos.hourly.precipitation_probability[indice],
+    viento: datos.hourly.wind_speed_10m[indice],
+    direccionViento: datos.hourly.wind_direction_10m[indice],
+    rachaViento: datos.hourly.wind_gusts_10m[indice],
+    nubosidad: datos.hourly.cloud_cover[indice]
+  })).filter(registro => {
+    const horaLocal = Number(registro.hora.split("T")[1].split(":")[0]);
     return horaLocal >= 11 && horaLocal <= 20;
   });
-
-const temperaturaMediaPlaya =
-  temperaturasPlaya.reduce(
-    (suma, registro) => suma + registro.temperatura,
-    0
-  ) / temperaturasPlaya.length;
-  const lluviaPlaya = horas
-  .map((hora, indice) => ({
-    hora,
-    lluvia: probabilidadesLluvia[indice]
-  }))
-  .filter(registro => {
-    const horaLocal = parseInt(
-      registro.hora.split("T")[1].split(":")[0]
-    );
-
-    return horaLocal >= 11 && horaLocal <= 20;
-  });
-
-const lluviaMediaPlaya =
-  lluviaPlaya.reduce(
-    (suma, registro) => suma + registro.lluvia,
-    0
-  ) / lluviaPlaya.length;
-  
-  const vientoPlaya = horas
-  .map((hora, indice) => ({
-    hora,
-    viento: velocidadesViento[indice]
-  }))
-  .filter(registro => {
-
-    const horaLocal = parseInt(
-      registro.hora.split("T")[1].split(":")[0]
-    );
-
-    return horaLocal >= 11 && horaLocal <= 20;
-  });
-
-
-const vientoMedioPlaya =
-  vientoPlaya.reduce(
-    (suma, registro) => suma + registro.viento,
-    0
-  ) / vientoPlaya.length;
-  const nubosidadPlaya = horas
-  .map((hora, indice) => ({
-    hora,
-    nubosidad: nubosidades[indice]
-  }))
-  .filter(registro => {
-
-    const horaLocal = parseInt(
-      registro.hora.split("T")[1].split(":")[0]
-    );
-
-    return horaLocal >= 11 && horaLocal <= 20;
-  });
-
-
-const nubosidadMediaPlaya =
-  nubosidadPlaya.reduce(
-    (suma, registro) => suma + registro.nubosidad,
-    0
-  ) / nubosidadPlaya.length;
-  
+  const promedio = campo => registros.reduce((suma, registro) => suma + registro[campo], 0) / registros.length;
+  const temperaturaMediaPlaya = promedio("temperatura");
+  const lluvia = Math.round(promedio("lluvia"));
+  const nubosidad = Math.round(promedio("nubosidad"));
+  const viento = Math.round(promedio("viento"));
+  const rachaViento = Math.round(Math.max(...registros.map(registro => registro.rachaViento)));
+  const direccionVientoGrados = promedioDireccionViento(registros.map(r => r.direccionViento), registros.map(r => r.viento));
+  const direccionViento = Number.isFinite(direccionVientoGrados) ? gradosADireccion(direccionVientoGrados) : "-";
   const temperaturaMaxima = datos.daily.temperature_2m_max[0];
-  const lluvia = Math.round(lluviaMediaPlaya);
-  const nubosidad = Math.round(nubosidadMediaPlaya);
-  const viento = Math.round(vientoMedioPlaya);
-  const direccionVientoGrados =
-    datos.daily.wind_direction_10m_dominant[0];
-
-  const direccionViento =
-    gradosADireccion(direccionVientoGrados);
-  
   const cielo = obtenerCielo(nubosidad);
-
-const agua =
-  datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
-
-const oleaje =
-  datosMarine.hourly?.wave_height?.[12] ?? null;
-  
-const estadoOleaje =
-  obtenerEstadoOleaje(oleaje);
-  
-const puntuacion = calcularPuntuacion(
-  temperaturaMediaPlaya,
-  viento,
-  lluvia,
-  nubosidad,
-  agua,
-  oleaje,
-  playa.orientacion,
-  direccionViento
-);
-
-console.log(playa.nombre);
-
-console.log({
-  temperatura: temperaturaMediaPlaya,
-  viento,
-  lluvia,
-  nubosidad,
-  agua,
-  oleaje,
-  puntuacion
-});  
-  
-  const estado = obtenerEstado(
-  puntuacion,
-  nubosidad,
-  playa.orientacion,
-  direccionViento,
-  viento
-);
-
- const explicacion = generarExplicacion(
-    temperaturaMediaPlaya,
-    viento,
-    direccionViento,
-    lluvia,
-    agua,
-    playa.orientacion,
-    nubosidad
-);
-
-let distancia = null;
-
-if (ubicacionUsuario) {
-
-  distancia = await calcularDistanciaCoche(
-    ubicacionUsuario.lat,
-    ubicacionUsuario.lon,
-    playa.lat,
-    playa.lon
-  );
-
-}
-  
-return {
-  nombre: playa.nombre,
-  lat: playa.lat,
-  lon: playa.lon,
-  distancia,
-  temperaturaMaxima,
-  temperaturaMediaPlaya,
-  viento,
-  direccionViento,
-  lluvia,
-  cielo,
-  agua,
-  estadoOleaje,
-  puntuacion,
-  estado,
-  nubosidad,
-  explicacion
-};
+  const agua = datosMarine.hourly?.sea_surface_temperature?.[12] ?? null;
+  const oleaje = calcularOleajeEfectivo(playa, datosMarine);
+  const estadoOleaje = obtenerEstadoOleaje(oleaje);
+  const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, rachaViento, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
+  const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento);
+  const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, rachaViento, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad);
+  let distancia = null;
+  if (ubicacionUsuario) distancia = await calcularDistanciaCoche(ubicacionUsuario.lat, ubicacionUsuario.lon, playa.lat, playa.lon);
+  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia, temperaturaMaxima, temperaturaMediaPlaya, viento, rachaViento, direccionViento, direccionVientoGrados, lluvia, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, explicacion };
 }
 
 async function cargarRankingInterno() {
@@ -1250,7 +1068,7 @@ tabla.innerHTML += `
     ${playa.temperaturaMaxima}°C
     </td>
     <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h (${playa.direccionViento})</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h (${playa.direccionViento}) · rachas ${playa.rachaViento} km/h</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.lluvia}%</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.estadoOleaje}</td>
@@ -1308,7 +1126,7 @@ playa.agua.toFixed(1)+"°C"
 }
 </p>
 
-<p>💨 ${playa.viento} km/h (${playa.direccionViento})</p>
+<p>💨 ${playa.viento} km/h (${playa.direccionViento}) · rachas ${playa.rachaViento} km/h</p>
 
 <p>🌧️ ${playa.lluvia}%</p>
 
