@@ -611,20 +611,16 @@ function calcularPuntuacion(
     )
   );
 }
-function inicializarVista(){
+function inicializarVista() {
 
-    if(window.innerWidth <= 600){
-
+    if (window.innerWidth <= 600) {
         modoVista = "tarjetas";
-
-    }else{
-
+    } else {
         modoVista = "tabla";
-
     }
 
 }
-function cambiarVista(){
+function cambiarVista() {
 
     modoVista =
         modoVista === "tabla"
@@ -634,42 +630,29 @@ function cambiarVista(){
     actualizarVista();
 
 }
-function actualizarVista(){
+function actualizarVista() {
 
     const tabla = document.querySelector(".tabla-scroll");
+    const tarjetas = document.getElementById("ranking-mobile");
+    const boton = document.getElementById("btnVista");
 
-    const tarjetas =
-        document.getElementById("ranking-mobile");
-
-    const boton =
-        document.getElementById("btnVista");
-
-    // Si estamos en móvil y todavía no se definió la vista,
-    // forzamos tarjetas como vista inicial
-    if(window.innerWidth <= 600 && modoVista === ""){
-        modoVista = "tarjetas";
-    }
-
-    if(modoVista === "tabla"){
+    if (modoVista === "tabla") {
 
         tabla.style.display = "block";
-
         tarjetas.style.display = "none";
 
-        boton.innerHTML = "📋 Tarjetas";
+        // El botón muestra la vista a la que se puede cambiar
+        boton.innerHTML = "🗂️ Ver tarjetas";
 
-    }
-
-    else{
+    } else {
 
         tabla.style.display = "none";
-
         tarjetas.style.display = "block";
 
-        boton.innerHTML = "📊 Tabla";
+        // El botón muestra la vista a la que se puede cambiar
+        boton.innerHTML = "📊 Ver tabla";
 
     }
-
 }
 function obtenerEstado(
   puntos,
