@@ -106,219 +106,258 @@ const playas = [
   {
     nombre: "Playa de la Magdalena",
     municipio: "Cabanas",
-    lat: 43.426,
-    lon: -8.165,
-    orientacion: "N"
+    lat: 43.417042,
+    lon: -8.174374,
+    orientacion: "S",
+    anguloAproximado: 175
   },
   {
-  nombre: "Playa de Langosteira",
-  municipio: "Fisterra",
-  lat: 42.893,
-  lon: -9.290,
-  orientacion: "W"
-},
-{
-  nombre: "Playa de Mar de Fóra",
-  municipio: "Fisterra",
-  lat: 42.905,
-  lon: -9.285,
-  orientacion: "W"
-},
-{
-  nombre: "Playa de O Rostro",
-  municipio: "Fisterra",
-  lat: 42.928,
-  lon: -9.287,
-  orientacion: "NW"
-},
-{
-  nombre: "Playa de Talón",
-  municipio: "Fisterra",
-  lat: 42.9285,
-  lon: -9.2417,
-  orientacion: "W"
-},
-{
-  nombre: "Playa de Arnela",
-  municipio: "Fisterra",
-  lat: 42.9425,
-  lon: -9.2837,
-  orientacion: "W"
-},
-{
-  nombre: "Playa de Sardiñeiro",
-  municipio: "Fisterra",
-  lat: 42.908,
-  lon: -9.222,
-  orientacion: "NW"
-},
-{
-  nombre: "Playa A Ribeira / O Corbeiro",
-  municipio: "Fisterra",
-  lat: 42.906,
-  lon: -9.263,
-  orientacion: "E"
-},
+    nombre: "Playa de Langosteira",
+    municipio: "Fisterra",
+    lat: 42.920567,
+    lon: -9.257438,
+    orientacion: "E",
+    anguloAproximado: 70
+  },
+  {
+    nombre: "Playa de Mar de Fóra",
+    municipio: "Fisterra",
+    lat: 42.908542,
+    lon: -9.275347,
+    orientacion: "W",
+    anguloAproximado: 260
+  },
+  {
+    nombre: "Playa de O Rostro",
+    municipio: "Fisterra",
+    lat: 42.967344,
+    lon: -9.265853,
+    orientacion: "W",
+    anguloAproximado: 265
+  },
+  {
+    nombre: "Playa de Talón",
+    municipio: "Fisterra",
+    lat: 42.9285,
+    lon: -9.2417,
+    orientacion: "W",
+    anguloAproximado: 255
+  },
+  {
+    nombre: "Playa de Arnela",
+    municipio: "Fisterra",
+    lat: 42.9425,
+    lon: -9.2837,
+    orientacion: "W",
+    anguloAproximado: 260
+  },
+  {
+    nombre: "Playa de Sardiñeiro",
+    municipio: "Fisterra",
+    lat: 42.941184,
+    lon: -9.231519,
+    orientacion: "SE",
+    anguloAproximado: 140
+  },
+  {
+    nombre: "Playa A Ribeira / O Corbeiro",
+    municipio: "Fisterra",
+    lat: 42.906,
+    lon: -9.263,
+    orientacion: "E",
+    anguloAproximado: 95
+  },
   {
     nombre: "Playa de Miño",
     municipio: "Miño",
-    lat: 43.348,
-    lon: -8.207,
-    orientacion: "N"
+    lat: 43.359563,
+    lon: -8.211869,
+    orientacion: "NW",
+    anguloAproximado: 320
   },
   {
     nombre: "Playa de Perbes",
     municipio: "Miño",
-    lat: 43.364,
-    lon: -8.186,
-    orientacion: "N"
+    lat: 43.376525,
+    lon: -8.215169,
+    orientacion: "NW",
+    anguloAproximado: 325
   },
   {
     nombre: "Playa de Sada",
     municipio: "Sada",
-    lat: 43.356,
-    lon: -8.258,
-    orientacion: "NE"
+    lat: 43.352235,
+    lon: -8.251879,
+    orientacion: "SE",
+    anguloAproximado: 140
   },
   {
     nombre: "Playa de Mera",
     municipio: "Oleiros",
     lat: 43.380657,
-    lon: -8.33860,
-    orientacion: "NE"
+    lon: -8.3386,
+    orientacion: "NE",
+    anguloAproximado: 40
   },
   {
     nombre: "Playa de Sabón",
     municipio: "Arteixo",
-    lat: 43.307,
-    lon: -8.511,
-    orientacion: "NW"
+    lat: 43.329662,
+    lon: -8.50887,
+    orientacion: "NW",
+    anguloAproximado: 310
   },
-    {
+  {
     nombre: "Playa de Orzán",
     municipio: "A Coruña",
-    lat: 43.370,
+    lat: 43.37,
     lon: -8.406,
-    orientacion: "NW"
+    orientacion: "NW",
+    anguloAproximado: 315
   },
   {
     nombre: "Playa de las Lapas",
     municipio: "A Coruña",
     lat: 43.382,
     lon: -8.405,
-    orientacion: "W"
+    orientacion: "NE",
+    anguloAproximado: 45
   },
   {
-    nombre: "Playa de Louro",
+    nombre: "Praia de Area Maior",
     municipio: "Muros",
-    lat: 42.771,
-    lon: -9.065,
-    orientacion: "NW"
+    lat: 42.751455,
+    lon: -9.093209,
+    orientacion: "W",
+    anguloAproximado: 270
+  },
+  {
+    nombre: "Playa de San Francisco",
+    municipio: "Muros",
+    lat: 42.758833,
+    lon: -9.073694,
+    orientacion: "S",
+    anguloAproximado: 190
   },
   {
     nombre: "Playa de Carnota",
     municipio: "Carnota",
-    lat: 42.826,
-    lon: -9.087,
-    orientacion: "NW"
+    lat: 42.824534,
+    lon: -9.108395,
+    orientacion: "W",
+    anguloAproximado: 270
   },
   {
     nombre: "Playa de San Xurxo",
     municipio: "Ferrol",
-    lat: 43.548,
-    lon: -8.319,
-    orientacion: "NW"
+    lat: 43.527887,
+    lon: -8.303013,
+    orientacion: "NW",
+    anguloAproximado: 315
   },
   {
     nombre: "Playa de Sonreiras",
     municipio: "Cedeira",
-    lat: 43.661,
-    lon: -8.057,
-    orientacion: "NW"
+    lat: 43.659107,
+    lon: -8.072705,
+    orientacion: "NW",
+    anguloAproximado: 315
   },
   {
-    nombre: "Playa de las Dunas de Corrubedo",
+    nombre: "Praia da Ladeira (Dunas de Corrubedo)",
     municipio: "Ribeira",
-    lat: 42.565,
-    lon: -9.069,
-    orientacion: "NW"
+    lat: 42.575573,
+    lon: -9.052865,
+    orientacion: "W",
+    anguloAproximado: 270
   },
   {
     nombre: "Playa de Samil",
     municipio: "Vigo",
-    lat: 42.207,
-    lon: -8.786,
-    orientacion: "SW"
+    lat: 42.211157,
+    lon: -8.777686,
+    orientacion: "W",
+    anguloAproximado: 270
   },
   {
-    nombre: "Playa de Bao",
+    nombre: "Praia do Vao",
     municipio: "Vigo",
-    lat: 42.200,
-    lon: -8.790,
-    orientacion: "SW"
+    lat: 42.198063,
+    lon: -8.793113,
+    orientacion: "SW",
+    anguloAproximado: 240
   },
   {
     nombre: "Playa Niño do Corvo",
     municipio: "Moaña",
-    lat: 42.278,
-    lon: -8.742,
-    orientacion: "S"
+    lat: 42.265138,
+    lon: -8.753091,
+    orientacion: "S",
+    anguloAproximado: 180
   },
   {
     nombre: "Playa do Con",
     municipio: "Moaña",
-    lat: 42.285,
-    lon: -8.729,
-    orientacion: "S"
+    lat: 42.270666,
+    lon: -8.741197,
+    orientacion: "S",
+    anguloAproximado: 180
   },
   {
     nombre: "Praia Borna",
     municipio: "Moaña",
-    lat: 42.290,
-    lon: -8.704,
-    orientacion: "S"
+    lat: 42.281156,
+    lon: -8.698295,
+    orientacion: "S",
+    anguloAproximado: 180
   },
   {
     nombre: "Praia Viño",
     municipio: "Cangas",
-    lat: 42.257,
-    lon: -8.849,
-    orientacion: "S"
+    lat: 42.2601,
+    lon: -8.84433,
+    orientacion: "S",
+    anguloAproximado: 180
   },
   {
     nombre: "Playa de Limens",
     municipio: "Cangas",
     lat: 42.261,
     lon: -8.816,
-    orientacion: "S"
+    orientacion: "S",
+    anguloAproximado: 180
   },
   {
     nombre: "Playa de Lapaman",
     municipio: "Marín",
-    lat: 42.336,
-    lon: -8.783,
-    orientacion: "W"
+    lat: 42.342207,
+    lon: -8.753497,
+    orientacion: "S",
+    anguloAproximado: 180
   },
   {
     nombre: "Playa de Mogor",
     municipio: "Marín",
-    lat: 42.393,
-    lon: -8.722,
-    orientacion: "W"
+    lat: 42.385548,
+    lon: -8.720692,
+    orientacion: "SE",
+    anguloAproximado: 135
   },
   {
     nombre: "Playa de Portocelo",
     municipio: "Marín",
-    lat: 42.400,
-    lon: -8.713,
-    orientacion: "W"
+    lat: 42.390275,
+    lon: -8.714898,
+    orientacion: "SE",
+    anguloAproximado: 135
   },
   {
     nombre: "Playa de Rodas (Islas Cíes)",
     municipio: "Vigo",
-    lat: 42.220,
-    lon: -8.900,
-    orientacion: "SW"
+    lat: 42.222202,
+    lon: -8.901842,
+    orientacion: "E",
+    anguloAproximado: 90
   }
 ];
 
