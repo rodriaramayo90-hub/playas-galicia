@@ -22,6 +22,11 @@
 
     <main>
         <section class="filtros" aria-label="Filtros del ranking">
+            <div class="selector-dia" role="group" aria-label="Día del pronóstico">
+                <button id="btnHoy" class="btn-dia activo" type="button" aria-pressed="true" onclick="cambiarDia(0)">Hoy</button>
+                <button id="btnManana" class="btn-dia" type="button" aria-pressed="false" onclick="cambiarDia(1)">Mañana</button>
+            </div>
+
             <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>
 
             <div class="grupo-filtro">
