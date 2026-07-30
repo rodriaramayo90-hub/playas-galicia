@@ -367,27 +367,58 @@ async function aplicarBusqueda() {
     const valorDistancia =
         document.getElementById("distanciaMaxima").value.trim();
 
-    // Aplicar distancia máxima
-    if (valorDistancia === "") {
-        distanciaMaxima = null;
+    // Si se escribió una distancia, comprobamos que sea válida
+    if (valorDistancia !== "") {
+
+        const distanciaIntroducida = Number(valorDistancia);
+
+        if (
+            !Number.isFinite(distanciaIntroducida) ||
+            distanciaIntroducida <= 0
+        ) {
+            alert("Introduce una distancia válida");
+            return;
+        }
+
+        distanciaMaxima = distanciaIntroducida;
+
     } else {
-        distanciaMaxima = Number(valorDistancia);
+
+        distanciaMaxima = null;
+
     }
 
-    // Si se escribió un código postal,
-    // primero buscamos sus coordenadas
+    // Si se escribió un código postal, buscar sus coordenadas
     if (codigoPostal !== "") {
 
         await buscarCodigoPostal(codigoPostal);
-
-    } else {
-
-        // Si no hay código postal, usamos la ubicación que ya exista
-        // y aplicamos únicamente el filtro de distancia
-        cargarRanking();
+        return;
 
     }
+
+    // Si se quiere filtrar por distancia, hace falta una ubicación
+    if (
+        distanciaMaxima !== null &&
+        ubicacionUsuario === null
+    ) {
+
+        alert(
+            "Para filtrar por distancia, introduce un código postal o pulsa Mi ubicación"
+        );
+
+        // No dejamos activo un filtro imposible de aplicar
+        distanciaMaxima = null;
+
+        return;
+
+    }
+
+    // Sin código postal, recargar usando la ubicación existente
+    // o mostrar todas las playas si no hay ubicación
+    await cargarRanking();
+
 }
+
 async function buscarCodigoPostal(codigo) {
 
   const url =
@@ -632,6 +663,26 @@ function calcularPuntuacion(
       Math.round(puntuacion)
     )
   );
+}
+function inicializarVista() {
+
+    if (window.innerWidth <= 600) {
+        modoVista = "tarjetas";
+    } else {
+        modoVista = "tabla";
+    }
+
+}
+
+function cambiarVista() {
+
+    modoVista =
+        modoVista === "tabla"
+        ? "tarjetas"
+        : "tabla";
+
+    actualizarVista();
+
 }
 function actualizarVista() {
 
@@ -1038,17 +1089,16 @@ async function cargarRanking() {
 
   }
 
-  if(distanciaMaxima !== null){
+  if (
+    distanciaMaxima !== null &&
+    ubicacionUsuario !== null
+) {
 
-  const filtrados = resultados.filter(
-    playa =>
-      playa.distancia !== null &&
-      playa.distancia <= distanciaMaxima
-  );
-
-  resultados.length = 0;
-
-  resultados.push(...filtrados);
+    resultados = resultados.filter(
+        playa =>
+            playa.distancia !== null &&
+            playa.distancia <= distanciaMaxima
+    );
 
 }
   
@@ -1174,14 +1224,12 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
 
     inicializarVista();
 
-    // Mostrar inmediatamente la vista adecuada
     actualizarVista();
 
-    // Después cargar los datos
-    cargarRanking();
+    await cargarRanking();
 
 });
