@@ -1187,6 +1187,10 @@ window.addEventListener("load", () => {
 
     inicializarVista();
 
+    // Mostrar inmediatamente la vista adecuada
+    actualizarVista();
+
+    // Después cargar los datos
     cargarRanking();
 
 });
