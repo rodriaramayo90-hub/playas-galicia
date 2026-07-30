@@ -619,7 +619,7 @@ function diferenciaAngular(anguloA, anguloB) {
 
 function factorExposicionOleaje(anguloPlaya, direccionOlas) {
   if (!Number.isFinite(anguloPlaya) || !Number.isFinite(direccionOlas)) {
-    return 0.6;
+    return 0.65;
   }
 
   const diferencia = diferenciaAngular(anguloPlaya, direccionOlas);
@@ -628,8 +628,8 @@ function factorExposicionOleaje(anguloPlaya, direccionOlas) {
     Math.cos(diferencia * Math.PI / 180)
   );
 
-  // Incluso una playa protegida puede conservar algo de mar local o refractado.
-  return 0.08 + 0.92 * Math.pow(componenteFrontal, 1.5);
+  // Conservamos una fracción del oleaje por refracción y mar local.
+  return 0.15 + 0.85 * Math.pow(componenteFrontal, 1.35);
 }
 
 function calcularOleajeEfectivo(playa, datosMarine) {
@@ -647,38 +647,49 @@ function calcularOleajeEfectivo(playa, datosMarine) {
     const alturaMarViento = datosMarine.hourly?.wind_wave_height?.[indice];
     const direccionMarViento = datosMarine.hourly?.wind_wave_direction?.[indice];
 
-    let alturaEnPlaya = null;
+    if (!Number.isFinite(alturaTotal)) return;
 
+    let factorExposicion = factorExposicionOleaje(
+      playa.anguloAproximado,
+      direccionTotal
+    );
+
+    // Los componentes ayudan a ponderar la dirección, pero no sustituyen
+    // la altura total significativa proporcionada por el modelo.
     if (Number.isFinite(alturaMarFondo) || Number.isFinite(alturaMarViento)) {
-      const marFondoAjustado = Number.isFinite(alturaMarFondo)
-        ? alturaMarFondo * factorExposicionOleaje(
-            playa.anguloAproximado,
-            direccionMarFondo
-          )
+      const energiaMarFondo = Number.isFinite(alturaMarFondo)
+        ? Math.pow(alturaMarFondo, 2)
         : 0;
-      const marVientoAjustado = Number.isFinite(alturaMarViento)
-        ? alturaMarViento * factorExposicionOleaje(
-            playa.anguloAproximado,
-            direccionMarViento
-          )
+      const energiaMarViento = Number.isFinite(alturaMarViento)
+        ? Math.pow(alturaMarViento, 2)
         : 0;
+      const energiaTotal = energiaMarFondo + energiaMarViento;
 
-      alturaEnPlaya = Math.hypot(marFondoAjustado, marVientoAjustado);
-    } else if (Number.isFinite(alturaTotal)) {
-      alturaEnPlaya = alturaTotal * factorExposicionOleaje(
-        playa.anguloAproximado,
-        direccionTotal
-      );
+      if (energiaTotal > 0) {
+        const factorMarFondo = factorExposicionOleaje(
+          playa.anguloAproximado,
+          direccionMarFondo
+        );
+        const factorMarViento = factorExposicionOleaje(
+          playa.anguloAproximado,
+          direccionMarViento
+        );
+
+        factorExposicion = Math.sqrt(
+          (
+            energiaMarFondo * Math.pow(factorMarFondo, 2) +
+            energiaMarViento * Math.pow(factorMarViento, 2)
+          ) / energiaTotal
+        );
+      }
     }
-
-    if (!Number.isFinite(alturaEnPlaya)) return;
 
     const periodo = datosMarine.hourly?.wave_period?.[indice];
     const factorPeriodo = Number.isFinite(periodo)
-      ? Math.min(1.35, Math.max(0.75, Math.sqrt(periodo / 8)))
+      ? Math.min(1.3, Math.max(0.8, Math.sqrt(periodo / 8)))
       : 1;
 
-    valores.push(alturaEnPlaya * factorPeriodo);
+    valores.push(alturaTotal * factorExposicion * factorPeriodo);
   });
 
   if (valores.length === 0) return null;
@@ -689,10 +700,10 @@ function calcularOleajeEfectivo(playa, datosMarine) {
 function puntosOleaje(oleaje) {
   if (!Number.isFinite(oleaje)) return 0;
 
-  if (oleaje < 0.25) return 3;
-  if (oleaje < 0.5) return 2;
-  if (oleaje < 1) return 0;
-  if (oleaje < 1.5) return -2;
+  if (oleaje < 0.15) return 3;
+  if (oleaje < 0.4) return 2;
+  if (oleaje < 0.8) return 0;
+  if (oleaje < 1.4) return -2;
 
   return -3;
 }
@@ -701,16 +712,16 @@ function obtenerEstadoOleaje(oleaje) {
   if (!Number.isFinite(oleaje))
     return "-";
 
-  if (oleaje < 0.25)
+  if (oleaje < 0.15)
     return "🌊 Mar prácticamente plano";
 
-  if (oleaje < 0.5)
+  if (oleaje < 0.4)
     return "🌊 Oleaje suave";
 
-  if (oleaje < 1)
+  if (oleaje < 0.8)
     return "🌊 Oleaje moderado";
 
-  if (oleaje < 1.5)
+  if (oleaje < 1.4)
     return "🌊 Mar movido";
 
   return "🌊 Oleaje fuerte";
@@ -1235,6 +1246,7 @@ return {
   cielo,
   agua,
   estadoOleaje,
+  oleaje,
   puntuacion,
   estado,
   nubosidad,
