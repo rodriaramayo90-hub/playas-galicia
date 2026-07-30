@@ -533,3 +533,15 @@ button:disabled {
         transition: none !important;
     }
 }
+
+
+/* Evita que la tabla aparezca antes de inicializar JavaScript en móviles */
+@media (max-width: 768px) {
+    .tabla-scroll {
+        display: none;
+    }
+
+    #ranking-mobile {
+        display: block;
+    }
+}
