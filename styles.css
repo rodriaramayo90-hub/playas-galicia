@@ -240,8 +240,8 @@ thead th {
     color: white;
 }
 
-#ranking-mobile{
-    display:block;
+#ranking-mobile {
+    display: none;
 }
 .btn-tabla{
     display:inline-block;
