@@ -581,10 +581,10 @@ function puntosViento(viento) {
 }
 
 function puntosRachas(racha) {
-  if (!Number.isFinite(racha) || racha <= 25) return 0;
-  if (racha <= 35) return -2;
-  if (racha <= 45) return -5;
-  return -8;
+  if (!Number.isFinite(racha) || racha < 30) return 0;
+  if (racha < 40) return -1;
+  if (racha < 50) return -3;
+  return -6;
 }
 
 function puntosLluvia(lluvia) {
@@ -751,6 +751,24 @@ function obtenerEstadoAgua(agua) {
 
   return "agua cálida";
 }
+function calcularPercentil(valores, proporcion) {
+  const ordenados = valores
+    .filter(Number.isFinite)
+    .sort((a, b) => a - b);
+
+  if (ordenados.length === 0) return null;
+
+  const posicion = (ordenados.length - 1) * proporcion;
+  const inferior = Math.floor(posicion);
+  const superior = Math.ceil(posicion);
+
+  if (inferior === superior) return ordenados[inferior];
+
+  const pesoSuperior = posicion - inferior;
+  return ordenados[inferior] * (1 - pesoSuperior) +
+    ordenados[superior] * pesoSuperior;
+}
+
 function promedioDireccionViento(direcciones, velocidades) {
   let este = 0;
   let norte = 0;
@@ -887,9 +905,9 @@ function generarExplicacion(temperatura, viento, rachaViento, direccionVientoGra
   else mensajes.push("cielo muy nublado");
   if (temperatura >= 25) mensajes.push("temperatura ideal");
   if (viento <= 15) mensajes.push("poco viento");
-  if (rachaViento > 45) mensajes.push("rachas de viento muy fuertes");
-  else if (rachaViento > 35) mensajes.push("rachas de viento fuertes");
-  else if (rachaViento > 25) mensajes.push("rachas de viento notables");
+  if (rachaViento >= 50) mensajes.push("rachas de viento muy fuertes");
+  else if (rachaViento >= 40) mensajes.push("rachas de viento fuertes");
+  else if (rachaViento >= 30) mensajes.push("rachas de viento moderadas");
   if (lluvia <= 10) mensajes.push("muy baja probabilidad de lluvia");
   else if (lluvia <= 30) mensajes.push("baja probabilidad de lluvia");
   else if (lluvia <= 60) mensajes.push("posibilidad de lluvia");
@@ -970,7 +988,12 @@ async function procesarDatosPlaya(playa, datos, datosMarine) {
   const lluvia = Math.round(promedio("lluvia"));
   const nubosidad = Math.round(promedio("nubosidad"));
   const viento = Math.round(promedio("viento"));
-  const rachaViento = Math.round(Math.max(...registros.map(registro => registro.rachaViento)));
+  const rachaViento = Math.round(
+    calcularPercentil(
+      registros.map(registro => registro.rachaViento),
+      0.8
+    )
+  );
   const direccionVientoGrados = promedioDireccionViento(registros.map(r => r.direccionViento), registros.map(r => r.viento));
   const direccionViento = Number.isFinite(direccionVientoGrados) ? gradosADireccion(direccionVientoGrados) : "-";
   const temperaturaMaxima = datos.daily.temperature_2m_max[0];
