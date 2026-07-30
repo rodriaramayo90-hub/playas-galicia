@@ -362,6 +362,150 @@ const playas = [
     lon: -8.901842,
     orientacion: "E",
     anguloAproximado: 90
+  },
+  {
+    nombre: "Praia de Compostela",
+    municipio: "Vilagarcía de Arousa",
+    lat: 42.607669,
+    lon: -8.768775,
+    orientacion: "W",
+    anguloAproximado: 270
+  },
+  {
+    nombre: "Playa de San Amaro",
+    municipio: "A Coruña",
+    lat: 43.38175,
+    lon: -8.39671,
+    orientacion: "NE",
+    anguloAproximado: 45
+  },
+  {
+    nombre: "Playa de Riazor",
+    municipio: "A Coruña",
+    lat: 43.36915,
+    lon: -8.41138,
+    orientacion: "NW",
+    anguloAproximado: 330
+  },
+  {
+    nombre: "Praia de Doniños",
+    municipio: "Ferrol",
+    lat: 43.503311,
+    lon: -8.318419,
+    orientacion: "W",
+    anguloAproximado: 280
+  },
+  {
+    nombre: "Praia da Frouxeira",
+    municipio: "Valdoviño",
+    lat: 43.61247,
+    lon: -8.16695,
+    orientacion: "NW",
+    anguloAproximado: 315
+  },
+  {
+    nombre: "Praia de Pantín",
+    municipio: "Valdoviño",
+    lat: 43.63913,
+    lon: -8.11388,
+    orientacion: "NW",
+    anguloAproximado: 315
+  },
+  {
+    nombre: "Praia das Catedrais",
+    municipio: "Ribadeo",
+    lat: 43.55701,
+    lon: -7.17304,
+    orientacion: "N",
+    anguloAproximado: 0
+  },
+  {
+    nombre: "Praia de Llas",
+    municipio: "Foz",
+    lat: 43.58002,
+    lon: -7.26042,
+    orientacion: "N",
+    anguloAproximado: 0
+  },
+  {
+    nombre: "Praia de Covas",
+    municipio: "Viveiro",
+    lat: 43.67269,
+    lon: -7.60516,
+    orientacion: "N",
+    anguloAproximado: 0
+  },
+  {
+    nombre: "Praia de Nemiña",
+    municipio: "Muxía",
+    lat: 43.00751,
+    lon: -9.26165,
+    orientacion: "W",
+    anguloAproximado: 270
+  },
+  {
+    nombre: "Praia de Lariño",
+    municipio: "Carnota",
+    lat: 42.76464,
+    lon: -9.11843,
+    orientacion: "W",
+    anguloAproximado: 270
+  },
+  {
+    nombre: "Praia da Aguieira",
+    municipio: "Porto do Son",
+    lat: 42.74211,
+    lon: -8.96921,
+    orientacion: "W",
+    anguloAproximado: 265
+  },
+  {
+    nombre: "Praia de Barra",
+    municipio: "Cangas",
+    lat: 42.26106,
+    lon: -8.85233,
+    orientacion: "S",
+    anguloAproximado: 190
+  },
+  {
+    nombre: "Praia de Melide",
+    municipio: "Cangas",
+    lat: 42.2514,
+    lon: -8.86678,
+    orientacion: "W",
+    anguloAproximado: 250
+  },
+  {
+    nombre: "Praia de Silgar",
+    municipio: "Sanxenxo",
+    lat: 42.40053,
+    lon: -8.81194,
+    orientacion: "S",
+    anguloAproximado: 180
+  },
+  {
+    nombre: "Praia da Lanzada",
+    municipio: "O Grove / Sanxenxo",
+    lat: 42.4473,
+    lon: -8.87984,
+    orientacion: "W",
+    anguloAproximado: 270
+  },
+  {
+    nombre: "Praia de Montalvo",
+    municipio: "Sanxenxo",
+    lat: 42.39638,
+    lon: -8.85048,
+    orientacion: "SW",
+    anguloAproximado: 225
+  },
+  {
+    nombre: "Praia de Canelas",
+    municipio: "Sanxenxo",
+    lat: 42.38927,
+    lon: -8.83183,
+    orientacion: "S",
+    anguloAproximado: 200
   }
 ];
 
