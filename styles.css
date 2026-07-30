@@ -363,17 +363,6 @@ thead th {
         background-attachment: scroll;
     }
 
-    .tabla-scroll{
-        display:none;
-    }
-
-      .tabla-scroll{
-    display:block;
-    }
-
-    #ranking-mobile{
-    display:none;
-    }
 
     h1 {
         font-size: 1.7rem;
