@@ -25,20 +25,10 @@
 
 <label>Código postal</label>
 
-<div class="input-con-boton">
-
 <input
 id="codigoPostal"
 type="number"
 placeholder="15002">
-
-<button
-class="btn-buscar"
-onclick="buscarCodigoPostal(document.getElementById('codigoPostal').value)">
-Buscar
-</button>
-
-</div>
 
 </div>
 
@@ -51,8 +41,7 @@ Buscar
 <input
 id="distanciaMaxima"
 list="distancias"
-placeholder="Sin límite"
-onchange="cambiarDistancia(this.value)">
+placeholder="Sin límite">
 
 <datalist id="distancias">
 
@@ -66,10 +55,9 @@ onchange="cambiarDistancia(this.value)">
 
 </datalist>
 
-<button class="btn-buscar" onclick="cargarRanking()">
+<button class="btn-buscar" onclick="aplicarBusqueda()">
 Buscar
 </button>
-
 </div>
 
 </div>
