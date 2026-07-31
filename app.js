@@ -734,13 +734,11 @@ function puntosVientoMaximo(vientoMaximo) {
 }
 
 function puntosLluvia(lluvia) {
-
-  if (lluvia <= 5) return 25;
-  if (lluvia <= 15) return 20;
-  if (lluvia <= 30) return 10;
-  if (lluvia <= 50) return -10;
-
-  return -25;
+  const valorSeguro = Math.max(0, Math.min(100, lluvia));
+  if (valorSeguro <= 15) return 25 - valorSeguro / 3;
+  if (valorSeguro <= 30) return 20 - (valorSeguro - 15) * 2 / 3;
+  if (valorSeguro <= 50) return 10 - (valorSeguro - 30);
+  return -10 - (valorSeguro - 50) * 0.3;
 }
 
 function puntosAgua(agua) {
