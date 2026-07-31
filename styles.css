@@ -1,3 +1,8 @@
+/* Mantiene la interfaz legible en navegadores que fuerzan el modo oscuro */
+:root {
+    color-scheme: only light;
+}
+
 /* Base de la página */
 body {
     font-family: 'Inter', Arial, sans-serif;
@@ -455,9 +460,15 @@ td:nth-child(11) {
 
 /* Accesibilidad y estados de la interfaz */
 .cabecera {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto 22px;
+    padding: 12px 16px;
+    border: 1px solid rgba(11, 114, 133, 0.08);
+    border-radius: 20px;
+    background: #f4f8fb;
+    box-sizing: border-box;
     text-align: center;
+    forced-color-adjust: none;
 }
 
 .logo-principal {
@@ -520,6 +531,8 @@ button:disabled {
 
     .cabecera {
         margin-bottom: 16px;
+        padding: 10px 12px;
+        border-radius: 16px;
     }
 
     .logo-principal {
@@ -588,3 +601,4 @@ button:disabled {
     outline: 3px solid rgba(11, 114, 133, 0.3);
     outline-offset: 2px;
 }
+
