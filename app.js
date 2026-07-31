@@ -831,7 +831,102 @@ function puntosTemperatura(temp) {
   if (temp < 27) return 20;
   if (temp < 28) return 20;
   if (temp < 29) return 20;
-  if (temp…903 tokens truncated…rFondo * Math.pow(factorMarFondo, 2) + energiaMarViento * Math.pow(factorMarViento, 2)) / energiaTotal);
+  if (temp < 30) return 20;
+
+  return 20;
+}
+
+function puntosViento(viento) {
+  if (viento <= 5) return 10;
+  if (viento <= 7.5) return 9;
+  if (viento <= 10) return 8;
+  if (viento <= 12.5) return 7;
+  if (viento <= 15) return 6;
+  if (viento <= 17.5) return 5;
+  if (viento <= 20) return 4;
+  if (viento <= 22.5) return 2;
+  if (viento <= 25) return 0;
+  if (viento <= 27.5) return -2;
+  if (viento <= 30) return -4;
+  return -8;
+}
+
+function puntosVientoMaximo(vientoMaximo) {
+  if (!Number.isFinite(vientoMaximo) || vientoMaximo < 25) return 0;
+  if (vientoMaximo < 30) return -1;
+  if (vientoMaximo < 35) return -3;
+  return -6;
+}
+
+function puntosLluvia(lluvia) {
+  const valorSeguro = Math.max(0, Math.min(100, lluvia));
+  if (valorSeguro <= 15) return 25 - valorSeguro / 3;
+  if (valorSeguro <= 30) return 20 - (valorSeguro - 15) * 2 / 3;
+  if (valorSeguro <= 50) return 10 - (valorSeguro - 30);
+  return -10 - (valorSeguro - 50) * 0.3;
+}
+
+function puntosAgua(agua) {
+
+  if (!agua) return 0;
+
+  if (agua < 16) return -7;
+  if (agua < 18) return -3;
+  if (agua < 20) return 3;
+
+  return 7;
+}
+function puntosNubosidad(nubosidad){
+  // El cielo despejado conserva el máximo, pero un día cubierto no invalida
+  // por sí solo unas condiciones razonables de temperatura, viento y lluvia.
+  const valorSeguro = Math.max(0, Math.min(100, nubosidad));
+  return 25 - valorSeguro * 0.3;
+}
+function diferenciaAngular(anguloA, anguloB) {
+  const diferencia = Math.abs(anguloA - anguloB) % 360;
+  return diferencia > 180 ? 360 - diferencia : diferencia;
+}
+
+function factorExposicionOleaje(anguloPlaya, direccionOlas) {
+  if (!Number.isFinite(anguloPlaya) || !Number.isFinite(direccionOlas)) {
+    return 0.65;
+  }
+
+  const diferencia = diferenciaAngular(anguloPlaya, direccionOlas);
+  const componenteFrontal = Math.max(
+    0,
+    Math.cos(diferencia * Math.PI / 180)
+  );
+
+  // Conservamos una fracción del oleaje por refracción y mar local.
+  return 0.15 + 0.85 * Math.pow(componenteFrontal, 1.35);
+}
+
+function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo) {
+  const horas = datosMarine.hourly?.time ?? [];
+  const valores = [];
+
+  horas.forEach((hora, indice) => {
+    const horaLocal = Number(hora.split("T")[1]?.split(":")[0]);
+    if (!hora.startsWith(fechaObjetivo) || horaLocal < 11 || horaLocal > 20) return;
+
+    const alturaTotal = datosMarine.hourly?.wave_height?.[indice];
+    const direccionTotal = datosMarine.hourly?.wave_direction?.[indice];
+    const alturaMarFondo = datosMarine.hourly?.swell_wave_height?.[indice];
+    const direccionMarFondo = datosMarine.hourly?.swell_wave_direction?.[indice];
+    const alturaMarViento = datosMarine.hourly?.wind_wave_height?.[indice];
+    const direccionMarViento = datosMarine.hourly?.wind_wave_direction?.[indice];
+    if (!Number.isFinite(alturaTotal)) return;
+
+    let factorExposicion = factorExposicionOleaje(playa.anguloAproximado, direccionTotal);
+    if (Number.isFinite(alturaMarFondo) || Number.isFinite(alturaMarViento)) {
+      const energiaMarFondo = Number.isFinite(alturaMarFondo) ? Math.pow(alturaMarFondo, 2) : 0;
+      const energiaMarViento = Number.isFinite(alturaMarViento) ? Math.pow(alturaMarViento, 2) : 0;
+      const energiaTotal = energiaMarFondo + energiaMarViento;
+      if (energiaTotal > 0) {
+        const factorMarFondo = factorExposicionOleaje(playa.anguloAproximado, direccionMarFondo);
+        const factorMarViento = factorExposicionOleaje(playa.anguloAproximado, direccionMarViento);
+        factorExposicion = Math.sqrt((energiaMarFondo * Math.pow(factorMarFondo, 2) + energiaMarViento * Math.pow(factorMarViento, 2)) / energiaTotal);
       }
     }
 
