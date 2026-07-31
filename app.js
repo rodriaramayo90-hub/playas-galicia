@@ -1183,42 +1183,50 @@ tabla.innerHTML += `
     <td class="col-explicacion">${playa.explicacion}</td>
    </tr>
 `;
+    const claseValoracion = playa.puntuacion >= 70
+      ? "valoracion-buena"
+      : playa.puntuacion >= 45
+        ? "valoracion-aceptable"
+        : "valoracion-evitar";
+
     rankingMobile.innerHTML += `
 
-<div class="tarjeta-playa">
+<article class="tarjeta-playa ${claseValoracion}">
+  <div class="tarjeta-cabecera">
+    <div class="tarjeta-identidad">
+      <span class="posicion-ranking" aria-label="Posición ${index + 1}">${index + 1}</span>
+      <div>
+        <h2>${playa.nombre}</h2>
+        <div class="estado">${playa.estado}</div>
+      </div>
+    </div>
+    <div class="puntuacion" aria-label="Puntuación ${playa.puntuacion} sobre 100">
+      <span>Puntaje del día</span>
+      <strong>${playa.puntuacion}<small>/100</small></strong>
+    </div>
+  </div>
 
-<h2>
-🏖️ ${playa.nombre}
-</h2>
+  <div class="resumen-condiciones">
+    <span>🌡️ ${playa.temperaturaMediaPlaya.toFixed(1)}°C</span>
+    <span>💨 ${playa.viento} km/h</span>
+    <span>🌧️ ${playa.lluvia}%</span>
+  </div>
 
-<div class="estado">
-${playa.estado}
-</div>
+  <div class="tarjeta-contexto">
+    <span>${playa.cielo}</span>
+    <span>📍 ${
+      playa.distancia !== null
+        ? playa.distancia.toFixed(1) + " km"
+        : "Sin ubicación"
+    }</span>
+  </div>
 
-<p>📍 ${
-playa.distancia!==null
-?
-playa.distancia.toFixed(1)+" km"
-:
-"-"
-}</p>
+  <p class="explicacion">${playa.explicacion}</p>
+  <button class="btn-detalles" type="button" aria-expanded="false">
+    Ver detalles ▼
+  </button>
 
-<p>${playa.cielo}</p>
-
-<p>🌡️ Temperatura: ${playa.temperaturaMediaPlaya.toFixed(1)}°C</p>
-
-
-<div class="puntuacion">
-⭐ ${playa.puntuacion}/100
-</div>
-<p>
-${playa.explicacion}
-</p>
-<button class="btn-detalles" type="button" aria-expanded="false">
-Ver detalles ▼
-</button>
-
-<div class="detalles-mobile oculto">
+  <div class="detalles-mobile oculto">
 <p>🌡️ Temperatura máxima:
 ${playa.temperaturaMaxima}°C
 </p>
@@ -1240,7 +1248,7 @@ playa.agua.toFixed(1)+"°C"
 
 </div>
 
-</div>
+</article>
 
 `;
   });
@@ -1307,3 +1315,4 @@ window.addEventListener("DOMContentLoaded", async () => {
     configurarCabecerasOrdenables();
     await cargarRanking();
 });
+
