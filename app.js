@@ -754,9 +754,10 @@ function puntosAgua(agua) {
   return 7;
 }
 function puntosNubosidad(nubosidad){
-  // Escala continua: evita saltos grandes al cruzar un límite de nubosidad.
+  // El cielo despejado conserva el máximo, pero un día cubierto no invalida
+  // por sí solo unas condiciones razonables de temperatura, viento y lluvia.
   const valorSeguro = Math.max(0, Math.min(100, nubosidad));
-  return 25 - valorSeguro * 0.5;
+  return 25 - valorSeguro * 0.3;
 }
 function diferenciaAngular(anguloA, anguloB) {
   const diferencia = Math.abs(anguloA - anguloB) % 360;
