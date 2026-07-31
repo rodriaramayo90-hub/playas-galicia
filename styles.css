@@ -598,13 +598,6 @@ button:disabled {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .marca-nombre,
-    .marca-lema {
-        color: #f2f7fa;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
