@@ -9,6 +9,14 @@ let respuestasPronosticoCache = null;
 let diaSeleccionado = 0;
 let detallesVisibles = false;
 
+const TAMANO_LOTE_PRONOSTICO = 50;
+const CONCURRENCIA_PRONOSTICO = 2;
+const TAMANO_LOTE_DISTANCIAS = 40;
+const CONCURRENCIA_DISTANCIAS = 2;
+const MAX_DISTANCIAS_EN_CACHE = 5000;
+const cacheDistanciasCoche = new Map();
+const cacheFallosDistancia = new Map();
+
 function mostrarEstado(mensaje, tipo = "info") {
   const estado = document.getElementById("estadoCarga");
   if (!estado) return;
@@ -516,28 +524,135 @@ const playas = [
   }
 ];
 
-async function calcularDistanciaCoche(
-  lat1,
-  lon1,
-  lat2,
-  lon2
-) {
+function dividirEnLotes(elementos, tamano) {
+  const lotes = [];
+  for (let indice = 0; indice < elementos.length; indice += tamano) {
+    lotes.push(elementos.slice(indice, indice + tamano));
+  }
+  return lotes;
+}
+
+async function ejecutarConConcurrencia(elementos, limite, tarea) {
+  const resultados = new Array(elementos.length);
+  let siguienteIndice = 0;
+
+  async function ejecutar() {
+    while (siguienteIndice < elementos.length) {
+      const indice = siguienteIndice;
+      siguienteIndice += 1;
+      resultados[indice] = await tarea(elementos[indice], indice);
+    }
+  }
+
+  const trabajadores = Array.from(
+    { length: Math.min(limite, elementos.length) },
+    () => ejecutar()
+  );
+  await Promise.all(trabajadores);
+  return resultados;
+}
+
+function esperar(milisegundos) {
+  return new Promise(resolver => setTimeout(resolver, milisegundos));
+}
+
+async function solicitarJson(url, { reintentos = 1, tiempoLimite = 15000 } = {}) {
+  let ultimoError;
+
+  for (let intento = 0; intento <= reintentos; intento += 1) {
+    const controlador = new AbortController();
+    const temporizador = setTimeout(() => controlador.abort(), tiempoLimite);
+
+    try {
+      const respuesta = await fetch(url, { signal: controlador.signal });
+      if (!respuesta.ok) {
+        throw new Error(`El servicio respondió con ${respuesta.status}`);
+      }
+      return await respuesta.json();
+    } catch (error) {
+      ultimoError = error;
+      if (intento < reintentos) await esperar(400 * (intento + 1));
+    } finally {
+      clearTimeout(temporizador);
+    }
+  }
+
+  throw ultimoError;
+}
+
+function claveDistancia(origen, destino) {
+  return [origen.lat, origen.lon, destino.lat, destino.lon]
+    .map(coordenada => Number(coordenada).toFixed(5))
+    .join(":");
+}
+
+function guardarDistanciaEnCache(clave, distancia) {
+  if (cacheDistanciasCoche.size >= MAX_DISTANCIAS_EN_CACHE) {
+    const primeraClave = cacheDistanciasCoche.keys().next().value;
+    cacheDistanciasCoche.delete(primeraClave);
+  }
+  cacheDistanciasCoche.set(clave, distancia);
+}
+
+async function calcularLoteDistanciasCoche(origen, destinos) {
+  const coordenadas = [origen, ...destinos]
+    .map(punto => `${punto.lon},${punto.lat}`)
+    .join(";");
+  const indicesDestinos = destinos.map((_, indice) => indice + 1).join(";");
   const url =
-    `https://router.project-osrm.org/route/v1/driving/` +
-    `${lon1},${lat1};${lon2},${lat2}?overview=false`;
+    `https://router.project-osrm.org/table/v1/driving/${coordenadas}` +
+    `?sources=0&destinations=${indicesDestinos}&annotations=distance`;
 
   try {
-    const respuesta = await fetch(url);
-    if (!respuesta.ok) return null;
-
-    const datos = await respuesta.json();
-    if (!datos.routes || datos.routes.length === 0) return null;
-
-    return datos.routes[0].distance / 1000;
+    const datos = await solicitarJson(url, { reintentos: 1, tiempoLimite: 18000 });
+    const distancias = datos.distances?.[0];
+    if (!Array.isArray(distancias) || distancias.length !== destinos.length) {
+      throw new Error("OSRM devolvió una tabla de distancias incompleta");
+    }
+    return distancias.map(distancia =>
+      Number.isFinite(distancia) ? distancia / 1000 : null
+    );
   } catch (error) {
-    console.warn("No se pudo calcular una distancia por carretera", error);
-    return null;
+    console.warn("No se pudo calcular un lote de distancias por carretera", error);
+    return destinos.map(() => null);
   }
+}
+
+async function calcularDistanciasCoche(origen, destinos) {
+  const resultados = new Array(destinos.length).fill(null);
+  const pendientes = [];
+  const ahora = Date.now();
+
+  destinos.forEach((destino, indice) => {
+    const clave = claveDistancia(origen, destino);
+    if (cacheDistanciasCoche.has(clave)) {
+      resultados[indice] = cacheDistanciasCoche.get(clave);
+      return;
+    }
+    if ((cacheFallosDistancia.get(clave) || 0) > ahora) return;
+    pendientes.push({ destino, indice, clave });
+  });
+
+  const lotes = dividirEnLotes(pendientes, TAMANO_LOTE_DISTANCIAS);
+  await ejecutarConConcurrencia(lotes, CONCURRENCIA_DISTANCIAS, async lote => {
+    const distancias = await calcularLoteDistanciasCoche(
+      origen,
+      lote.map(elemento => elemento.destino)
+    );
+
+    lote.forEach((elemento, indice) => {
+      const distancia = distancias[indice];
+      resultados[elemento.indice] = distancia;
+      if (Number.isFinite(distancia)) {
+        guardarDistanciaEnCache(elemento.clave, distancia);
+        cacheFallosDistancia.delete(elemento.clave);
+      } else {
+        cacheFallosDistancia.set(elemento.clave, Date.now() + 60000);
+      }
+    });
+  });
+
+  return resultados;
 }
 
 function actualizarVisibilidadDetalles(){
@@ -1068,16 +1183,32 @@ function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGr
 
 async function obtenerDatosPlayas(dia) {
   if (respuestasPronosticoCache === null) {
-    const latitudes = playas.map(playa => playa.lat).join(",");
-    const longitudes = playas.map(playa => playa.lon).join(",");
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,cloud_cover&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
-    const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=2&timezone=Europe%2FMadrid`;
-    const [respuesta, respuestaMarine] = await Promise.all([fetch(url), fetch(marineUrl)]);
-    if (!respuesta.ok || !respuestaMarine.ok) throw new Error("No se pudieron consultar las condiciones meteorológicas.");
-    const [meteorologia, mar] = await Promise.all([respuesta.json(), respuestaMarine.json()]);
-    const datosMeteorologicos = Array.isArray(meteorologia) ? meteorologia : [meteorologia];
-    const datosMaritimos = Array.isArray(mar) ? mar : [mar];
-    if (datosMeteorologicos.length !== playas.length || datosMaritimos.length !== playas.length) throw new Error("La respuesta meteorológica está incompleta.");
+    const lotes = dividirEnLotes(playas, TAMANO_LOTE_PRONOSTICO);
+    const respuestas = await ejecutarConConcurrencia(
+      lotes,
+      CONCURRENCIA_PRONOSTICO,
+      async lote => {
+        const latitudes = lote.map(playa => playa.lat).join(",");
+        const longitudes = lote.map(playa => playa.lon).join(",");
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,cloud_cover&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
+        const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=2&timezone=Europe%2FMadrid`;
+        const [meteorologia, mar] = await Promise.all([
+          solicitarJson(url, { reintentos: 2, tiempoLimite: 20000 }),
+          solicitarJson(marineUrl, { reintentos: 2, tiempoLimite: 20000 })
+        ]);
+        const datosMeteorologicos = Array.isArray(meteorologia) ? meteorologia : [meteorologia];
+        const datosMaritimos = Array.isArray(mar) ? mar : [mar];
+        if (
+          datosMeteorologicos.length !== lote.length ||
+          datosMaritimos.length !== lote.length
+        ) {
+          throw new Error("La respuesta meteorológica está incompleta.");
+        }
+        return { datosMeteorologicos, datosMaritimos };
+      }
+    );
+    const datosMeteorologicos = respuestas.flatMap(respuesta => respuesta.datosMeteorologicos);
+    const datosMaritimos = respuestas.flatMap(respuesta => respuesta.datosMaritimos);
     respuestasPronosticoCache = { datosMeteorologicos, datosMaritimos };
   }
 
@@ -1118,9 +1249,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
   const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
   const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad);
-  let distancia = null;
-  if (ubicacionUsuario) distancia = await calcularDistanciaCoche(ubicacionUsuario.lat, ubicacionUsuario.lon, playa.lat, playa.lon);
-  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, direccionViento, direccionVientoGrados, lluvia, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, explicacion };
+  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, direccionViento, direccionVientoGrados, lluvia, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, explicacion };
 }
 
 async function cargarRankingInterno() {
@@ -1134,23 +1263,12 @@ async function cargarRankingInterno() {
   resultados = [...datosPlayasCache[diaSeleccionado]];
 
 
-  // Recalcular distancias si hay ubicación
+  // Calcular todas las rutas en lotes y reutilizar las ya consultadas.
   if(ubicacionUsuario){
-
-    await Promise.all(
-  resultados.map(async playa => {
-
-    playa.distancia =
-      await calcularDistanciaCoche(
-        ubicacionUsuario.lat,
-        ubicacionUsuario.lon,
-        playa.lat,
-        playa.lon
-      );
-
-  })
-);
-
+    const distancias = await calcularDistanciasCoche(ubicacionUsuario, resultados);
+    resultados.forEach((playa, indice) => {
+      playa.distancia = distancias[indice];
+    });
   }
 
   if (
@@ -1338,4 +1456,3 @@ window.addEventListener("DOMContentLoaded", async () => {
     configurarCabecerasOrdenables();
     await cargarRanking();
 });
-
