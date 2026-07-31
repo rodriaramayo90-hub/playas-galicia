@@ -473,6 +473,9 @@ td:nth-child(11) {
 
 .marca-simbolo.marca-simbolo-v2 {
     width: clamp(108px, 16vw, 170px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .marca-nombre.marca-nombre-v2 {
