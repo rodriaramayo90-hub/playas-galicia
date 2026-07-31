@@ -529,6 +529,24 @@ td:nth-child(11) {
     color: #526b78;
 }
 
+.origen-distancia {
+    width: fit-content;
+    max-width: calc(100% - 8px);
+    margin: -4px auto 12px;
+    padding: 7px 12px;
+    border: 1px solid rgba(11, 114, 133, .16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .72);
+    color: #294f5e;
+    font-size: .88rem;
+    font-weight: 650;
+    text-align: center;
+}
+
+.origen-distancia[hidden] {
+    display: none;
+}
+
 button:focus-visible,
 input:focus-visible,
 .tabla-scroll:focus-visible {
