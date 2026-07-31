@@ -754,9 +754,10 @@ function puntosAgua(agua) {
   return 7;
 }
 function puntosNubosidad(nubosidad){
-  // Escala continua: evita saltos grandes al cruzar un límite de nubosidad.
+  // El cielo despejado conserva el máximo, pero un día cubierto no invalida
+  // por sí solo unas condiciones razonables de temperatura, viento y lluvia.
   const valorSeguro = Math.max(0, Math.min(100, nubosidad));
-  return 25 - valorSeguro * 0.5;
+  return 25 - valorSeguro * 0.3;
 }
 function diferenciaAngular(anguloA, anguloB) {
   const diferencia = Math.abs(anguloA - anguloB) % 360;
@@ -1001,15 +1002,27 @@ function actualizarVista() {
 
     }
 }
-function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, viento) {
+function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, viento, vientoMaximo, lluvia, temperatura, agua, oleaje) {
   const vientoEnContra = esVientoEnContra(anguloPlaya, direccionVientoGrados, viento);
-  if (puntos < 20) return "🔴 Mejor evitar";
+  const condicionesExcelentes =
+    puntos >= 85 &&
+    nubosidad <= 10 &&
+    lluvia <= 5 &&
+    temperatura >= 24 &&
+    temperatura <= 29 &&
+    viento <= 10 &&
+    vientoMaximo < 25 &&
+    agua >= 18 &&
+    oleaje < 0.4 &&
+    !vientoEnContra;
+  if (puntos < 35) return "🔴 Mejor evitar";
+  if (puntos < 50) return "🟠 Poco recomendable";
   if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
   if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
   if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
   if (nubosidad > 60) return "🟡 Aceptable (nublado)";
   if (vientoEnContra) return puntos >= 70 ? "🟡 Aceptable (viento en contra)" : "🟡 Aceptable";
-  if (puntos >= 85) return "🟢 Excelente";
+  if (condicionesExcelentes) return "🟢 Excelente";
   if (puntos >= 70) return "🟢 Buen día de playa";
   return "🟡 Aceptable";
 }
@@ -1095,7 +1108,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
   const oleaje = calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo);
   const estadoOleaje = obtenerEstadoOleaje(oleaje);
   const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
-  const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento);
+  const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad);
   let distancia = null;
   if (ubicacionUsuario) distancia = await calcularDistanciaCoche(ubicacionUsuario.lat, ubicacionUsuario.lon, playa.lat, playa.lon);
@@ -1185,9 +1198,11 @@ tabla.innerHTML += `
 `;
     const claseValoracion = playa.puntuacion >= 70
       ? "valoracion-buena"
-      : playa.puntuacion >= 45
+      : playa.puntuacion >= 50
         ? "valoracion-aceptable"
-        : "valoracion-evitar";
+        : playa.puntuacion >= 35
+          ? "valoracion-regular"
+          : "valoracion-evitar";
 
     rankingMobile.innerHTML += `
 

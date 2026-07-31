@@ -598,13 +598,6 @@ button:disabled {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .marca-nombre,
-    .marca-lema {
-        color: #f2f7fa;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -681,6 +674,10 @@ button:disabled {
 
 .tarjeta-playa.valoracion-aceptable {
     border-left-color: #e4a72b;
+}
+
+.tarjeta-playa.valoracion-regular {
+    border-left-color: #e67e22;
 }
 
 .tarjeta-playa.valoracion-evitar {
