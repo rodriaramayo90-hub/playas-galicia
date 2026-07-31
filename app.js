@@ -1002,15 +1002,26 @@ function actualizarVista() {
 
     }
 }
-function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, viento) {
+function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, viento, vientoMaximo, lluvia, temperatura, agua, oleaje) {
   const vientoEnContra = esVientoEnContra(anguloPlaya, direccionVientoGrados, viento);
+  const condicionesExcelentes =
+    puntos >= 85 &&
+    nubosidad <= 10 &&
+    lluvia <= 5 &&
+    temperatura >= 24 &&
+    temperatura <= 29 &&
+    viento <= 10 &&
+    vientoMaximo < 25 &&
+    agua >= 18 &&
+    oleaje < 0.4 &&
+    !vientoEnContra;
   if (puntos < 20) return "🔴 Mejor evitar";
   if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
   if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
   if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
   if (nubosidad > 60) return "🟡 Aceptable (nublado)";
   if (vientoEnContra) return puntos >= 70 ? "🟡 Aceptable (viento en contra)" : "🟡 Aceptable";
-  if (puntos >= 85) return "🟢 Excelente";
+  if (condicionesExcelentes) return "🟢 Excelente";
   if (puntos >= 70) return "🟢 Buen día de playa";
   return "🟡 Aceptable";
 }
@@ -1096,7 +1107,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
   const oleaje = calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo);
   const estadoOleaje = obtenerEstadoOleaje(oleaje);
   const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
-  const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento);
+  const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad);
   let distancia = null;
   if (ubicacionUsuario) distancia = await calcularDistanciaCoche(ubicacionUsuario.lat, ubicacionUsuario.lon, playa.lat, playa.lon);
