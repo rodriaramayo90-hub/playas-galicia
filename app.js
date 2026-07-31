@@ -16,6 +16,13 @@ function mostrarEstado(mensaje, tipo = "info") {
   estado.dataset.tipo = tipo;
 }
 
+function actualizarOrigenDistancia(origen) {
+  const indicador = document.getElementById("origenDistancia");
+  if (!indicador) return;
+  indicador.textContent = `📏 Distancias desde: ${origen}`;
+  indicador.hidden = false;
+}
+
 function establecerControlesBloqueados(bloqueados) {
   document.querySelectorAll(".filtros button, .filtros input").forEach(control => {
     control.disabled = bloqueados;
@@ -564,6 +571,8 @@ function obtenerUbicacionGPS() {
         lat: posicion.coords.latitude,
         lon: posicion.coords.longitude
       };
+      document.getElementById("codigoPostal").value = "";
+      actualizarOrigenDistancia("tu ubicación actual");
       cargarRanking();
     },
     () => {
@@ -669,6 +678,7 @@ async function buscarCodigoPostal(codigo) {
       lat: Number(datos[0].lat),
       lon: Number(datos[0].lon)
     };
+    actualizarOrigenDistancia(`código postal ${codigo}`);
 
     await cargarRanking();
   } catch (error) {
