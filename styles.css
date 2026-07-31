@@ -460,6 +460,14 @@ td:nth-child(11) {
     text-align: center;
 }
 
+.logo-principal-v2 {
+    display: block;
+    width: min(100%, 900px);
+    height: auto;
+    margin: 0 auto;
+    mix-blend-mode: multiply;
+}
+
 .marca-principal {
     display: flex;
     align-items: center;
