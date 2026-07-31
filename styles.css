@@ -495,19 +495,13 @@ td:nth-child(11) {
 
 .logo-lema-v2 {
     display: block;
+    width: 78%;
     margin: 2px auto 0;
     align-self: start;
-    color: #07375c;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: clamp(.72rem, 1.65vw, 1.05rem);
-    font-weight: 600;
-    line-height: 1.25;
-    white-space: nowrap;
-    color-scheme: normal;
-    forced-color-adjust: auto;
-    text-shadow:
-        0 0 2px rgba(255, 255, 255, .98),
-        0 0 4px rgba(255, 255, 255, .75);
+    filter:
+        drop-shadow(0 0 1px rgba(255, 255, 255, 1))
+        drop-shadow(0 0 2px rgba(255, 255, 255, .95))
+        drop-shadow(0 0 4px rgba(255, 255, 255, .78));
 }
 
 .marca-principal {
@@ -703,8 +697,8 @@ button:disabled {
     .logo-lema-v2 {
         grid-column: 1 / -1;
         grid-row: 2;
+        width: 94%;
         margin-top: 5px;
-        font-size: clamp(.78rem, 3.55vw, .96rem);
     }
 
     .marca-simbolo {
