@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light only">
-    <meta name="supported-color-schemes" content="light">
     <meta name="description" content="Consulta el ranking diario de playas de Galicia según temperatura, lluvia, viento, oleaje y temperatura del agua.">
     <link rel="canonical" href="https://rodriaramayo90-hub.github.io/playas-galicia/">
     <meta property="og:title" content="Mejores playas de Galicia hoy">
@@ -21,14 +19,23 @@
 <body>
     <header class="cabecera">
         <h1 class="sr-only">Hoy Toca Playa: ranking diario de las mejores playas de Galicia</h1>
-        <img
-            class="logo-principal"
-            src="assets/logo-hoy-toca-playa.webp"
-            alt=""
-            width="1201"
-            height="366"
-            fetchpriority="high"
-        >
+        <div class="marca-principal" aria-hidden="true">
+            <img
+                class="marca-simbolo"
+                src="assets/favicon-hoy-toca-playa.png?v=1"
+                alt=""
+                width="192"
+                height="192"
+                fetchpriority="high"
+            >
+            <div class="marca-textos">
+                <div class="marca-nombre">
+                    <span>Hoy Toca</span> <strong>Playa</strong>
+                </div>
+                <span class="marca-ola"></span>
+                <div class="marca-lema">Tu guía para elegir dónde disfrutar hoy.</div>
+            </div>
+        </div>
     </header>
 
     <main>
