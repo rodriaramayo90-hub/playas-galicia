@@ -465,13 +465,6 @@ td:nth-child(11) {
     width: min(100%, 900px);
     height: auto;
     margin: 0 auto;
-    mix-blend-mode: multiply;
-}
-
-@media (prefers-color-scheme: dark) {
-    .logo-principal-v2 {
-        mix-blend-mode: normal;
-    }
 }
 
 .marca-principal {
