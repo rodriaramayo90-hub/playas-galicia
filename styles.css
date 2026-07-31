@@ -654,3 +654,178 @@ button:disabled {
     outline-offset: 2px;
 }
 
+/* Propuesta visual: filtros más ligeros y tarjetas con jerarquía clara */
+.filtros {
+    gap: 16px 20px;
+    margin-bottom: 18px;
+    padding: 18px 20px;
+    border: 1px solid rgba(11, 114, 133, .12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .72);
+    box-shadow: 0 8px 30px rgba(22, 64, 78, .06);
+    backdrop-filter: blur(8px);
+}
+
+.tarjeta-playa {
+    padding: 18px 18px 16px;
+    border: 1px solid rgba(20, 62, 78, .08);
+    border-left: 5px solid #0b7285;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(22, 64, 78, .09);
+    overflow: hidden;
+}
+
+.tarjeta-playa.valoracion-buena {
+    border-left-color: #28a66a;
+}
+
+.tarjeta-playa.valoracion-aceptable {
+    border-left-color: #e4a72b;
+}
+
+.tarjeta-playa.valoracion-evitar {
+    border-left-color: #dc5a52;
+}
+
+.tarjeta-cabecera,
+.tarjeta-identidad,
+.tarjeta-contexto {
+    display: flex;
+    align-items: center;
+}
+
+.tarjeta-cabecera {
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.tarjeta-identidad {
+    min-width: 0;
+    gap: 11px;
+}
+
+.posicion-ranking {
+    display: grid;
+    place-items: center;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e9f5f7;
+    color: #0b6170;
+    font-size: .86rem;
+    font-weight: 800;
+}
+
+.tarjeta-playa h2 {
+    margin: 0 0 5px;
+    color: #153f52;
+    font-size: 1.18rem;
+    line-height: 1.2;
+}
+
+.tarjeta-playa .estado {
+    margin: 0;
+    color: #426571;
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+.tarjeta-playa .puntuacion {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0;
+    padding: 8px 11px;
+    border: 1px solid #dcecee;
+    border-radius: 12px;
+    background: #f3fafb;
+    color: #0b6170;
+    line-height: 1;
+}
+
+.tarjeta-playa .puntuacion strong {
+    margin-top: 4px;
+    font-size: 1.28rem;
+    font-weight: 800;
+}
+
+.tarjeta-playa .puntuacion span {
+    color: #55737e;
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    white-space: nowrap;
+}
+
+.tarjeta-playa .puntuacion small {
+    margin-left: 2px;
+    color: #55737e;
+    font-size: .68rem;
+    font-weight: 700;
+}
+
+.resumen-condiciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 12px;
+}
+
+.resumen-condiciones span {
+    padding: 7px 10px;
+    border: 1px solid #deeaed;
+    border-radius: 999px;
+    background: #f6fafb;
+    color: #294f5e;
+    font-size: .84rem;
+    font-weight: 650;
+}
+
+.tarjeta-contexto {
+    justify-content: space-between;
+    gap: 12px;
+    color: #58717b;
+    font-size: .84rem;
+}
+
+.tarjeta-playa .explicacion {
+    margin: 14px 0 12px;
+    padding-top: 12px;
+    border-top: 1px solid #edf1f2;
+    color: #52666e;
+    font-size: .9rem;
+    line-height: 1.48;
+}
+
+.btn-detalles {
+    width: 100%;
+    padding: 9px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: #edf7f8;
+    color: #0b6170;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-detalles:hover {
+    background: #dceff2;
+}
+
+.detalles-mobile p {
+    margin: 7px 0;
+    color: #405a65;
+    font-size: .9rem;
+}
+
+@media (max-width: 600px) {
+    .filtros {
+        gap: 14px;
+        padding: 15px;
+        border-radius: 16px;
+    }
+}
+
