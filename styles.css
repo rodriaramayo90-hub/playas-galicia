@@ -455,13 +455,16 @@ td:nth-child(11) {
 
 /* Accesibilidad y estados de la interfaz */
 .cabecera {
-    max-width: 900px;
-    margin: 0 auto 30px;
+    max-width: 1200px;
+    margin: 0 auto 22px;
     text-align: center;
 }
 
-.cabecera h1 {
-    margin-bottom: 0;
+.logo-principal {
+    display: block;
+    width: min(100%, 720px);
+    height: auto;
+    margin: 0 auto;
 }
 
 .etiqueta-grupo,
@@ -511,6 +514,18 @@ button:disabled {
 }
 
 @media (max-width: 600px) {
+    body {
+        padding-top: 18px;
+    }
+
+    .cabecera {
+        margin-bottom: 16px;
+    }
+
+    .logo-principal {
+        width: min(100%, 420px);
+    }
+
     .filtros {
         gap: 14px;
     }
