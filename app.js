@@ -940,7 +940,8 @@ function esVientoFavorable(anguloPlaya, direccionVientoGrados, viento) {
   return Math.cos(diferencia * Math.PI / 180) < -0.5;
 }
 function calcularPuntuacion(temperaturaMediaPlaya, viento, rachaViento, lluvia, nubosidad, agua, oleaje, anguloPlaya, direccionVientoGrados) {
-  let puntuacion = 40;
+  // El máximo teórico es 100: se reserva para un día perfecto en todos los factores.
+  let puntuacion = 10;
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
   puntuacion += puntosTemperatura(temperaturaMediaPlaya);
@@ -1053,7 +1054,7 @@ async function obtenerDatosPlayas(dia) {
   if (respuestasPronosticoCache === null) {
     const latitudes = playas.map(playa => playa.lat).join(",");
     const longitudes = playas.map(playa => playa.lon).join(",");
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover&forecast_days=2&timezone=Europe%2FMadrid`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
     const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=2&timezone=Europe%2FMadrid`;
     const [respuesta, respuestaMarine] = await Promise.all([fetch(url), fetch(marineUrl)]);
     if (!respuesta.ok || !respuestaMarine.ok) throw new Error("No se pudieron consultar las condiciones meteorológicas.");
@@ -1091,7 +1092,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
   const lluvia = Math.round(promedio("lluvia"));
   const nubosidad = Math.round(promedio("nubosidad"));
   const viento = Math.round(promedio("viento"));
-  const rachaViento = Math.round(calcularPercentil(registros.map(registro => registro.rachaViento), 0.8));
+  const rachaViento = Math.round(calcularPercentil(registros.map(registro => registro.rachaViento), 0.75));
   const direccionVientoGrados = promedioDireccionViento(registros.map(r => r.direccionViento), registros.map(r => r.viento));
   const direccionViento = Number.isFinite(direccionVientoGrados) ? gradosADireccion(direccionVientoGrados) : "-";
   const temperaturaMaxima = datos.daily.temperature_2m_max[dia];
