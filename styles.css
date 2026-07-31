@@ -467,12 +467,17 @@ td:nth-child(11) {
     align-items: center;
     width: min(100%, 900px);
     margin: 0 auto;
+    color-scheme: only light;
+    forced-color-adjust: none;
+    isolation: isolate;
 }
 
 .logo-lockup-v2 img {
     display: block;
     max-width: 100%;
     height: auto;
+    color-scheme: only light;
+    forced-color-adjust: none;
 }
 
 .logo-emblema-v2 {
@@ -483,12 +488,16 @@ td:nth-child(11) {
 .logo-nombre-v2 {
     width: 100%;
     align-self: end;
+    filter:
+        drop-shadow(0 0 1px rgba(255, 255, 255, .95))
+        drop-shadow(0 0 2px rgba(255, 255, 255, .72));
 }
 
 .logo-lema-v2 {
     width: 78%;
     margin: -2px auto 0;
     align-self: start;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, .95));
 }
 
 .marca-principal {
