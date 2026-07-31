@@ -1015,7 +1015,7 @@ function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, vi
     agua >= 18 &&
     oleaje < 0.4 &&
     !vientoEnContra;
-  if (puntos < 20) return "🔴 Mejor evitar";
+  if (puntos < 35) return "🔴 Mejor evitar";
   if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
   if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
   if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
