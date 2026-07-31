@@ -460,18 +460,49 @@ td:nth-child(11) {
     text-align: center;
 }
 
-.logo-principal-v2 {
-    display: block;
-    width: min(100%, 820px);
-    height: auto;
-    margin: 0 auto;
-}
-
 .marca-principal {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
+}
+
+.marca-principal.marca-principal-v2 {
+    gap: clamp(12px, 2.2vw, 24px);
+}
+
+.marca-simbolo.marca-simbolo-v2 {
+    width: clamp(108px, 16vw, 170px);
+}
+
+.marca-nombre.marca-nombre-v2 {
+    font-family: 'Pacifico', 'Brush Script MT', cursive;
+    font-size: clamp(2.65rem, 7vw, 5.35rem);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    white-space: nowrap;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .75);
+}
+
+.marca-nombre.marca-nombre-v2 span:last-child {
+    color: #08a5b4;
+}
+
+.marca-ola.marca-ola-v2 {
+    width: 42%;
+    height: 9px;
+    margin: 2px 0 2px 48%;
+    border-bottom: 5px solid #08a5b4;
+    border-radius: 0 0 60% 50%;
+    transform: rotate(-2deg);
+}
+
+.marca-lema.marca-lema-v2 {
+    color: #07375c;
+    font-size: clamp(.78rem, 1.85vw, 1.18rem);
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
 }
 
 .marca-simbolo {
@@ -587,12 +618,24 @@ button:disabled {
         margin-bottom: 16px;
     }
 
-    .logo-principal-v2 {
-        width: min(100%, 430px);
-    }
-
     .marca-principal {
         gap: 10px;
+    }
+
+    .marca-principal.marca-principal-v2 {
+        gap: 8px;
+    }
+
+    .marca-simbolo.marca-simbolo-v2 {
+        width: clamp(82px, 25vw, 108px);
+    }
+
+    .marca-nombre.marca-nombre-v2 {
+        font-size: clamp(1.75rem, 9.7vw, 2.65rem);
+    }
+
+    .marca-lema.marca-lema-v2 {
+        font-size: clamp(.52rem, 2.65vw, .72rem);
     }
 
     .marca-simbolo {
