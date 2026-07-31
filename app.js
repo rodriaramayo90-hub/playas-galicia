@@ -1016,6 +1016,7 @@ function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, vi
     oleaje < 0.4 &&
     !vientoEnContra;
   if (puntos < 35) return "🔴 Mejor evitar";
+  if (puntos < 50) return "🟠 Poco recomendable";
   if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
   if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
   if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
@@ -1197,9 +1198,11 @@ tabla.innerHTML += `
 `;
     const claseValoracion = playa.puntuacion >= 70
       ? "valoracion-buena"
-      : playa.puntuacion >= 45
+      : playa.puntuacion >= 50
         ? "valoracion-aceptable"
-        : "valoracion-evitar";
+        : playa.puntuacion >= 35
+          ? "valoracion-regular"
+          : "valoracion-evitar";
 
     rankingMobile.innerHTML += `
 
