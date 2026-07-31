@@ -676,6 +676,10 @@ button:disabled {
     border-left-color: #e4a72b;
 }
 
+.tarjeta-playa.valoracion-regular {
+    border-left-color: #e67e22;
+}
+
 .tarjeta-playa.valoracion-evitar {
     border-left-color: #dc5a52;
 }
