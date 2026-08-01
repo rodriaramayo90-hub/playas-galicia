@@ -128,7 +128,8 @@ const playas = [
     lat: 43.417042,
     lon: -8.174374,
     orientacion: "S",
-    anguloAproximado: 175
+    anguloAproximado: 175,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa de Langosteira",
@@ -136,7 +137,8 @@ const playas = [
     lat: 42.920567,
     lon: -9.257438,
     orientacion: "E",
-    anguloAproximado: 70
+    anguloAproximado: 70,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Mar de Fóra",
@@ -176,7 +178,8 @@ const playas = [
     lat: 42.941184,
     lon: -9.231519,
     orientacion: "SE",
-    anguloAproximado: 140
+    anguloAproximado: 140,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa A Ribeira / O Corbeiro",
@@ -184,7 +187,8 @@ const playas = [
     lat: 42.906,
     lon: -9.263,
     orientacion: "E",
-    anguloAproximado: 95
+    anguloAproximado: 95,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa de Miño",
@@ -192,7 +196,8 @@ const playas = [
     lat: 43.359563,
     lon: -8.211869,
     orientacion: "NW",
-    anguloAproximado: 320
+    anguloAproximado: 320,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Perbes",
@@ -200,7 +205,8 @@ const playas = [
     lat: 43.376525,
     lon: -8.215169,
     orientacion: "NW",
-    anguloAproximado: 325
+    anguloAproximado: 325,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa de Sada",
@@ -208,7 +214,8 @@ const playas = [
     lat: 43.352235,
     lon: -8.251879,
     orientacion: "SE",
-    anguloAproximado: 140
+    anguloAproximado: 140,
+    nivelAbrigo: "muyAlto"
   },
   {
     nombre: "Playa de Mera",
@@ -216,7 +223,8 @@ const playas = [
     lat: 43.380657,
     lon: -8.3386,
     orientacion: "NE",
-    anguloAproximado: 40
+    anguloAproximado: 40,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Sabón",
@@ -240,7 +248,8 @@ const playas = [
     lat: 43.382,
     lon: -8.405,
     orientacion: "NE",
-    anguloAproximado: 45
+    anguloAproximado: 45,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia de Area Maior",
@@ -256,7 +265,8 @@ const playas = [
     lat: 42.758833,
     lon: -9.073694,
     orientacion: "S",
-    anguloAproximado: 190
+    anguloAproximado: 190,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Carnota",
@@ -280,7 +290,8 @@ const playas = [
     lat: 43.659107,
     lon: -8.072705,
     orientacion: "NW",
-    anguloAproximado: 315
+    anguloAproximado: 315,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia da Ladeira (Dunas de Corrubedo)",
@@ -296,7 +307,8 @@ const playas = [
     lat: 42.211157,
     lon: -8.777686,
     orientacion: "W",
-    anguloAproximado: 270
+    anguloAproximado: 270,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Praia do Vao",
@@ -304,7 +316,8 @@ const playas = [
     lat: 42.198063,
     lon: -8.793113,
     orientacion: "SW",
-    anguloAproximado: 240
+    anguloAproximado: 240,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa Niño do Corvo",
@@ -312,7 +325,8 @@ const playas = [
     lat: 42.265138,
     lon: -8.753091,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa do Con",
@@ -320,7 +334,8 @@ const playas = [
     lat: 42.270666,
     lon: -8.741197,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia Borna",
@@ -328,7 +343,8 @@ const playas = [
     lat: 42.281156,
     lon: -8.698295,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia Viño",
@@ -336,7 +352,8 @@ const playas = [
     lat: 42.2601,
     lon: -8.84433,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Limens",
@@ -344,7 +361,8 @@ const playas = [
     lat: 42.261,
     lon: -8.816,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Lapaman",
@@ -352,7 +370,8 @@ const playas = [
     lat: 42.342207,
     lon: -8.753497,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Playa de Mogor",
@@ -360,7 +379,8 @@ const playas = [
     lat: 42.385548,
     lon: -8.720692,
     orientacion: "SE",
-    anguloAproximado: 135
+    anguloAproximado: 135,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa de Portocelo",
@@ -368,7 +388,8 @@ const playas = [
     lat: 42.390275,
     lon: -8.714898,
     orientacion: "SE",
-    anguloAproximado: 135
+    anguloAproximado: 135,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Playa de Rodas (Islas Cíes)",
@@ -376,7 +397,8 @@ const playas = [
     lat: 42.222202,
     lon: -8.901842,
     orientacion: "E",
-    anguloAproximado: 90
+    anguloAproximado: 90,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia de Compostela",
@@ -384,7 +406,8 @@ const playas = [
     lat: 42.607669,
     lon: -8.768775,
     orientacion: "W",
-    anguloAproximado: 270
+    anguloAproximado: 270,
+    nivelAbrigo: "muyAlto"
   },
   {
     nombre: "Playa de San Amaro",
@@ -415,7 +438,8 @@ const playas = [
     lat: 43.36915,
     lon: -8.41138,
     orientacion: "NW",
-    anguloAproximado: 330
+    anguloAproximado: 330,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia de Doniños",
@@ -463,7 +487,8 @@ const playas = [
     lat: 43.67269,
     lon: -7.60516,
     orientacion: "N",
-    anguloAproximado: 0
+    anguloAproximado: 0,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Praia de Nemiña",
@@ -495,7 +520,8 @@ const playas = [
     lat: 42.26106,
     lon: -8.85233,
     orientacion: "S",
-    anguloAproximado: 190
+    anguloAproximado: 190,
+    nivelAbrigo: "moderado"
   },
   {
     nombre: "Praia de Melide",
@@ -511,7 +537,8 @@ const playas = [
     lat: 42.40053,
     lon: -8.81194,
     orientacion: "S",
-    anguloAproximado: 180
+    anguloAproximado: 180,
+    nivelAbrigo: "alto"
   },
   {
     nombre: "Praia da Lanzada",
@@ -535,7 +562,8 @@ const playas = [
     lat: 42.38927,
     lon: -8.83183,
     orientacion: "S",
-    anguloAproximado: 200
+    anguloAproximado: 200,
+    nivelAbrigo: "moderado"
   }
 ];
 
@@ -902,6 +930,35 @@ function diferenciaAngular(anguloA, anguloB) {
   return diferencia > 180 ? 360 - diferencia : diferencia;
 }
 
+const PERFILES_ABRIGO = {
+  moderado: {
+    viento: { factorMinimo: 0.7, factorMaximo: 0.9, amplitud: 110 },
+    oleaje: { factorMinimo: 0.55, factorMaximo: 0.8, amplitud: 100 }
+  },
+  alto: {
+    viento: { factorMinimo: 0.45, factorMaximo: 0.7, amplitud: 90 },
+    oleaje: { factorMinimo: 0.3, factorMaximo: 0.6, amplitud: 80 }
+  },
+  muyAlto: {
+    viento: { factorMinimo: 0.25, factorMaximo: 0.5, amplitud: 75 },
+    oleaje: { factorMinimo: 0.15, factorMaximo: 0.45, amplitud: 60 }
+  }
+};
+
+function obtenerConfiguracionAbrigo(playa, tipo) {
+  const configuracionPropia = tipo === "viento"
+    ? playa.abrigoViento
+    : playa.abrigoOleaje;
+  if (configuracionPropia) return configuracionPropia;
+
+  const perfil = PERFILES_ABRIGO[playa.nivelAbrigo]?.[tipo];
+  if (!perfil || !Number.isFinite(playa.anguloAproximado)) return null;
+  return {
+    ...perfil,
+    direccionApertura: playa.anguloAproximado
+  };
+}
+
 function factorAbrigoDireccional(configuracion, direccion) {
   if (!configuracion || !Number.isFinite(direccion)) return 1;
 
@@ -968,7 +1025,8 @@ function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo) {
 
     const periodo = datosMarine.hourly?.wave_period?.[indice];
     const factorPeriodo = Number.isFinite(periodo) ? Math.min(1.3, Math.max(0.8, Math.sqrt(periodo / 8))) : 1;
-    const factorAbrigo = factorAbrigoDireccional(playa.abrigoOleaje, direccionTotal);
+    const configuracionAbrigo = obtenerConfiguracionAbrigo(playa, "oleaje");
+    const factorAbrigo = factorAbrigoDireccional(configuracionAbrigo, direccionTotal);
     valores.push(alturaTotal * factorExposicion * factorPeriodo * factorAbrigo);
   });
 
@@ -1271,7 +1329,8 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
   });
   if (registros.length === 0) throw new Error("No hay datos horarios para el día seleccionado.");
   registros.forEach(registro => {
-    const factorAbrigo = factorAbrigoDireccional(playa.abrigoViento, registro.direccionViento);
+    const configuracionAbrigo = obtenerConfiguracionAbrigo(playa, "viento");
+    const factorAbrigo = factorAbrigoDireccional(configuracionAbrigo, registro.direccionViento);
     registro.vientoEnPlaya = registro.viento * factorAbrigo;
   });
   const promedio = campo => registros.reduce((suma, registro) => suma + registro[campo], 0) / registros.length;
