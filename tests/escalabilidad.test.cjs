@@ -95,6 +95,7 @@ const codigo = fs.readFileSync(rutaApp, "utf8");
 vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   calcularDistanciasCoche,
   obtenerDatosPlayas,
+  factorAbrigoDireccional,
   prepararPlayas(total) {
     while (playas.length < total) {
       const original = playas[playas.length % 50];
@@ -156,9 +157,26 @@ async function probarPronostico() {
     llamadas.filter(url => url.includes("marine-api.open-meteo.com/v1/marine")).length,
     4
   );
+
+  const sanAmaro = resultados.find(playa => playa.nombre === "Playa de San Amaro");
+  const playaAbierta = resultados.find(playa => playa.nombre !== "Playa de San Amaro");
+  assert.equal(sanAmaro.vientoModelo, 12);
+  assert.equal(sanAmaro.viento, 5, "El viento de W debe quedar atenuado dentro de San Amaro");
+  assert.equal(playaAbierta.viento, 12, "Una playa sin abrigo debe conservar el viento del modelo");
+  assert.ok(sanAmaro.oleaje < 0.15, "El mar exterior de W debe llegar prácticamente plano a San Amaro");
+}
+
+function probarAbrigoDireccional() {
+  const abrigo = { direccionApertura: 45, factorMinimo: 0.4, amplitud: 70 };
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(null, 270), 1);
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 45), 1);
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 270), 0.4);
+  const lateral = contexto.__pruebas.factorAbrigoDireccional(abrigo, 90);
+  assert.ok(lateral > 0.4 && lateral < 1);
 }
 
 (async () => {
+  probarAbrigoDireccional();
   await probarDistancias();
   await probarPronostico();
   console.log("OK: 200 playas en 5 lotes de distancia y 4 lotes de pronóstico.");
@@ -166,3 +184,4 @@ async function probarPronostico() {
   console.error(error);
   process.exitCode = 1;
 });
+
