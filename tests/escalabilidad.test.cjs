@@ -96,6 +96,11 @@ vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   calcularDistanciasCoche,
   obtenerDatosPlayas,
   factorAbrigoDireccional,
+  contarPlayasConAbrigo() {
+    return playas.filter(playa =>
+      playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
+    ).length;
+  },
   prepararPlayas(total) {
     while (playas.length < total) {
       const original = playas[playas.length % 50];
@@ -159,7 +164,7 @@ async function probarPronostico() {
   );
 
   const sanAmaro = resultados.find(playa => playa.nombre === "Playa de San Amaro");
-  const playaAbierta = resultados.find(playa => playa.nombre !== "Playa de San Amaro");
+  const playaAbierta = resultados.find(playa => playa.nombre === "Playa de Orzán");
   assert.equal(sanAmaro.vientoModelo, 12);
   assert.equal(sanAmaro.viento, 3, "El viento de W debe quedar muy atenuado dentro de San Amaro");
   assert.equal(playaAbierta.viento, 12, "Una playa sin abrigo debe conservar el viento del modelo");
@@ -167,6 +172,7 @@ async function probarPronostico() {
 }
 
 function probarAbrigoDireccional() {
+  assert.equal(contexto.__pruebas.contarPlayasConAbrigo(), 29);
   const abrigo = { direccionApertura: 45, factorMinimo: 0.25, factorMaximo: 0.45, amplitud: 70 };
   assert.equal(contexto.__pruebas.factorAbrigoDireccional(null, 270), 1);
   assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 45), 0.45);
