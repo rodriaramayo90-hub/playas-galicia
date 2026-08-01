@@ -95,6 +95,20 @@ const codigo = fs.readFileSync(rutaApp, "utf8");
 vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   calcularDistanciasCoche,
   obtenerDatosPlayas,
+  factorAbrigoDireccional,
+  compartirMeteorologiaPorZona,
+  contarPlayasConAbrigo() {
+    return playas.filter(playa =>
+      playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
+    ).length;
+  },
+  contarZonasMeteorologicas() {
+    const agrupadas = playas.filter(playa => playa.zonaMeteorologica);
+    return {
+      playas: agrupadas.length,
+      zonas: new Set(agrupadas.map(playa => playa.zonaMeteorologica)).size
+    };
+  },
   prepararPlayas(total) {
     while (playas.length < total) {
       const original = playas[playas.length % 50];
@@ -156,9 +170,57 @@ async function probarPronostico() {
     llamadas.filter(url => url.includes("marine-api.open-meteo.com/v1/marine")).length,
     4
   );
+
+  const sanAmaro = resultados.find(playa => playa.nombre === "Playa de San Amaro");
+  const playaAbierta = resultados.find(playa => playa.nombre === "Playa de Orzán");
+  assert.equal(sanAmaro.vientoModelo, 12);
+  assert.equal(sanAmaro.viento, 3, "El viento de W debe quedar muy atenuado dentro de San Amaro");
+  assert.equal(playaAbierta.viento, 12, "Una playa sin abrigo debe conservar el viento del modelo");
+  assert.ok(sanAmaro.oleaje < 0.15, "El mar exterior de W debe llegar prácticamente plano a San Amaro");
+}
+
+function probarAbrigoDireccional() {
+  assert.equal(contexto.__pruebas.contarPlayasConAbrigo(), 29);
+  const zonasMeteorologicas = contexto.__pruebas.contarZonasMeteorologicas();
+  assert.equal(zonasMeteorologicas.playas, 22);
+  assert.equal(zonasMeteorologicas.zonas, 8);
+  const abrigo = { direccionApertura: 45, factorMinimo: 0.25, factorMaximo: 0.45, amplitud: 70 };
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(null, 270), 1);
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 45), 0.45);
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 270), 0.25);
+  const lateral = contexto.__pruebas.factorAbrigoDireccional(abrigo, 90);
+  assert.ok(lateral > 0.25 && lateral < 0.45);
+}
+
+
+function probarZonasMeteorologicas() {
+  const serie = valor => Array(48).fill(valor);
+  const crearDatos = (temperatura, nubosidad, direccion) => ({
+    daily: { time: ["2026-08-01", "2026-08-02"], temperature_2m_max: [temperatura, temperatura] },
+    hourly: {
+      time: Array.from({ length: 48 }, (_, indice) => `2026-08-0${indice < 24 ? 1 : 2}T${String(indice % 24).padStart(2, "0")}:00`),
+      temperature_2m: serie(temperatura),
+      precipitation_probability: serie(20),
+      wind_speed_10m: serie(10),
+      wind_direction_10m: serie(direccion),
+      cloud_cover: serie(nubosidad)
+    }
+  });
+  const independiente = crearDatos(18, 80, 180);
+  const resultado = contexto.__pruebas.compartirMeteorologiaPorZona(
+    [{ zonaMeteorologica: "coruna" }, { zonaMeteorologica: "coruna" }, {}],
+    [crearDatos(20, 40, 350), crearDatos(22.6, 60, 10), independiente]
+  );
+  assert.equal(resultado[0], resultado[1]);
+  assert.equal(resultado[0].hourly.temperature_2m[0], 21.3);
+  assert.equal(resultado[0].hourly.cloud_cover[0], 50);
+  assert.ok(resultado[0].hourly.wind_direction_10m[0] < 0.01);
+  assert.equal(resultado[2], independiente);
 }
 
 (async () => {
+  probarAbrigoDireccional();
+  probarZonasMeteorologicas();
   await probarDistancias();
   await probarPronostico();
   console.log("OK: 200 playas en 5 lotes de distancia y 4 lotes de pronóstico.");
@@ -166,3 +228,4 @@ async function probarPronostico() {
   console.error(error);
   process.exitCode = 1;
 });
+
