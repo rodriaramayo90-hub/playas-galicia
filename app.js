@@ -1302,7 +1302,7 @@ function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGr
 function promedioValores(valores) {
   const validos = valores.filter(Number.isFinite);
   if (validos.length === 0) return null;
-  return validos.reduce((total, valor) => total + valor, 0) / validos.length;
+  const promedio = validos.reduce((total, valor) => total + valor, 0) / validos.length;\n  return Number(promedio.toFixed(2));
 }
 
 function promedioAngular(direcciones) {
