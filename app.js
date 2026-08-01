@@ -398,12 +398,14 @@ const playas = [
     // atenuados a la zona de baño.
     abrigoViento: {
       direccionApertura: 45,
-      factorMinimo: 0.4,
+      factorMinimo: 0.25,
+      factorMaximo: 0.45,
       amplitud: 70
     },
     abrigoOleaje: {
       direccionApertura: 45,
-      factorMinimo: 0.25,
+      factorMinimo: 0.15,
+      factorMaximo: 0.45,
       amplitud: 50
     }
   },
@@ -905,6 +907,10 @@ function factorAbrigoDireccional(configuracion, direccion) {
 
   const direccionApertura = configuracion.direccionApertura;
   const factorMinimo = Math.max(0, Math.min(1, configuracion.factorMinimo ?? 1));
+  const factorMaximo = Math.max(
+    factorMinimo,
+    Math.min(1, configuracion.factorMaximo ?? 1)
+  );
   const amplitud = Math.max(1, Math.min(180, configuracion.amplitud ?? 90));
   if (!Number.isFinite(direccionApertura)) return factorMinimo;
 
@@ -914,7 +920,7 @@ function factorAbrigoDireccional(configuracion, direccion) {
   // Transición suave: conserva toda la intensidad por la apertura y baja
   // progresivamente hasta el factor mínimo en los sectores protegidos.
   const aperturaRelativa = Math.cos((diferencia / amplitud) * Math.PI / 2);
-  return factorMinimo + (1 - factorMinimo) * Math.pow(aperturaRelativa, 1.5);
+  return factorMinimo + (factorMaximo - factorMinimo) * Math.pow(aperturaRelativa, 1.5);
 }
 
 function factorExposicionOleaje(anguloPlaya, direccionOlas) {
