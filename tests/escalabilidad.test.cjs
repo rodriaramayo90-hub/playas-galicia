@@ -161,18 +161,18 @@ async function probarPronostico() {
   const sanAmaro = resultados.find(playa => playa.nombre === "Playa de San Amaro");
   const playaAbierta = resultados.find(playa => playa.nombre !== "Playa de San Amaro");
   assert.equal(sanAmaro.vientoModelo, 12);
-  assert.equal(sanAmaro.viento, 5, "El viento de W debe quedar atenuado dentro de San Amaro");
+  assert.equal(sanAmaro.viento, 3, "El viento de W debe quedar muy atenuado dentro de San Amaro");
   assert.equal(playaAbierta.viento, 12, "Una playa sin abrigo debe conservar el viento del modelo");
   assert.ok(sanAmaro.oleaje < 0.15, "El mar exterior de W debe llegar prácticamente plano a San Amaro");
 }
 
 function probarAbrigoDireccional() {
-  const abrigo = { direccionApertura: 45, factorMinimo: 0.4, amplitud: 70 };
+  const abrigo = { direccionApertura: 45, factorMinimo: 0.25, factorMaximo: 0.45, amplitud: 70 };
   assert.equal(contexto.__pruebas.factorAbrigoDireccional(null, 270), 1);
-  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 45), 1);
-  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 270), 0.4);
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 45), 0.45);
+  assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 270), 0.25);
   const lateral = contexto.__pruebas.factorAbrigoDireccional(abrigo, 90);
-  assert.ok(lateral > 0.4 && lateral < 1);
+  assert.ok(lateral > 0.25 && lateral < 0.45);
 }
 
 (async () => {
