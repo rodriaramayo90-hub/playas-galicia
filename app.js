@@ -138,6 +138,7 @@ const playas = [
     lon: -9.257438,
     orientacion: "E",
     anguloAproximado: 70,
+    zonaMeteorologica: "fisterra_este",
     nivelAbrigo: "moderado"
   },
   {
@@ -179,6 +180,7 @@ const playas = [
     lon: -9.231519,
     orientacion: "SE",
     anguloAproximado: 140,
+    zonaMeteorologica: "fisterra_este",
     nivelAbrigo: "alto"
   },
   {
@@ -197,6 +199,7 @@ const playas = [
     lon: -8.211869,
     orientacion: "NW",
     anguloAproximado: 320,
+    zonaMeteorologica: "mino_perbes",
     nivelAbrigo: "moderado"
   },
   {
@@ -206,6 +209,7 @@ const playas = [
     lon: -8.215169,
     orientacion: "NW",
     anguloAproximado: 325,
+    zonaMeteorologica: "mino_perbes",
     nivelAbrigo: "alto"
   },
   {
@@ -240,7 +244,8 @@ const playas = [
     lat: 43.37,
     lon: -8.406,
     orientacion: "NW",
-    anguloAproximado: 315
+    anguloAproximado: 315,
+    zonaMeteorologica: "coruna_urbana"
   },
   {
     nombre: "Playa de las Lapas",
@@ -249,6 +254,7 @@ const playas = [
     lon: -8.405,
     orientacion: "NE",
     anguloAproximado: 45,
+    zonaMeteorologica: "coruna_urbana",
     nivelAbrigo: "alto"
   },
   {
@@ -308,6 +314,7 @@ const playas = [
     lon: -8.777686,
     orientacion: "W",
     anguloAproximado: 270,
+    zonaMeteorologica: "vigo_oeste",
     nivelAbrigo: "moderado"
   },
   {
@@ -317,6 +324,7 @@ const playas = [
     lon: -8.793113,
     orientacion: "SW",
     anguloAproximado: 240,
+    zonaMeteorologica: "vigo_oeste",
     nivelAbrigo: "moderado"
   },
   {
@@ -326,6 +334,7 @@ const playas = [
     lon: -8.753091,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "moana",
     nivelAbrigo: "alto"
   },
   {
@@ -335,6 +344,7 @@ const playas = [
     lon: -8.741197,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "moana",
     nivelAbrigo: "alto"
   },
   {
@@ -344,6 +354,7 @@ const playas = [
     lon: -8.698295,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "moana",
     nivelAbrigo: "alto"
   },
   {
@@ -353,6 +364,7 @@ const playas = [
     lon: -8.84433,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "cangas_sur",
     nivelAbrigo: "moderado"
   },
   {
@@ -362,6 +374,7 @@ const playas = [
     lon: -8.816,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "cangas_sur",
     nivelAbrigo: "moderado"
   },
   {
@@ -371,6 +384,7 @@ const playas = [
     lon: -8.753497,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "marin",
     nivelAbrigo: "moderado"
   },
   {
@@ -380,6 +394,7 @@ const playas = [
     lon: -8.720692,
     orientacion: "SE",
     anguloAproximado: 135,
+    zonaMeteorologica: "marin",
     nivelAbrigo: "alto"
   },
   {
@@ -389,6 +404,7 @@ const playas = [
     lon: -8.714898,
     orientacion: "SE",
     anguloAproximado: 135,
+    zonaMeteorologica: "marin",
     nivelAbrigo: "alto"
   },
   {
@@ -416,6 +432,7 @@ const playas = [
     lon: -8.39671,
     orientacion: "NE",
     anguloAproximado: 45,
+    zonaMeteorologica: "coruna_urbana",
     // Cala urbana protegida por la costa y el entorno construido. La apertura
     // principal queda hacia el NE; viento y mar de otros sectores llegan muy
     // atenuados a la zona de baño.
@@ -439,6 +456,7 @@ const playas = [
     lon: -8.41138,
     orientacion: "NW",
     anguloAproximado: 330,
+    zonaMeteorologica: "coruna_urbana",
     nivelAbrigo: "alto"
   },
   {
@@ -521,6 +539,7 @@ const playas = [
     lon: -8.85233,
     orientacion: "S",
     anguloAproximado: 190,
+    zonaMeteorologica: "cangas_sur",
     nivelAbrigo: "moderado"
   },
   {
@@ -538,6 +557,7 @@ const playas = [
     lon: -8.81194,
     orientacion: "S",
     anguloAproximado: 180,
+    zonaMeteorologica: "sanxenxo",
     nivelAbrigo: "alto"
   },
   {
@@ -554,7 +574,8 @@ const playas = [
     lat: 42.39638,
     lon: -8.85048,
     orientacion: "SW",
-    anguloAproximado: 225
+    anguloAproximado: 225,
+    zonaMeteorologica: "sanxenxo"
   },
   {
     nombre: "Praia de Canelas",
@@ -563,6 +584,7 @@ const playas = [
     lon: -8.83183,
     orientacion: "S",
     anguloAproximado: 200,
+    zonaMeteorologica: "sanxenxo",
     nivelAbrigo: "moderado"
   }
 ];
@@ -1276,6 +1298,56 @@ function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGr
   return mensajes.join(", ") + ".";
 }
 
+
+function promedioValores(valores) {
+  const validos = valores.filter(Number.isFinite);
+  if (validos.length === 0) return null;
+  return validos.reduce((total, valor) => total + valor, 0) / validos.length;
+}
+
+function promedioAngular(direcciones) {
+  const validas = direcciones.filter(Number.isFinite);
+  if (validas.length === 0) return null;
+  const seno = promedioValores(validas.map(valor => Math.sin(valor * Math.PI / 180)));
+  const coseno = promedioValores(validas.map(valor => Math.cos(valor * Math.PI / 180)));
+  return (Math.atan2(seno, coseno) * 180 / Math.PI + 360) % 360;
+}
+
+function promediarSeries(referencias, seccion, campo, promedio = promedioValores) {
+  const series = referencias.map(referencia => referencia?.[seccion]?.[campo] || []);
+  const longitud = Math.max(0, ...series.map(serie => serie.length));
+  return Array.from({ length: longitud }, (_, indice) => promedio(series.map(serie => serie[indice])));
+}
+
+function compartirMeteorologiaPorZona(listaPlayas, datosMeteorologicos) {
+  const resultado = [...datosMeteorologicos];
+  const zonas = new Map();
+  listaPlayas.forEach((playa, indice) => {
+    if (!playa.zonaMeteorologica) return;
+    if (!zonas.has(playa.zonaMeteorologica)) zonas.set(playa.zonaMeteorologica, []);
+    zonas.get(playa.zonaMeteorologica).push(indice);
+  });
+  zonas.forEach(indices => {
+    const referencias = indices.map(indice => datosMeteorologicos[indice]).filter(Boolean);
+    if (referencias.length < 2) return;
+    const base = referencias[0];
+    const compartida = {
+      ...base,
+      daily: { ...base.daily, temperature_2m_max: promediarSeries(referencias, "daily", "temperature_2m_max") },
+      hourly: {
+        ...base.hourly,
+        temperature_2m: promediarSeries(referencias, "hourly", "temperature_2m"),
+        precipitation_probability: promediarSeries(referencias, "hourly", "precipitation_probability"),
+        wind_speed_10m: promediarSeries(referencias, "hourly", "wind_speed_10m"),
+        wind_direction_10m: promediarSeries(referencias, "hourly", "wind_direction_10m", promedioAngular),
+        cloud_cover: promediarSeries(referencias, "hourly", "cloud_cover")
+      }
+    };
+    indices.forEach(indice => { resultado[indice] = compartida; });
+  });
+  return resultado;
+}
+
 async function obtenerDatosPlayas(dia) {
   if (respuestasPronosticoCache === null) {
     const lotes = dividirEnLotes(playas, TAMANO_LOTE_PRONOSTICO);
@@ -1308,8 +1380,9 @@ async function obtenerDatosPlayas(dia) {
   }
 
   const { datosMeteorologicos, datosMaritimos } = respuestasPronosticoCache;
+  const meteorologiaPorPlaya = compartirMeteorologiaPorZona(playas, datosMeteorologicos);
   return Promise.all(playas.map((playa, indice) =>
-    procesarDatosPlaya(playa, datosMeteorologicos[indice], datosMaritimos[indice], dia)
+    procesarDatosPlaya(playa, meteorologiaPorPlaya[indice], datosMaritimos[indice], dia)
   ));
 }
 
