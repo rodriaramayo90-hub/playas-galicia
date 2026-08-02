@@ -102,7 +102,7 @@ vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   obtenerDatosPlayas,
   factorAbrigoDireccional,
   compartirMeteorologiaPorZona,
-  calcularNubosidadEfectiva,
+  resumirNubosidad,
   contarPlayasConAbrigo() {
     return playas.filter(playa =>
       playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
@@ -231,22 +231,28 @@ function probarZonasMeteorologicas() {
 
 
 function probarNubosidadEfectiva() {
-  const cieloAltoConSol = contexto.__pruebas.calcularNubosidadEfectiva([{
+  const cieloAltoConSol = contexto.__pruebas.resumirNubosidad([{
     nubosidad: 90,
     nubosidadBaja: 0,
     nubosidadMedia: 10,
     nubosidadAlta: 90,
     duracionSol: 3600
   }]);
-  const cieloCubierto = contexto.__pruebas.calcularNubosidadEfectiva([{
+  const cieloCubierto = contexto.__pruebas.resumirNubosidad([{
     nubosidad: 90,
     nubosidadBaja: 90,
     nubosidadMedia: 80,
     nubosidadAlta: 50,
     duracionSol: 0
   }]);
-  assert.ok(cieloAltoConSol <= 10, "Las nubes altas con sol no deben figurar como cielo nublado");
-  assert.ok(cieloCubierto > 80, "Las nubes bajas sin sol deben conservar la categoría de cielo cubierto");
+  assert.ok(cieloAltoConSol.nubosidad <= 10, "Las nubes altas con sol no deben figurar como cielo nublado");
+  assert.ok(cieloCubierto.nubosidad > 80, "Las nubes bajas sin sol deben conservar la categoría de cielo cubierto");
+
+  const variable = contexto.__pruebas.resumirNubosidad([
+    { nubosidad: 0, nubosidadBaja: 0, nubosidadMedia: 0, nubosidadAlta: 0, duracionSol: 3600 },
+    { nubosidad: 0, nubosidadBaja: 0, nubosidadMedia: 0, nubosidadAlta: 0, duracionSol: 1200 }
+  ]);
+  assert.ok(variable.nubosidad > 10 && variable.nubosidad <= 30, "Despejado exige al menos un 75 % de horas realmente soleadas");
 }
 
 (async () => {
