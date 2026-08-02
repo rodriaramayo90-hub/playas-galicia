@@ -7,7 +7,7 @@ let distanciaMaxima = null;
 let datosPlayasCache = {};
 let respuestasPronosticoCache = null;
 let diaSeleccionado = 0;
-let horaInicioSeleccionada = 11;
+let horaInicioSeleccionada = 7;
 let horaFinSeleccionada = 21;
 let detallesVisibles = false;
 
@@ -956,10 +956,13 @@ function calcularNubosidadHora(registro) {
   const baja = Number.isFinite(registro.nubosidadBaja) ? registro.nubosidadBaja : total;
   const media = Number.isFinite(registro.nubosidadMedia) ? registro.nubosidadMedia : total;
   const alta = Number.isFinite(registro.nubosidadAlta) ? registro.nubosidadAlta : total;
-  if (!Number.isFinite(registro.duracionSol)) return limitar(total);
+  const nubosidadBajaMedia = Math.max(baja, media * 0.9);
+  if (!Number.isFinite(registro.duracionSol) || registro.esDeDia === 0) {
+    return limitar(Math.max(nubosidadBajaMedia, alta * 0.15));
+  }
   const proporcionSol = Math.max(0, Math.min(1, registro.duracionSol / 3600));
-  const nubosidadOpaca = baja * 0.55 + media * 0.3 + alta * 0.15;
-  return limitar(nubosidadOpaca * 0.45 + (1 - proporcionSol) * 100 * 0.55);
+  const efectoFaltaDeSol = (1 - proporcionSol) * 100 * 0.55;
+  return limitar(Math.max(nubosidadBajaMedia, efectoFaltaDeSol + alta * 0.08));
 }
 
 function resumirNubosidad(registros) {
@@ -972,6 +975,19 @@ function resumirNubosidad(registros) {
   ).length;
   const proporcionHorasSoleadas = horasSoleadas / registros.length;
   let nubosidad = Math.round(valores.reduce((suma, valor) => suma + valor, 0) / valores.length);
+  const opacidades = registros.map(registro => Math.max(
+    registro.nubosidadBaja ?? registro.nubosidad ?? 0,
+    (registro.nubosidadMedia ?? registro.nubosidad ?? 0) * 0.9
+  ));
+  const proporcionNublada = opacidades.filter(valor => valor >= 60).length / opacidades.length;
+  const peorHora = Math.max(...opacidades);
+  if (registros.length <= 2) {
+    if (peorHora >= 80) nubosidad = Math.max(nubosidad, 81);
+    else if (peorHora >= 60) nubosidad = Math.max(nubosidad, 61);
+    else if (peorHora >= 35) nubosidad = Math.max(nubosidad, 31);
+  } else if (proporcionNublada >= 0.5) {
+    nubosidad = Math.max(nubosidad, 61);
+  }
   if (nubosidad <= 10 && proporcionHorasSoleadas < 0.75) nubosidad = 11;
   return { nubosidad, proporcionHorasSoleadas };
 }
@@ -1045,7 +1061,7 @@ function factorExposicionOleaje(anguloPlaya, direccionOlas) {
   return 0.15 + 0.85 * Math.pow(componenteFrontal, 1.35);
 }
 
-function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio = 11, horaFin = 21) {
+function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio = 7, horaFin = 21) {
   const horas = datosMarine.hourly?.time ?? [];
   const valores = [];
 
@@ -1084,7 +1100,7 @@ function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio = 
   return valores.reduce((suma, valor) => suma + valor, 0) / valores.length;
 }
 
-function obtenerTemperaturaAgua(datosMarine, fechaObjetivo, horaInicio = 11, horaFin = 21) {
+function obtenerTemperaturaAgua(datosMarine, fechaObjetivo, horaInicio = 7, horaFin = 21) {
   const valores = (datosMarine.hourly?.time ?? []).map((hora, indice) => ({
     hora,
     valor: datosMarine.hourly?.sea_surface_temperature?.[indice]
@@ -1382,7 +1398,7 @@ function compartirMeteorologiaPorZona(listaPlayas, datosMeteorologicos) {
   return resultado;
 }
 
-async function obtenerDatosPlayas(dia, horaInicio = 11, horaFin = 21) {
+async function obtenerDatosPlayas(dia, horaInicio = 7, horaFin = 21) {
   if (respuestasPronosticoCache === null) {
     const lotes = dividirEnLotes(playas, TAMANO_LOTE_PRONOSTICO);
     const respuestas = await ejecutarConConcurrencia(
@@ -1420,7 +1436,7 @@ async function obtenerDatosPlayas(dia, horaInicio = 11, horaFin = 21) {
   ));
 }
 
-async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 11, horaFin = 21) {
+async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7, horaFin = 21) {
   const fechaObjetivo = datos.daily.time[dia];
   if (!fechaObjetivo) throw new Error("No hay previsión disponible para el día seleccionado.");
   const registros = datos.hourly.time.map((hora, indice) => ({
@@ -1438,8 +1454,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 1
   })).filter(registro => {
     const horaLocal = Number(registro.hora.split("T")[1].split(":")[0]);
     const dentroDelHorario = horaLocal >= horaInicio && horaLocal <= horaFin;
-    const conLuzSolar = !Number.isFinite(registro.esDeDia) || registro.esDeDia >= 0.5;
-    return registro.hora.startsWith(fechaObjetivo) && dentroDelHorario && conLuzSolar;
+    return registro.hora.startsWith(fechaObjetivo) && dentroDelHorario;
   });
   if (registros.length === 0) throw new Error("No hay datos horarios para el día seleccionado.");
   registros.forEach(registro => {
@@ -1658,15 +1673,15 @@ async function cambiarHorario() {
   }
   horaInicioSeleccionada = inicio;
   horaFinSeleccionada = fin;
-  resumen.textContent = inicio === 11 && fin === 21
-    ? "Todo el rango (11:00–21:00)"
+  resumen.textContent = inicio === 7 && fin === 21
+    ? "Todo el rango (07:00–21:00)"
     : `De ${inicio}:00 a ${fin}:00`;
   await cargarRanking();
 }
 
 async function cargarRanking() {
   const referenciaDia = diaSeleccionado === 0 ? "hoy" : "mañana";
-  const referenciaHorario = horaInicioSeleccionada === 11 && horaFinSeleccionada === 21
+  const referenciaHorario = horaInicioSeleccionada === 7 && horaFinSeleccionada === 21
     ? ""
     : ` de ${horaInicioSeleccionada}:00 a ${horaFinSeleccionada}:00`;
   mostrarEstado(`Actualizando las condiciones de ${referenciaDia}…`, "info");
