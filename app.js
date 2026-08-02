@@ -981,10 +981,12 @@ function resumirNubosidad(registros) {
   ));
   const proporcionNublada = opacidades.filter(valor => valor >= 60).length / opacidades.length;
   const peorHora = Math.max(...opacidades);
+  const peorNubosidadTotal = Math.max(...registros.map(registro => registro.nubosidad ?? 0));
+  const peorIndicadorCorto = Math.max(peorHora, peorNubosidadTotal);
   if (registros.length <= 2) {
-    if (peorHora >= 80) nubosidad = Math.max(nubosidad, 81);
-    else if (peorHora >= 60) nubosidad = Math.max(nubosidad, 61);
-    else if (peorHora >= 35) nubosidad = Math.max(nubosidad, 31);
+    if (peorIndicadorCorto >= 80) nubosidad = Math.max(nubosidad, 81);
+    else if (peorIndicadorCorto >= 60) nubosidad = Math.max(nubosidad, 61);
+    else if (peorIndicadorCorto >= 35) nubosidad = Math.max(nubosidad, 31);
   } else if (proporcionNublada >= 0.5) {
     nubosidad = Math.max(nubosidad, 61);
   }
