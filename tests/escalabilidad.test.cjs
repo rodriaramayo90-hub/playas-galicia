@@ -103,6 +103,8 @@ vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   factorAbrigoDireccional,
   compartirMeteorologiaPorZona,
   resumirNubosidad,
+  resumirProbabilidadLluvia,
+  obtenerCielo,
   contarPlayasConAbrigo() {
     return playas.filter(playa =>
       playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
@@ -198,7 +200,6 @@ function probarAbrigoDireccional() {
   assert.ok(lateral > 0.25 && lateral < 0.45);
 }
 
-
 function probarZonasMeteorologicas() {
   const serie = valor => Array(48).fill(valor);
   const crearDatos = (temperatura, nubosidad, direccion) => ({
@@ -228,7 +229,6 @@ function probarZonasMeteorologicas() {
   assert.ok(resultado[0].hourly.wind_direction_10m[0] < 0.01);
   assert.equal(resultado[2], independiente);
 }
-
 
 function probarNubosidadEfectiva() {
   const cieloAltoConSol = contexto.__pruebas.resumirNubosidad([{
@@ -263,12 +263,44 @@ function probarNubosidadEfectiva() {
     { nubosidad: 65, nubosidadBaja: 60, nubosidadMedia: 35, nubosidadAlta: 10, duracionSol: 3000, esDeDia: 1 }
   ]);
   assert.ok(intervaloCortoNublado.nubosidad > 60, "Un intervalo corto con nubes bajas no puede quedar como algunas nubes");
+
+  const intervaloConNubesAltas = contexto.__pruebas.resumirNubosidad([
+    { nubosidad: 85, nubosidadBaja: 5, nubosidadMedia: 10, nubosidadAlta: 85, duracionSol: 3300, esDeDia: 1 },
+    { nubosidad: 75, nubosidadBaja: 5, nubosidadMedia: 15, nubosidadAlta: 75, duracionSol: 3200, esDeDia: 1 }
+  ]);
+  assert.ok(intervaloConNubesAltas.nubosidad <= 30, "Las nubes altas finas no deben convertir un intervalo soleado en parcialmente nublado");
+  assert.equal(intervaloConNubesAltas.predominioNubesAltas, true);
+  assert.equal(
+    contexto.__pruebas.obtenerCielo(intervaloConNubesAltas.nubosidad, intervaloConNubesAltas.predominioNubesAltas),
+    "🌥️ Nubes altas"
+  );
+}
+
+function probarResumenLluvia() {
+  const registros = valores => valores.map(lluvia => ({ lluvia }));
+
+  assert.deepEqual(
+    { ...contexto.__pruebas.resumirProbabilidadLluvia(registros([10, 70])) },
+    { lluvia: 70, lluviaPromedio: 40, lluviaMaxima: 70 },
+    "En intervalos cortos debe mostrarse el riesgo de la peor hora"
+  );
+  assert.deepEqual(
+    { ...contexto.__pruebas.resumirProbabilidadLluvia(registros([0, 0, 20, 60, 0])) },
+    { lluvia: 49, lluviaPromedio: 16, lluviaMaxima: 60 },
+    "En rangos medios debe dominar el máximo sin ignorar el promedio"
+  );
+  assert.deepEqual(
+    { ...contexto.__pruebas.resumirProbabilidadLluvia(registros([0, 0, 0, 0, 0, 0, 0, 0, 0, 60])) },
+    { lluvia: 38, lluviaPromedio: 6, lluviaMaxima: 60 },
+    "En rangos largos un pico de lluvia no debe desaparecer dentro de la media"
+  );
 }
 
 (async () => {
   probarAbrigoDireccional();
   probarZonasMeteorologicas();
   probarNubosidadEfectiva();
+  probarResumenLluvia();
   await probarDistancias();
   await probarPronostico();
   console.log("OK: 200 playas en 5 lotes de distancia y 4 lotes de pronóstico.");
@@ -276,4 +308,3 @@ function probarNubosidadEfectiva() {
   console.error(error);
   process.exitCode = 1;
 });
-
