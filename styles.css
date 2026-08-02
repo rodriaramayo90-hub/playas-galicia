@@ -953,6 +953,30 @@ button:disabled {
     font-size: .9rem;
 }
 
+.foto-playa {
+    margin: 14px 0 16px;
+}
+
+.foto-playa img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #e8f1f3;
+}
+
+.foto-playa figcaption {
+    margin-top: 6px;
+    color: #647b84;
+    font-size: .72rem;
+    line-height: 1.35;
+}
+
+.foto-playa a {
+    color: #0b7285;
+}
+
 @media (max-width: 600px) {
     .filtros {
         gap: 14px;
@@ -983,6 +1007,9 @@ button:disabled {
         color: #d9f2ff;
     }
     .grupo-horario small { color: #bed4de; }
+    .foto-playa img { background: #17252c; }
+    .foto-playa figcaption { color: #c4d7de; }
+    .foto-playa a { color: #67d8e7; }
 }
 
 @media (max-width: 600px) {
