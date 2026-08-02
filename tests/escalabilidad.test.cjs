@@ -105,6 +105,8 @@ vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   resumirNubosidad,
   resumirProbabilidadLluvia,
   obtenerCielo,
+  puntosConfortSolar,
+  calcularPuntuacion,
   contarPlayasConAbrigo() {
     return playas.filter(playa =>
       playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
@@ -296,11 +298,34 @@ function probarResumenLluvia() {
   );
 }
 
+function probarConfortSolar() {
+  assert.equal(
+    contexto.__pruebas.puntosConfortSolar(20.4, 7, 0, 20),
+    5,
+    "Un día fresco, soleado, seco y con poco viento debe recibir el bono de confort"
+  );
+  assert.equal(contexto.__pruebas.puntosConfortSolar(20.4, 7, 0, 31), 0);
+  assert.equal(contexto.__pruebas.puntosConfortSolar(20.4, 11, 0, 20), 0);
+  assert.equal(contexto.__pruebas.puntosConfortSolar(20.4, 7, 6, 20), 0);
+
+  const puntuacionConBono = contexto.__pruebas.calcularPuntuacion(
+    20.4, 7, 8, 0, 20, 18, 0.5, 0, 0
+  );
+  const puntuacionSinBono = contexto.__pruebas.calcularPuntuacion(
+    20.4, 7, 8, 0, 31, 18, 0.5, 0, 0
+  );
+  assert.ok(
+    puntuacionConBono - puntuacionSinBono >= 5,
+    "El bono debe compensar el fresco solo cuando también se cumplen las condiciones solares"
+  );
+}
+
 (async () => {
   probarAbrigoDireccional();
   probarZonasMeteorologicas();
   probarNubosidadEfectiva();
   probarResumenLluvia();
+  probarConfortSolar();
   await probarDistancias();
   await probarPronostico();
   console.log("OK: 200 playas en 5 lotes de distancia y 4 lotes de pronóstico.");
