@@ -960,3 +960,32 @@ button:disabled {
         border-radius: 16px;
     }
 }
+
+
+/* Selector del tramo horario del pronóstico */
+.grupo-horario { min-width: 250px; }
+.selector-horario { display: flex; align-items: center; gap: 8px; }
+.selector-horario label { font-size: .82rem; font-weight: 650; }
+.selector-horario select {
+    padding: 10px 9px;
+    border: 1px solid #c9d9de;
+    border-radius: 10px;
+    background: #fff;
+    color: #193f50;
+    font: inherit;
+}
+.grupo-horario small { color: #58717b; font-size: .76rem; }
+
+@media (prefers-color-scheme: dark) {
+    .selector-horario select {
+        border-color: #71808a;
+        background: #242424;
+        color: #d9f2ff;
+    }
+    .grupo-horario small { color: #bed4de; }
+}
+
+@media (max-width: 600px) {
+    .grupo-horario, .selector-horario { width: 100%; }
+    .selector-horario select { flex: 1; min-width: 0; }
+}
