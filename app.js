@@ -1457,7 +1457,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 1
   const vientoMaximo = Math.round(Math.max(...registros.map(registro => registro.vientoEnPlaya).filter(Number.isFinite)));
   const direccionVientoGrados = promedioDireccionViento(registros.map(r => r.direccionViento), registros.map(r => r.vientoEnPlaya));
   const direccionViento = Number.isFinite(direccionVientoGrados) ? gradosADireccion(direccionVientoGrados) : "-";
-  const temperaturaMaxima = datos.daily.temperature_2m_max[dia];
+  const temperaturaMaxima = Math.max(...registros.map(registro => registro.temperatura).filter(Number.isFinite));
   const cielo = obtenerCielo(nubosidad);
   const agua = obtenerTemperaturaAgua(datosMarine, fechaObjetivo, horaInicio, horaFin);
   const oleaje = calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio, horaFin);
