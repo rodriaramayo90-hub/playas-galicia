@@ -18,6 +18,7 @@ const CONCURRENCIA_DISTANCIAS = 2;
 const MAX_DISTANCIAS_EN_CACHE = 5000;
 const cacheDistanciasCoche = new Map();
 const cacheFallosDistancia = new Map();
+const cacheFotosCommons = new Map();
 
 function mostrarEstado(mensaje, tipo = "info") {
   const estado = document.getElementById("estadoCarga");
@@ -1570,21 +1571,80 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
   const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
-  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, foto: playa.foto ?? null, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+  return { nombre: playa.nombre, municipio: playa.municipio, lat: playa.lat, lon: playa.lon, foto: playa.foto ?? null, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
 }
 
 function renderizarFotoPlaya(playa) {
-  if (!playa.foto) return "";
+  const consulta = `${playa.nombre} ${playa.municipio ?? "Galicia"}`
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;");
+  const datosFoto = playa.foto
+    ? `data-src="${playa.foto.url}"`
+    : "";
+  const credito = playa.foto
+    ? `Foto: ${playa.foto.autor} · ${playa.foto.licencia} ·
+        <a href="${playa.foto.fuente}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>`
+    : "";
   return `
-    <button class="btn-foto" type="button" aria-expanded="false">📷 Ver foto</button>
+    <button class="btn-foto" type="button" aria-expanded="false" data-consulta-foto="${consulta}">📷 Ver foto</button>
     <figure class="foto-playa oculto">
-      <img data-src="${playa.foto.url}" alt="Vista de ${playa.nombre}" width="800" height="450" loading="lazy" decoding="async">
-      <figcaption>
-        Foto: ${playa.foto.autor} · ${playa.foto.licencia} ·
-        <a href="${playa.foto.fuente}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
-      </figcaption>
+      <img ${datosFoto} alt="Vista de ${playa.nombre}" width="800" height="450" loading="lazy" decoding="async">
+      <figcaption>${credito}</figcaption>
     </figure>
   `;
+}
+
+function textoCommons(valor = "") {
+  const contenedor = document.createElement("div");
+  contenedor.innerHTML = valor;
+  return contenedor.textContent.trim();
+}
+
+async function buscarFotoCommons(consulta) {
+  if (cacheFotosCommons.has(consulta)) return cacheFotosCommons.get(consulta);
+
+  const parametros = new URLSearchParams({
+    action: "query",
+    generator: "search",
+    gsrsearch: consulta,
+    gsrnamespace: "6",
+    gsrlimit: "5",
+    prop: "imageinfo",
+    iiprop: "url|extmetadata",
+    iiurlwidth: "800",
+    format: "json",
+    origin: "*"
+  });
+  const respuesta = await solicitarJson(
+    `https://commons.wikimedia.org/w/api.php?${parametros}`,
+    { reintentos: 1, tiempoLimite: 12000 }
+  );
+  const paginas = Object.values(respuesta.query?.pages ?? {})
+    .sort((a, b) => (a.index ?? 999) - (b.index ?? 999));
+  const pagina = paginas.find(candidata => candidata.imageinfo?.[0]?.thumburl);
+  if (!pagina) throw new Error("Wikimedia Commons no encontró una imagen");
+
+  const informacion = pagina.imageinfo[0];
+  const metadatos = informacion.extmetadata ?? {};
+  const foto = {
+    url: informacion.thumburl,
+    fuente: informacion.descriptionurl,
+    autor: textoCommons(metadatos.Artist?.value) || "Autor indicado en Wikimedia Commons",
+    licencia: textoCommons(metadatos.LicenseShortName?.value) || "Licencia indicada en la fuente"
+  };
+  cacheFotosCommons.set(consulta, foto);
+  return foto;
+}
+
+function actualizarCreditoFoto(figura, foto) {
+  const pie = figura.querySelector("figcaption");
+  pie.textContent = `Foto: ${foto.autor} · ${foto.licencia} · `;
+  const enlace = document.createElement("a");
+  enlace.href = foto.fuente;
+  enlace.target = "_blank";
+  enlace.rel = "noopener noreferrer";
+  enlace.textContent = "Wikimedia Commons";
+  pie.append(enlace);
 }
 
 async function cargarRankingInterno() {
@@ -1751,21 +1811,39 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 });
 
 document.querySelectorAll(".btn-foto").forEach(boton => {
-  boton.addEventListener("click", () => {
+  boton.addEventListener("click", async () => {
     const figura = boton.nextElementSibling;
-    figura.classList.toggle("oculto");
-    const estaOculta = figura.classList.contains("oculto");
+    const estabaOculta = figura.classList.contains("oculto");
 
-    if (!estaOculta) {
-      const imagen = figura.querySelector("img[data-src]");
-      if (imagen) {
+    if (!estabaOculta) {
+      figura.classList.add("oculto");
+      boton.textContent = "📷 Ver foto";
+      boton.setAttribute("aria-expanded", "false");
+      return;
+    }
+
+    const imagen = figura.querySelector("img");
+    try {
+      boton.disabled = true;
+      if (!imagen.dataset.src && !imagen.src) {
+        boton.textContent = "Buscando foto…";
+        const foto = await buscarFotoCommons(boton.dataset.consultaFoto);
+        imagen.dataset.src = foto.url;
+        actualizarCreditoFoto(figura, foto);
+      }
+      if (imagen.dataset.src) {
         imagen.src = imagen.dataset.src;
         imagen.removeAttribute("data-src");
       }
+      figura.classList.remove("oculto");
+      boton.textContent = "Ocultar foto";
+      boton.setAttribute("aria-expanded", "true");
+    } catch (error) {
+      console.warn("No se pudo cargar la foto de la playa", error);
+      boton.textContent = "Foto no disponible";
+    } finally {
+      boton.disabled = false;
     }
-
-    boton.textContent = estaOculta ? "📷 Ver foto" : "Ocultar foto";
-    boton.setAttribute("aria-expanded", String(!estaOculta));
   });
 });
 
