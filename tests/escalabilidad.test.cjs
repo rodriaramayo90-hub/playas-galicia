@@ -253,6 +253,12 @@ function probarNubosidadEfectiva() {
     { nubosidad: 0, nubosidadBaja: 0, nubosidadMedia: 0, nubosidadAlta: 0, duracionSol: 1200 }
   ]);
   assert.ok(variable.nubosidad > 10 && variable.nubosidad <= 30, "Despejado exige al menos un 75 % de horas realmente soleadas");
+
+  const intervaloCortoNublado = contexto.__pruebas.resumirNubosidad([
+    { nubosidad: 80, nubosidadBaja: 75, nubosidadMedia: 40, nubosidadAlta: 10, duracionSol: 3000, esDeDia: 1 },
+    { nubosidad: 65, nubosidadBaja: 60, nubosidadMedia: 35, nubosidadAlta: 10, duracionSol: 3000, esDeDia: 1 }
+  ]);
+  assert.ok(intervaloCortoNublado.nubosidad > 60, "Un intervalo corto con nubes bajas no puede quedar como algunas nubes");
 }
 
 (async () => {
