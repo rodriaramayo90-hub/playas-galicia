@@ -957,6 +957,21 @@ button:disabled {
     margin: 14px 0 16px;
 }
 
+.btn-foto {
+    margin-top: 14px;
+    padding: 8px 12px;
+    border: 1px solid #b9dce2;
+    border-radius: 10px;
+    background: transparent;
+    color: #0b6170;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-foto:hover {
+    background: #edf7f8;
+}
+
 .foto-playa img {
     display: block;
     width: 100%;
@@ -1010,6 +1025,8 @@ button:disabled {
     .foto-playa img { background: #17252c; }
     .foto-playa figcaption { color: #c4d7de; }
     .foto-playa a { color: #67d8e7; }
+    .btn-foto { border-color: #58818b; color: #71ddea; }
+    .btn-foto:hover { background: #17252c; }
 }
 
 @media (max-width: 600px) {
