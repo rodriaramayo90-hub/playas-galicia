@@ -980,6 +980,17 @@ function puntosNubosidad(nubosidad){
   return 25 - valorSeguro * 0.3;
 }
 
+function puntosConfortSolar(temperatura, viento, lluvia, nubosidad) {
+  const diaFrescoPeroAgradable =
+    temperatura >= 19.5 &&
+    temperatura <= 23 &&
+    viento <= 10 &&
+    lluvia <= 5 &&
+    nubosidad <= 30;
+
+  return diaFrescoPeroAgradable ? 5 : 0;
+}
+
 function calcularNubosidadHora(registro) {
   const limitar = valor => Math.max(0, Math.min(100, valor));
   const total = Number.isFinite(registro.nubosidad) ? registro.nubosidad : 0;
@@ -1262,6 +1273,7 @@ function calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia,
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
   puntuacion += puntosTemperatura(temperaturaMediaPlaya);
+  puntuacion += puntosConfortSolar(temperaturaMediaPlaya, viento, lluvia, nubosidad);
   puntuacion += puntosViento(viento);
   puntuacion += puntosVientoMaximo(vientoMaximo);
   puntuacion += puntosOrientacion(anguloPlaya, direccionVientoGrados, viento);
@@ -1367,6 +1379,9 @@ function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGr
   else if (nubosidad <= 80) mensajes.push("cielo nublado");
   else mensajes.push("cielo muy nublado");
   if (temperatura >= 25) mensajes.push("temperatura ideal");
+  else if (puntosConfortSolar(temperatura, viento, lluvia, nubosidad) > 0) {
+    mensajes.push("temperatura suave y agradable al sol");
+  }
   if (viento <= 15) mensajes.push("poco viento");
   if (vientoMaximo >= 35) mensajes.push("momentos de viento fuerte");
   else if (vientoMaximo >= 25) mensajes.push("momentos de viento moderado");
