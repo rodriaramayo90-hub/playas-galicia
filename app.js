@@ -1586,7 +1586,7 @@ function renderizarFotoPlaya(playa) {
         <a href="${playa.foto.fuente}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>`
     : "";
   return `
-    <button class="btn-foto" type="button" aria-expanded="false" data-consulta-foto="${consulta}" data-nombre-foto="${escaparHtml(playa.nombre)}">📷 Ver foto</button>
+    <button class="btn-foto" type="button" aria-expanded="false" data-consulta-foto="${escaparAtributoHtml(consulta)}" data-nombre-foto="${escaparAtributoHtml(playa.nombre)}">📷 Ver foto</button>
     <figure class="foto-playa oculto">
       <img ${datosFoto} alt="Vista de ${playa.nombre}" width="800" height="450" loading="lazy" decoding="async">
       <figcaption>${credito}</figcaption>
@@ -1598,6 +1598,14 @@ function textoCommons(valor = "") {
   const contenedor = document.createElement("div");
   contenedor.innerHTML = valor;
   return contenedor.textContent.trim();
+}
+
+function escaparAtributoHtml(valor = "") {
+  return String(valor)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 function normalizarTextoFoto(valor = "") {
