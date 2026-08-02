@@ -247,7 +247,13 @@ const playas = [
     lon: -8.406,
     orientacion: "NW",
     anguloAproximado: 315,
-    zonaMeteorologica: "coruna_urbana"
+    zonaMeteorologica: "coruna_urbana",
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20orzan.jpg?width=800",
+      autor: "Banjo",
+      licencia: "Dominio público",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_orzan.jpg"
+    }
   },
   {
     nombre: "Playa de las Lapas",
@@ -416,7 +422,13 @@ const playas = [
     lon: -8.901842,
     orientacion: "E",
     anguloAproximado: 90,
-    nivelAbrigo: "alto"
+    nivelAbrigo: "alto",
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20Rodas%20-%20Illas%20Cies.jpg?width=800",
+      autor: "Mário José Martins",
+      licencia: "CC BY 2.0",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_de_Rodas_-_Illas_Cies.jpg"
+    }
   },
   {
     nombre: "Praia de Compostela",
@@ -449,6 +461,12 @@ const playas = [
       factorMinimo: 0.15,
       factorMaximo: 0.45,
       amplitud: 50
+    },
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20San%20Amaro%2C%20Coru%C3%B1a.JPG?width=800",
+      autor: "Daniarmo",
+      licencia: "CC BY-SA 2.5 ES",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_de_San_Amaro,_Coru%C3%B1a.JPG"
     }
   },
   {
@@ -459,7 +477,13 @@ const playas = [
     orientacion: "NW",
     anguloAproximado: 330,
     nivelAbrigo: "alto",
-    zonaMeteorologica: "coruna_urbana"
+    zonaMeteorologica: "coruna_urbana",
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20Riazor.A%20Coru%C3%B1a%20Galicia.jpg?width=800",
+      autor: "Roberto Abizanda",
+      licencia: "CC BY-SA 2.0",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_de_Riazor.A_Coru%C3%B1a_Galicia.jpg"
+    }
   },
   {
     nombre: "Praia de Doniños",
@@ -491,7 +515,13 @@ const playas = [
     lat: 43.55701,
     lon: -7.17304,
     orientacion: "N",
-    anguloAproximado: 0
+    anguloAproximado: 0,
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/PLAYA%20DE%20LAS%20CATEDRALES%20%28GALICIA%29.jpg?width=800",
+      autor: "Cameron 1878",
+      licencia: "CC BY-SA 4.0",
+      fuente: "https://commons.wikimedia.org/wiki/File:PLAYA_DE_LAS_CATEDRALES_(GALICIA).jpg"
+    }
   },
   {
     nombre: "Praia de Llas",
@@ -1540,7 +1570,20 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
   const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
-  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, foto: playa.foto ?? null, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+}
+
+function renderizarFotoPlaya(playa) {
+  if (!playa.foto) return "";
+  return `
+    <figure class="foto-playa">
+      <img data-src="${playa.foto.url}" alt="Vista de ${playa.nombre}" width="800" height="450" loading="lazy" decoding="async">
+      <figcaption>
+        Foto: ${playa.foto.autor} · ${playa.foto.licencia} ·
+        <a href="${playa.foto.fuente}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      </figcaption>
+    </figure>
+  `;
 }
 
 async function cargarRankingInterno() {
@@ -1660,6 +1703,7 @@ tabla.innerHTML += `
   </button>
 
   <div class="detalles-mobile oculto">
+${renderizarFotoPlaya(playa)}
 <p>🌡️ Temperatura máxima:
 ${playa.temperaturaMaxima}°C
 </p>
@@ -1696,6 +1740,13 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
     detalles.classList.toggle("oculto");
 
     const estaOculto = detalles.classList.contains("oculto");
+    if (!estaOculto) {
+      const imagen = detalles.querySelector("img[data-src]");
+      if (imagen) {
+        imagen.src = imagen.dataset.src;
+        imagen.removeAttribute("data-src");
+      }
+    }
     boton.textContent = estaOculto
       ? "Ver detalles ▼"
       : "Ocultar detalles ▲";
