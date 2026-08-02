@@ -1576,7 +1576,8 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
 function renderizarFotoPlaya(playa) {
   if (!playa.foto) return "";
   return `
-    <figure class="foto-playa">
+    <button class="btn-foto" type="button" aria-expanded="false">📷 Ver foto</button>
+    <figure class="foto-playa oculto">
       <img data-src="${playa.foto.url}" alt="Vista de ${playa.nombre}" width="800" height="450" loading="lazy" decoding="async">
       <figcaption>
         Foto: ${playa.foto.autor} · ${playa.foto.licencia} ·
@@ -1740,13 +1741,6 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
     detalles.classList.toggle("oculto");
 
     const estaOculto = detalles.classList.contains("oculto");
-    if (!estaOculto) {
-      const imagen = detalles.querySelector("img[data-src]");
-      if (imagen) {
-        imagen.src = imagen.dataset.src;
-        imagen.removeAttribute("data-src");
-      }
-    }
     boton.textContent = estaOculto
       ? "Ver detalles ▼"
       : "Ocultar detalles ▲";
@@ -1754,6 +1748,25 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
   });
 
+});
+
+document.querySelectorAll(".btn-foto").forEach(boton => {
+  boton.addEventListener("click", () => {
+    const figura = boton.nextElementSibling;
+    figura.classList.toggle("oculto");
+    const estaOculta = figura.classList.contains("oculto");
+
+    if (!estaOculta) {
+      const imagen = figura.querySelector("img[data-src]");
+      if (imagen) {
+        imagen.src = imagen.dataset.src;
+        imagen.removeAttribute("data-src");
+      }
+    }
+
+    boton.textContent = estaOculta ? "📷 Ver foto" : "Ocultar foto";
+    boton.setAttribute("aria-expanded", String(!estaOculta));
+  });
 });
 
 }
