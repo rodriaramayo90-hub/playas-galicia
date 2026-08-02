@@ -985,8 +985,8 @@ function resumirNubosidad(registros) {
   const peorIndicadorCorto = Math.max(peorHora, peorNubosidadTotal);
   if (registros.length <= 2) {
     if (peorIndicadorCorto >= 80) nubosidad = Math.max(nubosidad, 81);
-    else if (peorIndicadorCorto >= 60) nubosidad = Math.max(nubosidad, 61);
-    else if (peorIndicadorCorto >= 35) nubosidad = Math.max(nubosidad, 31);
+    else if (peorIndicadorCorto >= 50) nubosidad = Math.max(nubosidad, 61);
+    else if (peorIndicadorCorto >= 25) nubosidad = Math.max(nubosidad, 31);
   } else if (proporcionNublada >= 0.5) {
     nubosidad = Math.max(nubosidad, 61);
   }
