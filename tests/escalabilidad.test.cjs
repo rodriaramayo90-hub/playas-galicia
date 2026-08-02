@@ -32,7 +32,12 @@ function crearMeteorologia() {
       precipitation_probability: repetir(10),
       wind_speed_10m: repetir(12),
       wind_direction_10m: repetir(270),
-      cloud_cover: repetir(25)
+      cloud_cover: repetir(25),
+      cloud_cover_low: repetir(20),
+      cloud_cover_mid: repetir(15),
+      cloud_cover_high: repetir(25),
+      sunshine_duration: repetir(2700),
+      is_day: repetir(1)
     }
   };
 }
@@ -97,6 +102,7 @@ vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   obtenerDatosPlayas,
   factorAbrigoDireccional,
   compartirMeteorologiaPorZona,
+  resumirNubosidad,
   contarPlayasConAbrigo() {
     return playas.filter(playa =>
       playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
@@ -203,7 +209,12 @@ function probarZonasMeteorologicas() {
       precipitation_probability: serie(20),
       wind_speed_10m: serie(10),
       wind_direction_10m: serie(direccion),
-      cloud_cover: serie(nubosidad)
+      cloud_cover: serie(nubosidad),
+      cloud_cover_low: serie(nubosidad),
+      cloud_cover_mid: serie(nubosidad),
+      cloud_cover_high: serie(nubosidad),
+      sunshine_duration: serie(1800),
+      is_day: serie(1)
     }
   });
   const independiente = crearDatos(18, 80, 180);
@@ -218,9 +229,46 @@ function probarZonasMeteorologicas() {
   assert.equal(resultado[2], independiente);
 }
 
+
+function probarNubosidadEfectiva() {
+  const cieloAltoConSol = contexto.__pruebas.resumirNubosidad([{
+    nubosidad: 90,
+    nubosidadBaja: 0,
+    nubosidadMedia: 10,
+    nubosidadAlta: 90,
+    duracionSol: 3600
+  }, {
+    nubosidad: 90, nubosidadBaja: 0, nubosidadMedia: 10, nubosidadAlta: 90, duracionSol: 3600
+  }, {
+    nubosidad: 90, nubosidadBaja: 0, nubosidadMedia: 10, nubosidadAlta: 90, duracionSol: 3600
+  }]);
+  const cieloCubierto = contexto.__pruebas.resumirNubosidad([{
+    nubosidad: 90,
+    nubosidadBaja: 90,
+    nubosidadMedia: 80,
+    nubosidadAlta: 50,
+    duracionSol: 0
+  }]);
+  assert.ok(cieloAltoConSol.nubosidad <= 10, "Las nubes altas con sol no deben figurar como cielo nublado");
+  assert.ok(cieloCubierto.nubosidad > 80, "Las nubes bajas sin sol deben conservar la categoría de cielo cubierto");
+
+  const variable = contexto.__pruebas.resumirNubosidad([
+    { nubosidad: 0, nubosidadBaja: 0, nubosidadMedia: 0, nubosidadAlta: 0, duracionSol: 3600 },
+    { nubosidad: 0, nubosidadBaja: 0, nubosidadMedia: 0, nubosidadAlta: 0, duracionSol: 1200 }
+  ]);
+  assert.ok(variable.nubosidad > 10 && variable.nubosidad <= 30, "Despejado exige al menos un 75 % de horas realmente soleadas");
+
+  const intervaloCortoNublado = contexto.__pruebas.resumirNubosidad([
+    { nubosidad: 80, nubosidadBaja: 75, nubosidadMedia: 40, nubosidadAlta: 10, duracionSol: 3000, esDeDia: 1 },
+    { nubosidad: 65, nubosidadBaja: 60, nubosidadMedia: 35, nubosidadAlta: 10, duracionSol: 3000, esDeDia: 1 }
+  ]);
+  assert.ok(intervaloCortoNublado.nubosidad > 60, "Un intervalo corto con nubes bajas no puede quedar como algunas nubes");
+}
+
 (async () => {
   probarAbrigoDireccional();
   probarZonasMeteorologicas();
+  probarNubosidadEfectiva();
   await probarDistancias();
   await probarPronostico();
   console.log("OK: 200 playas en 5 lotes de distancia y 4 lotes de pronóstico.");
