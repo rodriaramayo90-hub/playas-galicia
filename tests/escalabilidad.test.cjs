@@ -104,6 +104,7 @@ vm.runInContext(`${codigo}\n;globalThis.__pruebas = {
   compartirMeteorologiaPorZona,
   resumirNubosidad,
   resumirProbabilidadLluvia,
+  obtenerCielo,
   contarPlayasConAbrigo() {
     return playas.filter(playa =>
       playa.nivelAbrigo || playa.abrigoViento || playa.abrigoOleaje
@@ -262,6 +263,17 @@ function probarNubosidadEfectiva() {
     { nubosidad: 65, nubosidadBaja: 60, nubosidadMedia: 35, nubosidadAlta: 10, duracionSol: 3000, esDeDia: 1 }
   ]);
   assert.ok(intervaloCortoNublado.nubosidad > 60, "Un intervalo corto con nubes bajas no puede quedar como algunas nubes");
+
+  const intervaloConNubesAltas = contexto.__pruebas.resumirNubosidad([
+    { nubosidad: 85, nubosidadBaja: 5, nubosidadMedia: 10, nubosidadAlta: 85, duracionSol: 3300, esDeDia: 1 },
+    { nubosidad: 75, nubosidadBaja: 5, nubosidadMedia: 15, nubosidadAlta: 75, duracionSol: 3200, esDeDia: 1 }
+  ]);
+  assert.ok(intervaloConNubesAltas.nubosidad <= 30, "Las nubes altas finas no deben convertir un intervalo soleado en parcialmente nublado");
+  assert.equal(intervaloConNubesAltas.predominioNubesAltas, true);
+  assert.equal(
+    contexto.__pruebas.obtenerCielo(intervaloConNubesAltas.nubosidad, intervaloConNubesAltas.predominioNubesAltas),
+    "🌥️ Nubes altas"
+  );
 }
 
 function probarResumenLluvia() {
