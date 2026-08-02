@@ -947,6 +947,23 @@ function puntosNubosidad(nubosidad){
   const valorSeguro = Math.max(0, Math.min(100, nubosidad));
   return 25 - valorSeguro * 0.3;
 }
+
+function calcularNubosidadEfectiva(registros) {
+  const limitar = valor => Math.max(0, Math.min(100, valor));
+  const valores = registros.map(registro => {
+    const total = Number.isFinite(registro.nubosidad) ? registro.nubosidad : 0;
+    const baja = Number.isFinite(registro.nubosidadBaja) ? registro.nubosidadBaja : total;
+    const media = Number.isFinite(registro.nubosidadMedia) ? registro.nubosidadMedia : total;
+    const alta = Number.isFinite(registro.nubosidadAlta) ? registro.nubosidadAlta : total;
+    if (!Number.isFinite(registro.duracionSol)) return limitar(total);
+    const proporcionSol = Math.max(0, Math.min(1, registro.duracionSol / 3600));
+    const nubosidadOpaca = baja * 0.55 + media * 0.3 + alta * 0.15;
+    return limitar(nubosidadOpaca * 0.45 + (1 - proporcionSol) * 100 * 0.55);
+  });
+  return valores.length
+    ? Math.round(valores.reduce((suma, valor) => suma + valor, 0) / valores.length)
+    : 0;
+}
 function diferenciaAngular(anguloA, anguloB) {
   const diferencia = Math.abs(anguloA - anguloB) % 360;
   return diferencia > 180 ? 360 - diferencia : diferencia;
@@ -1341,7 +1358,12 @@ function compartirMeteorologiaPorZona(listaPlayas, datosMeteorologicos) {
         precipitation_probability: promediarSeries(referencias, "hourly", "precipitation_probability"),
         wind_speed_10m: promediarSeries(referencias, "hourly", "wind_speed_10m"),
         wind_direction_10m: promediarSeries(referencias, "hourly", "wind_direction_10m", promedioAngular),
-        cloud_cover: promediarSeries(referencias, "hourly", "cloud_cover")
+        cloud_cover: promediarSeries(referencias, "hourly", "cloud_cover"),
+        cloud_cover_low: promediarSeries(referencias, "hourly", "cloud_cover_low"),
+        cloud_cover_mid: promediarSeries(referencias, "hourly", "cloud_cover_mid"),
+        cloud_cover_high: promediarSeries(referencias, "hourly", "cloud_cover_high"),
+        sunshine_duration: promediarSeries(referencias, "hourly", "sunshine_duration"),
+        is_day: promediarSeries(referencias, "hourly", "is_day")
       }
     };
     indices.forEach(indice => { resultado[indice] = compartida; });
@@ -1358,7 +1380,7 @@ async function obtenerDatosPlayas(dia) {
       async lote => {
         const latitudes = lote.map(playa => playa.lat).join(",");
         const longitudes = lote.map(playa => playa.lon).join(",");
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,cloud_cover&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high,sunshine_duration,is_day&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
         const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=2&timezone=Europe%2FMadrid`;
         const [meteorologia, mar] = await Promise.all([
           solicitarJson(url, { reintentos: 2, tiempoLimite: 20000 }),
@@ -1396,10 +1418,17 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
     lluvia: datos.hourly.precipitation_probability[indice],
     viento: datos.hourly.wind_speed_10m[indice],
     direccionViento: datos.hourly.wind_direction_10m[indice],
-    nubosidad: datos.hourly.cloud_cover[indice]
+    nubosidad: datos.hourly.cloud_cover[indice],
+    nubosidadBaja: datos.hourly.cloud_cover_low?.[indice],
+    nubosidadMedia: datos.hourly.cloud_cover_mid?.[indice],
+    nubosidadAlta: datos.hourly.cloud_cover_high?.[indice],
+    duracionSol: datos.hourly.sunshine_duration?.[indice],
+    esDeDia: datos.hourly.is_day?.[indice]
   })).filter(registro => {
     const horaLocal = Number(registro.hora.split("T")[1].split(":")[0]);
-    return registro.hora.startsWith(fechaObjetivo) && horaLocal >= 11 && horaLocal <= 20;
+    const dentroDelHorario = horaLocal >= 11 && horaLocal <= 21;
+    const conLuzSolar = !Number.isFinite(registro.esDeDia) || registro.esDeDia >= 0.5;
+    return registro.hora.startsWith(fechaObjetivo) && dentroDelHorario && conLuzSolar;
   });
   if (registros.length === 0) throw new Error("No hay datos horarios para el día seleccionado.");
   registros.forEach(registro => {
@@ -1410,7 +1439,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia) {
   const promedio = campo => registros.reduce((suma, registro) => suma + registro[campo], 0) / registros.length;
   const temperaturaMediaPlaya = promedio("temperatura");
   const lluvia = Math.round(promedio("lluvia"));
-  const nubosidad = Math.round(promedio("nubosidad"));
+  const nubosidad = calcularNubosidadEfectiva(registros);
   const vientoModelo = Math.round(promedio("viento"));
   const viento = Math.round(promedio("vientoEnPlaya"));
   const vientoMaximoModelo = Math.round(Math.max(...registros.map(registro => registro.viento).filter(Number.isFinite)));
