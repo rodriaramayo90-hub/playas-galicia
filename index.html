@@ -39,11 +39,13 @@
 
 
             <div class="grupo-filtro grupo-horario">
-                <span class="etiqueta-grupo">Horario previsto</span>
+                <span class="etiqueta-grupo">¿En qué horario quieres ir a la playa?</span>
                 <div class="selector-horario">
                     <label for="horaInicio">Desde</label>
                     <select id="horaInicio" onchange="cambiarHorario()">
-                        <option value="11" selected>11:00</option>
+                        <option value="7" selected>07:00</option><option value="8">08:00</option>
+                        <option value="9">09:00</option><option value="10">10:00</option>
+                        <option value="11">11:00</option>
                         <option value="12">12:00</option><option value="13">13:00</option>
                         <option value="14">14:00</option><option value="15">15:00</option>
                         <option value="16">16:00</option><option value="17">17:00</option>
@@ -52,6 +54,8 @@
                     </select>
                     <label for="horaFin">Hasta</label>
                     <select id="horaFin" onchange="cambiarHorario()">
+                        <option value="7">07:00</option><option value="8">08:00</option>
+                        <option value="9">09:00</option><option value="10">10:00</option>
                         <option value="11">11:00</option><option value="12">12:00</option>
                         <option value="13">13:00</option><option value="14">14:00</option>
                         <option value="15">15:00</option><option value="16">16:00</option>
@@ -60,7 +64,7 @@
                         <option value="21" selected>21:00</option>
                     </select>
                 </div>
-                <small id="resumenHorario">Todo el rango (11:00–21:00)</small>
+                <small id="resumenHorario">Todo el rango (07:00–21:00)</small>
             </div>
 
             <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>
