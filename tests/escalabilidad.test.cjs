@@ -237,6 +237,10 @@ function probarNubosidadEfectiva() {
     nubosidadMedia: 10,
     nubosidadAlta: 90,
     duracionSol: 3600
+  }, {
+    nubosidad: 90, nubosidadBaja: 0, nubosidadMedia: 10, nubosidadAlta: 90, duracionSol: 3600
+  }, {
+    nubosidad: 90, nubosidadBaja: 0, nubosidadMedia: 10, nubosidadAlta: 90, duracionSol: 3600
   }]);
   const cieloCubierto = contexto.__pruebas.resumirNubosidad([{
     nubosidad: 90,
