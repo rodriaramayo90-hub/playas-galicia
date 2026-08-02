@@ -18,6 +18,7 @@ const CONCURRENCIA_DISTANCIAS = 2;
 const MAX_DISTANCIAS_EN_CACHE = 5000;
 const cacheDistanciasCoche = new Map();
 const cacheFallosDistancia = new Map();
+const cacheFotosCommons = new Map();
 
 function mostrarEstado(mensaje, tipo = "info") {
   const estado = document.getElementById("estadoCarga");
@@ -247,7 +248,13 @@ const playas = [
     lon: -8.406,
     orientacion: "NW",
     anguloAproximado: 315,
-    zonaMeteorologica: "coruna_urbana"
+    zonaMeteorologica: "coruna_urbana",
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20orzan.jpg?width=800",
+      autor: "Banjo",
+      licencia: "Dominio público",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_orzan.jpg"
+    }
   },
   {
     nombre: "Playa de las Lapas",
@@ -416,7 +423,13 @@ const playas = [
     lon: -8.901842,
     orientacion: "E",
     anguloAproximado: 90,
-    nivelAbrigo: "alto"
+    nivelAbrigo: "alto",
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20Rodas%20-%20Illas%20Cies.jpg?width=800",
+      autor: "Mário José Martins",
+      licencia: "CC BY 2.0",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_de_Rodas_-_Illas_Cies.jpg"
+    }
   },
   {
     nombre: "Praia de Compostela",
@@ -449,6 +462,12 @@ const playas = [
       factorMinimo: 0.15,
       factorMaximo: 0.45,
       amplitud: 50
+    },
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20San%20Amaro%2C%20Coru%C3%B1a.JPG?width=800",
+      autor: "Daniarmo",
+      licencia: "CC BY-SA 2.5 ES",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_de_San_Amaro,_Coru%C3%B1a.JPG"
     }
   },
   {
@@ -459,7 +478,13 @@ const playas = [
     orientacion: "NW",
     anguloAproximado: 330,
     nivelAbrigo: "alto",
-    zonaMeteorologica: "coruna_urbana"
+    zonaMeteorologica: "coruna_urbana",
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20Riazor.A%20Coru%C3%B1a%20Galicia.jpg?width=800",
+      autor: "Roberto Abizanda",
+      licencia: "CC BY-SA 2.0",
+      fuente: "https://commons.wikimedia.org/wiki/File:Praia_de_Riazor.A_Coru%C3%B1a_Galicia.jpg"
+    }
   },
   {
     nombre: "Praia de Doniños",
@@ -491,7 +516,13 @@ const playas = [
     lat: 43.55701,
     lon: -7.17304,
     orientacion: "N",
-    anguloAproximado: 0
+    anguloAproximado: 0,
+    foto: {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/PLAYA%20DE%20LAS%20CATEDRALES%20%28GALICIA%29.jpg?width=800",
+      autor: "Cameron 1878",
+      licencia: "CC BY-SA 4.0",
+      fuente: "https://commons.wikimedia.org/wiki/File:PLAYA_DE_LAS_CATEDRALES_(GALICIA).jpg"
+    }
   },
   {
     nombre: "Praia de Llas",
@@ -1540,7 +1571,114 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const puntuacion = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
   const estado = obtenerEstado(puntuacion, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
-  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+  return { nombre: playa.nombre, municipio: playa.municipio, lat: playa.lat, lon: playa.lon, foto: playa.foto ?? null, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+}
+
+function renderizarFotoPlaya(playa) {
+  const consulta = `${playa.nombre} ${playa.municipio ?? "Galicia"}`
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;");
+  const datosFoto = playa.foto
+    ? `data-src="${playa.foto.url}"`
+    : "";
+  const credito = playa.foto
+    ? `Foto: ${playa.foto.autor} · ${playa.foto.licencia} ·
+        <a href="${playa.foto.fuente}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>`
+    : "";
+  return `
+    <button class="btn-foto" type="button" aria-expanded="false" data-consulta-foto="${consulta}" data-nombre-foto="${escaparHtml(playa.nombre)}">📷 Ver foto</button>
+    <figure class="foto-playa oculto">
+      <img ${datosFoto} alt="Vista de ${playa.nombre}" width="800" height="450" loading="lazy" decoding="async">
+      <figcaption>${credito}</figcaption>
+    </figure>
+  `;
+}
+
+function textoCommons(valor = "") {
+  const contenedor = document.createElement("div");
+  contenedor.innerHTML = valor;
+  return contenedor.textContent.trim();
+}
+
+function normalizarTextoFoto(valor = "") {
+  return valor
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function palabrasIdentificativasPlaya(nombre) {
+  const genericas = new Set([
+    "playa", "praia", "beach", "de", "del", "la", "las", "el", "los",
+    "da", "das", "do", "dos", "a", "o", "islas", "illas"
+  ]);
+  return normalizarTextoFoto(nombre)
+    .split(" ")
+    .filter(palabra => palabra.length >= 3 && !genericas.has(palabra));
+}
+
+function correspondeFotoAPlaya(pagina, nombrePlaya) {
+  const informacion = pagina.imageinfo?.[0];
+  const metadatos = informacion?.extmetadata ?? {};
+  const textoCandidato = normalizarTextoFoto([
+    pagina.title,
+    textoCommons(metadatos.ObjectName?.value),
+    textoCommons(metadatos.ImageDescription?.value)
+  ].filter(Boolean).join(" "));
+  const palabras = palabrasIdentificativasPlaya(nombrePlaya);
+  return palabras.length > 0 && palabras.every(palabra => textoCandidato.includes(palabra));
+}
+
+async function buscarFotoCommons(consulta, nombrePlaya) {
+  const claveCache = `${consulta}|${nombrePlaya}`;
+  if (cacheFotosCommons.has(claveCache)) return cacheFotosCommons.get(claveCache);
+
+  const parametros = new URLSearchParams({
+    action: "query",
+    generator: "search",
+    gsrsearch: consulta,
+    gsrnamespace: "6",
+    gsrlimit: "10",
+    prop: "imageinfo",
+    iiprop: "url|extmetadata",
+    iiurlwidth: "800",
+    format: "json",
+    origin: "*"
+  });
+  const respuesta = await solicitarJson(
+    `https://commons.wikimedia.org/w/api.php?${parametros}`,
+    { reintentos: 1, tiempoLimite: 12000 }
+  );
+  const paginas = Object.values(respuesta.query?.pages ?? {})
+    .sort((a, b) => (a.index ?? 999) - (b.index ?? 999));
+  const pagina = paginas.find(candidata =>
+    candidata.imageinfo?.[0]?.thumburl && correspondeFotoAPlaya(candidata, nombrePlaya)
+  );
+  if (!pagina) throw new Error("Wikimedia Commons no encontró una imagen inequívoca de esta playa");
+
+  const informacion = pagina.imageinfo[0];
+  const metadatos = informacion.extmetadata ?? {};
+  const foto = {
+    url: informacion.thumburl,
+    fuente: informacion.descriptionurl,
+    autor: textoCommons(metadatos.Artist?.value) || "Autor indicado en Wikimedia Commons",
+    licencia: textoCommons(metadatos.LicenseShortName?.value) || "Licencia indicada en la fuente"
+  };
+  cacheFotosCommons.set(claveCache, foto);
+  return foto;
+}
+
+function actualizarCreditoFoto(figura, foto) {
+  const pie = figura.querySelector("figcaption");
+  pie.textContent = `Foto: ${foto.autor} · ${foto.licencia} · `;
+  const enlace = document.createElement("a");
+  enlace.href = foto.fuente;
+  enlace.target = "_blank";
+  enlace.rel = "noopener noreferrer";
+  enlace.textContent = "Wikimedia Commons";
+  pie.append(enlace);
 }
 
 async function cargarRankingInterno() {
@@ -1660,6 +1798,7 @@ tabla.innerHTML += `
   </button>
 
   <div class="detalles-mobile oculto">
+${renderizarFotoPlaya(playa)}
 <p>🌡️ Temperatura máxima:
 ${playa.temperaturaMaxima}°C
 </p>
@@ -1703,6 +1842,46 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
   });
 
+});
+
+document.querySelectorAll(".btn-foto").forEach(boton => {
+  boton.addEventListener("click", async () => {
+    const figura = boton.nextElementSibling;
+    const estabaOculta = figura.classList.contains("oculto");
+
+    if (!estabaOculta) {
+      figura.classList.add("oculto");
+      boton.textContent = "📷 Ver foto";
+      boton.setAttribute("aria-expanded", "false");
+      return;
+    }
+
+    const imagen = figura.querySelector("img");
+    try {
+      boton.disabled = true;
+      if (!imagen.dataset.src && !imagen.src) {
+        boton.textContent = "Buscando foto…";
+        const foto = await buscarFotoCommons(
+          boton.dataset.consultaFoto,
+          boton.dataset.nombreFoto
+        );
+        imagen.dataset.src = foto.url;
+        actualizarCreditoFoto(figura, foto);
+      }
+      if (imagen.dataset.src) {
+        imagen.src = imagen.dataset.src;
+        imagen.removeAttribute("data-src");
+      }
+      figura.classList.remove("oculto");
+      boton.textContent = "Ocultar foto";
+      boton.setAttribute("aria-expanded", "true");
+    } catch (error) {
+      console.warn("No se pudo cargar la foto de la playa", error);
+      boton.textContent = "Foto no disponible";
+    } finally {
+      boton.disabled = false;
+    }
+  });
 });
 
 }
