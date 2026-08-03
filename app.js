@@ -1543,6 +1543,21 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
 }
 
+function crearEnlaceGoogleMaps(playa) {
+  const parametros = new URLSearchParams({
+    api: "1",
+    destination: `${playa.lat},${playa.lon}`,
+    travelmode: "driving",
+    dir_action: "navigate"
+  });
+
+  if (ubicacionUsuario) {
+    parametros.set("origin", `${ubicacionUsuario.lat},${ubicacionUsuario.lon}`);
+  }
+
+  return `https://www.google.com/maps/dir/?${parametros.toString()}`;
+}
+
 async function cargarRankingInterno() {
 
   let resultados;
@@ -1590,7 +1605,12 @@ rankingMobile.innerHTML="";
 tabla.innerHTML += `
   <tr>
     <td>${index + 1}</td>
-    <td>${playa.nombre}</td>
+    <td>
+      <div class="nombre-playa-tabla">
+        <span>${playa.nombre}</span>
+        <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
+      </div>
+    </td>
     <td>
     ${
     playa.distancia !== null
@@ -1629,7 +1649,10 @@ tabla.innerHTML += `
     <div class="tarjeta-identidad">
       <span class="posicion-ranking" aria-label="Posición ${index + 1}">${index + 1}</span>
       <div>
-        <h2>${playa.nombre}</h2>
+        <div class="titulo-playa-con-maps">
+          <h2>${playa.nombre}</h2>
+          <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
+        </div>
         <div class="estado">${playa.estado}</div>
       </div>
     </div>

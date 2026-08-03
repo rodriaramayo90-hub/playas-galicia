@@ -1115,3 +1115,93 @@ button:disabled {
         font-size: .8rem;
     }
 }
+
+
+/* Enlaces universales de indicaciones en Google Maps */
+.nombre-playa-tabla,
+.titulo-playa-con-maps {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+}
+
+.titulo-playa-con-maps h2 {
+    margin: 0;
+}
+
+.enlace-maps {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: max-content;
+    min-height: 28px;
+    padding: 5px 10px;
+    border: 1px solid rgba(11, 114, 133, .24);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f4fbfc 0%, #e5f5f7 100%);
+    box-shadow: 0 2px 7px rgba(11, 97, 112, .10);
+    color: #08677a;
+    font-size: .73rem;
+    font-weight: 750;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease,
+        background .18s ease;
+}
+
+.enlace-maps::before {
+    content: "";
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 3 3.85 10.66c-.38.17-.37.72.02.87l6.66 2.59 2.58 6.66c.15.39.7.4.87.02L21.7 3.7c.2-.45-.25-.9-.7-.7Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 3 3.85 10.66c-.38.17-.37.72.02.87l6.66 2.59 2.58 6.66c.15.39.7.4.87.02L21.7 3.7c.2-.45-.25-.9-.7-.7Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.enlace-maps:hover {
+    transform: translateY(-1px);
+    border-color: rgba(11, 114, 133, .48);
+    background: linear-gradient(135deg, #e8f8fa 0%, #d5f0f3 100%);
+    box-shadow: 0 5px 12px rgba(11, 97, 112, .16);
+    color: #075563;
+}
+
+.enlace-maps:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(11, 97, 112, .12);
+}
+
+.enlace-maps:focus-visible {
+    outline: 3px solid rgba(244, 162, 97, .65);
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .enlace-maps {
+        min-height: 30px;
+        padding: 6px 11px;
+        font-size: .75rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .enlace-maps {
+        border-color: rgba(103, 216, 231, .34);
+        background: linear-gradient(135deg, rgba(16, 70, 80, .92), rgba(10, 51, 61, .92));
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .24);
+        color: #9ae9f2;
+    }
+
+    .enlace-maps:hover {
+        border-color: rgba(167, 239, 247, .58);
+        background: linear-gradient(135deg, rgba(20, 88, 100, .96), rgba(12, 64, 74, .96));
+        color: #d0f8fc;
+    }
+}
