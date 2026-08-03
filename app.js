@@ -1389,7 +1389,7 @@ function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGr
   else if (lluvia <= 15) mensajes.push("probabilidad muy baja de lluvia");
   else if (lluvia <= 30) mensajes.push("posibilidad de lluvia");
   else if (lluvia <= 50) mensajes.push("riesgo moderado de lluvia");
-  else mensajes.push("riesgo alto de lluvia, condiciones poco aptas para la playa");
+  else mensajes.push("riesgo alto de lluvia");
   const estadoAgua = obtenerEstadoAgua(agua);
   if (estadoAgua) mensajes.push(estadoAgua);
   if (esVientoEnContra(anguloPlaya, direccionVientoGrados, viento)) mensajes.push("viento fuerte entrando en la playa");
