@@ -1045,3 +1045,34 @@ button:disabled {
         white-space: nowrap;
     }
 }
+
+
+/* Evita que los controles de la fila desborden el panel */
+@media (min-width: 1200px) {
+    .filtros {
+        grid-template-columns:
+            minmax(320px, 1.1fr)
+            minmax(180px, .72fr)
+            minmax(190px, .82fr)
+            minmax(300px, 1.15fr)
+            minmax(270px, 1fr);
+        column-gap: 18px;
+    }
+
+    .btn-ubicacion {
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: 12px;
+    }
+
+    .filtros > .grupo-filtro:last-child .input-con-boton {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .filtros > .grupo-filtro:last-child .btn-vista {
+        min-width: 0;
+        padding-inline: 10px;
+    }
+}
