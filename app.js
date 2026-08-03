@@ -2712,7 +2712,8 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
 }
 
-function crearEnlaceGoogleMaps(playa) {\n  const configuracion = playas.find(item => item.nombre === playa.nombre);
+function crearEnlaceGoogleMaps(playa) {
+  const configuracion = playas.find(item => item.nombre === playa.nombre);
   const parametros = new URLSearchParams({
     api: "1",
     destination: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`,
