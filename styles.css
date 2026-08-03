@@ -1138,6 +1138,7 @@ button:disabled {
     width: max-content;
     min-height: 28px;
     padding: 5px 10px;
+    box-sizing: border-box;
     border: 1px solid rgba(11, 114, 133, .24);
     border-radius: 999px;
     background: linear-gradient(135deg, #f4fbfc 0%, #e5f5f7 100%);
@@ -1148,6 +1149,9 @@ button:disabled {
     line-height: 1;
     text-decoration: none;
     white-space: nowrap;
+    color-scheme: only light;
+    forced-color-adjust: none;
+    -webkit-text-size-adjust: 100%;
     transition:
         transform .18s ease,
         box-shadow .18s ease,
@@ -1185,23 +1189,81 @@ button:disabled {
 
 @media (max-width: 600px) {
     .enlace-maps {
-        min-height: 30px;
-        padding: 6px 11px;
-        font-size: .75rem;
+        -webkit-text-size-adjust: 100%;
     }
 }
 
+/* Mantiene el mismo aspecto claro aunque el móvil anuncie modo oscuro.
+   Algunos navegadores Samsung aplican esa preferencia sin oscurecer la página. */
 @media (prefers-color-scheme: dark) {
     .enlace-maps {
-        border-color: rgba(103, 216, 231, .34);
-        background: linear-gradient(135deg, rgba(16, 70, 80, .92), rgba(10, 51, 61, .92));
-        box-shadow: 0 3px 10px rgba(0, 0, 0, .24);
-        color: #9ae9f2;
+        border-color: rgba(11, 114, 133, .24);
+        background: linear-gradient(135deg, #f4fbfc 0%, #e5f5f7 100%);
+        box-shadow: 0 2px 7px rgba(11, 97, 112, .10);
+        color: #08677a;
     }
 
     .enlace-maps:hover {
-        border-color: rgba(167, 239, 247, .58);
-        background: linear-gradient(135deg, rgba(20, 88, 100, .96), rgba(12, 64, 74, .96));
-        color: #d0f8fc;
+        border-color: rgba(11, 114, 133, .48);
+        background: linear-gradient(135deg, #e8f8fa 0%, #d5f0f3 100%);
+        box-shadow: 0 5px 12px rgba(11, 97, 112, .16);
+        color: #075563;
+    }
+}
+
+
+/* Jerarquía de la tarjeta: puntaje principal y navegación accesoria */
+.tarjeta-playa .puntuacion {
+    padding: 10px 13px;
+    border-width: 2px;
+    box-shadow: 0 4px 12px rgba(11, 97, 112, .09);
+}
+
+.tarjeta-playa .puntuacion strong {
+    font-size: 1.55rem;
+}
+
+.tarjeta-playa .puntuacion span {
+    font-size: .7rem;
+}
+
+.tarjeta-destino {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    text-align: right;
+}
+
+.tarjeta-destino > span {
+    white-space: nowrap;
+}
+
+.tarjeta-playa .enlace-maps-tarjeta,
+.tarjeta-playa .enlace-maps-tarjeta:hover {
+    min-height: auto;
+    padding: 2px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #4f7d86;
+    font-size: .68rem;
+    font-weight: 700;
+    transform: none;
+}
+
+.tarjeta-playa .enlace-maps-tarjeta::before {
+    flex-basis: 11px;
+    width: 11px;
+    height: 11px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .tarjeta-playa .enlace-maps-tarjeta,
+    .tarjeta-playa .enlace-maps-tarjeta:hover {
+        background: transparent;
+        box-shadow: none;
+        color: #83cbd5;
     }
 }
