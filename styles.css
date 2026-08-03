@@ -1102,3 +1102,16 @@ button:disabled {
         padding-inline: 7px;
     }
 }
+
+
+/* El texto Ocultar detalles debe permanecer dentro de su botón */
+@media (min-width: 1250px) {
+    .filtros > .grupo-filtro:last-child .input-con-boton {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filtros > .grupo-filtro:last-child .btn-vista {
+        padding-inline: 4px;
+        font-size: .8rem;
+    }
+}
