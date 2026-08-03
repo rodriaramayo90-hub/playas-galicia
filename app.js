@@ -2715,7 +2715,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
 function crearEnlaceGoogleMaps(playa) {
   const parametros = new URLSearchParams({
     api: "1",
-    destination: playa.destinoMaps || `${playa.lat},${playa.lon}`,
+    destination: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`,
     travelmode: "driving",
     dir_action: "navigate"
   });
