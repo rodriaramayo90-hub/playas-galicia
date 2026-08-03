@@ -1138,6 +1138,7 @@ button:disabled {
     width: max-content;
     min-height: 28px;
     padding: 5px 10px;
+    box-sizing: border-box;
     border: 1px solid rgba(11, 114, 133, .24);
     border-radius: 999px;
     background: linear-gradient(135deg, #f4fbfc 0%, #e5f5f7 100%);
