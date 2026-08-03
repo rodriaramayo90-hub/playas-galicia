@@ -2528,7 +2528,14 @@ function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, vi
   if (puntos >= 70) return "🟢 Buen día de playa";
   return "🟡 Aceptable";
 }
-function ajustarPuntuacionACategoria(puntos, estado) {\n  if (estado.includes("Mejor evitar")) return Math.min(puntos, 34);\n  if (estado.includes("Poco recomendable")) return Math.min(puntos, 49);\n  if (estado.includes("Aceptable")) return Math.min(puntos, 69);\n  if (estado.includes("Buen día de playa")) return Math.min(puntos, 84);\n  return puntos;\n}\nfunction obtenerCielo(nubosidad, predominioNubesAltas = false) {
+function ajustarPuntuacionACategoria(puntos, estado) {
+  if (estado.includes("Mejor evitar")) return Math.min(puntos, 34);
+  if (estado.includes("Poco recomendable")) return Math.min(puntos, 49);
+  if (estado.includes("Aceptable")) return Math.min(puntos, 69);
+  if (estado.includes("Buen día de playa")) return Math.min(puntos, 84);
+  return puntos;
+}
+function obtenerCielo(nubosidad, predominioNubesAltas = false) {
 
   if (predominioNubesAltas && nubosidad <= 30) return "🌥️ Nubes altas";
 
@@ -2706,7 +2713,10 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const agua = obtenerTemperaturaAgua(datosMarine, fechaObjetivo, horaInicio, horaFin);
   const oleaje = calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio, horaFin);
   const estadoOleaje = obtenerEstadoOleaje(oleaje);
-  const puntuacionBase = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);\n  const estado = obtenerEstado(puntuacionBase, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);\n  const puntuacion = ajustarPuntuacionACategoria(puntuacionBase, estado);\n  const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
+  const puntuacionBase = calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, playa.anguloAproximado, direccionVientoGrados);
+  const estado = obtenerEstado(puntuacionBase, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
+  const puntuacion = ajustarPuntuacionACategoria(puntuacionBase, estado);
+  const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
   return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
 }
 
