@@ -1188,60 +1188,8 @@ button:disabled {
 }
 
 @media (max-width: 600px) {
-    .tarjeta-cabecera {
-        display: grid;
-        grid-template-columns: 30px minmax(0, 1fr) auto;
-        gap: 8px 11px;
-        align-items: start;
-    }
-
-    .tarjeta-identidad,
-    .tarjeta-identidad > div {
-        display: contents;
-    }
-
-    .posicion-ranking {
-        grid-column: 1;
-        grid-row: 1;
-        align-self: center;
-    }
-
-    .titulo-playa-con-maps {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        grid-column: 2 / -1;
-        grid-row: 1;
-        align-items: center;
-        gap: 7px;
-        min-width: 0;
-    }
-
-    .titulo-playa-con-maps h2 {
-        min-width: 0;
-    }
-
-    .tarjeta-playa .estado {
-        grid-column: 2;
-        grid-row: 2;
-        align-self: center;
-    }
-
-    .tarjeta-playa .puntuacion {
-        grid-column: 3;
-        grid-row: 2;
-        justify-self: end;
-    }
-
     .enlace-maps {
-        min-height: 28px;
-        padding: 5px 9px;
-        font-size: .7rem;
-    }
-
-    .enlace-maps::before {
-        flex-basis: 13px;
-        width: 13px;
-        height: 13px;
+        -webkit-text-size-adjust: 100%;
     }
 }
 
@@ -1260,5 +1208,62 @@ button:disabled {
         background: linear-gradient(135deg, #e8f8fa 0%, #d5f0f3 100%);
         box-shadow: 0 5px 12px rgba(11, 97, 112, .16);
         color: #075563;
+    }
+}
+
+
+/* Jerarquía de la tarjeta: puntaje principal y navegación accesoria */
+.tarjeta-playa .puntuacion {
+    padding: 10px 13px;
+    border-width: 2px;
+    box-shadow: 0 4px 12px rgba(11, 97, 112, .09);
+}
+
+.tarjeta-playa .puntuacion strong {
+    font-size: 1.55rem;
+}
+
+.tarjeta-playa .puntuacion span {
+    font-size: .7rem;
+}
+
+.tarjeta-destino {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    text-align: right;
+}
+
+.tarjeta-destino > span {
+    white-space: nowrap;
+}
+
+.tarjeta-playa .enlace-maps-tarjeta,
+.tarjeta-playa .enlace-maps-tarjeta:hover {
+    min-height: auto;
+    padding: 2px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #4f7d86;
+    font-size: .68rem;
+    font-weight: 700;
+    transform: none;
+}
+
+.tarjeta-playa .enlace-maps-tarjeta::before {
+    flex-basis: 11px;
+    width: 11px;
+    height: 11px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .tarjeta-playa .enlace-maps-tarjeta,
+    .tarjeta-playa .enlace-maps-tarjeta:hover {
+        background: transparent;
+        box-shadow: none;
+        color: #83cbd5;
     }
 }
