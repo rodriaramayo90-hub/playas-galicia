@@ -1388,7 +1388,7 @@ function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGr
   if (lluvia <= 5) mensajes.push("sin lluvia prevista");
   else if (lluvia <= 15) mensajes.push("probabilidad muy baja de lluvia");
   else if (lluvia <= 30) mensajes.push("posibilidad de lluvia");
-  else if (lluvia <= 50) mensajes.push("riesgo moderado de lluvia, penaliza el día de playa");
+  else if (lluvia <= 50) mensajes.push("riesgo moderado de lluvia");
   else mensajes.push("riesgo alto de lluvia, condiciones poco aptas para la playa");
   const estadoAgua = obtenerEstadoAgua(agua);
   if (estadoAgua) mensajes.push(estadoAgua);
