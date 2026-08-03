@@ -1115,3 +1115,44 @@ button:disabled {
         font-size: .8rem;
     }
 }
+
+
+/* Enlaces universales de indicaciones en Google Maps */
+.nombre-playa-tabla,
+.titulo-playa-con-maps {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+}
+
+.titulo-playa-con-maps h2 {
+    margin: 0;
+}
+
+.enlace-maps {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    color: #0b7285;
+    font-size: .74rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.enlace-maps:hover {
+    color: #075563;
+    text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+    .enlace-maps {
+        color: #67d8e7;
+    }
+
+    .enlace-maps:hover {
+        color: #a7eff7;
+    }
+}
