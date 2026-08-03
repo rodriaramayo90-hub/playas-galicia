@@ -992,7 +992,7 @@ button:disabled {
 
 
 /* Alineación estable de la barra de filtros en escritorio */
-@media (min-width: 1400px) {
+@media (min-width: 1250px) {
     .filtros {
         display: grid;
         grid-template-columns:
@@ -1048,7 +1048,7 @@ button:disabled {
 
 
 /* Evita que los controles de la fila desborden el panel */
-@media (min-width: 1400px) {
+@media (min-width: 1250px) {
     .filtros {
         grid-template-columns:
             minmax(320px, 1.1fr)
@@ -1074,5 +1074,31 @@ button:disabled {
     .filtros > .grupo-filtro:last-child .btn-vista {
         min-width: 0;
         padding-inline: 10px;
+    }
+}
+
+
+/* Mantiene todos los controles en una sola fila en escritorio */
+@media (min-width: 1250px) {
+    .filtros {
+        grid-template-columns:
+            minmax(300px, 1.2fr)
+            minmax(155px, .65fr)
+            minmax(175px, .75fr)
+            minmax(280px, 1.1fr)
+            minmax(230px, .9fr);
+        column-gap: 12px;
+    }
+
+    .grupo-horario .etiqueta-grupo {
+        white-space: nowrap;
+    }
+
+    .filtros > .grupo-filtro:last-child .input-con-boton {
+        gap: 6px;
+    }
+
+    .filtros > .grupo-filtro:last-child .btn-vista {
+        padding-inline: 7px;
     }
 }
