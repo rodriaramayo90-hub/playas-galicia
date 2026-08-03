@@ -992,7 +992,7 @@ button:disabled {
 
 
 /* Alineación estable de la barra de filtros en escritorio */
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .filtros {
         display: grid;
         grid-template-columns:
@@ -1048,7 +1048,7 @@ button:disabled {
 
 
 /* Evita que los controles de la fila desborden el panel */
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .filtros {
         grid-template-columns:
             minmax(320px, 1.1fr)
