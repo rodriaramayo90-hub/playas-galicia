@@ -1608,7 +1608,7 @@ tabla.innerHTML += `
     <td>
       <div class="nombre-playa-tabla">
         <span>${playa.nombre}</span>
-        <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">🚗 Cómo llegar</a>
+        <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
       </div>
     </td>
     <td>
@@ -1651,7 +1651,7 @@ tabla.innerHTML += `
       <div>
         <div class="titulo-playa-con-maps">
           <h2>${playa.nombre}</h2>
-          <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">🚗 Cómo llegar</a>
+          <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
         </div>
         <div class="estado">${playa.estado}</div>
       </div>
