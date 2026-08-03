@@ -989,3 +989,59 @@ button:disabled {
     .grupo-horario, .selector-horario { width: 100%; }
     .selector-horario select { flex: 1; min-width: 0; }
 }
+
+
+/* Alineación estable de la barra de filtros en escritorio */
+@media (min-width: 1200px) {
+    .filtros {
+        display: grid;
+        grid-template-columns:
+            minmax(340px, 1.35fr)
+            max-content
+            minmax(190px, .9fr)
+            minmax(315px, 1.2fr)
+            max-content;
+        column-gap: 24px;
+        row-gap: 20px;
+        align-items: end;
+        padding-bottom: 42px;
+    }
+
+    .selector-dia {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    .grupo-horario {
+        position: relative;
+        min-width: 0;
+    }
+
+    .grupo-horario small {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        white-space: nowrap;
+    }
+
+    .grupo-filtro {
+        min-width: 0;
+    }
+
+    .grupo-filtro > input,
+    .input-con-boton > input {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .input-con-boton {
+        align-items: stretch;
+    }
+
+    .btn-ubicacion,
+    .btn-buscar,
+    .btn-vista {
+        white-space: nowrap;
+    }
+}
