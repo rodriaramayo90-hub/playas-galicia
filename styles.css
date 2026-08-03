@@ -989,3 +989,129 @@ button:disabled {
     .grupo-horario, .selector-horario { width: 100%; }
     .selector-horario select { flex: 1; min-width: 0; }
 }
+
+
+/* Alineación estable de la barra de filtros en escritorio */
+@media (min-width: 1250px) {
+    .filtros {
+        display: grid;
+        grid-template-columns:
+            minmax(340px, 1.35fr)
+            max-content
+            minmax(190px, .9fr)
+            minmax(315px, 1.2fr)
+            max-content;
+        column-gap: 24px;
+        row-gap: 20px;
+        align-items: end;
+        padding-bottom: 42px;
+    }
+
+    .selector-dia {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    .grupo-horario {
+        position: relative;
+        min-width: 0;
+    }
+
+    .grupo-horario small {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        white-space: nowrap;
+    }
+
+    .grupo-filtro {
+        min-width: 0;
+    }
+
+    .grupo-filtro > input,
+    .input-con-boton > input {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .input-con-boton {
+        align-items: stretch;
+    }
+
+    .btn-ubicacion,
+    .btn-buscar,
+    .btn-vista {
+        white-space: nowrap;
+    }
+}
+
+
+/* Evita que los controles de la fila desborden el panel */
+@media (min-width: 1250px) {
+    .filtros {
+        grid-template-columns:
+            minmax(320px, 1.1fr)
+            minmax(180px, .72fr)
+            minmax(190px, .82fr)
+            minmax(300px, 1.15fr)
+            minmax(270px, 1fr);
+        column-gap: 18px;
+    }
+
+    .btn-ubicacion {
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: 12px;
+    }
+
+    .filtros > .grupo-filtro:last-child .input-con-boton {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .filtros > .grupo-filtro:last-child .btn-vista {
+        min-width: 0;
+        padding-inline: 10px;
+    }
+}
+
+
+/* Mantiene todos los controles en una sola fila en escritorio */
+@media (min-width: 1250px) {
+    .filtros {
+        grid-template-columns:
+            minmax(300px, 1.2fr)
+            minmax(155px, .65fr)
+            minmax(175px, .75fr)
+            minmax(280px, 1.1fr)
+            minmax(230px, .9fr);
+        column-gap: 12px;
+    }
+
+    .grupo-horario .etiqueta-grupo {
+        white-space: nowrap;
+    }
+
+    .filtros > .grupo-filtro:last-child .input-con-boton {
+        gap: 6px;
+    }
+
+    .filtros > .grupo-filtro:last-child .btn-vista {
+        padding-inline: 7px;
+    }
+}
+
+
+/* El texto Ocultar detalles debe permanecer dentro de su botón */
+@media (min-width: 1250px) {
+    .filtros > .grupo-filtro:last-child .input-con-boton {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filtros > .grupo-filtro:last-child .btn-vista {
+        padding-inline: 4px;
+        font-size: .8rem;
+    }
+}
