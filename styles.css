@@ -1155,11 +1155,14 @@ button:disabled {
         background .18s ease;
 }
 
-.enlace-maps::after {
-    content: "↗";
-    font-size: .78rem;
-    font-weight: 800;
-    opacity: .75;
+.enlace-maps::before {
+    content: "";
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 3 3.85 10.66c-.38.17-.37.72.02.87l6.66 2.59 2.58 6.66c.15.39.7.4.87.02L21.7 3.7c.2-.45-.25-.9-.7-.7Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 3 3.85 10.66c-.38.17-.37.72.02.87l6.66 2.59 2.58 6.66c.15.39.7.4.87.02L21.7 3.7c.2-.45-.25-.9-.7-.7Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .enlace-maps:hover {
