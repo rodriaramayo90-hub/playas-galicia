@@ -1,0 +1,67 @@
+/* ===== Secciones SEO: intro y FAQ (añadido para mejorar SEO) ===== */
+/* Paleta de marca Hoy Toca Playa: navy #082F54, teal #11A0B4, coral #FB6C45, sol #FEC03D */
+
+.intro-seo,
+.faq-seo {
+  max-width: 860px;
+  margin: 28px auto;
+  padding: 28px 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(8, 47, 84, 0.08);
+  font-family: 'Inter', sans-serif;
+}
+
+.intro-seo h2,
+.faq-seo h2 {
+  margin: 0 0 12px;
+  color: #082F54;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.intro-seo p {
+  margin: 0;
+  color: #33475b;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.faq-seo {
+  margin-top: 20px;
+}
+
+.faq-seo h3 {
+  margin: 20px 0 6px;
+  color: #11A0B4;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.faq-seo h3:first-of-type {
+  margin-top: 8px;
+}
+
+.faq-seo p {
+  margin: 0 0 4px;
+  color: #33475b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.faq-seo h3::before {
+  content: "🌊 ";
+}
+
+@media (max-width: 600px) {
+  .intro-seo,
+  .faq-seo {
+    margin: 18px 12px;
+    padding: 20px 18px;
+    border-radius: 14px;
+  }
+  .intro-seo h2,
+  .faq-seo h2 {
+    font-size: 1.2rem;
+  }
+}
