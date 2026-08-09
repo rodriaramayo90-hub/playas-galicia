@@ -63,6 +63,7 @@ function completarPlantilla(plantilla, playa) {
     CANONICAL: canonical,
     OG_IMAGE: playa.fotoPrincipal?.url || "https://hoytocaplaya.com/og-image.png",
     STRUCTURED_DATA: JSON.stringify(datosEstructurados(playa, canonical, descripcion), null, 2).replaceAll("<", "\\u003c"),
+    BEACH_DATA: JSON.stringify(playa).replaceAll("<", "\\u003c").replaceAll(">", "\\u003e").replaceAll("&", "\\u0026"),
     SLUG: playa.slug,
     NOMBRE: playa.nombre,
     MUNICIPIO: playa.municipio,
@@ -76,6 +77,9 @@ function completarPlantilla(plantilla, playa) {
   ).replace(
     escaparHtml(reemplazos.STRUCTURED_DATA),
     reemplazos.STRUCTURED_DATA
+  ).replace(
+    escaparHtml(reemplazos.BEACH_DATA),
+    reemplazos.BEACH_DATA
   );
 }
 
