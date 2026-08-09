@@ -16,8 +16,22 @@ const CONCURRENCIA_PRONOSTICO = 2;
 const TAMANO_LOTE_DISTANCIAS = 40;
 const CONCURRENCIA_DISTANCIAS = 2;
 const MAX_DISTANCIAS_EN_CACHE = 5000;
-const URL_PRONOSTICO_COMPARTIDO = document.currentScript?.src
-  ? new URL("data/pronostico.json", new URL(".", document.currentScript.src)).href
+function obtenerRaizRecursos() {
+  if (window.location?.hostname === "htmlpreview.github.io") {
+    const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];
+    const coincidencia = fuente.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/blob\/([^/]+)\//);
+    if (coincidencia) {
+      return `https://raw.githubusercontent.com/${coincidencia[1]}/${coincidencia[2]}/`;
+    }
+  }
+  if (document.currentScript?.src) return new URL(".", document.currentScript.src).href;
+  if (window.location?.href) return new URL(".", window.location.href).href;
+  return "";
+}
+
+const URL_RAIZ_RECURSOS = obtenerRaizRecursos();
+const URL_PRONOSTICO_COMPARTIDO = URL_RAIZ_RECURSOS
+  ? new URL("data/pronostico.json", URL_RAIZ_RECURSOS).href
   : "data/pronostico.json";
 const ANTIGUEDAD_MAXIMA_PRONOSTICO_MS = 3 * 60 * 60 * 1000;
 const cacheDistanciasCoche = new Map();
@@ -33,7 +47,7 @@ function mostrarEstado(mensaje, tipo = "info") {
 function actualizarOrigenDistancia(origen) {
   const indicador = document.getElementById("origenDistancia");
   if (!indicador) return;
-  indicador.textContent = `ðŸ“ Distancias desde: ${origen}`;
+  indicador.textContent = `📏 Distancias desde: ${origen}`;
   indicador.hidden = false;
 }
 
@@ -95,7 +109,7 @@ function ordenarResultados(resultados){
       : valorB.localeCompare(valorA);
     }
 
-    // Para nÃºmeros
+    // Para números
     return direccionOrden === "asc"
     ? valorA - valorB
     : valorB - valorA;
@@ -125,13 +139,13 @@ function cambiarOrden(columna){
   cargarRanking();
 
 }
-// Ãngulo aproximado de apertura al mar: 0Â° = N, 90Â° = E, 180Â° = S, 270Â° = W.
-// Las fÃ³rmulas actuales siguen utilizando `orientacion`; este valor queda preparado para refinarlas.
+// Ángulo aproximado de apertura al mar: 0° = N, 90° = E, 180° = S, 270° = W.
+// Las fórmulas actuales siguen utilizando `orientacion`; este valor queda preparado para refinarlas.
 const playas = [
   {
     "nombre": "Praia de Bastiagueiro",
     "municipio": "Oleiros",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.341003,
     "lon": -8.363016,
     "orientacion": "NE",
@@ -143,7 +157,7 @@ const playas = [
   {
     "nombre": "Praia de Santa Cristina",
     "municipio": "Oleiros",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.340447,
     "lon": -8.382335,
     "orientacion": "SW",
@@ -155,7 +169,7 @@ const playas = [
   {
     "nombre": "Praia de Santa Cruz",
     "municipio": "Oleiros",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.347191,
     "lon": -8.348552,
     "orientacion": "S",
@@ -166,43 +180,43 @@ const playas = [
   },
   {
     "nombre": "Praia de Oza",
-    "municipio": "A CoruÃ±a",
-    "provincia": "A CoruÃ±a",
+    "municipio": "A Coruña",
+    "provincia": "A Coruña",
     "lat": 43.346645,
     "lon": -8.383087,
     "orientacion": "NE",
     "anguloAproximado": 60,
     "nivelAbrigo": "muyAlto",
     "zonaMeteorologica": "coruna_urbana",
-    "destinoMaps": "Praia de Oza, A CoruÃ±a, Galicia"
+    "destinoMaps": "Praia de Oza, A Coruña, Galicia"
   },
   {
     "nombre": "Praia do Matadoiro",
-    "municipio": "A CoruÃ±a",
-    "provincia": "A CoruÃ±a",
+    "municipio": "A Coruña",
+    "provincia": "A Coruña",
     "lat": 43.37549,
     "lon": -8.403785,
     "orientacion": "N",
     "anguloAproximado": 350,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "coruna_urbana",
-    "destinoMaps": "Praia do Matadoiro, A CoruÃ±a, Galicia"
+    "destinoMaps": "Praia do Matadoiro, A Coruña, Galicia"
   },
   {
-    "nombre": "Praia de BarraÃ±Ã¡n",
+    "nombre": "Praia de Barrañán",
     "municipio": "Arteixo",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.310886,
     "lon": -8.554566,
     "orientacion": "NW",
     "anguloAproximado": 335,
     "zonaMeteorologica": "arteixo",
-    "destinoMaps": "Praia de BarraÃ±Ã¡n, Arteixo, Galicia"
+    "destinoMaps": "Praia de Barrañán, Arteixo, Galicia"
   },
   {
     "nombre": "Praia de Valcovo (Area Grande)",
     "municipio": "Arteixo",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.31553,
     "lon": -8.53331,
     "orientacion": "N",
@@ -212,20 +226,20 @@ const playas = [
     "destinoMaps": "Praia de Valcovo (Area Grande), Arteixo, Galicia"
   },
   {
-    "nombre": "Praia de Salseiras (CaiÃ³n)",
+    "nombre": "Praia de Salseiras (Caión)",
     "municipio": "A Laracha",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.316398,
     "lon": -8.609124,
     "orientacion": "N",
     "anguloAproximado": 10,
     "nivelAbrigo": "moderado",
-    "destinoMaps": "Praia de Salseiras (CaiÃ³n), A Laracha, Galicia"
+    "destinoMaps": "Praia de Salseiras (Caión), A Laracha, Galicia"
   },
   {
     "nombre": "Praia de Baldaio",
     "municipio": "Carballo",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.296212,
     "lon": -8.684233,
     "orientacion": "NW",
@@ -236,7 +250,7 @@ const playas = [
   {
     "nombre": "Praia de Razo",
     "municipio": "Carballo",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.290405,
     "lon": -8.706214,
     "orientacion": "NW",
@@ -246,67 +260,67 @@ const playas = [
   },
   {
     "nombre": "Praia de Seaia",
-    "municipio": "Malpica de BergantiÃ±os",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Malpica de Bergantiños",
+    "provincia": "A Coruña",
     "lat": 43.328274,
     "lon": -8.828026,
     "orientacion": "NW",
     "anguloAproximado": 315,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "malpica",
-    "destinoMaps": "Praia de Seaia, Malpica de BergantiÃ±os, Galicia"
+    "destinoMaps": "Praia de Seaia, Malpica de Bergantiños, Galicia"
   },
   {
     "nombre": "Praia de Area Maior",
-    "municipio": "Malpica de BergantiÃ±os",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Malpica de Bergantiños",
+    "provincia": "A Coruña",
     "lat": 43.323452,
     "lon": -8.812065,
     "orientacion": "NE",
     "anguloAproximado": 35,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "malpica",
-    "destinoMaps": "Praia de Area Maior, Malpica de BergantiÃ±os, Galicia"
+    "destinoMaps": "Praia de Area Maior, Malpica de Bergantiños, Galicia"
   },
   {
     "nombre": "Praia de Seiruga (Esteiro)",
-    "municipio": "Malpica de BergantiÃ±os",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Malpica de Bergantiños",
+    "provincia": "A Coruña",
     "lat": 43.31483,
     "lon": -8.857268,
     "orientacion": "NW",
     "anguloAproximado": 315,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "malpica",
-    "destinoMaps": "Praia de Seiruga (Esteiro), Malpica de BergantiÃ±os, Galicia"
+    "destinoMaps": "Praia de Seiruga (Esteiro), Malpica de Bergantiños, Galicia"
   },
   {
-    "nombre": "Praia de NiÃ±Ã³ns",
+    "nombre": "Praia de Niñóns",
     "municipio": "Ponteceso",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.29455,
     "lon": -8.904568,
     "orientacion": "NW",
     "anguloAproximado": 315,
     "nivelAbrigo": "moderado",
-    "destinoMaps": "Praia de NiÃ±Ã³ns, Ponteceso, Galicia"
+    "destinoMaps": "Praia de Niñóns, Ponteceso, Galicia"
   },
   {
-    "nombre": "Praia de BalarÃ©s",
+    "nombre": "Praia de Balarés",
     "municipio": "Ponteceso",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.241765,
     "lon": -8.942162,
     "orientacion": "S",
     "anguloAproximado": 190,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "corme_laxe",
-    "destinoMaps": "Praia de BalarÃ©s, Ponteceso, Galicia"
+    "destinoMaps": "Praia de Balarés, Ponteceso, Galicia"
   },
   {
     "nombre": "Praia da Ermida",
     "municipio": "Ponteceso",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.262774,
     "lon": -8.951634,
     "orientacion": "S",
@@ -318,7 +332,7 @@ const playas = [
   {
     "nombre": "Praia do Osmo",
     "municipio": "Ponteceso",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.265536,
     "lon": -8.956369,
     "orientacion": "SE",
@@ -330,7 +344,7 @@ const playas = [
   {
     "nombre": "Praia de Laxe",
     "municipio": "Laxe",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.218731,
     "lon": -9.00293,
     "orientacion": "NE",
@@ -342,7 +356,7 @@ const playas = [
   {
     "nombre": "Praia de Soesto",
     "municipio": "Laxe",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.214937,
     "lon": -9.019701,
     "orientacion": "NW",
@@ -352,7 +366,7 @@ const playas = [
   {
     "nombre": "Praia de Traba",
     "municipio": "Laxe",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 43.190615,
     "lon": -9.045024,
     "orientacion": "NW",
@@ -361,132 +375,132 @@ const playas = [
   },
   {
     "nombre": "Praia de Camelle",
-    "municipio": "CamariÃ±as",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Camariñas",
+    "provincia": "A Coruña",
     "lat": 43.180249,
     "lon": -9.089745,
     "orientacion": "N",
     "anguloAproximado": 340,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "camelle_arou",
-    "destinoMaps": "Praia de Camelle, CamariÃ±as, Galicia"
+    "destinoMaps": "Praia de Camelle, Camariñas, Galicia"
   },
   {
     "nombre": "Praia de Arou",
-    "municipio": "CamariÃ±as",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Camariñas",
+    "provincia": "A Coruña",
     "lat": 43.185312,
     "lon": -9.105356,
     "orientacion": "NW",
     "anguloAproximado": 320,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "camelle_arou",
-    "destinoMaps": "Praia de Arou, CamariÃ±as, Galicia"
+    "destinoMaps": "Praia de Arou, Camariñas, Galicia"
   },
   {
     "nombre": "Praia de Reira",
-    "municipio": "CamariÃ±as",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Camariñas",
+    "provincia": "A Coruña",
     "lat": 43.166829,
     "lon": -9.180522,
     "orientacion": "W",
     "anguloAproximado": 290,
-    "zonaMeteorologica": "camariÃ±as_oeste",
-    "destinoMaps": "Praia de Reira, CamariÃ±as, Galicia"
+    "zonaMeteorologica": "camariñas_oeste",
+    "destinoMaps": "Praia de Reira, Camariñas, Galicia"
   },
   {
     "nombre": "Praia do Trece (Area de Trece)",
-    "municipio": "CamariÃ±as",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Camariñas",
+    "provincia": "A Coruña",
     "lat": 43.1591,
     "lon": -9.19585,
     "orientacion": "NW",
     "anguloAproximado": 315,
-    "zonaMeteorologica": "camariÃ±as_oeste",
-    "destinoMaps": "Praia do Trece (Area de Trece), CamariÃ±as, Galicia"
+    "zonaMeteorologica": "camariñas_oeste",
+    "destinoMaps": "Praia do Trece (Area de Trece), Camariñas, Galicia"
   },
   {
     "nombre": "Praia da Pedrosa",
-    "municipio": "CamariÃ±as",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Camariñas",
+    "provincia": "A Coruña",
     "lat": 43.159566,
     "lon": -9.191023,
     "orientacion": "W",
     "anguloAproximado": 270,
-    "zonaMeteorologica": "camariÃ±as_oeste",
-    "destinoMaps": "Praia da Pedrosa, CamariÃ±as, Galicia"
+    "zonaMeteorologica": "camariñas_oeste",
+    "destinoMaps": "Praia da Pedrosa, Camariñas, Galicia"
   },
   {
     "nombre": "Praia do Lago",
-    "municipio": "MuxÃ­a",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Muxía",
+    "provincia": "A Coruña",
     "lat": 43.107034,
     "lon": -9.165452,
     "orientacion": "NW",
     "anguloAproximado": 310,
     "nivelAbrigo": "moderado",
-    "destinoMaps": "Praia do Lago, MuxÃ­a, Galicia"
+    "destinoMaps": "Praia do Lago, Muxía, Galicia"
   },
   {
     "nombre": "Praia de Lourido",
-    "municipio": "MuxÃ­a",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Muxía",
+    "provincia": "A Coruña",
     "lat": 43.087551,
     "lon": -9.221573,
     "orientacion": "W",
     "anguloAproximado": 280,
     "zonaMeteorologica": "muxia_oeste",
-    "destinoMaps": "Praia de Lourido, MuxÃ­a, Galicia"
+    "destinoMaps": "Praia de Lourido, Muxía, Galicia"
   },
   {
     "nombre": "Praia de Moreira",
-    "municipio": "MuxÃ­a",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Muxía",
+    "provincia": "A Coruña",
     "lat": 43.048379,
     "lon": -9.262611,
     "orientacion": "W",
     "anguloAproximado": 270,
     "zonaMeteorologica": "muxia_oeste",
-    "destinoMaps": "Praia de Moreira, MuxÃ­a, Galicia"
+    "destinoMaps": "Praia de Moreira, Muxía, Galicia"
   },
   {
-    "nombre": "Praia de EspiÃ±eirido",
-    "municipio": "MuxÃ­a",
-    "provincia": "A CoruÃ±a",
+    "nombre": "Praia de Espiñeirido",
+    "municipio": "Muxía",
+    "provincia": "A Coruña",
     "lat": 43.100135,
     "lon": -9.208706,
     "orientacion": "W",
     "anguloAproximado": 280,
     "zonaMeteorologica": "muxia_oeste",
-    "destinoMaps": "Praia de EspiÃ±eirido, MuxÃ­a, Galicia"
+    "destinoMaps": "Praia de Espiñeirido, Muxía, Galicia"
   },
   {
     "nombre": "Praia da Cruz",
-    "municipio": "MuxÃ­a",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Muxía",
+    "provincia": "A Coruña",
     "lat": 43.100166,
     "lon": -9.212707,
     "orientacion": "W",
     "anguloAproximado": 280,
     "zonaMeteorologica": "muxia_oeste",
-    "destinoMaps": "Praia da Cruz, MuxÃ­a, Galicia"
+    "destinoMaps": "Praia da Cruz, Muxía, Galicia"
   },
   {
     "nombre": "Praia de Quenxe",
-    "municipio": "CorcubiÃ³n",
-    "provincia": "A CoruÃ±a",
+    "municipio": "Corcubión",
+    "provincia": "A Coruña",
     "lat": 42.938144,
     "lon": -9.190569,
     "orientacion": "E",
     "anguloAproximado": 100,
     "nivelAbrigo": "muyAlto",
     "zonaMeteorologica": "cee_corcubion",
-    "destinoMaps": "Praia de Quenxe, CorcubiÃ³n, Galicia"
+    "destinoMaps": "Praia de Quenxe, Corcubión, Galicia"
   },
   {
     "nombre": "Praia de Estorde",
     "municipio": "Cee",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.942407,
     "lon": -9.217953,
     "orientacion": "SW",
@@ -498,7 +512,7 @@ const playas = [
   {
     "nombre": "Praia de Gures",
     "municipio": "Cee",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.911648,
     "lon": -9.147293,
     "orientacion": "W",
@@ -508,21 +522,21 @@ const playas = [
     "destinoMaps": "Praia de Gures, Cee, Galicia"
   },
   {
-    "nombre": "Praia do Ã‰zaro",
-    "municipio": "DumbrÃ­a",
-    "provincia": "A CoruÃ±a",
+    "nombre": "Praia do Ézaro",
+    "municipio": "Dumbría",
+    "provincia": "A Coruña",
     "lat": 42.906988,
     "lon": -9.12719,
     "orientacion": "SW",
     "anguloAproximado": 230,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "ezaro",
-    "destinoMaps": "Praia do Ã‰zaro, DumbrÃ­a, Galicia"
+    "destinoMaps": "Praia do Ézaro, Dumbría, Galicia"
   },
   {
     "nombre": "Praia de Vilar",
     "municipio": "Ribeira",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.552246,
     "lon": -9.030358,
     "orientacion": "W",
@@ -532,7 +546,7 @@ const playas = [
   {
     "nombre": "Praia de Coroso",
     "municipio": "Ribeira",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.566369,
     "lon": -8.986171,
     "orientacion": "E",
@@ -544,7 +558,7 @@ const playas = [
   {
     "nombre": "Praia do Touro",
     "municipio": "Ribeira",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.548086,
     "lon": -8.984931,
     "orientacion": "SE",
@@ -554,33 +568,33 @@ const playas = [
     "destinoMaps": "Praia do Touro, Ribeira, Galicia"
   },
   {
-    "nombre": "Praia de CabÃ­o",
-    "municipio": "A Pobra do CaramiÃ±al",
-    "provincia": "A CoruÃ±a",
+    "nombre": "Praia de Cabío",
+    "municipio": "A Pobra do Caramiñal",
+    "provincia": "A Coruña",
     "lat": 42.590254,
     "lon": -8.920964,
     "orientacion": "SE",
     "anguloAproximado": 120,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "pobra",
-    "destinoMaps": "Praia de CabÃ­o, A Pobra do CaramiÃ±al, Galicia"
+    "destinoMaps": "Praia de Cabío, A Pobra do Caramiñal, Galicia"
   },
   {
-    "nombre": "Praia da LombiÃ±a",
-    "municipio": "A Pobra do CaramiÃ±al",
-    "provincia": "A CoruÃ±a",
+    "nombre": "Praia da Lombiña",
+    "municipio": "A Pobra do Caramiñal",
+    "provincia": "A Coruña",
     "lat": 42.586275,
     "lon": -8.932284,
     "orientacion": "SW",
     "anguloAproximado": 210,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "pobra",
-    "destinoMaps": "Praia da LombiÃ±a, A Pobra do CaramiÃ±al, Galicia"
+    "destinoMaps": "Praia da Lombiña, A Pobra do Caramiñal, Galicia"
   },
   {
     "nombre": "Praia de Carregueiros",
     "municipio": "Boiro",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.611377,
     "lon": -8.871498,
     "orientacion": "S",
@@ -590,33 +604,33 @@ const playas = [
     "destinoMaps": "Praia de Carregueiros, Boiro, Galicia"
   },
   {
-    "nombre": "Praia de BarraÃ±a",
+    "nombre": "Praia de Barraña",
     "municipio": "Boiro",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.639592,
     "lon": -8.884949,
     "orientacion": "S",
     "anguloAproximado": 190,
     "nivelAbrigo": "muyAlto",
     "zonaMeteorologica": "boiro",
-    "destinoMaps": "Praia de BarraÃ±a, Boiro, Galicia"
+    "destinoMaps": "Praia de Barraña, Boiro, Galicia"
   },
   {
-    "nombre": "Praia de MaÃ±Ã³ns",
+    "nombre": "Praia de Mañóns",
     "municipio": "Boiro",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.630112,
     "lon": -8.850489,
     "orientacion": "S",
     "anguloAproximado": 180,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "boiro",
-    "destinoMaps": "Praia de MaÃ±Ã³ns, Boiro, Galicia"
+    "destinoMaps": "Praia de Mañóns, Boiro, Galicia"
   },
   {
     "nombre": "Praia de Tanxil",
     "municipio": "Rianxo",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.644235,
     "lon": -8.813424,
     "orientacion": "SW",
@@ -627,7 +641,7 @@ const playas = [
   {
     "nombre": "Praia de Ornanda",
     "municipio": "Porto do Son",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.767455,
     "lon": -8.939662,
     "orientacion": "SW",
@@ -638,7 +652,7 @@ const playas = [
   {
     "nombre": "Praia das Furnas",
     "municipio": "Porto do Son",
-    "provincia": "A CoruÃ±a",
+    "provincia": "A Coruña",
     "lat": 42.643574,
     "lon": -9.038532,
     "orientacion": "W",
@@ -742,7 +756,7 @@ const playas = [
     "destinoMaps": "Praia de Lago, Xove, Galicia"
   },
   {
-    "nombre": "Praia de MuiÃ±elo",
+    "nombre": "Praia de Muiñelo",
     "municipio": "Xove",
     "provincia": "Lugo",
     "lat": 43.716815,
@@ -751,7 +765,7 @@ const playas = [
     "anguloAproximado": 350,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "xove",
-    "destinoMaps": "Praia de MuiÃ±elo, Xove, Galicia"
+    "destinoMaps": "Praia de Muiñelo, Xove, Galicia"
   },
   {
     "nombre": "Praia do Torno",
@@ -826,7 +840,7 @@ const playas = [
     "destinoMaps": "Praia da Rapadoira, Foz, Galicia"
   },
   {
-    "nombre": "Praia de PeizÃ¡s",
+    "nombre": "Praia de Peizás",
     "municipio": "Foz",
     "provincia": "Lugo",
     "lat": 43.587883,
@@ -835,7 +849,7 @@ const playas = [
     "anguloAproximado": 350,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "foz",
-    "destinoMaps": "Praia de PeizÃ¡s, Foz, Galicia"
+    "destinoMaps": "Praia de Peizás, Foz, Galicia"
   },
   {
     "nombre": "Praia das Polas",
@@ -885,8 +899,8 @@ const playas = [
     "destinoMaps": "Praia das Illas, Ribadeo, Galicia"
   },
   {
-    "nombre": "Praia AmÃ©rica",
-    "municipio": "NigrÃ¡n",
+    "nombre": "Praia América",
+    "municipio": "Nigrán",
     "provincia": "Pontevedra",
     "lat": 42.134945,
     "lon": -8.817769,
@@ -894,11 +908,11 @@ const playas = [
     "anguloAproximado": 250,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "nigran_sur",
-    "destinoMaps": "Praia AmÃ©rica, NigrÃ¡n, Galicia"
+    "destinoMaps": "Praia América, Nigrán, Galicia"
   },
   {
-    "nombre": "Praia de PanxÃ³n",
-    "municipio": "NigrÃ¡n",
+    "nombre": "Praia de Panxón",
+    "municipio": "Nigrán",
     "provincia": "Pontevedra",
     "lat": 42.14385,
     "lon": -8.8231,
@@ -906,22 +920,22 @@ const playas = [
     "anguloAproximado": 270,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "nigran_sur",
-    "destinoMaps": "Praia de PanxÃ³n, NigrÃ¡n, Galicia"
+    "destinoMaps": "Praia de Panxón, Nigrán, Galicia"
   },
   {
     "nombre": "Praia de Patos",
-    "municipio": "NigrÃ¡n",
+    "municipio": "Nigrán",
     "provincia": "Pontevedra",
     "lat": 42.155329,
     "lon": -8.824989,
     "orientacion": "W",
     "anguloAproximado": 270,
     "zonaMeteorologica": "nigran_norte",
-    "destinoMaps": "Praia de Patos, NigrÃ¡n, Galicia"
+    "destinoMaps": "Praia de Patos, Nigrán, Galicia"
   },
   {
     "nombre": "Praia da Madorra",
-    "municipio": "NigrÃ¡n",
+    "municipio": "Nigrán",
     "provincia": "Pontevedra",
     "lat": 42.145843,
     "lon": -8.826155,
@@ -929,7 +943,7 @@ const playas = [
     "anguloAproximado": 270,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "nigran_norte",
-    "destinoMaps": "Praia da Madorra, NigrÃ¡n, Galicia"
+    "destinoMaps": "Praia da Madorra, Nigrán, Galicia"
   },
   {
     "nombre": "Praia da Ladeira",
@@ -991,7 +1005,7 @@ const playas = [
     "destinoMaps": "Praia de Area Grande, A Guarda, Galicia"
   },
   {
-    "nombre": "Praia do MuÃ­Ã±o",
+    "nombre": "Praia do Muíño",
     "municipio": "A Guarda",
     "provincia": "Pontevedra",
     "lat": 41.872873,
@@ -999,7 +1013,7 @@ const playas = [
     "orientacion": "SW",
     "anguloAproximado": 230,
     "nivelAbrigo": "moderado",
-    "destinoMaps": "Praia do MuÃ­Ã±o, A Guarda, Galicia"
+    "destinoMaps": "Praia do Muíño, A Guarda, Galicia"
   },
   {
     "nombre": "Praia do Fedorento",
@@ -1013,7 +1027,7 @@ const playas = [
     "destinoMaps": "Praia do Fedorento, A Guarda, Galicia"
   },
   {
-    "nombre": "Praia de FortiÃ±Ã³n",
+    "nombre": "Praia de Fortiñón",
     "municipio": "Vigo",
     "provincia": "Pontevedra",
     "lat": 42.174761,
@@ -1021,7 +1035,7 @@ const playas = [
     "orientacion": "W",
     "anguloAproximado": 270,
     "zonaMeteorologica": "vigo_oeste",
-    "destinoMaps": "Praia de FortiÃ±Ã³n, Vigo, Galicia"
+    "destinoMaps": "Praia de Fortiñón, Vigo, Galicia"
   },
   {
     "nombre": "Praia de Canido",
@@ -1036,7 +1050,7 @@ const playas = [
     "destinoMaps": "Praia de Canido, Vigo, Galicia"
   },
   {
-    "nombre": "Praia da FontaÃ­Ã±a",
+    "nombre": "Praia da Fontaíña",
     "municipio": "Vigo",
     "provincia": "Pontevedra",
     "lat": 42.199795,
@@ -1045,7 +1059,7 @@ const playas = [
     "anguloAproximado": 230,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "vigo_oeste",
-    "destinoMaps": "Praia da FontaÃ­Ã±a, Vigo, Galicia"
+    "destinoMaps": "Praia da Fontaíña, Vigo, Galicia"
   },
   {
     "nombre": "Praia de Toralla",
@@ -1132,7 +1146,7 @@ const playas = [
     "destinoMaps": "Praia de Areabrava, Cangas, Galicia"
   },
   {
-    "nombre": "Praia de MenduÃ­Ã±a",
+    "nombre": "Praia de Menduíña",
     "municipio": "Cangas",
     "provincia": "Pontevedra",
     "lat": 42.295384,
@@ -1141,10 +1155,10 @@ const playas = [
     "anguloAproximado": 350,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "aldan",
-    "destinoMaps": "Praia de MenduÃ­Ã±a, Cangas, Galicia"
+    "destinoMaps": "Praia de Menduíña, Cangas, Galicia"
   },
   {
-    "nombre": "Praia de PintÃ©ns",
+    "nombre": "Praia de Pinténs",
     "municipio": "Cangas",
     "provincia": "Pontevedra",
     "lat": 42.284134,
@@ -1153,10 +1167,10 @@ const playas = [
     "anguloAproximado": 140,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "aldan",
-    "destinoMaps": "Praia de PintÃ©ns, Cangas, Galicia"
+    "destinoMaps": "Praia de Pinténs, Cangas, Galicia"
   },
   {
-    "nombre": "Praia de VilariÃ±o",
+    "nombre": "Praia de Vilariño",
     "municipio": "Cangas",
     "provincia": "Pontevedra",
     "lat": 42.276027,
@@ -1165,11 +1179,11 @@ const playas = [
     "anguloAproximado": 130,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "aldan",
-    "destinoMaps": "Praia de VilariÃ±o, Cangas, Galicia"
+    "destinoMaps": "Praia de Vilariño, Cangas, Galicia"
   },
   {
     "nombre": "Praia da Xunqueira",
-    "municipio": "MoaÃ±a",
+    "municipio": "Moaña",
     "provincia": "Pontevedra",
     "lat": 42.28653,
     "lon": -8.729624,
@@ -1177,11 +1191,11 @@ const playas = [
     "anguloAproximado": 180,
     "nivelAbrigo": "muyAlto",
     "zonaMeteorologica": "moana",
-    "destinoMaps": "Praia da Xunqueira, MoaÃ±a, Galicia"
+    "destinoMaps": "Praia da Xunqueira, Moaña, Galicia"
   },
   {
-    "nombre": "Praia do LatÃ³n",
-    "municipio": "MoaÃ±a",
+    "nombre": "Praia do Latón",
+    "municipio": "Moaña",
     "provincia": "Pontevedra",
     "lat": 42.27956,
     "lon": -8.70537,
@@ -1189,11 +1203,11 @@ const playas = [
     "anguloAproximado": 150,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "moana",
-    "destinoMaps": "Praia do LatÃ³n, MoaÃ±a, Galicia"
+    "destinoMaps": "Praia do Latón, Moaña, Galicia"
   },
   {
     "nombre": "Praia de Aguete",
-    "municipio": "MarÃ­n",
+    "municipio": "Marín",
     "provincia": "Pontevedra",
     "lat": 42.375481,
     "lon": -8.730084,
@@ -1201,11 +1215,11 @@ const playas = [
     "anguloAproximado": 200,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "marin",
-    "destinoMaps": "Praia de Aguete, MarÃ­n, Galicia"
+    "destinoMaps": "Praia de Aguete, Marín, Galicia"
   },
   {
     "nombre": "Praia de Loira",
-    "municipio": "MarÃ­n",
+    "municipio": "Marín",
     "provincia": "Pontevedra",
     "lat": 42.368497,
     "lon": -8.740068,
@@ -1213,11 +1227,11 @@ const playas = [
     "anguloAproximado": 180,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "marin",
-    "destinoMaps": "Praia de Loira, MarÃ­n, Galicia"
+    "destinoMaps": "Praia de Loira, Marín, Galicia"
   },
   {
     "nombre": "Praia do Santo",
-    "municipio": "MarÃ­n",
+    "municipio": "Marín",
     "provincia": "Pontevedra",
     "lat": 42.348227,
     "lon": -8.751496,
@@ -1225,7 +1239,7 @@ const playas = [
     "anguloAproximado": 180,
     "nivelAbrigo": "alto",
     "zonaMeteorologica": "marin",
-    "destinoMaps": "Praia do Santo, MarÃ­n, Galicia"
+    "destinoMaps": "Praia do Santo, Marín, Galicia"
   },
   {
     "nombre": "Praia de Portomaior",
@@ -1317,7 +1331,7 @@ const playas = [
     zonaMeteorologica: "fisterra_este"
   },
   {
-    nombre: "Playa de Mar de FÃ³ra",
+    nombre: "Playa de Mar de Fóra",
     municipio: "Fisterra",
     lat: 42.908542,
     lon: -9.275347,
@@ -1333,7 +1347,7 @@ const playas = [
     anguloAproximado: 265
   },
   {
-    nombre: "Playa de TalÃ³n",
+    nombre: "Playa de Talón",
     municipio: "Fisterra",
     lat: 42.9285,
     lon: -9.2417,
@@ -1349,7 +1363,7 @@ const playas = [
     anguloAproximado: 260
   },
   {
-    nombre: "Playa de SardiÃ±eiro",
+    nombre: "Playa de Sardiñeiro",
     municipio: "Fisterra",
     lat: 42.941184,
     lon: -9.231519,
@@ -1368,8 +1382,8 @@ const playas = [
     nivelAbrigo: "alto"
   },
   {
-    nombre: "Playa de MiÃ±o",
-    municipio: "MiÃ±o",
+    nombre: "Playa de Miño",
+    municipio: "Miño",
     lat: 43.359563,
     lon: -8.211869,
     orientacion: "NW",
@@ -1379,7 +1393,7 @@ const playas = [
   },
   {
     nombre: "Playa de Perbes",
-    municipio: "MiÃ±o",
+    municipio: "Miño",
     lat: 43.376525,
     lon: -8.215169,
     orientacion: "NW",
@@ -1406,7 +1420,7 @@ const playas = [
     nivelAbrigo: "moderado"
   },
   {
-    nombre: "Playa de SabÃ³n",
+    nombre: "Playa de Sabón",
     municipio: "Arteixo",
     lat: 43.329662,
     lon: -8.50887,
@@ -1414,8 +1428,8 @@ const playas = [
     anguloAproximado: 310
   },
   {
-    nombre: "Playa de OrzÃ¡n",
-    municipio: "A CoruÃ±a",
+    nombre: "Playa de Orzán",
+    municipio: "A Coruña",
     lat: 43.37,
     lon: -8.406,
     orientacion: "NW",
@@ -1425,7 +1439,7 @@ const playas = [
   {
     nombre: "Playa de las Lapas",
     slugFicha: "las-lapas",
-    municipio: "A CoruÃ±a",
+    municipio: "A Coruña",
     lat: 43.382,
     lon: -8.405,
     orientacion: "NE",
@@ -1507,8 +1521,8 @@ const playas = [
     zonaMeteorologica: "vigo_oeste"
   },
   {
-    nombre: "Playa NiÃ±o do Corvo",
-    municipio: "MoaÃ±a",
+    nombre: "Playa Niño do Corvo",
+    municipio: "Moaña",
     lat: 42.265138,
     lon: -8.753091,
     orientacion: "S",
@@ -1518,7 +1532,7 @@ const playas = [
   },
   {
     nombre: "Playa do Con",
-    municipio: "MoaÃ±a",
+    municipio: "Moaña",
     lat: 42.270666,
     lon: -8.741197,
     orientacion: "S",
@@ -1528,7 +1542,7 @@ const playas = [
   },
   {
     nombre: "Praia Borna",
-    municipio: "MoaÃ±a",
+    municipio: "Moaña",
     lat: 42.281156,
     lon: -8.698295,
     orientacion: "S",
@@ -1537,7 +1551,7 @@ const playas = [
     zonaMeteorologica: "moana"
   },
   {
-    nombre: "Praia ViÃ±o",
+    nombre: "Praia Viño",
     municipio: "Cangas",
     lat: 42.2601,
     lon: -8.84433,
@@ -1558,7 +1572,7 @@ const playas = [
   },
   {
     nombre: "Playa de Lapaman",
-    municipio: "MarÃ­n",
+    municipio: "Marín",
     lat: 42.342207,
     lon: -8.753497,
     orientacion: "S",
@@ -1568,7 +1582,7 @@ const playas = [
   },
   {
     nombre: "Playa de Mogor",
-    municipio: "MarÃ­n",
+    municipio: "Marín",
     lat: 42.385548,
     lon: -8.720692,
     orientacion: "SE",
@@ -1578,7 +1592,7 @@ const playas = [
   },
   {
     nombre: "Playa de Portocelo",
-    municipio: "MarÃ­n",
+    municipio: "Marín",
     lat: 42.390275,
     lon: -8.714898,
     orientacion: "SE",
@@ -1587,7 +1601,7 @@ const playas = [
     zonaMeteorologica: "marin"
   },
   {
-    nombre: "Playa de Rodas (Islas CÃ­es)",
+    nombre: "Playa de Rodas (Islas Cíes)",
     municipio: "Vigo",
     lat: 42.222202,
     lon: -8.901842,
@@ -1597,7 +1611,7 @@ const playas = [
   },
   {
     nombre: "Praia de Compostela",
-    municipio: "VilagarcÃ­a de Arousa",
+    municipio: "Vilagarcía de Arousa",
     lat: 42.607669,
     lon: -8.768775,
     orientacion: "W",
@@ -1606,7 +1620,7 @@ const playas = [
   },
   {
     nombre: "Playa de San Amaro",
-    municipio: "A CoruÃ±a",
+    municipio: "A Coruña",
     lat: 43.38175,
     lon: -8.39671,
     orientacion: "NE",
@@ -1614,7 +1628,7 @@ const playas = [
     zonaMeteorologica: "coruna_urbana",
     // Cala urbana protegida por la costa y el entorno construido. La apertura
     // principal queda hacia el NE; viento y mar de otros sectores llegan muy
-    // atenuados a la zona de baÃ±o.
+    // atenuados a la zona de baño.
     abrigoViento: {
       direccionApertura: 45,
       factorMinimo: 0.25,
@@ -1630,7 +1644,7 @@ const playas = [
   },
   {
     nombre: "Playa de Riazor",
-    municipio: "A CoruÃ±a",
+    municipio: "A Coruña",
     lat: 43.36915,
     lon: -8.41138,
     orientacion: "NW",
@@ -1639,7 +1653,7 @@ const playas = [
     zonaMeteorologica: "coruna_urbana"
   },
   {
-    nombre: "Praia de DoniÃ±os",
+    nombre: "Praia de Doniños",
     municipio: "Ferrol",
     lat: 43.503311,
     lon: -8.318419,
@@ -1648,15 +1662,15 @@ const playas = [
   },
   {
     nombre: "Praia da Frouxeira",
-    municipio: "ValdoviÃ±o",
+    municipio: "Valdoviño",
     lat: 43.61247,
     lon: -8.16695,
     orientacion: "NW",
     anguloAproximado: 315
   },
   {
-    nombre: "Praia de PantÃ­n",
-    municipio: "ValdoviÃ±o",
+    nombre: "Praia de Pantín",
+    municipio: "Valdoviño",
     lat: 43.63913,
     lon: -8.11388,
     orientacion: "NW",
@@ -1689,15 +1703,15 @@ const playas = [
     nivelAbrigo: "moderado"
   },
   {
-    nombre: "Praia de NemiÃ±a",
-    municipio: "MuxÃ­a",
+    nombre: "Praia de Nemiña",
+    municipio: "Muxía",
     lat: 43.00751,
     lon: -9.26165,
     orientacion: "W",
     anguloAproximado: 270
   },
   {
-    nombre: "Praia de LariÃ±o",
+    nombre: "Praia de Lariño",
     municipio: "Carnota",
     lat: 42.76464,
     lon: -9.11843,
@@ -1811,7 +1825,7 @@ async function solicitarJson(url, { reintentos = 1, tiempoLimite = 15000 } = {})
     try {
       const respuesta = await fetch(url, { signal: controlador.signal });
       if (!respuesta.ok) {
-        throw new Error(`El servicio respondiÃ³ con ${respuesta.status}`);
+        throw new Error(`El servicio respondió con ${respuesta.status}`);
       }
       return await respuesta.json();
     } catch (error) {
@@ -1839,7 +1853,7 @@ function validarPronosticoCompartido(datos) {
     datosMeteorologicos.length !== playas.length ||
     datosMaritimos.length !== playas.length
   ) {
-    throw new Error("El pronÃ³stico compartido no estÃ¡ disponible o estÃ¡ desactualizado.");
+    throw new Error("El pronóstico compartido no está disponible o está desactualizado.");
   }
 
   return { datosMeteorologicos, datosMaritimos };
@@ -1868,7 +1882,7 @@ async function consultarPronosticoDirecto() {
       const datosMeteorologicos = Array.isArray(meteorologia) ? meteorologia : [meteorologia];
       const datosMaritimos = Array.isArray(mar) ? mar : [mar];
       if (datosMeteorologicos.length !== lote.length || datosMaritimos.length !== lote.length) {
-        throw new Error("La respuesta meteorolÃ³gica estÃ¡ incompleta.");
+        throw new Error("La respuesta meteorológica está incompleta.");
       }
       return { datosMeteorologicos, datosMaritimos };
     }
@@ -1885,7 +1899,7 @@ async function cargarRespuestasPronostico() {
     const datos = await cargarPronosticoCompartido();
     return datos;
   } catch (error) {
-    console.warn("Se usarÃ¡ Open-Meteo directamente como respaldo.", error);
+    console.warn("Se usará Open-Meteo directamente como respaldo.", error);
     const datos = await consultarPronosticoDirecto();
     return datos;
   }
@@ -1918,7 +1932,7 @@ async function calcularLoteDistanciasCoche(origen, destinos) {
     const datos = await solicitarJson(url, { reintentos: 1, tiempoLimite: 18000 });
     const distancias = datos.distances?.[0];
     if (!Array.isArray(distancias) || distancias.length !== destinos.length) {
-      throw new Error("OSRM devolviÃ³ una tabla de distancias incompleta");
+      throw new Error("OSRM devolvió una tabla de distancias incompleta");
     }
     return distancias.map(distancia =>
       Number.isFinite(distancia) ? distancia / 1000 : null
@@ -1985,11 +1999,11 @@ function actualizarVisibilidadDetalles(){
 
 function obtenerUbicacionGPS() {
   if (!navigator.geolocation) {
-    mostrarEstado("Tu dispositivo no permite utilizar la ubicaciÃ³n.", "error");
+    mostrarEstado("Tu dispositivo no permite utilizar la ubicación.", "error");
     return;
   }
 
-  mostrarEstado("Obteniendo tu ubicaciÃ³nâ€¦", "info");
+  mostrarEstado("Obteniendo tu ubicación…", "info");
 
   navigator.geolocation.getCurrentPosition(
     posicion => {
@@ -1998,12 +2012,12 @@ function obtenerUbicacionGPS() {
         lon: posicion.coords.longitude
       };
       document.getElementById("codigoPostal").value = "";
-      actualizarOrigenDistancia("tu ubicaciÃ³n actual");
+      actualizarOrigenDistancia("tu ubicación actual");
       cargarRanking();
     },
     () => {
       mostrarEstado(
-        "No se pudo obtener tu ubicaciÃ³n. Puedes introducir un cÃ³digo postal.",
+        "No se pudo obtener tu ubicación. Puedes introducir un código postal.",
         "error"
       );
     },
@@ -2019,7 +2033,7 @@ async function aplicarBusqueda() {
     const valorDistancia =
         document.getElementById("distanciaMaxima").value.trim();
 
-    // Si se escribiÃ³ una distancia, comprobamos que sea vÃ¡lida
+    // Si se escribió una distancia, comprobamos que sea válida
     if (valorDistancia !== "") {
 
         const distanciaIntroducida = Number(valorDistancia);
@@ -2028,7 +2042,7 @@ async function aplicarBusqueda() {
             !Number.isFinite(distanciaIntroducida) ||
             distanciaIntroducida <= 0
         ) {
-            alert("Introduce una distancia vÃ¡lida");
+            alert("Introduce una distancia válida");
             return;
         }
 
@@ -2040,7 +2054,7 @@ async function aplicarBusqueda() {
 
     }
 
-    // Si se escribiÃ³ un cÃ³digo postal, buscar sus coordenadas
+    // Si se escribió un código postal, buscar sus coordenadas
     if (codigoPostal !== "") {
 
         await buscarCodigoPostal(codigoPostal);
@@ -2048,14 +2062,14 @@ async function aplicarBusqueda() {
 
     }
 
-    // Si se quiere filtrar por distancia, hace falta una ubicaciÃ³n
+    // Si se quiere filtrar por distancia, hace falta una ubicación
     if (
         distanciaMaxima !== null &&
         ubicacionUsuario === null
     ) {
 
         alert(
-            "Para filtrar por distancia, introduce un cÃ³digo postal o pulsa Mi ubicaciÃ³n"
+            "Para filtrar por distancia, introduce un código postal o pulsa Mi ubicación"
         );
 
         // No dejamos activo un filtro imposible de aplicar
@@ -2065,15 +2079,15 @@ async function aplicarBusqueda() {
 
     }
 
-    // Sin cÃ³digo postal, recargar usando la ubicaciÃ³n existente
-    // o mostrar todas las playas si no hay ubicaciÃ³n
+    // Sin código postal, recargar usando la ubicación existente
+    // o mostrar todas las playas si no hay ubicación
     await cargarRanking();
 
 }
 
 async function buscarCodigoPostal(codigo) {
   if (!/^\d{5}$/.test(codigo)) {
-    mostrarEstado("Introduce un cÃ³digo postal espaÃ±ol de cinco cifras.", "error");
+    mostrarEstado("Introduce un código postal español de cinco cifras.", "error");
     return;
   }
 
@@ -2085,18 +2099,18 @@ async function buscarCodigoPostal(codigo) {
   });
 
   try {
-    mostrarEstado("Buscando el cÃ³digo postalâ€¦", "info");
+    mostrarEstado("Buscando el código postal…", "info");
     const respuesta = await fetch(
       `https://nominatim.openstreetmap.org/search?${parametros}`
     );
 
     if (!respuesta.ok) {
-      throw new Error(`Nominatim respondiÃ³ con ${respuesta.status}`);
+      throw new Error(`Nominatim respondió con ${respuesta.status}`);
     }
 
     const datos = await respuesta.json();
     if (datos.length === 0) {
-      mostrarEstado("No se encontrÃ³ ese cÃ³digo postal.", "error");
+      mostrarEstado("No se encontró ese código postal.", "error");
       return;
     }
 
@@ -2104,13 +2118,13 @@ async function buscarCodigoPostal(codigo) {
       lat: Number(datos[0].lat),
       lon: Number(datos[0].lon)
     };
-    actualizarOrigenDistancia(`cÃ³digo postal ${codigo}`);
+    actualizarOrigenDistancia(`código postal ${codigo}`);
 
     await cargarRanking();
   } catch (error) {
     console.error(error);
     mostrarEstado(
-      "No se pudo consultar el cÃ³digo postal. IntÃ©ntalo de nuevo.",
+      "No se pudo consultar el código postal. Inténtalo de nuevo.",
       "error"
     );
   }
@@ -2218,8 +2232,8 @@ function puntosAgua(agua) {
   return 7;
 }
 function puntosNubosidad(nubosidad){
-  // El cielo despejado conserva el mÃ¡ximo, pero un dÃ­a cubierto no invalida
-  // por sÃ­ solo unas condiciones razonables de temperatura, viento y lluvia.
+  // El cielo despejado conserva el máximo, pero un día cubierto no invalida
+  // por sí solo unas condiciones razonables de temperatura, viento y lluvia.
   const valorSeguro = Math.max(0, Math.min(100, nubosidad));
   return 25 - valorSeguro * 0.3;
 }
@@ -2332,8 +2346,8 @@ function factorAbrigoDireccional(configuracion, direccion) {
   const diferencia = diferenciaAngular(direccionApertura, direccion);
   if (diferencia >= amplitud) return factorMinimo;
 
-  // TransiciÃ³n suave: conserva toda la intensidad por la apertura y baja
-  // progresivamente hasta el factor mÃ­nimo en los sectores protegidos.
+  // Transición suave: conserva toda la intensidad por la apertura y baja
+  // progresivamente hasta el factor mínimo en los sectores protegidos.
   const aperturaRelativa = Math.cos((diferencia / amplitud) * Math.PI / 2);
   return factorMinimo + (factorMaximo - factorMinimo) * Math.pow(aperturaRelativa, 1.5);
 }
@@ -2349,7 +2363,7 @@ function factorExposicionOleaje(anguloPlaya, direccionOlas) {
     Math.cos(diferencia * Math.PI / 180)
   );
 
-  // Conservamos una fracciÃ³n del oleaje por refracciÃ³n y mar local.
+  // Conservamos una fracción del oleaje por refracción y mar local.
   return 0.15 + 0.85 * Math.pow(componenteFrontal, 1.35);
 }
 
@@ -2420,18 +2434,18 @@ function obtenerEstadoOleaje(oleaje) {
     return "-";
 
   if (oleaje < 0.15)
-    return "ðŸŒŠ Mar prÃ¡cticamente plano";
+    return "🌊 Mar prácticamente plano";
 
   if (oleaje < 0.4)
-    return "ðŸŒŠ Oleaje suave";
+    return "🌊 Oleaje suave";
 
   if (oleaje < 0.8)
-    return "ðŸŒŠ Oleaje moderado";
+    return "🌊 Oleaje moderado";
 
   if (oleaje < 1.4)
-    return "ðŸŒŠ Mar movido";
+    return "🌊 Mar movido";
 
-  return "ðŸŒŠ Oleaje fuerte";
+  return "🌊 Oleaje fuerte";
 }
 
 function obtenerEstadoAgua(agua) {
@@ -2443,15 +2457,15 @@ function obtenerEstadoAgua(agua) {
     return "agua congelada";
 
   if (agua < 18)
-    return "agua muy frÃ­a";
+    return "agua muy fría";
 
   if (agua <= 21)
-    return "agua frÃ­a pero metible";
+    return "agua fría pero metible";
 
   if (agua <= 25)
     return "agua agradable";
 
-  return "agua cÃ¡lida";
+  return "agua cálida";
 }
 function calcularPercentil(valores, proporcion) {
   const ordenados = valores
@@ -2512,7 +2526,7 @@ function esVientoFavorable(anguloPlaya, direccionVientoGrados, viento) {
   return Math.cos(diferencia * Math.PI / 180) < -0.5;
 }
 function calcularPuntuacion(temperaturaMediaPlaya, viento, vientoMaximo, lluvia, nubosidad, agua, oleaje, anguloPlaya, direccionVientoGrados) {
-  // El mÃ¡ximo teÃ³rico es 100: se reserva para un dÃ­a perfecto en todos los factores.
+  // El máximo teórico es 100: se reserva para un día perfecto en todos los factores.
   let puntuacion = 10;
   puntuacion += puntosNubosidad(nubosidad);
   puntuacion += puntosLluvia(lluvia);
@@ -2562,9 +2576,9 @@ function actualizarVista() {
         tabla.style.display = "block";
         tarjetas.style.display = "none";
 
-        botonVista.innerHTML = "ðŸ—‚ï¸ Ver tarjetas";
+        botonVista.innerHTML = "🗂️ Ver tarjetas";
 
-        // En tabla mostramos el botÃ³n general de detalles
+        // En tabla mostramos el botón general de detalles
         botonDetalles.style.display = "inline-block";
 
     } else {
@@ -2572,9 +2586,9 @@ function actualizarVista() {
         tabla.style.display = "none";
         tarjetas.style.display = "block";
 
-        botonVista.innerHTML = "ðŸ“Š Ver tabla";
+        botonVista.innerHTML = "📊 Ver tabla";
 
-        // Las tarjetas ya tienen su propio botÃ³n de detalles
+        // Las tarjetas ya tienen su propio botón de detalles
         botonDetalles.style.display = "none";
 
     }
@@ -2592,34 +2606,34 @@ function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, vi
     agua >= 18 &&
     oleaje < 0.4 &&
     !vientoEnContra;
-  if (puntos < 35) return "ðŸ”´ Mejor evitar";
-  if (puntos < 50) return "ðŸŸ  Poco recomendable";
-  if (vientoEnContra && nubosidad > 80) return "ðŸŸ¡ Aceptable (muy nublado y viento en contra)";
-  if (vientoEnContra && nubosidad > 60) return "ðŸŸ¡ Aceptable (nublado y viento en contra)";
-  if (nubosidad > 80) return "ðŸŸ¡ Aceptable (muy nublado)";
-  if (nubosidad > 60) return "ðŸŸ¡ Aceptable (nublado)";
-  if (vientoEnContra) return puntos >= 70 ? "ðŸŸ¡ Aceptable (viento en contra)" : "ðŸŸ¡ Aceptable";
-  if (condicionesExcelentes) return "ðŸŸ¢ Excelente";
-  if (puntos >= 70) return "ðŸŸ¢ Buen dÃ­a de playa";
-  return "ðŸŸ¡ Aceptable";
+  if (puntos < 35) return "🔴 Mejor evitar";
+  if (puntos < 50) return "🟠 Poco recomendable";
+  if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
+  if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
+  if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
+  if (nubosidad > 60) return "🟡 Aceptable (nublado)";
+  if (vientoEnContra) return puntos >= 70 ? "🟡 Aceptable (viento en contra)" : "🟡 Aceptable";
+  if (condicionesExcelentes) return "🟢 Excelente";
+  if (puntos >= 70) return "🟢 Buen día de playa";
+  return "🟡 Aceptable";
 }
 function ajustarPuntuacionACategoria(puntos, estado) {
   if (estado.includes("Mejor evitar")) return Math.min(puntos, 34);
   if (estado.includes("Poco recomendable")) return Math.min(puntos, 49);
   if (estado.includes("Aceptable")) return Math.min(puntos, 69);
-  if (estado.includes("Buen dÃ­a de playa")) return Math.min(puntos, 84);
+  if (estado.includes("Buen día de playa")) return Math.min(puntos, 84);
   return puntos;
 }
 function obtenerCielo(nubosidad, predominioNubesAltas = false) {
 
-  if (predominioNubesAltas && nubosidad <= 30) return "ðŸŒ¥ï¸ Nubes altas";
+  if (predominioNubesAltas && nubosidad <= 30) return "🌥️ Nubes altas";
 
-  if (nubosidad <= 10) return "â˜€ï¸ Despejado";
-  if (nubosidad <= 30) return "ðŸŒ¤ï¸ Algunas nubes";
-  if (nubosidad <= 60) return "â›… Parcialmente nublado";
-  if (nubosidad <= 80) return "â˜ï¸ Nublado";
+  if (nubosidad <= 10) return "☀️ Despejado";
+  if (nubosidad <= 30) return "🌤️ Algunas nubes";
+  if (nubosidad <= 60) return "⛅ Parcialmente nublado";
+  if (nubosidad <= 80) return "☁️ Nublado";
 
-  return "ðŸŒ«ï¸ Muy nublado";
+  return "🌫️ Muy nublado";
 }
 function generarExplicacion(temperatura, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, anguloPlaya, nubosidad, predominioNubesAltas = false) {
   const mensajes = [];
@@ -2723,7 +2737,7 @@ async function obtenerDatosPlayas(dia, horaInicio = 7, horaFin = 22) {
 
 async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7, horaFin = 22) {
   const fechaObjetivo = datos.daily.time[dia];
-  if (!fechaObjetivo) throw new Error("No hay previsiÃ³n disponible para el dÃ­a seleccionado.");
+  if (!fechaObjetivo) throw new Error("No hay previsión disponible para el día seleccionado.");
   const registros = datos.hourly.time.map((hora, indice) => ({
     hora,
     temperatura: datos.hourly.temperature_2m[indice],
@@ -2741,7 +2755,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
     const dentroDelHorario = horaLocal >= horaInicio && horaLocal <= horaFin;
     return registro.hora.startsWith(fechaObjetivo) && dentroDelHorario;
   });
-  if (registros.length === 0) throw new Error("No hay datos horarios para el dÃ­a seleccionado.");
+  if (registros.length === 0) throw new Error("No hay datos horarios para el día seleccionado.");
   registros.forEach(registro => {
     const configuracionAbrigo = obtenerConfiguracionAbrigo(playa, "viento");
     const factorAbrigo = factorAbrigoDireccional(configuracionAbrigo, registro.direccionViento);
@@ -2771,7 +2785,7 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
 
 async function obtenerCondicionesPlaya(nombre, dia = 0, horaInicio = 7, horaFin = 22) {
   const indice = playas.findIndex(playa => playa.nombre === nombre);
-  if (indice < 0) throw new Error("La playa solicitada no existe en el catÃ¡logo.");
+  if (indice < 0) throw new Error("La playa solicitada no existe en el catálogo.");
   if (!respuestasPronosticoCache) {
     respuestasPronosticoCache = await cargarRespuestasPronostico();
   }
@@ -2861,7 +2875,7 @@ filasTabla.push(`
         ${playa.slugFicha
           ? `<a class="enlace-ficha-playa" href="${crearEnlaceFicha(playa.slugFicha)}">${playa.nombre}</a>`
           : `<span>${playa.nombre}</span>`}
-        <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="CÃ³mo llegar en coche a ${playa.nombre}">CÃ³mo llegar</a>
+        <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
       </div>
     </td>
     <td>
@@ -2875,12 +2889,12 @@ filasTabla.push(`
     </td>
     <td>${playa.cielo}</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">
-    ${playa.temperaturaMaxima}Â°C
+    ${playa.temperaturaMaxima}°C
     </td>
-    <td>${playa.temperaturaMediaPlaya.toFixed(1)}Â°C</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h estimados en playa (${playa.direccionViento}) Â· mÃ¡x. ${playa.vientoMaximo} km/h</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">Riesgo ${playa.lluvia}% Â· mÃ¡ximo ${playa.lluviaMaxima}% Â· promedio ${playa.lluviaPromedio}%</td>
-    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "Â°C" : "-"}</td>
+    <td>${playa.temperaturaMediaPlaya.toFixed(1)}°C</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.viento} km/h estimados en playa (${playa.direccionViento}) · máx. ${playa.vientoMaximo} km/h</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">Riesgo ${playa.lluvia}% · máximo ${playa.lluviaMaxima}% · promedio ${playa.lluviaPromedio}%</td>
+    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.agua ? playa.agua.toFixed(1) + "°C" : "-"}</td>
     <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.estadoOleaje}</td>
     <td class="col-estado">${playa.estado}</td>
    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.puntuacion}</td>
@@ -2901,7 +2915,7 @@ filasTabla.push(`
   ${playa.slugFicha ? `data-ficha-url="${crearEnlaceFicha(playa.slugFicha)}" tabindex="0" aria-label="Abrir ficha de ${playa.nombre}"` : ""}>
   <div class="tarjeta-cabecera">
     <div class="tarjeta-identidad">
-      <span class="posicion-ranking" aria-label="PosiciÃ³n ${index + 1}">${index + 1}</span>
+      <span class="posicion-ranking" aria-label="Posición ${index + 1}">${index + 1}</span>
       <div>
         <div class="titulo-playa-con-maps">
           <h2>${playa.slugFicha
@@ -2911,52 +2925,52 @@ filasTabla.push(`
         <div class="estado">${playa.estado}</div>
       </div>
     </div>
-    <div class="puntuacion" aria-label="PuntuaciÃ³n ${playa.puntuacion} sobre 100">
-      <span>Puntaje del dÃ­a</span>
+    <div class="puntuacion" aria-label="Puntuación ${playa.puntuacion} sobre 100">
+      <span>Puntaje del día</span>
       <strong>${playa.puntuacion}<small>/100</small></strong>
     </div>
   </div>
 
   <div class="resumen-condiciones">
-    <span>ðŸŒ¡ï¸ ${playa.temperaturaMediaPlaya.toFixed(1)}Â°C</span>
-    <span>ðŸ’¨ ${playa.viento} km/h</span>
-    <span>ðŸŒ§ï¸ ${playa.lluvia}%</span>
+    <span>🌡️ ${playa.temperaturaMediaPlaya.toFixed(1)}°C</span>
+    <span>💨 ${playa.viento} km/h</span>
+    <span>🌧️ ${playa.lluvia}%</span>
   </div>
 
   <div class="tarjeta-contexto">
     <span>${playa.cielo}</span>
     <div class="tarjeta-destino">
-      <span>ðŸ“ ${
+      <span>📍 ${
         playa.distancia !== null
           ? playa.distancia.toFixed(1) + " km"
-          : "Sin ubicaciÃ³n"
+          : "Sin ubicación"
       }</span>
-      <a class="enlace-maps enlace-maps-tarjeta" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="CÃ³mo llegar en coche a ${playa.nombre}">CÃ³mo llegar</a>
+      <a class="enlace-maps enlace-maps-tarjeta" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
     </div>
   </div>
 
   <p class="explicacion">${playa.explicacion}</p>
   <button class="btn-detalles" type="button" aria-expanded="false">
-    Ver detalles â–¼
+    Ver detalles ▼
   </button>
 
   <div class="detalles-mobile oculto">
-<p>ðŸŒ¡ï¸ Temperatura mÃ¡xima:
-${playa.temperaturaMaxima}Â°C
+<p>🌡️ Temperatura máxima:
+${playa.temperaturaMaxima}°C
 </p>
-<p>ðŸŒ¡ï¸ðŸ’§ Agua:
+<p>🌡️💧 Agua:
 ${
 playa.agua
 ?
-playa.agua.toFixed(1)+"Â°C"
+playa.agua.toFixed(1)+"°C"
 :
 "-"
 }
 </p>
 
-<p>ðŸ’¨ ${playa.viento} km/h estimados en playa (${playa.direccionViento}) Â· mÃ¡x. ${playa.vientoMaximo} km/h</p>
+<p>💨 ${playa.viento} km/h estimados en playa (${playa.direccionViento}) · máx. ${playa.vientoMaximo} km/h</p>
 
-<p>ðŸŒ§ï¸ Riesgo estimado: ${playa.lluvia}% Â· mÃ¡ximo horario: ${playa.lluviaMaxima}% Â· promedio: ${playa.lluviaPromedio}%</p>
+<p>🌧️ Riesgo estimado: ${playa.lluvia}% · máximo horario: ${playa.lluviaMaxima}% · promedio: ${playa.lluviaPromedio}%</p>
 
 <p>${playa.estadoOleaje}</p>
 
@@ -2980,8 +2994,8 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
     const estaOculto = detalles.classList.contains("oculto");
     boton.textContent = estaOculto
-      ? "Ver detalles â–¼"
-      : "Ocultar detalles â–²";
+      ? "Ver detalles ▼"
+      : "Ocultar detalles ▲";
     boton.setAttribute("aria-expanded", String(!estaOculto));
 
   });
@@ -3028,17 +3042,17 @@ async function cambiarHorario() {
   horaInicioSeleccionada = inicio;
   horaFinSeleccionada = fin;
   resumen.textContent = inicio === 7 && fin === 22
-    ? "Todo el rango (07:00â€“22:00)"
+    ? "Todo el rango (07:00–22:00)"
     : `De ${inicio}:00 a ${fin}:00`;
   await cargarRanking();
 }
 
 async function cargarRanking() {
-  const referenciaDia = diaSeleccionado === 0 ? "hoy" : "maÃ±ana";
+  const referenciaDia = diaSeleccionado === 0 ? "hoy" : "mañana";
   const referenciaHorario = horaInicioSeleccionada === 7 && horaFinSeleccionada === 22
     ? ""
     : ` de ${horaInicioSeleccionada}:00 a ${horaFinSeleccionada}:00`;
-  mostrarEstado(`Actualizando las condiciones de ${referenciaDia}â€¦`, "info");
+  mostrarEstado(`Actualizando las condiciones de ${referenciaDia}…`, "info");
   establecerControlesBloqueados(true);
   try {
     await cargarRankingInterno();
@@ -3048,7 +3062,7 @@ async function cargarRanking() {
       : `Ranking de ${referenciaDia}${referenciaHorario} actualizado: ${total} playas disponibles.`, "exito");
   } catch (error) {
     console.error(error);
-    mostrarEstado("No se pudieron cargar todos los datos. Revisa tu conexiÃ³n y vuelve a intentarlo.", "error");
+    mostrarEstado("No se pudieron cargar todos los datos. Revisa tu conexión y vuelve a intentarlo.", "error");
   } finally {
     establecerControlesBloqueados(false);
   }
