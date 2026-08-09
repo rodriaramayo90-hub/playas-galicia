@@ -1,10 +1,11 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import { construirCatalogo } from "./construir-catalogo-fichas.mjs";
 
 const RAIZ = resolve(import.meta.dirname, "..");
 const PLANTILLA = resolve(RAIZ, "plantillas", "ficha-playa.html");
-const DATOS = resolve(RAIZ, "data", "playas-detalle.json");
 const DESTINO = resolve(RAIZ, "playas");
+const INDICE = resolve(RAIZ, "data", "indice-fichas.js");
 
 function escaparHtml(texto) {
   return String(texto)
@@ -99,11 +100,10 @@ ${urls.map(url => `  <url>
 `;
 }
 
-const [plantilla, contenidoDatos] = await Promise.all([
+const [plantilla, catalogo] = await Promise.all([
   readFile(PLANTILLA, "utf8"),
-  readFile(DATOS, "utf8")
+  construirCatalogo()
 ]);
-const catalogo = JSON.parse(contenidoDatos);
 if (!Array.isArray(catalogo.playas) || catalogo.playas.length === 0) throw new Error("No hay fichas para generar.");
 
 await rm(DESTINO, { recursive: true, force: true });
@@ -113,5 +113,7 @@ for (const playa of catalogo.playas) {
   await writeFile(resolve(carpeta, "index.html"), completarPlantilla(plantilla, playa), "utf8");
 }
 await writeFile(resolve(RAIZ, "sitemap.xml"), generarSitemap(catalogo.playas), "utf8");
+const indice = Object.fromEntries(catalogo.playas.map(playa => [`${playa.nombreCatalogo}||${playa.municipio}`, playa.slug]));
+await writeFile(INDICE, `window.HoyTocaPlayaIndiceFichas = ${JSON.stringify(indice, null, 2)};\n`, "utf8");
 console.log(`Generadas ${catalogo.playas.length} fichas y sitemap.xml.`);
 

@@ -653,8 +653,8 @@ const playas = [
     "nombre": "Praia das Furnas",
     "municipio": "Porto do Son",
     "provincia": "A Coruña",
-    "lat": 42.643574,
-    "lon": -9.038532,
+    "lat": 42.678847,
+    "lon": -9.029988,
     "orientacion": "W",
     "anguloAproximado": 270,
     "destinoMaps": "Praia das Furnas, Porto do Son, Galicia"
@@ -1783,6 +1783,13 @@ const playas = [
   }
 ];
 
+if (typeof window !== "undefined" && window.HoyTocaPlayaIndiceFichas) {
+  for (const playa of playas) {
+    const claveFicha = `${playa.nombre}||${playa.municipio}`;
+    playa.slugFicha = window.HoyTocaPlayaIndiceFichas[claveFicha] || playa.slugFicha || null;
+  }
+}
+
 function dividirEnLotes(elementos, tamano) {
   const lotes = [];
   for (let indice = 0; indice < elementos.length; indice += tamano) {
@@ -2780,18 +2787,19 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const estado = obtenerEstado(puntuacionBase, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const puntuacion = ajustarPuntuacionACategoria(puntuacionBase, estado);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
-  return { nombre: playa.nombre, slugFicha: playa.slugFicha || null, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+  return { nombre: playa.nombre, municipio: playa.municipio, destinoMaps: playa.destinoMaps || null, slugFicha: playa.slugFicha || null, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
 }
 
-async function obtenerCondicionesPlaya(nombre, dia = 0, horaInicio = 7, horaFin = 22) {
-  const indice = playas.findIndex(playa => playa.nombre === nombre);
+async function obtenerCondicionesPlaya(nombre, dia = 0, horaInicio = 7, horaFin = 22, municipio = null) {
+  const indice = playas.findIndex(playa => playa.nombre === nombre && (!municipio || playa.municipio === municipio));
   if (indice < 0) throw new Error("La playa solicitada no existe en el catálogo.");
   if (!respuestasPronosticoCache) {
     respuestasPronosticoCache = await cargarRespuestasPronostico();
   }
+  const meteorologiaPorPlaya = compartirMeteorologiaPorZona(playas, respuestasPronosticoCache.datosMeteorologicos);
   return procesarDatosPlaya(
     playas[indice],
-    respuestasPronosticoCache.datosMeteorologicos[indice],
+    meteorologiaPorPlaya[indice],
     respuestasPronosticoCache.datosMaritimos[indice],
     dia,
     horaInicio,
@@ -2800,7 +2808,10 @@ async function obtenerCondicionesPlaya(nombre, dia = 0, horaInicio = 7, horaFin 
 }
 
 function crearEnlaceGoogleMaps(playa) {
-  const configuracion = playas.find(item => item.nombre === playa.nombre);
+  const configuracion = playas.find(item =>
+    (playa.slugFicha && item.slugFicha === playa.slugFicha)
+    || (item.nombre === playa.nombre && item.lat === playa.lat && item.lon === playa.lon)
+  );
   const parametros = new URLSearchParams({
     api: "1",
     destination: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`,

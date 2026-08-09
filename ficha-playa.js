@@ -44,6 +44,29 @@ function renderizarLista(id, datos, nombres, clase = "") {
   }).join("");
 }
 
+function renderizarFuentes(fuentes = []) {
+  const lista = document.getElementById("fuentesConsultadas");
+  if (!Array.isArray(fuentes) || fuentes.length === 0) {
+    lista.innerHTML = `<li class="dato-no-disponible">${NO_DISPONIBLE}</li>`;
+    return;
+  }
+  lista.replaceChildren(...fuentes.map(fuente => {
+    const elemento = document.createElement("li");
+    const enlace = document.createElement("a");
+    enlace.href = fuente.url;
+    enlace.target = "_blank";
+    enlace.rel = "noopener noreferrer";
+    enlace.textContent = fuente.nombre;
+    elemento.append(enlace);
+    if (fuente.nota) {
+      const nota = document.createElement("small");
+      nota.textContent = fuente.nota;
+      elemento.append(nota);
+    }
+    return elemento;
+  }));
+}
+
 function crearUrlMaps(playa) {
   const parametros = new URLSearchParams({
     api: "1",
@@ -88,12 +111,14 @@ function renderizarDatosEstaticos(playa) {
     provincia: playa.provincia,
     coordenadas: `${playa.lat.toFixed(6)}, ${playa.lon.toFixed(6)}`,
     temporadaBano: playa.practica?.temporadaBano,
-    fuente: playa.practica?.fuente,
+    notaVigencia: playa.practica?.notaVigencia,
     ultimaVerificacion: playa.practica?.ultimaVerificacion
   }, {
     municipio: "Municipio", provincia: "Provincia", coordenadas: "Coordenadas",
-    temporadaBano: "Temporada de baño", fuente: "Fuente", ultimaVerificacion: "Última verificación"
+    temporadaBano: "Temporada de baño", notaVigencia: "Vigencia de los datos",
+    ultimaVerificacion: "Última verificación"
   });
+  renderizarFuentes(playa.fuentes);
   document.getElementById("recomendacionMarea").textContent = valorVisible(playa.marea?.recomendacion);
   configurarMapa(playa);
 
@@ -147,7 +172,7 @@ async function iniciarFicha() {
     renderizarDatosEstaticos(playa);
 
     if (!window.HoyTocaPlaya?.obtenerCondicionesPlaya) throw new Error("El módulo meteorológico no está disponible.");
-    const condiciones = await window.HoyTocaPlaya.obtenerCondicionesPlaya(playa.nombreCatalogo, 0, 7, 22);
+    const condiciones = await window.HoyTocaPlaya.obtenerCondicionesPlaya(playa.nombreCatalogo, 0, 7, 22, playa.municipio);
     renderizarCondiciones(condiciones);
   } catch (error) {
     console.error(error);
