@@ -84,8 +84,19 @@ function renderizarDatosEstaticos(playa) {
   document.getElementById("recomendacionMarea").textContent = valorVisible(playa.marea?.recomendacion);
   configurarMapa(playa);
 
-  if (playa.fotoPrincipal) {
-    document.getElementById("fotoPrincipal").innerHTML = `<img src="${playa.fotoPrincipal}" alt="${playa.nombre}" fetchpriority="high">`;
+  if (playa.fotoPrincipal?.url) {
+    const foto = playa.fotoPrincipal;
+    const contenedorFoto = document.getElementById("fotoPrincipal");
+    contenedorFoto.innerHTML = `
+      <img src="${foto.url}" alt="Vista de ${playa.nombre}" fetchpriority="high">
+      <a class="credito-foto" href="${foto.fuente}" target="_blank" rel="noopener noreferrer">
+        Foto: ${foto.autor} · ${foto.licencia}
+      </a>`;
+    contenedorFoto.querySelector("img").addEventListener("error", () => {
+      contenedorFoto.innerHTML = `<div class="foto-placeholder" role="img" aria-label="La fotografía no pudo cargarse">
+        <span aria-hidden="true">🏖️</span><strong>La fotografía no pudo cargarse</strong>
+        <small>Comprueba la conexión e inténtalo de nuevo.</small></div>`;
+    }, { once: true });
   }
   if (Array.isArray(playa.fotos) && playa.fotos.length) {
     document.getElementById("galeriaPlaya").className = "galeria-playa";
