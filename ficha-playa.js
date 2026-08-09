@@ -98,12 +98,6 @@ function renderizarDatosEstaticos(playa) {
         <small>Comprueba la conexión e inténtalo de nuevo.</small></div>`;
     }, { once: true });
   }
-  if (Array.isArray(playa.fotos) && playa.fotos.length) {
-    document.getElementById("galeriaPlaya").className = "galeria-playa";
-    document.getElementById("galeriaPlaya").innerHTML = playa.fotos.map((foto, indice) =>
-      `<img src="${foto}" alt="${playa.nombre}, fotografía ${indice + 1}" loading="lazy">`
-    ).join("");
-  }
 }
 
 function renderizarCondiciones(condiciones) {
@@ -128,7 +122,7 @@ function renderizarCondiciones(condiciones) {
 async function iniciarFicha() {
   const slug = document.body.dataset.playaSlug;
   try {
-    const respuesta = await fetch(new URL("data/playas-detalle.json", URL_BASE_FICHA));
+    const respuesta = await fetch(new URL("data/playas-detalle.json?v=2", URL_BASE_FICHA));
     if (!respuesta.ok) throw new Error("No se pudieron cargar los datos estáticos.");
     const catalogo = await respuesta.json();
     const playa = catalogo.playas.find(item => item.slug === slug);
