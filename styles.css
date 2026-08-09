@@ -25,6 +25,19 @@ body {
     margin: auto;
 }
 
+.enlace-ficha-playa {
+    color: inherit;
+    text-decoration-color: rgba(11, 135, 152, 0.38);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.enlace-ficha-playa:hover,
+.enlace-ficha-playa:focus-visible {
+    color: #0b8798;
+    text-decoration-color: currentColor;
+}
+
 /* Título principal */
 h1 {
     text-align: center;
@@ -1267,3 +1280,4 @@ button:disabled {
         color: #83cbd5;
     }
 }
+
