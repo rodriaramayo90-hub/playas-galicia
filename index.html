@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consulta quÃ© playas de Galicia tienen mejores condiciones hoy. Compara sol, temperatura, viento, lluvia y oleaje en un ranking actualizado.">
+    <meta name="description" content="Consulta qué playas de Galicia tienen mejores condiciones hoy. Compara sol, temperatura, viento, lluvia y oleaje en un ranking actualizado.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://hoytocaplaya.com/">
     <meta property="og:title" content="Mejores playas de Galicia hoy | Hoy Toca Playa">
-    <meta property="og:description" content="Compara sol, temperatura, viento, lluvia y oleaje para descubrir quÃ© playa de Galicia tiene mejores condiciones hoy.">
+    <meta property="og:description" content="Compara sol, temperatura, viento, lluvia y oleaje para descubrir qué playa de Galicia tiene mejores condiciones hoy.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hoytocaplaya.com/">
     <meta property="og:locale" content="es_ES">
@@ -18,7 +18,7 @@
     <meta property="og:image:alt" content="Hoy Toca Playa, ranking diario de playas de Galicia">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mejores playas de Galicia hoy | Hoy Toca Playa">
-    <meta name="twitter:description" content="Compara las condiciones de las playas gallegas y elige la mejor opciÃ³n para hoy.">
+    <meta name="twitter:description" content="Compara las condiciones de las playas gallegas y elige la mejor opción para hoy.">
     <meta name="twitter:image" content="https://hoytocaplaya.com/og-image.png">
     <meta name="theme-color" content="#ccecff">
     <title>Mejores playas de Galicia hoy | Hoy Toca Playa</title>
@@ -38,7 +38,7 @@
       "name": "Hoy Toca Playa",
       "alternateName": "HoyTocaPlaya.com",
       "url": "https://hoytocaplaya.com/",
-      "description": "Ranking actualizado de playas de Galicia segÃºn sol, temperatura, viento, lluvia y oleaje.",
+      "description": "Ranking actualizado de playas de Galicia según sol, temperatura, viento, lluvia y oleaje.",
       "inLanguage": "es-ES"
     }
     </script>
@@ -64,14 +64,14 @@
 
     <main>
         <section class="filtros" aria-label="Filtros del ranking">
-            <div class="selector-dia" role="group" aria-label="DÃ­a del pronÃ³stico">
+            <div class="selector-dia" role="group" aria-label="Día del pronóstico">
                 <button id="btnHoy" class="btn-dia activo" type="button" aria-pressed="true" onclick="cambiarDia(0)">Hoy</button>
-                <button id="btnManana" class="btn-dia" type="button" aria-pressed="false" onclick="cambiarDia(1)">MaÃ±ana</button>
+                <button id="btnManana" class="btn-dia" type="button" aria-pressed="false" onclick="cambiarDia(1)">Mañana</button>
             </div>
 
 
             <div class="grupo-filtro grupo-horario">
-                <span class="etiqueta-grupo">Â¿En quÃ© horario quieres ir a la playa?</span>
+                <span class="etiqueta-grupo">¿En qué horario quieres ir a la playa?</span>
                 <div class="selector-horario">
                     <label for="horaInicio">Desde</label>
                     <select id="horaInicio" onchange="cambiarHorario()">
@@ -96,20 +96,20 @@
                         <option value="21">21:00</option><option value="22" selected>22:00</option>
                     </select>
                 </div>
-                <small id="resumenHorario">Todo el rango (07:00â€“22:00)</small>
+                <small id="resumenHorario">Todo el rango (07:00–22:00)</small>
             </div>
 
-            <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">ðŸ“ Mi ubicaciÃ³n</button>
+            <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>
 
             <div class="grupo-filtro">
-                <label for="codigoPostal">CÃ³digo postal</label>
+                <label for="codigoPostal">Código postal</label>
                 <input id="codigoPostal" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" placeholder="15002">
             </div>
 
             <div class="grupo-filtro">
-                <label for="distanciaMaxima">Distancia mÃ¡xima (km)</label>
+                <label for="distanciaMaxima">Distancia máxima (km)</label>
                 <div class="input-con-boton">
-                    <input id="distanciaMaxima" type="number" min="1" step="1" list="distancias" placeholder="Sin lÃ­mite">
+                    <input id="distanciaMaxima" type="number" min="1" step="1" list="distancias" placeholder="Sin límite">
                     <datalist id="distancias">
                         <option value="25"></option>
                         <option value="50"></option>
@@ -133,27 +133,27 @@
         </section>
 
         <p id="origenDistancia" class="origen-distancia" aria-live="polite" hidden></p>
-        <p id="estadoCarga" class="estado-carga" role="status" aria-live="polite">Preparando el rankingâ€¦</p>
+        <p id="estadoCarga" class="estado-carga" role="status" aria-live="polite">Preparando el ranking…</p>
 
         <div class="contenedor">
             <div class="tabla-scroll" tabindex="0" aria-label="Ranking de playas; desliza horizontalmente para consultar todas las columnas">
                 <table>
-                    <caption class="sr-only">Ranking diario de playas gallegas segÃºn las condiciones previstas</caption>
+                    <caption class="sr-only">Ranking diario de playas gallegas según las condiciones previstas</caption>
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col" class="ordenable" tabindex="0" role="button" data-orden="nombre" onclick="cambiarOrden('nombre')">Playa â†•</th>
-                            <th scope="col" class="ordenable" tabindex="0" role="button" data-orden="distancia" onclick="cambiarOrden('distancia')">Distancia â†•</th>
+                            <th scope="col" class="ordenable" tabindex="0" role="button" data-orden="nombre" onclick="cambiarOrden('nombre')">Playa ↕</th>
+                            <th scope="col" class="ordenable" tabindex="0" role="button" data-orden="distancia" onclick="cambiarOrden('distancia')">Distancia ↕</th>
                             <th scope="col">Cielo</th>
-                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="temperaturaMaxima" onclick="cambiarOrden('temperaturaMaxima')">T. MÃ¡x â†•</th>
-                            <th scope="col" class="ordenable" tabindex="0" role="button" data-orden="temperaturaMediaPlaya" onclick="cambiarOrden('temperaturaMediaPlaya')">T. Playa â†•</th>
-                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="viento" onclick="cambiarOrden('viento')">Viento estimado â†•</th>
-                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="lluvia" onclick="cambiarOrden('lluvia')">Lluvia â†•</th>
-                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="agua" onclick="cambiarOrden('agua')">Agua â†•</th>
-                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="oleaje" onclick="cambiarOrden('oleaje')">Oleaje â†•</th>
+                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="temperaturaMaxima" onclick="cambiarOrden('temperaturaMaxima')">T. Máx ↕</th>
+                            <th scope="col" class="ordenable" tabindex="0" role="button" data-orden="temperaturaMediaPlaya" onclick="cambiarOrden('temperaturaMediaPlaya')">T. Playa ↕</th>
+                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="viento" onclick="cambiarOrden('viento')">Viento estimado ↕</th>
+                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="lluvia" onclick="cambiarOrden('lluvia')">Lluvia ↕</th>
+                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="agua" onclick="cambiarOrden('agua')">Agua ↕</th>
+                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="oleaje" onclick="cambiarOrden('oleaje')">Oleaje ↕</th>
                             <th scope="col">Estado</th>
-                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="puntuacion" onclick="cambiarOrden('puntuacion')">Puntaje â†•</th>
-                            <th scope="col">ExplicaciÃ³n</th>
+                            <th scope="col" class="detalle ordenable" tabindex="0" role="button" data-orden="puntuacion" onclick="cambiarOrden('puntuacion')">Puntaje ↕</th>
+                            <th scope="col">Explicación</th>
                         </tr>
                     </thead>
                     <tbody id="ranking"></tbody>
@@ -164,7 +164,7 @@
     </main>
 
     <noscript>Necesitas activar JavaScript para consultar el ranking actualizado.</noscript>
-    <script src="app.js?v=3.8"></script>
+    <script src="app.js?v=3.9"></script>
 </body>
 </html>
 
