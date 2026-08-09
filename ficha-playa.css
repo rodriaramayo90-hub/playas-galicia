@@ -89,13 +89,10 @@ a { color: inherit; }
 .dato-no-disponible { color: #7f929c; font-weight: 500 !important; }
 .aviso-neutro { padding: 14px; background: #f4f8fa; border-left: 4px solid #a9bdc7; border-radius: 8px; }
 
-.panel-ubicacion, #fotos { margin-top: 18px; }
+.panel-ubicacion { margin-top: 18px; }
 .ubicacion-rejilla { display: grid; grid-template-columns: 1.55fr .45fr; gap: 18px; margin-top: 16px; align-items: stretch; }
 .ubicacion-rejilla iframe { width: 100%; min-height: 300px; border: 0; border-radius: 12px; background: #eaf2f5; }
 .ubicacion-rejilla h3 { margin-top: 4px; }
-.galeria-vacia { min-height: 180px; margin-top: 16px; border: 2px dashed #c6dce5; border-radius: 14px; display: grid; place-items: center; align-content: center; text-align: center; color: var(--texto-suave); }
-.galeria-vacia span { font-size: 2.2rem; }
-.galeria-vacia p { margin: 8px 0 4px; font-weight: 700; color: var(--azul); }
 
 .ficha-footer { padding: 24px max(20px, calc((100% - 1240px) / 2)); display: flex; justify-content: space-between; gap: 20px; background: var(--azul); color: #dcedf4; font-size: .85rem; }
 .ficha-footer a { color: #fff; font-weight: 800; }
