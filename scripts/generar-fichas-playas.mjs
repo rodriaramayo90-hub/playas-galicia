@@ -38,6 +38,7 @@ function datosEstructurados(playa, canonical, descripcion) {
       "@type": "Place",
       name: playa.nombre,
       description: descripcion,
+      ...(playa.fotoPrincipal?.url ? { image: playa.fotoPrincipal.url } : {}),
       address: {
         "@type": "PostalAddress",
         addressLocality: playa.municipio,
@@ -60,6 +61,7 @@ function completarPlantilla(plantilla, playa) {
     TITLE: `${playa.nombre}: tiempo, oleaje y guía | Hoy Toca Playa`,
     META_DESCRIPTION: descripcion,
     CANONICAL: canonical,
+    OG_IMAGE: playa.fotoPrincipal?.url || "https://hoytocaplaya.com/og-image.png",
     STRUCTURED_DATA: JSON.stringify(datosEstructurados(playa, canonical, descripcion), null, 2).replaceAll("<", "\\u003c"),
     SLUG: playa.slug,
     NOMBRE: playa.nombre,
