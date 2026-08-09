@@ -38,6 +38,28 @@ body {
     text-decoration-color: currentColor;
 }
 
+.tarjeta-con-ficha,
+.fila-con-ficha {
+    cursor: pointer;
+}
+
+.tarjeta-con-ficha {
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.tarjeta-con-ficha:hover,
+.tarjeta-con-ficha:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(15, 75, 99, .18);
+    outline: 3px solid rgba(11, 135, 152, .25);
+    outline-offset: 2px;
+}
+
+.fila-con-ficha:hover td,
+.fila-con-ficha:focus-visible td {
+    background: rgba(11, 135, 152, .07);
+}
+
 /* Título principal */
 h1 {
     text-align: center;
