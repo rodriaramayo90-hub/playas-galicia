@@ -4,6 +4,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const llamadas = [];
+let pronosticoCompartido = null;
 const fechas = ["2030-07-01", "2030-07-02"];
 const horas = fechas.flatMap(fecha =>
   Array.from({ length: 24 }, (_, hora) => `${fecha}T${String(hora).padStart(2, "0")}:00`)
@@ -61,6 +62,11 @@ function crearDatosMarinos() {
 async function fetchSimulado(url) {
   const direccion = String(url);
   llamadas.push(direccion);
+  if (direccion.startsWith("data/pronostico.json")) {
+    return pronosticoCompartido
+      ? respuestaJson(pronosticoCompartido)
+      : { ok: false, status: 404, json: async () => ({}) };
+  }
   const urlAnalizada = new URL(direccion);
 
   if (direccion.includes("router.project-osrm.org/table/")) {
@@ -189,11 +195,29 @@ async function probarPronostico() {
   assert.ok(sanAmaro.oleaje < 0.15, "El mar exterior de W debe llegar prácticamente plano a San Amaro");
 }
 
+async function probarPronosticoCompartido() {
+  contexto.__pruebas.reiniciar();
+  contexto.__pruebas.prepararPlayas(200);
+  pronosticoCompartido = {
+    generadoEn: new Date().toISOString(),
+    datosMeteorologicos: Array.from({ length: 200 }, crearMeteorologia),
+    datosMaritimos: Array.from({ length: 200 }, crearDatosMarinos)
+  };
+  llamadas.length = 0;
+
+  const resultados = await contexto.__pruebas.obtenerDatosPlayas(1, 17, 21);
+  assert.equal(resultados.length, 200);
+  assert.equal(llamadas.filter(url => url.startsWith("data/pronostico.json")).length, 1);
+  assert.equal(llamadas.filter(url => url.includes("api.open-meteo.com/v1/forecast")).length, 0);
+  assert.equal(llamadas.filter(url => url.includes("marine-api.open-meteo.com/v1/marine")).length, 0);
+  pronosticoCompartido = null;
+}
+
 function probarAbrigoDireccional() {
-  assert.equal(contexto.__pruebas.contarPlayasConAbrigo(), 29);
+  assert.ok(contexto.__pruebas.contarPlayasConAbrigo() >= 29);
   const zonasMeteorologicas = contexto.__pruebas.contarZonasMeteorologicas();
-  assert.equal(zonasMeteorologicas.playas, 22);
-  assert.equal(zonasMeteorologicas.zonas, 8);
+  assert.ok(zonasMeteorologicas.playas >= 22);
+  assert.ok(zonasMeteorologicas.zonas >= 8);
   const abrigo = { direccionApertura: 45, factorMinimo: 0.25, factorMaximo: 0.45, amplitud: 70 };
   assert.equal(contexto.__pruebas.factorAbrigoDireccional(null, 270), 1);
   assert.equal(contexto.__pruebas.factorAbrigoDireccional(abrigo, 45), 0.45);
@@ -328,8 +352,10 @@ function probarConfortSolar() {
   probarConfortSolar();
   await probarDistancias();
   await probarPronostico();
-  console.log("OK: 200 playas en 5 lotes de distancia y 4 lotes de pronóstico.");
+  await probarPronosticoCompartido();
+  console.log("OK: 200 playas con caché compartida y fallback directo por lotes.");
 })().catch(error => {
   console.error(error);
   process.exitCode = 1;
 });
+

@@ -16,6 +16,8 @@ const CONCURRENCIA_PRONOSTICO = 2;
 const TAMANO_LOTE_DISTANCIAS = 40;
 const CONCURRENCIA_DISTANCIAS = 2;
 const MAX_DISTANCIAS_EN_CACHE = 5000;
+const URL_PRONOSTICO_COMPARTIDO = "data/pronostico.json";
+const ANTIGUEDAD_MAXIMA_PRONOSTICO_MS = 3 * 60 * 60 * 1000;
 const cacheDistanciasCoche = new Map();
 const cacheFallosDistancia = new Map();
 
@@ -1816,6 +1818,72 @@ async function solicitarJson(url, { reintentos = 1, tiempoLimite = 15000 } = {})
   throw ultimoError;
 }
 
+function validarPronosticoCompartido(datos) {
+  const generadoEn = Date.parse(datos?.generadoEn);
+  const datosMeteorologicos = datos?.datosMeteorologicos;
+  const datosMaritimos = datos?.datosMaritimos;
+  const vigente = Number.isFinite(generadoEn) &&
+    Date.now() - generadoEn <= ANTIGUEDAD_MAXIMA_PRONOSTICO_MS;
+
+  if (
+    !vigente ||
+    !Array.isArray(datosMeteorologicos) ||
+    !Array.isArray(datosMaritimos) ||
+    datosMeteorologicos.length !== playas.length ||
+    datosMaritimos.length !== playas.length
+  ) {
+    throw new Error("El pronóstico compartido no está disponible o está desactualizado.");
+  }
+
+  return { datosMeteorologicos, datosMaritimos };
+}
+
+async function cargarPronosticoCompartido() {
+  const url = `${URL_PRONOSTICO_COMPARTIDO}?v=${Math.floor(Date.now() / 60000)}`;
+  const datos = await solicitarJson(url, { reintentos: 0, tiempoLimite: 8000 });
+  return validarPronosticoCompartido(datos);
+}
+
+async function consultarPronosticoDirecto() {
+  const lotes = dividirEnLotes(playas, TAMANO_LOTE_PRONOSTICO);
+  const respuestas = await ejecutarConConcurrencia(
+    lotes,
+    CONCURRENCIA_PRONOSTICO,
+    async lote => {
+      const latitudes = lote.map(playa => playa.lat).join(",");
+      const longitudes = lote.map(playa => playa.lon).join(",");
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high,sunshine_duration,is_day&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
+      const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=2&timezone=Europe%2FMadrid`;
+      const [meteorologia, mar] = await Promise.all([
+        solicitarJson(url, { reintentos: 2, tiempoLimite: 20000 }),
+        solicitarJson(marineUrl, { reintentos: 2, tiempoLimite: 20000 })
+      ]);
+      const datosMeteorologicos = Array.isArray(meteorologia) ? meteorologia : [meteorologia];
+      const datosMaritimos = Array.isArray(mar) ? mar : [mar];
+      if (datosMeteorologicos.length !== lote.length || datosMaritimos.length !== lote.length) {
+        throw new Error("La respuesta meteorológica está incompleta.");
+      }
+      return { datosMeteorologicos, datosMaritimos };
+    }
+  );
+
+  return {
+    datosMeteorologicos: respuestas.flatMap(respuesta => respuesta.datosMeteorologicos),
+    datosMaritimos: respuestas.flatMap(respuesta => respuesta.datosMaritimos)
+  };
+}
+
+async function cargarRespuestasPronostico() {
+  try {
+    const datos = await cargarPronosticoCompartido();
+    return datos;
+  } catch (error) {
+    console.warn("Se usará Open-Meteo directamente como respaldo.", error);
+    const datos = await consultarPronosticoDirecto();
+    return datos;
+  }
+}
+
 function claveDistancia(origen, destino) {
   return [origen.lat, origen.lon, destino.lat, destino.lon]
     .map(coordenada => Number(coordenada).toFixed(5))
@@ -2636,33 +2704,7 @@ function compartirMeteorologiaPorZona(listaPlayas, datosMeteorologicos) {
 
 async function obtenerDatosPlayas(dia, horaInicio = 7, horaFin = 21) {
   if (respuestasPronosticoCache === null) {
-    const lotes = dividirEnLotes(playas, TAMANO_LOTE_PRONOSTICO);
-    const respuestas = await ejecutarConConcurrencia(
-      lotes,
-      CONCURRENCIA_PRONOSTICO,
-      async lote => {
-        const latitudes = lote.map(playa => playa.lat).join(",");
-        const longitudes = lote.map(playa => playa.lon).join(",");
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitudes}&longitude=${longitudes}&daily=temperature_2m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_direction_10m,cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high,sunshine_duration,is_day&forecast_days=2&timezone=Europe%2FMadrid&cell_selection=nearest`;
-        const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${latitudes}&longitude=${longitudes}&hourly=sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,wind_wave_direction,swell_wave_height,swell_wave_direction&forecast_days=2&timezone=Europe%2FMadrid`;
-        const [meteorologia, mar] = await Promise.all([
-          solicitarJson(url, { reintentos: 2, tiempoLimite: 20000 }),
-          solicitarJson(marineUrl, { reintentos: 2, tiempoLimite: 20000 })
-        ]);
-        const datosMeteorologicos = Array.isArray(meteorologia) ? meteorologia : [meteorologia];
-        const datosMaritimos = Array.isArray(mar) ? mar : [mar];
-        if (
-          datosMeteorologicos.length !== lote.length ||
-          datosMaritimos.length !== lote.length
-        ) {
-          throw new Error("La respuesta meteorológica está incompleta.");
-        }
-        return { datosMeteorologicos, datosMaritimos };
-      }
-    );
-    const datosMeteorologicos = respuestas.flatMap(respuesta => respuesta.datosMeteorologicos);
-    const datosMaritimos = respuestas.flatMap(respuesta => respuesta.datosMaritimos);
-    respuestasPronosticoCache = { datosMeteorologicos, datosMaritimos };
+    respuestasPronosticoCache = await cargarRespuestasPronostico();
   }
 
   const { datosMeteorologicos, datosMaritimos } = respuestasPronosticoCache;
@@ -2772,15 +2814,14 @@ async function cargarRankingInterno() {
   ordenarResultados(resultados);
 
   const tabla = document.getElementById("ranking");
-  tabla.innerHTML = "";
   const rankingMobile =
   document.getElementById("ranking-mobile");
-
-rankingMobile.innerHTML="";
+  const filasTabla = [];
+  const tarjetasMobile = [];
   
   resultados.forEach((playa, index) => {
 
-tabla.innerHTML += `
+filasTabla.push(`
   <tr>
     <td>${index + 1}</td>
     <td>
@@ -2811,7 +2852,7 @@ tabla.innerHTML += `
    <td class="detalle ${detallesVisibles ? '' : 'oculto'}">${playa.puntuacion}</td>
     <td class="col-explicacion">${playa.explicacion}</td>
    </tr>
-`;
+`);
     const claseValoracion = playa.puntuacion >= 70
       ? "valoracion-buena"
       : playa.puntuacion >= 50
@@ -2820,7 +2861,7 @@ tabla.innerHTML += `
           ? "valoracion-regular"
           : "valoracion-evitar";
 
-    rankingMobile.innerHTML += `
+    tarjetasMobile.push(`
 
 <article class="tarjeta-playa ${claseValoracion}">
   <div class="tarjeta-cabecera">
@@ -2886,8 +2927,10 @@ playa.agua.toFixed(1)+"°C"
 
 </article>
 
-`;
+`);
   });
+tabla.innerHTML = filasTabla.join("");
+rankingMobile.innerHTML = tarjetasMobile.join("");
 actualizarVisibilidadDetalles();
 
 document.querySelectorAll(".btn-detalles").forEach(boton => {
@@ -2970,3 +3013,4 @@ window.addEventListener("DOMContentLoaded", async () => {
     configurarCabecerasOrdenables();
     await cargarRanking();
 });
+
