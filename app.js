@@ -2845,7 +2845,7 @@ async function cargarRankingInterno() {
   resultados.forEach((playa, index) => {
 
 filasTabla.push(`
-  <tr>
+  <tr ${playa.slugFicha ? `class="fila-con-ficha" data-ficha-url="playas/${playa.slugFicha}/" tabindex="0"` : ""}>
     <td>${index + 1}</td>
     <td>
       <div class="nombre-playa-tabla">
@@ -2888,7 +2888,8 @@ filasTabla.push(`
 
     tarjetasMobile.push(`
 
-<article class="tarjeta-playa ${claseValoracion}">
+<article class="tarjeta-playa ${claseValoracion} ${playa.slugFicha ? "tarjeta-con-ficha" : ""}"
+  ${playa.slugFicha ? `data-ficha-url="playas/${playa.slugFicha}/" tabindex="0" aria-label="Abrir ficha de ${playa.nombre}"` : ""}>
   <div class="tarjeta-cabecera">
     <div class="tarjeta-identidad">
       <span class="posicion-ranking" aria-label="Posición ${index + 1}">${index + 1}</span>
@@ -2976,6 +2977,17 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
   });
 
+});
+
+document.querySelectorAll("[data-ficha-url]").forEach(elemento => {
+  const abrirFicha = evento => {
+    if (evento.target.closest("a, button, input, select, textarea")) return;
+    if (evento.type === "keydown" && evento.key !== "Enter" && evento.key !== " ") return;
+    evento.preventDefault();
+    window.location.href = elemento.dataset.fichaUrl;
+  };
+  elemento.addEventListener("click", abrirFicha);
+  elemento.addEventListener("keydown", abrirFicha);
 });
 
 }
