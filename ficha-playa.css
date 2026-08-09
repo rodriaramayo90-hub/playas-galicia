@@ -32,8 +32,10 @@ a { color: inherit; }
 .migas a { text-decoration: none; }
 
 .ficha-hero { display: grid; grid-template-columns: minmax(280px, 390px) 1fr; gap: 26px; align-items: stretch; }
-.foto-principal { min-height: 410px; border-radius: 18px; overflow: hidden; background: linear-gradient(145deg, #c8eff8, #fff1ce); box-shadow: var(--sombra); }
+.foto-principal { min-height: 410px; position: relative; border-radius: 14px; overflow: hidden; background: linear-gradient(145deg, #c8eff8, #fff1ce); box-shadow: var(--sombra); }
 .foto-principal img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.credito-foto { position: absolute; left: 12px; bottom: 12px; max-width: calc(100% - 24px); padding: 7px 10px; border-radius: 8px; background: rgba(7, 24, 34, .78); color: #fff; font-size: .7rem; line-height: 1.25; text-decoration: none; backdrop-filter: blur(6px); }
+.credito-foto:hover { background: rgba(7, 24, 34, .94); }
 .foto-placeholder { height: 100%; min-height: 410px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; color: var(--texto-suave); }
 .foto-placeholder span { font-size: 4rem; margin-bottom: 14px; }
 .foto-placeholder strong { color: var(--azul); font-size: 1.08rem; }
@@ -44,7 +46,7 @@ a { color: inherit; }
 .localizacion { margin: 0; color: var(--texto-suave); }
 .enlace-ranking { color: var(--turquesa); font-weight: 700; text-decoration: none; white-space: nowrap; }
 
-.condiciones, .panel-ficha { background: var(--panel); border: 1px solid var(--borde); border-radius: 18px; box-shadow: var(--sombra); }
+.condiciones, .panel-ficha { background: var(--panel); border: 1px solid var(--borde); border-radius: 14px; box-shadow: var(--sombra); }
 .condiciones { padding: 20px; }
 .condiciones-cabecera { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--borde); }
 .condiciones-cabecera h2, .panel-ficha h2 { margin: 0; font-size: 1.05rem; color: var(--azul); }
