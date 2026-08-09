@@ -24,6 +24,7 @@ for (const playa of catalogo.playas) {
     `Falta atribución completa para ${playa.slug}.`);
   assert.ok(html.includes(`<meta property="og:image" content="${playa.fotoPrincipal.url.replaceAll("&", "&amp;")}">`));
   assert.match(html, /<script type="application\/ld\+json">/);
+  assert.ok(!html.includes('id="galeriaPlaya"'), `La ficha ${playa.slug} no debe incluir galería adicional.`);
   assert.ok(!html.includes("{{"), `Quedaron variables sin reemplazar en ${playa.slug}.`);
   const bloqueDatos = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert.ok(bloqueDatos, `Faltan datos estructurados en ${playa.slug}.`);
