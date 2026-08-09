@@ -9,20 +9,19 @@
       "provincia": "A Coruña",
       "lat": 43.382,
       "lon": -8.405,
-      "descripcion": null,
+      "descripcion": "Pequeña playa resguardada situada junto al Paseo Marítimo de A Coruña, al pie del entorno de la Torre de Hércules. Tiene arena gruesa y un arenal de aproximadamente 70 metros.",
       "fotoPrincipal": {
         "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20das%20Lapas.JPG?width=1400",
         "autor": "Imxavitooh",
         "licencia": "CC BY-SA 4.0",
         "fuente": "https://commons.wikimedia.org/wiki/File:Praia_das_Lapas.JPG"
       },
-      "fotos": [],
-      "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "NE", "exposicion": "Abrigo alto" },
+      "caracteristicas": { "tipo": "Playa resguardada", "composicion": "Arena gruesa", "longitud": "70 m", "anchura": "30 m", "entorno": "Paseo Marítimo de A Coruña", "forma": null, "orientacion": "NE", "exposicion": "Abrigo alto" },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
       "normas": { "perros": null, "nudismo": null, "deportesAcuaticos": null, "barbacoasFuego": null, "accesoVehiculos": null },
       "marea": { "dependencia": null, "superficiePleamar": null, "accesoCondicionado": null, "riesgoAislamiento": null, "recomendacion": null },
       "bano": { "entradaAgua": null, "fondo": null, "oleajeHabitual": null, "corrientes": null, "ninos": null, "profundidad": null },
-      "practica": { "temporadaBano": null, "fuente": null, "ultimaVerificacion": null }
+      "practica": { "temporadaBano": null, "fuente": "Turismo de Galicia", "ultimaVerificacion": "9 de agosto de 2026" }
     },
     {
       "slug": "san-francisco-louro",
@@ -32,20 +31,19 @@
       "provincia": "A Coruña",
       "lat": 42.758833,
       "lon": -9.073694,
-      "descripcion": null,
+      "descripcion": "Arenal de arena fina y aguas resguardadas situado en San Francisco, parroquia de Louro. Se extiende aproximadamente 800 metros dentro de la ría de Muros e Noia y cuenta con Bandera Azul.",
       "fotoPrincipal": {
         "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20San%20Francisco%20e%20Monte%20Louro%20-%20Muros%20-%20Galiza.jpg?width=1600",
         "autor": "Ramon Piñeiro",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://commons.wikimedia.org/wiki/File:Praia_de_San_Francisco_e_Monte_Louro_-_Muros_-_Galiza.jpg"
       },
-      "fotos": [],
-      "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "S", "exposicion": "Abrigo moderado" },
-      "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
+      "caracteristicas": { "tipo": "Playa resguardada", "composicion": "Arena fina", "longitud": "800 m", "anchura": null, "entorno": "Ría de Muros e Noia", "forma": null, "orientacion": "S", "exposicion": "Abrigo moderado" },
+      "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": "Sí, establecimiento junto a la playa", "restaurantes": "Establecimientos en Louro y Muros", "transportePublico": null },
       "normas": { "perros": null, "nudismo": null, "deportesAcuaticos": null, "barbacoasFuego": null, "accesoVehiculos": null },
       "marea": { "dependencia": null, "superficiePleamar": null, "accesoCondicionado": null, "riesgoAislamiento": null, "recomendacion": null },
       "bano": { "entradaAgua": null, "fondo": null, "oleajeHabitual": null, "corrientes": null, "ninos": null, "profundidad": null },
-      "practica": { "temporadaBano": null, "fuente": null, "ultimaVerificacion": null }
+      "practica": { "temporadaBano": null, "fuente": "Turismo de Galicia", "ultimaVerificacion": "9 de agosto de 2026" }
     },
     {
       "slug": "carnota",
@@ -55,20 +53,19 @@
       "provincia": "A Coruña",
       "lat": 42.824534,
       "lon": -9.108395,
-      "descripcion": null,
+      "descripcion": "Extenso arenal abierto de arena fina en un espacio natural protegido. Sus aproximadamente siete kilómetros forman uno de los sistemas de playa y marisma más destacados de la Costa da Morte.",
       "fotoPrincipal": {
         "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Playa%20de%20Carnota.jpg?width=1400",
         "autor": "Alejandro Vallejo Ortega",
         "licencia": "CC BY-SA 4.0",
         "fuente": "https://commons.wikimedia.org/wiki/File:Playa_de_Carnota.jpg"
       },
-      "fotos": [],
-      "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "W", "exposicion": null },
+      "caracteristicas": { "tipo": "Playa abierta", "composicion": "Arena fina", "longitud": "7.000 m", "anchura": "90 m aproximadamente", "entorno": "Espacio natural protegido", "forma": "Arenal abierto", "orientacion": "W", "exposicion": "Expuesta" },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
       "normas": { "perros": null, "nudismo": null, "deportesAcuaticos": null, "barbacoasFuego": null, "accesoVehiculos": null },
-      "marea": { "dependencia": null, "superficiePleamar": null, "accesoCondicionado": null, "riesgoAislamiento": null, "recomendacion": null },
+      "marea": { "dependencia": "Importante para recorrer el arenal", "superficiePleamar": "Reduce zonas de paso", "accesoCondicionado": "Algunos recorridos se dificultan con pleamar", "riesgoAislamiento": "Especial atención en A Boca do Río", "recomendacion": "Consulta las mareas si planeas recorrer la playa, especialmente para cruzar A Boca do Río." },
       "bano": { "entradaAgua": null, "fondo": null, "oleajeHabitual": null, "corrientes": null, "ninos": null, "profundidad": null },
-      "practica": { "temporadaBano": null, "fuente": null, "ultimaVerificacion": null }
+      "practica": { "temporadaBano": null, "fuente": "Turismo de Galicia y Concello de Carnota", "ultimaVerificacion": "9 de agosto de 2026" }
     },
     {
       "slug": "sonreiras",
@@ -78,20 +75,19 @@
       "provincia": "A Coruña",
       "lat": 43.659107,
       "lon": -8.072705,
-      "descripcion": null,
+      "descripcion": "Pequeña cala resguardada de arena fina en Cedeira, situada junto a la entrada de la ría. El arenal tiene aproximadamente 20 metros de longitud.",
       "fotoPrincipal": {
         "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20Sonreiras%20%28Cedeira%29.jpg?width=1600",
         "autor": "Sustiputo",
         "licencia": "CC BY-SA 4.0",
         "fuente": "https://commons.wikimedia.org/wiki/File:Praia_de_Sonreiras_(Cedeira).jpg"
       },
-      "fotos": [],
-      "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "NW", "exposicion": "Abrigo alto" },
+      "caracteristicas": { "tipo": "Cala resguardada", "composicion": "Arena fina", "longitud": "20 m", "anchura": null, "entorno": "Ría de Cedeira", "forma": "Cala", "orientacion": "NW", "exposicion": "Abrigo alto" },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
       "normas": { "perros": null, "nudismo": null, "deportesAcuaticos": null, "barbacoasFuego": null, "accesoVehiculos": null },
       "marea": { "dependencia": null, "superficiePleamar": null, "accesoCondicionado": null, "riesgoAislamiento": null, "recomendacion": null },
       "bano": { "entradaAgua": null, "fondo": null, "oleajeHabitual": null, "corrientes": null, "ninos": null, "profundidad": null },
-      "practica": { "temporadaBano": null, "fuente": null, "ultimaVerificacion": null }
+      "practica": { "temporadaBano": null, "fuente": "Turismo de Galicia", "ultimaVerificacion": "9 de agosto de 2026" }
     },
     {
       "slug": "praia-das-catedrais",
@@ -101,20 +97,19 @@
       "provincia": "Lugo",
       "lat": 43.55701,
       "lon": -7.17304,
-      "descripcion": null,
+      "descripcion": "Monumento natural conocido por sus arcos, cuevas y corredores de pizarra modelados por el mar Cantábrico. El paseo por el arenal y el acceso a las formaciones solo son posibles alrededor de la bajamar.",
       "fotoPrincipal": {
         "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/PLAYA%20DE%20LAS%20CATEDRALES%20%28GALICIA%29.jpg?width=1400",
         "autor": "Cameron 1878",
         "licencia": "CC BY-SA 4.0",
         "fuente": "https://commons.wikimedia.org/wiki/File:PLAYA_DE_LAS_CATEDRALES_(GALICIA).jpg"
       },
-      "fotos": [],
-      "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "N", "exposicion": null },
-      "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
-      "normas": { "perros": null, "nudismo": null, "deportesAcuaticos": null, "barbacoasFuego": null, "accesoVehiculos": null },
-      "marea": { "dependencia": null, "superficiePleamar": null, "accesoCondicionado": null, "riesgoAislamiento": null, "recomendacion": null },
-      "bano": { "entradaAgua": null, "fondo": null, "oleajeHabitual": null, "corrientes": null, "ninos": null, "profundidad": null },
-      "practica": { "temporadaBano": null, "fuente": null, "ultimaVerificacion": null }
+      "caracteristicas": { "tipo": "Monumento natural", "composicion": "Arena fina, roca y acantilado", "longitud": "1.500 m aproximadamente", "anchura": null, "entorno": "Costa protegida y poco urbanizada", "forma": "Arcos, cuevas y corredores", "orientacion": "N", "exposicion": "Expuesta al Cantábrico" },
+      "servicios": { "parking": "Sí, en la zona superior", "accesibilidad": "Paseo superior acondicionado; arenal mediante escaleras", "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": "Comida y alojamiento en poblaciones próximas", "transportePublico": "Autobús lanzadera en periodos habilitados" },
+      "normas": { "perros": null, "nudismo": null, "deportesAcuaticos": null, "barbacoasFuego": null, "accesoVehiculos": "Los vehículos no acceden al arenal" },
+      "marea": { "dependencia": "Muy alta", "superficiePleamar": "El arenal queda cubierto", "accesoCondicionado": "Solo se puede recorrer con marea baja", "riesgoAislamiento": "Posible si sube la marea", "recomendacion": "Consulta la tabla de mareas antes de la visita. El recorrido por el arenal dispone de una ventana limitada alrededor de la bajamar." },
+      "bano": { "entradaAgua": "Acceso al arenal por escaleras", "fondo": "Arena y roca", "oleajeHabitual": "Moderado", "corrientes": null, "ninos": "Con especial precaución", "profundidad": null },
+      "practica": { "temporadaBano": "Reserva previa obligatoria en Semana Santa, julio, agosto y septiembre", "fuente": "Turismo de Galicia y Concello de Ribadeo", "ultimaVerificacion": "9 de agosto de 2026" }
     }
   ]
 }
