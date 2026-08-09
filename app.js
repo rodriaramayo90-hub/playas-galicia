@@ -16,7 +16,9 @@ const CONCURRENCIA_PRONOSTICO = 2;
 const TAMANO_LOTE_DISTANCIAS = 40;
 const CONCURRENCIA_DISTANCIAS = 2;
 const MAX_DISTANCIAS_EN_CACHE = 5000;
-const URL_PRONOSTICO_COMPARTIDO = "data/pronostico.json";
+const URL_PRONOSTICO_COMPARTIDO = document.currentScript?.src
+  ? new URL("data/pronostico.json", new URL(".", document.currentScript.src)).href
+  : "data/pronostico.json";
 const ANTIGUEDAD_MAXIMA_PRONOSTICO_MS = 3 * 60 * 60 * 1000;
 const cacheDistanciasCoche = new Map();
 const cacheFallosDistancia = new Map();
@@ -1422,6 +1424,7 @@ const playas = [
   },
   {
     nombre: "Playa de las Lapas",
+    slugFicha: "las-lapas",
     municipio: "A Coruña",
     lat: 43.382,
     lon: -8.405,
@@ -1440,6 +1443,7 @@ const playas = [
   },
   {
     nombre: "Playa de San Francisco",
+    slugFicha: "san-francisco-louro",
     municipio: "Muros",
     lat: 42.758833,
     lon: -9.073694,
@@ -1449,6 +1453,7 @@ const playas = [
   },
   {
     nombre: "Playa de Carnota",
+    slugFicha: "carnota",
     municipio: "Carnota",
     lat: 42.824534,
     lon: -9.108395,
@@ -1465,6 +1470,7 @@ const playas = [
   },
   {
     nombre: "Playa de Sonreiras",
+    slugFicha: "sonreiras",
     municipio: "Cedeira",
     lat: 43.659107,
     lon: -8.072705,
@@ -1658,6 +1664,7 @@ const playas = [
   },
   {
     nombre: "Praia das Catedrais",
+    slugFicha: "praia-das-catedrais",
     municipio: "Ribadeo",
     lat: 43.55701,
     lon: -7.17304,
@@ -2759,7 +2766,23 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const estado = obtenerEstado(puntuacionBase, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const puntuacion = ajustarPuntuacionACategoria(puntuacionBase, estado);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
-  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+  return { nombre: playa.nombre, slugFicha: playa.slugFicha || null, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+}
+
+async function obtenerCondicionesPlaya(nombre, dia = 0, horaInicio = 7, horaFin = 21) {
+  const indice = playas.findIndex(playa => playa.nombre === nombre);
+  if (indice < 0) throw new Error("La playa solicitada no existe en el catálogo.");
+  if (!respuestasPronosticoCache) {
+    respuestasPronosticoCache = await cargarRespuestasPronostico();
+  }
+  return procesarDatosPlaya(
+    playas[indice],
+    respuestasPronosticoCache.datosMeteorologicos[indice],
+    respuestasPronosticoCache.datosMaritimos[indice],
+    dia,
+    horaInicio,
+    horaFin
+  );
 }
 
 function crearEnlaceGoogleMaps(playa) {
@@ -2826,7 +2849,9 @@ filasTabla.push(`
     <td>${index + 1}</td>
     <td>
       <div class="nombre-playa-tabla">
-        <span>${playa.nombre}</span>
+        ${playa.slugFicha
+          ? `<a class="enlace-ficha-playa" href="playas/${playa.slugFicha}/">${playa.nombre}</a>`
+          : `<span>${playa.nombre}</span>`}
         <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
       </div>
     </td>
@@ -2869,7 +2894,9 @@ filasTabla.push(`
       <span class="posicion-ranking" aria-label="Posición ${index + 1}">${index + 1}</span>
       <div>
         <div class="titulo-playa-con-maps">
-          <h2>${playa.nombre}</h2>
+          <h2>${playa.slugFicha
+            ? `<a class="enlace-ficha-playa" href="playas/${playa.slugFicha}/">${playa.nombre}</a>`
+            : playa.nombre}</h2>
         </div>
         <div class="estado">${playa.estado}</div>
       </div>
@@ -3006,7 +3033,14 @@ async function cargarRanking() {
   }
 }
 
+window.HoyTocaPlaya = {
+  playas,
+  obtenerCondicionesPlaya,
+  crearEnlaceGoogleMaps
+};
+
 window.addEventListener("DOMContentLoaded", async () => {
+    if (!document.getElementById("ranking")) return;
     inicializarVista();
     actualizarVista();
     actualizarSelectorDia();
