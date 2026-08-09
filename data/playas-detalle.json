@@ -10,7 +10,12 @@
       "lat": 43.382,
       "lon": -8.405,
       "descripcion": null,
-      "fotoPrincipal": null,
+      "fotoPrincipal": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20das%20Lapas.JPG?width=1400",
+        "autor": "Imxavitooh",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Praia_das_Lapas.JPG"
+      },
       "fotos": [],
       "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "NE", "exposicion": "Abrigo alto" },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
@@ -28,7 +33,12 @@
       "lat": 42.758833,
       "lon": -9.073694,
       "descripcion": null,
-      "fotoPrincipal": null,
+      "fotoPrincipal": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20San%20Francisco%20e%20Monte%20Louro%20-%20Muros%20-%20Galiza.jpg?width=1600",
+        "autor": "Ramon Piñeiro",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Praia_de_San_Francisco_e_Monte_Louro_-_Muros_-_Galiza.jpg"
+      },
       "fotos": [],
       "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "S", "exposicion": "Abrigo moderado" },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
@@ -46,7 +56,12 @@
       "lat": 42.824534,
       "lon": -9.108395,
       "descripcion": null,
-      "fotoPrincipal": null,
+      "fotoPrincipal": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Playa%20de%20Carnota.jpg?width=1400",
+        "autor": "Alejandro Vallejo Ortega",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Playa_de_Carnota.jpg"
+      },
       "fotos": [],
       "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "W", "exposicion": null },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
@@ -64,7 +79,12 @@
       "lat": 43.659107,
       "lon": -8.072705,
       "descripcion": null,
-      "fotoPrincipal": null,
+      "fotoPrincipal": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Praia%20de%20Sonreiras%20%28Cedeira%29.jpg?width=1600",
+        "autor": "Sustiputo",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Praia_de_Sonreiras_(Cedeira).jpg"
+      },
       "fotos": [],
       "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "NW", "exposicion": "Abrigo alto" },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
@@ -82,7 +102,12 @@
       "lat": 43.55701,
       "lon": -7.17304,
       "descripcion": null,
-      "fotoPrincipal": null,
+      "fotoPrincipal": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/PLAYA%20DE%20LAS%20CATEDRALES%20%28GALICIA%29.jpg?width=1400",
+        "autor": "Cameron 1878",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:PLAYA_DE_LAS_CATEDRALES_(GALICIA).jpg"
+      },
       "fotos": [],
       "caracteristicas": { "tipo": null, "composicion": null, "longitud": null, "anchura": null, "entorno": null, "forma": null, "orientacion": "N", "exposicion": null },
       "servicios": { "parking": null, "accesibilidad": null, "duchas": null, "aseos": null, "socorrista": null, "chiringuito": null, "restaurantes": null, "transportePublico": null },
