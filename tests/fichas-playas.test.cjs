@@ -7,24 +7,28 @@ const catalogo = JSON.parse(readFileSync(resolve(raiz, "data", "playas-detalle.j
 const sitemap = readFileSync(resolve(raiz, "sitemap.xml"), "utf8");
 const app = readFileSync(resolve(raiz, "app.js"), "utf8");
 
-assert.equal(catalogo.playas.length, 5, "La demostración debe incluir cinco fichas.");
+assert.equal(catalogo.playas.length, 5, "La demostraciÃ³n debe incluir cinco fichas.");
 assert.match(app, /data-ficha-url=/, "Las tarjetas del ranking deben enlazar la ficha completa.");
 assert.match(app, /window\.location\.href = elemento\.dataset\.fichaUrl/,
-  "La tarjeta debe abrir la ficha en la misma pestaña.");
+  "La tarjeta debe abrir la ficha en la misma pestaÃ±a.");
+assert.match(app, /function crearEnlaceFicha\(slug\)/,
+  "Los enlaces deben adaptarse al dominio oficial y a htmlpreview.");
+assert.match(app, /htmlpreview\.github\.io/, "La navegaciÃ³n debe conservar el visor de preview.");
+assert.match(app, /horaFinSeleccionada = 22/, "El rango predeterminado debe llegar hasta las 22:00.");
 
 for (const playa of catalogo.playas) {
   const ruta = resolve(raiz, "playas", playa.slug, "index.html");
-  assert.ok(existsSync(ruta), `Falta la página generada de ${playa.slug}.`);
+  assert.ok(existsSync(ruta), `Falta la pÃ¡gina generada de ${playa.slug}.`);
   const html = readFileSync(ruta, "utf8");
   const canonical = `https://hoytocaplaya.com/playas/${playa.slug}/`;
   assert.match(html, new RegExp(`<link rel="canonical" href="${canonical}">`));
   assert.match(html, /<meta name="description" content="[^"]+">/);
-  assert.ok(playa.fotoPrincipal?.url, `Falta la fotografía demostrativa de ${playa.slug}.`);
+  assert.ok(playa.fotoPrincipal?.url, `Falta la fotografÃ­a demostrativa de ${playa.slug}.`);
   assert.ok(playa.fotoPrincipal?.autor && playa.fotoPrincipal?.licencia && playa.fotoPrincipal?.fuente,
-    `Falta atribución completa para ${playa.slug}.`);
+    `Falta atribuciÃ³n completa para ${playa.slug}.`);
   assert.ok(html.includes(`<meta property="og:image" content="${playa.fotoPrincipal.url.replaceAll("&", "&amp;")}">`));
   assert.match(html, /<script type="application\/ld\+json">/);
-  assert.ok(!html.includes('id="galeriaPlaya"'), `La ficha ${playa.slug} no debe incluir galería adicional.`);
+  assert.ok(!html.includes('id="galeriaPlaya"'), `La ficha ${playa.slug} no debe incluir galerÃ­a adicional.`);
   assert.ok(!html.includes("{{"), `Quedaron variables sin reemplazar en ${playa.slug}.`);
   const bloqueDatos = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert.ok(bloqueDatos, `Faltan datos estructurados en ${playa.slug}.`);
@@ -39,5 +43,5 @@ for (const playa of catalogo.playas) {
   assert.ok(app.includes(`slugFicha: "${playa.slug}"`), `El ranking no enlaza ${playa.slug}.`);
 }
 
-console.log("OK: cinco fichas dinámicas con rutas, SEO, sitemap y enlaces desde el ranking.");
+console.log("OK: cinco fichas dinÃ¡micas con rutas, SEO, sitemap y enlaces desde el ranking.");
 
