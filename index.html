@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3.5">
+    <link rel="stylesheet" href="styles.css?v=3.7">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -93,10 +93,10 @@
                         <option value="15">15:00</option><option value="16">16:00</option>
                         <option value="17">17:00</option><option value="18">18:00</option>
                         <option value="19">19:00</option><option value="20">20:00</option>
-                        <option value="21" selected>21:00</option>
+                        <option value="21">21:00</option><option value="22" selected>22:00</option>
                     </select>
                 </div>
-                <small id="resumenHorario">Todo el rango (07:00–21:00)</small>
+                <small id="resumenHorario">Todo el rango (07:00–22:00)</small>
             </div>
 
             <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>
@@ -164,6 +164,8 @@
     </main>
 
     <noscript>Necesitas activar JavaScript para consultar el ranking actualizado.</noscript>
-    <script src="app.js?v=3.5"></script>
+    <script src="data/indice-fichas.js?v=2"></script>
+    <script src="app.js?v=4.3"></script>
 </body>
 </html>
+

@@ -8,7 +8,7 @@ let datosPlayasCache = {};
 let respuestasPronosticoCache = null;
 let diaSeleccionado = 0;
 let horaInicioSeleccionada = 7;
-let horaFinSeleccionada = 21;
+let horaFinSeleccionada = 22;
 let detallesVisibles = false;
 
 const TAMANO_LOTE_PRONOSTICO = 50;
@@ -16,7 +16,23 @@ const CONCURRENCIA_PRONOSTICO = 2;
 const TAMANO_LOTE_DISTANCIAS = 40;
 const CONCURRENCIA_DISTANCIAS = 2;
 const MAX_DISTANCIAS_EN_CACHE = 5000;
-const URL_PRONOSTICO_COMPARTIDO = "data/pronostico.json";
+function obtenerRaizRecursos() {
+  if (window.location?.hostname === "htmlpreview.github.io") {
+    const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];
+    const coincidencia = fuente.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/blob\/([^/]+)\//);
+    if (coincidencia) {
+      return `https://raw.githubusercontent.com/${coincidencia[1]}/${coincidencia[2]}/`;
+    }
+  }
+  if (document.currentScript?.src) return new URL(".", document.currentScript.src).href;
+  if (window.location?.href) return new URL(".", window.location.href).href;
+  return "";
+}
+
+const URL_RAIZ_RECURSOS = obtenerRaizRecursos();
+const URL_PRONOSTICO_COMPARTIDO = URL_RAIZ_RECURSOS
+  ? new URL("data/pronostico.json", URL_RAIZ_RECURSOS).href
+  : "data/pronostico.json";
 const ANTIGUEDAD_MAXIMA_PRONOSTICO_MS = 3 * 60 * 60 * 1000;
 const cacheDistanciasCoche = new Map();
 const cacheFallosDistancia = new Map();
@@ -637,8 +653,8 @@ const playas = [
     "nombre": "Praia das Furnas",
     "municipio": "Porto do Son",
     "provincia": "A Coruña",
-    "lat": 42.643574,
-    "lon": -9.038532,
+    "lat": 42.678847,
+    "lon": -9.029988,
     "orientacion": "W",
     "anguloAproximado": 270,
     "destinoMaps": "Praia das Furnas, Porto do Son, Galicia"
@@ -1422,6 +1438,7 @@ const playas = [
   },
   {
     nombre: "Playa de las Lapas",
+    slugFicha: "las-lapas",
     municipio: "A Coruña",
     lat: 43.382,
     lon: -8.405,
@@ -1440,6 +1457,7 @@ const playas = [
   },
   {
     nombre: "Playa de San Francisco",
+    slugFicha: "san-francisco-louro",
     municipio: "Muros",
     lat: 42.758833,
     lon: -9.073694,
@@ -1449,6 +1467,7 @@ const playas = [
   },
   {
     nombre: "Playa de Carnota",
+    slugFicha: "carnota",
     municipio: "Carnota",
     lat: 42.824534,
     lon: -9.108395,
@@ -1465,6 +1484,7 @@ const playas = [
   },
   {
     nombre: "Playa de Sonreiras",
+    slugFicha: "sonreiras",
     municipio: "Cedeira",
     lat: 43.659107,
     lon: -8.072705,
@@ -1658,6 +1678,7 @@ const playas = [
   },
   {
     nombre: "Praia das Catedrais",
+    slugFicha: "praia-das-catedrais",
     municipio: "Ribadeo",
     lat: 43.55701,
     lon: -7.17304,
@@ -1761,6 +1782,13 @@ const playas = [
     zonaMeteorologica: "sanxenxo"
   }
 ];
+
+if (typeof window !== "undefined" && window.HoyTocaPlayaIndiceFichas) {
+  for (const playa of playas) {
+    const claveFicha = `${playa.nombre}||${playa.municipio}`;
+    playa.slugFicha = window.HoyTocaPlayaIndiceFichas[claveFicha] || playa.slugFicha || null;
+  }
+}
 
 function dividirEnLotes(elementos, tamano) {
   const lotes = [];
@@ -2346,7 +2374,7 @@ function factorExposicionOleaje(anguloPlaya, direccionOlas) {
   return 0.15 + 0.85 * Math.pow(componenteFrontal, 1.35);
 }
 
-function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio = 7, horaFin = 21) {
+function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio = 7, horaFin = 22) {
   const horas = datosMarine.hourly?.time ?? [];
   const valores = [];
 
@@ -2385,7 +2413,7 @@ function calcularOleajeEfectivo(playa, datosMarine, fechaObjetivo, horaInicio = 
   return valores.reduce((suma, valor) => suma + valor, 0) / valores.length;
 }
 
-function obtenerTemperaturaAgua(datosMarine, fechaObjetivo, horaInicio = 7, horaFin = 21) {
+function obtenerTemperaturaAgua(datosMarine, fechaObjetivo, horaInicio = 7, horaFin = 22) {
   const valores = (datosMarine.hourly?.time ?? []).map((hora, indice) => ({
     hora,
     valor: datosMarine.hourly?.sea_surface_temperature?.[indice]
@@ -2702,7 +2730,7 @@ function compartirMeteorologiaPorZona(listaPlayas, datosMeteorologicos) {
   return resultado;
 }
 
-async function obtenerDatosPlayas(dia, horaInicio = 7, horaFin = 21) {
+async function obtenerDatosPlayas(dia, horaInicio = 7, horaFin = 22) {
   if (respuestasPronosticoCache === null) {
     respuestasPronosticoCache = await cargarRespuestasPronostico();
   }
@@ -2714,7 +2742,7 @@ async function obtenerDatosPlayas(dia, horaInicio = 7, horaFin = 21) {
   ));
 }
 
-async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7, horaFin = 21) {
+async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7, horaFin = 22) {
   const fechaObjetivo = datos.daily.time[dia];
   if (!fechaObjetivo) throw new Error("No hay previsión disponible para el día seleccionado.");
   const registros = datos.hourly.time.map((hora, indice) => ({
@@ -2759,11 +2787,31 @@ async function procesarDatosPlaya(playa, datos, datosMarine, dia, horaInicio = 7
   const estado = obtenerEstado(puntuacionBase, nubosidad, playa.anguloAproximado, direccionVientoGrados, viento, vientoMaximo, lluvia, temperaturaMediaPlaya, agua, oleaje);
   const puntuacion = ajustarPuntuacionACategoria(puntuacionBase, estado);
   const explicacion = generarExplicacion(temperaturaMediaPlaya, viento, vientoMaximo, direccionVientoGrados, lluvia, agua, playa.anguloAproximado, nubosidad, predominioNubesAltas);
-  return { nombre: playa.nombre, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+  return { nombre: playa.nombre, municipio: playa.municipio, destinoMaps: playa.destinoMaps || null, slugFicha: playa.slugFicha || null, lat: playa.lat, lon: playa.lon, distancia: null, temperaturaMaxima, temperaturaMediaPlaya, viento, vientoMaximo, vientoModelo, vientoMaximoModelo, direccionViento, direccionVientoGrados, lluvia, lluviaPromedio, lluviaMaxima, cielo, agua, estadoOleaje, oleaje, puntuacion, estado, nubosidad, proporcionHorasSoleadas, predominioNubesAltas, explicacion };
+}
+
+async function obtenerCondicionesPlaya(nombre, dia = 0, horaInicio = 7, horaFin = 22, municipio = null) {
+  const indice = playas.findIndex(playa => playa.nombre === nombre && (!municipio || playa.municipio === municipio));
+  if (indice < 0) throw new Error("La playa solicitada no existe en el catálogo.");
+  if (!respuestasPronosticoCache) {
+    respuestasPronosticoCache = await cargarRespuestasPronostico();
+  }
+  const meteorologiaPorPlaya = compartirMeteorologiaPorZona(playas, respuestasPronosticoCache.datosMeteorologicos);
+  return procesarDatosPlaya(
+    playas[indice],
+    meteorologiaPorPlaya[indice],
+    respuestasPronosticoCache.datosMaritimos[indice],
+    dia,
+    horaInicio,
+    horaFin
+  );
 }
 
 function crearEnlaceGoogleMaps(playa) {
-  const configuracion = playas.find(item => item.nombre === playa.nombre);
+  const configuracion = playas.find(item =>
+    (playa.slugFicha && item.slugFicha === playa.slugFicha)
+    || (item.nombre === playa.nombre && item.lat === playa.lat && item.lon === playa.lon)
+  );
   const parametros = new URLSearchParams({
     api: "1",
     destination: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`,
@@ -2776,6 +2824,15 @@ function crearEnlaceGoogleMaps(playa) {
   }
 
   return `https://www.google.com/maps/dir/?${parametros.toString()}`;
+}
+
+function crearEnlaceFicha(slug) {
+  const ruta = `playas/${slug}/index.html`;
+  if (typeof window === "undefined" || window.location?.hostname !== "htmlpreview.github.io") return ruta;
+  const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];
+  if (!fuente.includes("github.com/") || !fuente.endsWith("/index.html")) return ruta;
+  const raizFuente = fuente.slice(0, fuente.lastIndexOf("/") + 1);
+  return `${window.location.origin}${window.location.pathname}?${raizFuente}${ruta}`;
 }
 
 async function cargarRankingInterno() {
@@ -2822,11 +2879,13 @@ async function cargarRankingInterno() {
   resultados.forEach((playa, index) => {
 
 filasTabla.push(`
-  <tr>
+  <tr ${playa.slugFicha ? `class="fila-con-ficha" data-ficha-url="${crearEnlaceFicha(playa.slugFicha)}" tabindex="0"` : ""}>
     <td>${index + 1}</td>
     <td>
       <div class="nombre-playa-tabla">
-        <span>${playa.nombre}</span>
+        ${playa.slugFicha
+          ? `<a class="enlace-ficha-playa" href="${crearEnlaceFicha(playa.slugFicha)}">${playa.nombre}</a>`
+          : `<span>${playa.nombre}</span>`}
         <a class="enlace-maps" href="${crearEnlaceGoogleMaps(playa)}" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar en coche a ${playa.nombre}">Cómo llegar</a>
       </div>
     </td>
@@ -2863,13 +2922,16 @@ filasTabla.push(`
 
     tarjetasMobile.push(`
 
-<article class="tarjeta-playa ${claseValoracion}">
+<article class="tarjeta-playa ${claseValoracion} ${playa.slugFicha ? "tarjeta-con-ficha" : ""}"
+  ${playa.slugFicha ? `data-ficha-url="${crearEnlaceFicha(playa.slugFicha)}" tabindex="0" aria-label="Abrir ficha de ${playa.nombre}"` : ""}>
   <div class="tarjeta-cabecera">
     <div class="tarjeta-identidad">
       <span class="posicion-ranking" aria-label="Posición ${index + 1}">${index + 1}</span>
       <div>
         <div class="titulo-playa-con-maps">
-          <h2>${playa.nombre}</h2>
+          <h2>${playa.slugFicha
+            ? `<a class="enlace-ficha-playa" href="${crearEnlaceFicha(playa.slugFicha)}">${playa.nombre}</a>`
+            : playa.nombre}</h2>
         </div>
         <div class="estado">${playa.estado}</div>
       </div>
@@ -2951,6 +3013,17 @@ document.querySelectorAll(".btn-detalles").forEach(boton => {
 
 });
 
+document.querySelectorAll("[data-ficha-url]").forEach(elemento => {
+  const abrirFicha = evento => {
+    if (evento.target.closest("a, button, input, select, textarea")) return;
+    if (evento.type === "keydown" && evento.key !== "Enter" && evento.key !== " ") return;
+    evento.preventDefault();
+    window.location.href = elemento.dataset.fichaUrl;
+  };
+  elemento.addEventListener("click", abrirFicha);
+  elemento.addEventListener("keydown", abrirFicha);
+});
+
 }
 
 function actualizarSelectorDia() {
@@ -2979,15 +3052,15 @@ async function cambiarHorario() {
   }
   horaInicioSeleccionada = inicio;
   horaFinSeleccionada = fin;
-  resumen.textContent = inicio === 7 && fin === 21
-    ? "Todo el rango (07:00–21:00)"
+  resumen.textContent = inicio === 7 && fin === 22
+    ? "Todo el rango (07:00–22:00)"
     : `De ${inicio}:00 a ${fin}:00`;
   await cargarRanking();
 }
 
 async function cargarRanking() {
   const referenciaDia = diaSeleccionado === 0 ? "hoy" : "mañana";
-  const referenciaHorario = horaInicioSeleccionada === 7 && horaFinSeleccionada === 21
+  const referenciaHorario = horaInicioSeleccionada === 7 && horaFinSeleccionada === 22
     ? ""
     : ` de ${horaInicioSeleccionada}:00 a ${horaFinSeleccionada}:00`;
   mostrarEstado(`Actualizando las condiciones de ${referenciaDia}…`, "info");
@@ -3006,7 +3079,14 @@ async function cargarRanking() {
   }
 }
 
+window.HoyTocaPlaya = {
+  playas,
+  obtenerCondicionesPlaya,
+  crearEnlaceGoogleMaps
+};
+
 window.addEventListener("DOMContentLoaded", async () => {
+    if (!document.getElementById("ranking")) return;
     inicializarVista();
     actualizarVista();
     actualizarSelectorDia();
