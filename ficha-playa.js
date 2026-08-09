@@ -1,34 +1,36 @@
-const URL_BASE_FICHA = new URL(".", document.currentScript?.src || window.location?.href || "https://hoytocaplaya.com/");
-const NO_DISPONIBLE = "InformaciÃ³n no disponible";
+const URL_BASE_FICHA = typeof URL_RAIZ_RECURSOS !== "undefined" && URL_RAIZ_RECURSOS
+  ? new URL(URL_RAIZ_RECURSOS)
+  : new URL(".", document.currentScript?.src || window.location?.href || "https://hoytocaplaya.com/");
+const NO_DISPONIBLE = "Información no disponible";
 
 const etiquetas = {
   caracteristicas: {
-    tipo: "ðŸ–ï¸ Tipo de playa", composicion: "â—« ComposiciÃ³n", longitud: "â†” Longitud",
-    anchura: "â†” Anchura", entorno: "â›°ï¸ Entorno", forma: "âŒ Forma",
-    orientacion: "ðŸ§­ OrientaciÃ³n", exposicion: "â—­ ExposiciÃ³n"
+    tipo: "🏖️ Tipo de playa", composicion: "◫ Composición", longitud: "↔ Longitud",
+    anchura: "↔ Anchura", entorno: "⛰️ Entorno", forma: "⌁ Forma",
+    orientacion: "🧭 Orientación", exposicion: "◭ Exposición"
   },
   servicios: {
-    parking: "ðŸš— Parking", accesibilidad: "â™¿ Accesibilidad", duchas: "ðŸš¿ Duchas",
-    aseos: "ðŸš» Aseos", socorrista: "ðŸ›Ÿ Socorrista", chiringuito: "ðŸ¥¤ Chiringuito",
-    restaurantes: "ðŸ´ Restaurantes cercanos", transportePublico: "ðŸšŒ Transporte pÃºblico"
+    parking: "🚗 Parking", accesibilidad: "♿ Accesibilidad", duchas: "🚿 Duchas",
+    aseos: "🚻 Aseos", socorrista: "🛟 Socorrista", chiringuito: "🥤 Chiringuito",
+    restaurantes: "🍴 Restaurantes cercanos", transportePublico: "🚌 Transporte público"
   },
   normas: {
-    perros: "ðŸ• Perros", nudismo: "Normas sobre nudismo", deportesAcuaticos: "ðŸ„ Deportes acuÃ¡ticos",
-    barbacoasFuego: "ðŸ”¥ Barbacoas / fuego", accesoVehiculos: "ðŸš™ Acceso de vehÃ­culos"
+    perros: "🐕 Perros", nudismo: "Normas sobre nudismo", deportesAcuaticos: "🏄 Deportes acuáticos",
+    barbacoasFuego: "🔥 Barbacoas / fuego", accesoVehiculos: "🚙 Acceso de vehículos"
   },
   marea: {
-    dependencia: "ðŸŒŠ Dependencia", superficiePleamar: "Superficie en pleamar",
+    dependencia: "🌊 Dependencia", superficiePleamar: "Superficie en pleamar",
     accesoCondicionado: "Acceso condicionado", riesgoAislamiento: "Riesgo de aislamiento"
   },
   bano: {
     entradaAgua: "Entrada al agua", fondo: "Fondo", oleajeHabitual: "Oleaje habitual",
-    corrientes: "Corrientes", ninos: "Adecuada para niÃ±os", profundidad: "Profundidad"
+    corrientes: "Corrientes", ninos: "Adecuada para niños", profundidad: "Profundidad"
   }
 };
 
 function valorVisible(valor) {
   if (valor === null || valor === undefined || valor === "") return NO_DISPONIBLE;
-  if (valor === true) return "SÃ­";
+  if (valor === true) return "Sí";
   if (valor === false) return "No";
   return String(valor);
 }
@@ -90,7 +92,7 @@ function renderizarDatosEstaticos(playa) {
     ultimaVerificacion: playa.practica?.ultimaVerificacion
   }, {
     municipio: "Municipio", provincia: "Provincia", coordenadas: "Coordenadas",
-    temporadaBano: "Temporada de baÃ±o", fuente: "Fuente", ultimaVerificacion: "Ãšltima verificaciÃ³n"
+    temporadaBano: "Temporada de baño", fuente: "Fuente", ultimaVerificacion: "Última verificación"
   });
   document.getElementById("recomendacionMarea").textContent = valorVisible(playa.marea?.recomendacion);
   configurarMapa(playa);
@@ -101,12 +103,12 @@ function renderizarDatosEstaticos(playa) {
     contenedorFoto.innerHTML = `
       <img src="${foto.url}" alt="Vista de ${playa.nombre}" fetchpriority="high">
       <a class="credito-foto" href="${foto.fuente}" target="_blank" rel="noopener noreferrer">
-        Foto: ${foto.autor} Â· ${foto.licencia}
+        Foto: ${foto.autor} · ${foto.licencia}
       </a>`;
     contenedorFoto.querySelector("img").addEventListener("error", () => {
-      contenedorFoto.innerHTML = `<div class="foto-placeholder" role="img" aria-label="La fotografÃ­a no pudo cargarse">
-        <span aria-hidden="true">ðŸ–ï¸</span><strong>La fotografÃ­a no pudo cargarse</strong>
-        <small>Comprueba la conexiÃ³n e intÃ©ntalo de nuevo.</small></div>`;
+      contenedorFoto.innerHTML = `<div class="foto-placeholder" role="img" aria-label="La fotografía no pudo cargarse">
+        <span aria-hidden="true">🏖️</span><strong>La fotografía no pudo cargarse</strong>
+        <small>Comprueba la conexión e inténtalo de nuevo.</small></div>`;
     }, { once: true });
   }
 }
@@ -117,15 +119,15 @@ function renderizarCondiciones(condiciones) {
   document.getElementById("puntuacionPlaya").textContent = condiciones.puntuacion;
   document.getElementById("estadoPlaya").textContent = condiciones.estado;
   document.getElementById("explicacionPlaya").textContent = condiciones.explicacion;
-  document.getElementById("temperaturaPlaya").textContent = `${condiciones.temperaturaMediaPlaya.toFixed(1)} Â°C`;
-  document.getElementById("vientoPlaya").textContent = `${condiciones.viento} km/h Â· ${condiciones.direccionViento}`;
+  document.getElementById("temperaturaPlaya").textContent = `${condiciones.temperaturaMediaPlaya.toFixed(1)} °C`;
+  document.getElementById("vientoPlaya").textContent = `${condiciones.viento} km/h · ${condiciones.direccionViento}`;
   document.getElementById("lluviaPlaya").textContent = `${condiciones.lluvia}%`;
   const estadoOleaje = (condiciones.estadoOleaje || "").replace(/^[^\p{L}\p{N}]+/u, "");
   document.getElementById("oleajePlaya").textContent = Number.isFinite(condiciones.oleaje)
-    ? `${condiciones.oleaje.toFixed(1)} m Â· ${estadoOleaje}`
+    ? `${condiciones.oleaje.toFixed(1)} m · ${estadoOleaje}`
     : condiciones.estadoOleaje || NO_DISPONIBLE;
   document.getElementById("aguaPlaya").textContent = Number.isFinite(condiciones.agua)
-    ? `${condiciones.agua.toFixed(1)} Â°C`
+    ? `${condiciones.agua.toFixed(1)} °C`
     : NO_DISPONIBLE;
   document.getElementById("actualizacionCondiciones").textContent = `Consultado: ${new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })}`;
 }
@@ -134,20 +136,23 @@ async function iniciarFicha() {
   adaptarEnlacesAlPreview();
   const slug = document.body.dataset.playaSlug;
   try {
-    const respuesta = await fetch(new URL("data/playas-detalle.json?v=2", URL_BASE_FICHA));
-    if (!respuesta.ok) throw new Error("No se pudieron cargar los datos estÃ¡ticos.");
-    const catalogo = await respuesta.json();
-    const playa = catalogo.playas.find(item => item.slug === slug);
+    let playa = window.HoyTocaPlayaFicha;
+    if (!playa || playa.slug !== slug) {
+      const respuesta = await fetch(new URL("data/playas-detalle.json?v=3", URL_BASE_FICHA));
+      if (!respuesta.ok) throw new Error("No se pudieron cargar los datos estáticos.");
+      const catalogo = await respuesta.json();
+      playa = catalogo.playas.find(item => item.slug === slug);
+    }
     if (!playa) throw new Error("La ficha solicitada no existe.");
     renderizarDatosEstaticos(playa);
 
-    if (!window.HoyTocaPlaya?.obtenerCondicionesPlaya) throw new Error("El mÃ³dulo meteorolÃ³gico no estÃ¡ disponible.");
+    if (!window.HoyTocaPlaya?.obtenerCondicionesPlaya) throw new Error("El módulo meteorológico no está disponible.");
     const condiciones = await window.HoyTocaPlaya.obtenerCondicionesPlaya(playa.nombreCatalogo, 0, 7, 22);
     renderizarCondiciones(condiciones);
   } catch (error) {
     console.error(error);
     const estado = document.getElementById("estadoCondiciones");
-    estado.textContent = "No se pudieron cargar las condiciones actuales. IntÃ©ntalo de nuevo en unos minutos.";
+    estado.textContent = "No se pudieron cargar las condiciones actuales. Inténtalo de nuevo en unos minutos.";
     estado.classList.add("condiciones-error");
     document.getElementById("actualizacionCondiciones").textContent = "Sin actualizar";
   }
