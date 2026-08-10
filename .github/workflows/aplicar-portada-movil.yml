@@ -1,0 +1,132 @@
+name: Aplicar portada movil
+on:
+  push:
+    branches: [mejora-portada-movil-ranking]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: mejora-portada-movil-ranking
+          fetch-depth: 0
+      - name: Aplicar mejora movil
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          marker = '            <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>'
+          if s.count(marker) != 1:
+              raise SystemExit(f'Marcador filtros: {s.count(marker)}')
+          toggle = '''            <button id="btnFiltrosMovil" class="btn-filtros-movil" type="button" aria-expanded="false">⚙️ Personalizar búsqueda <span aria-hidden="true">⌄</span></button>\n\n'''
+          s = s.replace(marker, toggle + marker, 1)
+
+          old = '''        const rankingMobile = document.getElementById('ranking-mobile');'''
+          new = '''        const rankingMobile = document.getElementById('ranking-mobile');
+        const btnFiltrosMovil = document.getElementById('btnFiltrosMovil');
+        const filtros = document.querySelector('.filtros');
+
+        btnFiltrosMovil?.addEventListener('click', () => {
+          const abierto = filtros.classList.toggle('filtros-movil-abiertos');
+          btnFiltrosMovil.setAttribute('aria-expanded', String(abierto));
+          btnFiltrosMovil.querySelector('span').textContent = abierto ? '⌃' : '⌄';
+        });'''
+          if s.count(old) != 1:
+              raise SystemExit(f'Marcador JS: {s.count(old)}')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8', newline='\n')
+
+          css = Path('styles.css')
+          c = css.read_text(encoding='utf-8')
+          addon = r'''
+
+/* Portada móvil: prioriza el ranking y deja los filtros avanzados bajo demanda */
+.btn-filtros-movil { display: none; }
+
+@media (max-width: 600px) {
+    body { padding-top: 8px; }
+
+    .cabecera {
+        margin-bottom: 8px;
+    }
+
+    .logo-lockup-v2 {
+        width: min(100%, 430px);
+        grid-template-columns: 23% 77%;
+    }
+
+    .logo-lema-v2 {
+        width: 82%;
+        margin-top: 0;
+    }
+
+    .filtros {
+        gap: 12px;
+        margin-bottom: 12px;
+        padding: 16px;
+        align-items: stretch;
+    }
+
+    .filtros .selector-dia { order: 1; }
+    .filtros .grupo-buscador-playa { order: 2; }
+    .filtros .btn-filtros-movil { order: 3; }
+    .filtros .grupo-horario { order: 4; }
+    .filtros .btn-ubicacion { order: 5; }
+    .filtros .grupo-filtro:not(.grupo-buscador-playa):not(.grupo-horario) { order: 6; }
+
+    .btn-filtros-movil {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border: 1px solid rgba(11,114,133,.35);
+        border-radius: 12px;
+        background: rgba(222,245,250,.82);
+        color: #0b5f70;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .filtros:not(.filtros-movil-abiertos) .grupo-horario,
+    .filtros:not(.filtros-movil-abiertos) .btn-ubicacion,
+    .filtros:not(.filtros-movil-abiertos) .grupo-filtro:not(.grupo-buscador-playa):not(.grupo-horario) {
+        display: none;
+    }
+
+    .grupo-buscador-playa small { display: none; }
+
+    #estadoCarga {
+        margin-top: 4px;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    #ranking-mobile::before {
+        content: "🏆 Mejores playas para hoy";
+        display: block;
+        margin: 8px 2px 12px;
+        color: #17394d;
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+}
+'''
+          if 'Portada móvil: prioriza el ranking' in c:
+              raise SystemExit('CSS ya aplicado')
+          css.write_text(c + addon, encoding='utf-8', newline='\n')
+      - name: Commit
+        run: |
+          rm .github/workflows/aplicar-portada-movil.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css .github/workflows/aplicar-portada-movil.yml
+          git diff --cached --check
+          git commit -m "Mejora portada movil y prioriza el ranking"
+          git push origin HEAD:mejora-portada-movil-ranking
