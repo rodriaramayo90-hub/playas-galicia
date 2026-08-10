@@ -5,7 +5,7 @@ window.HoyTocaPlayaIndiceFichas = {
   "Praia de Oza||A Coruña": "praia-de-oza",
   "Praia do Matadoiro||A Coruña": "praia-do-matadoiro",
   "Praia de Barrañán||Arteixo": "praia-de-barranan",
-  "Praia de Valcovo (Area Grande)||Arteixo": "praia-de-valcovo-area-grande",
+  "Praia de Valcovo||Arteixo": "praia-de-valcovo-area-grande",
   "Praia de Salseiras (Caión)||A Laracha": "praia-de-salseiras-caion",
   "Praia de Baldaio||Carballo": "praia-de-baldaio",
   "Praia de Razo||Carballo": "praia-de-razo",
