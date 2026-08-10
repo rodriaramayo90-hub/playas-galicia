@@ -70,11 +70,10 @@ function renderizarFuentes(fuentes = []) {
 function crearUrlMaps(playa) {
   const parametros = new URLSearchParams({
     api: "1",
-    destination: `${playa.lat},${playa.lon}`,
-    travelmode: "driving",
-    dir_action: "navigate"
+    query: `${playa.lat},${playa.lon}`
   });
-  return `https://www.google.com/maps/dir/?${parametros.toString()}`;
+
+  return `https://www.google.com/maps/search/?${parametros.toString()}`;
 }
 
 function adaptarEnlacesAlPreview() {
