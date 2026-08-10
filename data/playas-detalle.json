@@ -30,7 +30,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios materiales y humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · restauración en las inmediaciones",
         "transportePublico": "Sí · Interurbano a 50 m"
       },
       "normas": {
@@ -101,7 +101,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · restauración en las inmediaciones",
         "transportePublico": "Sí · Urbano"
       },
       "normas": {
@@ -172,7 +172,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · restauración",
         "transportePublico": "Sí · Interurbano a 50 m"
       },
       "normas": {
@@ -394,8 +394,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí, en temporada de verano",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · La Duna Beach Club",
+        "restaurantes": "Sí · chiringuito/restauración frente a la playa",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -475,8 +475,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí, en temporada de verano",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · La Parada Valcovo",
+        "restaurantes": "Sí · La Parada + restaurante/cámping a pie del arenal",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -556,8 +556,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Chiringuito Salseiras",
+        "restaurantes": "Sí · chiringuito/restauración en la zona de playa",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -698,8 +698,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí",
+        "restaurantes": "Sí · chiringuito/bar-restaurante inmediato",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -817,7 +817,7 @@
       "provincia": "A Coruña",
       "lat": 43.323452,
       "lon": -8.812065,
-      "descripcion": "Playa virgen de arena blanca a los pies de Monte Louro.",
+      "descripcion": "Playa urbana de arena fina situada junto al paseo marítimo de Malpica de Bergantiños, abierta al Atlántico y con vistas hacia las Illas Sisargas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -1043,8 +1043,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · chiringuito en Balarés",
+        "restaurantes": "Sí · chiringuito/restauración junto a la playa",
         "transportePublico": "Sí · Interurbano a 3,5 Km"
       },
       "normas": {
@@ -1790,7 +1790,7 @@
         "aseos": "No",
         "socorrista": "No",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · varios restaurantes en Praia do Lago / Merexo",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -2120,7 +2120,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Restaurante Praia de Quenxe",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -2186,7 +2186,7 @@
         "aseos": "No",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · restaurantes junto a la playa",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -3187,12 +3187,12 @@
       "provincia": "Lugo",
       "lat": 43.730244,
       "lon": -7.689523,
-      "descripcion": "Situada en el estrecho de Rande cerca del núcleo urbano de Chapela.",
+      "descripcion": "Playa grande y abrigada, próxima a O Vicedo, con arena blanca y fina y paseo hacia el río Sor.",
       "fotoPrincipal": null,
       "caracteristicas": {
-        "tipo": null,
-        "composicion": "Arena",
-        "longitud": "180 metros",
+        "tipo": "Playa resguardada",
+        "composicion": "Arena fina",
+        "longitud": "1.300 m",
         "anchura": "35 metros",
         "entorno": "Urbana",
         "forma": null,
@@ -3206,7 +3206,7 @@
         "aseos": "Sí",
         "socorrista": "Sí",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · bares/restaurantes a un corto paseo",
         "transportePublico": "Sí · Urbano"
       },
       "normas": {
@@ -3337,8 +3337,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · chiringuito en la playa de Abrela",
+        "restaurantes": "Sí · chiringuito/restauración",
         "transportePublico": "Sí · Interurbano, Vivero - Vicedo a 3 Km"
       },
       "normas": {
@@ -7044,8 +7044,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí",
+        "restaurantes": "Sí · oferta hostelera junto al arenal",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -8420,11 +8420,11 @@
         "accesoVehiculos": "A pie fácil"
       },
       "marea": {
-        "dependencia": null,
-        "superficiePleamar": null,
-        "accesoCondicionado": null,
+        "dependencia": "Muy alta · con marea alta la playa puede quedar sin superficie útil de arena",
+        "superficiePleamar": "Prácticamente nula · puede quedar sin arena seca",
+        "accesoCondicionado": "Sí · la utilidad de la playa está fuertemente condicionada por la marea",
         "riesgoAislamiento": null,
-        "recomendacion": null
+        "recomendacion": "Ir preferentemente con marea baja o media; evitar planificar la visita cerca de pleamar"
       },
       "bano": {
         "entradaAgua": null,
@@ -8545,8 +8545,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí",
+        "restaurantes": "Sí · oferta hostelera/chiringuito",
         "transportePublico": "Sí · Urbano"
       },
       "normas": {
@@ -10583,8 +10583,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Castaño Playas (Playa Canelas)",
+        "restaurantes": "Sí · restauración a pie de playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - O Grove a 0,3 Km)"
       },
       "normas": {
