@@ -214,7 +214,7 @@ const playas = [
     "destinoMaps": "Praia de Barrañán, Arteixo, Galicia"
   },
   {
-    "nombre": "Praia de Valcovo (Area Grande)",
+    "nombre": "Praia de Valcovo",
     "municipio": "Arteixo",
     "provincia": "A Coruña",
     "lat": 43.31553,
@@ -223,7 +223,7 @@ const playas = [
     "anguloAproximado": 350,
     "nivelAbrigo": "moderado",
     "zonaMeteorologica": "arteixo",
-    "destinoMaps": "Praia de Valcovo (Area Grande), Arteixo, Galicia"
+    "destinoMaps": "Praia de Valcovo, Arteixo, Galicia"
   },
   {
     "nombre": "Praia de Salseiras (Caión)",
@@ -2812,18 +2812,13 @@ function crearEnlaceGoogleMaps(playa) {
     (playa.slugFicha && item.slugFicha === playa.slugFicha)
     || (item.nombre === playa.nombre && item.lat === playa.lat && item.lon === playa.lon)
   );
+
   const parametros = new URLSearchParams({
     api: "1",
-    destination: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`,
-    travelmode: "driving",
-    dir_action: "navigate"
+    query: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`
   });
 
-  if (ubicacionUsuario) {
-    parametros.set("origin", `${ubicacionUsuario.lat},${ubicacionUsuario.lon}`);
-  }
-
-  return `https://www.google.com/maps/dir/?${parametros.toString()}`;
+  return `https://www.google.com/maps/search/?${parametros.toString()}`;
 }
 
 function crearEnlaceFicha(slug) {
