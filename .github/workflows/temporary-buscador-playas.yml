@@ -1,0 +1,219 @@
+name: Temporary beach search patch
+
+on:
+  push:
+    branches:
+      - buscador-playas
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: buscador-playas
+          fetch-depth: 0
+
+      - name: Patch search UI and behavior
+        shell: python
+        run: |
+          from pathlib import Path
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected 1 match, found {count}")
+              return text.replace(old, new, 1)
+
+          # index.html
+          index_path = Path("index.html")
+          index = index_path.read_bytes().decode("utf-8")
+          nl = "\r\n" if "\r\n" in index else "\n"
+
+          anchor = nl.join([
+              '            <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>',
+              '',
+              '            <div class="grupo-filtro">',
+              '                <label for="codigoPostal">Código postal</label>',
+          ])
+          insert = nl.join([
+              '            <div class="grupo-filtro grupo-buscador-playa">',
+              '                <label for="buscadorPlaya">Buscar playa</label>',
+              '                <div class="buscador-playa-control">',
+              '                    <input id="buscadorPlaya" type="search" autocomplete="off" placeholder="Ej. Riazor, Canelas, Valcovo..." oninput="buscarPlaya()">',
+              '                    <button class="btn-limpiar-busqueda" type="button" onclick="limpiarBusquedaPlaya()" aria-label="Limpiar búsqueda">×</button>',
+              '                </div>',
+              '                <small>Busca por nombre de playa o municipio</small>',
+              '            </div>',
+              '',
+              '            <button class="btn-ubicacion" type="button" onclick="obtenerUbicacionGPS()">📍 Mi ubicación</button>',
+              '',
+              '            <div class="grupo-filtro">',
+              '                <label for="codigoPostal">Código postal</label>',
+          ])
+          index = replace_once(index, anchor, insert, "index search block")
+          index = replace_once(index, 'styles.css?v=3.7', 'styles.css?v=3.8', "styles version")
+          index = replace_once(index, 'data/indice-fichas.js?v=2', 'data/indice-fichas.js?v=3', "indice version")
+          index = replace_once(index, 'app.js?v=4.3', 'app.js?v=4.5', "app version")
+          index_path.write_bytes(index.encode("utf-8"))
+
+          # app.js
+          app_path = Path("app.js")
+          app = app_path.read_bytes().decode("utf-8")
+          nl = "\r\n" if "\r\n" in app else "\n"
+
+          app = replace_once(
+              app,
+              'let distanciaMaxima = null;' + nl,
+              'let distanciaMaxima = null;' + nl + 'let textoBusquedaPlaya = "";' + nl + 'let temporizadorBusquedaPlaya = null;' + nl,
+              "search state"
+          )
+
+          app = replace_once(
+              app,
+              'document.querySelectorAll(".filtros button, .filtros input, .filtros select").forEach(control => {',
+              'document.querySelectorAll(".filtros button, .filtros input:not(#buscadorPlaya), .filtros select").forEach(control => {',
+              "keep search enabled"
+          )
+
+          anchor = nl.join([
+              'function crearEnlaceFicha(slug) {',
+              '  const ruta = `playas/${slug}/index.html`;',
+              '  if (typeof window === "undefined" || window.location?.hostname !== "htmlpreview.github.io") return ruta;',
+              '  const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];',
+              '  if (!fuente.includes("github.com/") || !fuente.endsWith("/index.html")) return ruta;',
+              '  const raizFuente = fuente.slice(0, fuente.lastIndexOf("/") + 1);',
+              '  return `${window.location.origin}${window.location.pathname}?${raizFuente}${ruta}`;',
+              '}',
+              '',
+              'async function cargarRankingInterno() {',
+          ])
+          replacement = nl.join([
+              'function crearEnlaceFicha(slug) {',
+              '  const ruta = `playas/${slug}/index.html`;',
+              '  if (typeof window === "undefined" || window.location?.hostname !== "htmlpreview.github.io") return ruta;',
+              '  const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];',
+              '  if (!fuente.includes("github.com/") || !fuente.endsWith("/index.html")) return ruta;',
+              '  const raizFuente = fuente.slice(0, fuente.lastIndexOf("/") + 1);',
+              '  return `${window.location.origin}${window.location.pathname}?${raizFuente}${ruta}`;',
+              '}',
+              '',
+              'function normalizarBusquedaPlaya(valor = "") {',
+              '  return valor',
+              '    .normalize("NFD")',
+              '    .replace(/[\\u0300-\\u036f]/g, "")',
+              '    .toLowerCase()',
+              '    .trim();',
+              '}',
+              '',
+              'function buscarPlaya() {',
+              '  const campo = document.getElementById("buscadorPlaya");',
+              '  textoBusquedaPlaya = normalizarBusquedaPlaya(campo?.value || "");',
+              '  clearTimeout(temporizadorBusquedaPlaya);',
+              '  temporizadorBusquedaPlaya = setTimeout(() => cargarRanking(), 180);',
+              '}',
+              '',
+              'function limpiarBusquedaPlaya() {',
+              '  const campo = document.getElementById("buscadorPlaya");',
+              '  if (campo) campo.value = "";',
+              '  textoBusquedaPlaya = "";',
+              '  clearTimeout(temporizadorBusquedaPlaya);',
+              '  cargarRanking();',
+              '  campo?.focus();',
+              '}',
+              '',
+              'async function cargarRankingInterno() {',
+          ])
+          app = replace_once(app, anchor, replacement, "search functions")
+
+          anchor = nl.join([
+              '}',
+              '  ',
+              '  ordenarResultados(resultados);',
+          ])
+          replacement = nl.join([
+              '}',
+              '',
+              '  if (textoBusquedaPlaya) {',
+              '    resultados = resultados.filter(playa => {',
+              '      const textoPlaya = normalizarBusquedaPlaya(`${playa.nombre} ${playa.municipio || ""}`);',
+              '      return textoPlaya.includes(textoBusquedaPlaya);',
+              '    });',
+              '  }',
+              '  ',
+              '  ordenarResultados(resultados);',
+          ])
+          app = replace_once(app, anchor, replacement, "result filter")
+          app_path.write_bytes(app.encode("utf-8"))
+
+          # styles.css
+          css_path = Path("styles.css")
+          css = css_path.read_bytes().decode("utf-8")
+          nl = "\r\n" if "\r\n" in css else "\n"
+          css_add = nl.join([
+              '',
+              '/* Buscador de playas */',
+              '.grupo-buscador-playa {',
+              '    min-width: min(100%, 300px);',
+              '}',
+              '',
+              '.buscador-playa-control {',
+              '    display: flex;',
+              '    align-items: center;',
+              '    gap: 8px;',
+              '}',
+              '',
+              '.buscador-playa-control input {',
+              '    width: min(320px, 72vw);',
+              '}',
+              '',
+              '.btn-limpiar-busqueda {',
+              '    width: 42px;',
+              '    height: 42px;',
+              '    border: 1px solid #cfd8dc;',
+              '    border-radius: 10px;',
+              '    background: rgba(255, 255, 255, .92);',
+              '    color: #0b7285;',
+              '    cursor: pointer;',
+              '    font-size: 1.35rem;',
+              '    line-height: 1;',
+              '}',
+              '',
+              '.btn-limpiar-busqueda:hover,',
+              '.btn-limpiar-busqueda:focus-visible {',
+              '    background: #0b7285;',
+              '    color: white;',
+              '}',
+              '',
+              '.grupo-buscador-playa small {',
+              '    color: #607985;',
+              '    font-size: .78rem;',
+              '}',
+              '',
+              '@media (max-width: 600px) {',
+              '    .grupo-buscador-playa,',
+              '    .buscador-playa-control,',
+              '    .buscador-playa-control input {',
+              '        width: 100%;',
+              '        min-width: 0;',
+              '    }',
+              '',
+              '    .buscador-playa-control input {',
+              '        flex: 1 1 auto;',
+              '    }',
+              '}',
+          ])
+          css_path.write_bytes((css.rstrip("\r\n") + nl + css_add + nl).encode("utf-8"))
+
+      - name: Commit patch and remove temporary workflow
+        run: |
+          rm .github/workflows/temporary-buscador-playas.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html app.js styles.css .github/workflows/temporary-buscador-playas.yml
+          git diff --cached --check
+          git commit -m "Añade buscador de playas al ranking"
+          git push origin HEAD:buscador-playas
