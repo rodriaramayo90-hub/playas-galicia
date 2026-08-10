@@ -1,11 +1,12 @@
 name: Aplicar portada movil
 on:
-  push:
-    branches: [mejora-portada-movil-ranking]
+  pull_request:
+    branches: [main]
 permissions:
   contents: write
 jobs:
   patch:
+    if: github.head_ref == 'mejora-portada-movil-ranking'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +27,6 @@ jobs:
           new = '''        const rankingMobile = document.getElementById('ranking-mobile');
         const btnFiltrosMovil = document.getElementById('btnFiltrosMovil');
         const filtros = document.querySelector('.filtros');
-
         btnFiltrosMovil?.addEventListener('click', () => {
           const abierto = filtros.classList.toggle('filtros-movil-abiertos');
           btnFiltrosMovil.setAttribute('aria-expanded', String(abierto));
