@@ -161,13 +161,16 @@ async function iniciarFicha() {
   adaptarEnlacesAlPreview();
   const slug = document.body.dataset.playaSlug;
   try {
-    let playa = window.HoyTocaPlayaFicha;
-    if (!playa || playa.slug !== slug) {
-      const respuesta = await fetch(new URL("data/playas-detalle.json?v=3", URL_BASE_FICHA));
-      if (!respuesta.ok) throw new Error("No se pudieron cargar los datos estáticos.");
-      const catalogo = await respuesta.json();
-      playa = catalogo.playas.find(item => item.slug === slug);
-    }
+    const respuesta = await fetch(
+  new URL("data/playas-detalle.json?v=4", URL_BASE_FICHA)
+);
+
+if (!respuesta.ok) {
+  throw new Error("No se pudieron cargar los datos estáticos.");
+}
+
+const catalogo = await respuesta.json();
+const playa = catalogo.playas.find(item => item.slug === slug);
     if (!playa) throw new Error("La ficha solicitada no existe.");
     renderizarDatosEstaticos(playa);
 
