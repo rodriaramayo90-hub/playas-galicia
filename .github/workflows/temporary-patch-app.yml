@@ -1,0 +1,74 @@
+name: Temporary patch app
+
+on:
+  push:
+    branches:
+      - ajuste-ranking-valcovo-maps
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ajuste-ranking-valcovo-maps
+          fetch-depth: 0
+      - name: Patch app.js preserving existing line endings
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path = Path("app.js")
+          text = path.read_bytes().decode("utf-8")
+
+          old_name = '"nombre": "Praia de Valcovo (Area Grande)",'
+          new_name = '"nombre": "Praia de Valcovo",'
+          old_dest = '"destinoMaps": "Praia de Valcovo (Area Grande), Arteixo, Galicia"'
+          new_dest = '"destinoMaps": "Praia de Valcovo, Arteixo, Galicia"'
+
+          if text.count(old_name) != 1:
+              raise SystemExit(f"Expected 1 old Valcovo name, found {text.count(old_name)}")
+          if text.count(old_dest) != 1:
+              raise SystemExit(f"Expected 1 old Valcovo destinoMaps, found {text.count(old_dest)}")
+
+          text = text.replace(old_name, new_name, 1)
+          text = text.replace(old_dest, new_dest, 1)
+
+          pattern = re.compile(r'function crearEnlaceGoogleMaps\(playa\) \{.*?^\}', re.M | re.S)
+          matches = list(pattern.finditer(text))
+          if len(matches) != 1:
+              raise SystemExit(f"Expected 1 crearEnlaceGoogleMaps function, found {len(matches)}")
+
+          old_block = matches[0].group(0)
+          nl = "\r\n" if "\r\n" in old_block else "\n"
+          new_block = nl.join([
+              'function crearEnlaceGoogleMaps(playa) {',
+              '  const configuracion = playas.find(item =>',
+              '    (playa.slugFicha && item.slugFicha === playa.slugFicha)',
+              '    || (item.nombre === playa.nombre && item.lat === playa.lat && item.lon === playa.lon)',
+              '  );',
+              '',
+              '  const parametros = new URLSearchParams({',
+              '    api: "1",',
+              '    query: configuracion?.destinoMaps || playa.destinoMaps || `${playa.lat},${playa.lon}`',
+              '  });',
+              '',
+              '  return `https://www.google.com/maps/search/?${parametros.toString()}`;',
+              '}',
+          ])
+          text = text[:matches[0].start()] + new_block + text[matches[0].end():]
+          path.write_bytes(text.encode("utf-8"))
+
+      - name: Commit patch and remove temporary workflow
+        run: |
+          rm .github/workflows/temporary-patch-app.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.js .github/workflows/temporary-patch-app.yml
+          git diff --cached --check
+          git commit -m "Ajusta Valcovo y enlaces de Google Maps"
+          git push origin HEAD:ajuste-ranking-valcovo-maps
