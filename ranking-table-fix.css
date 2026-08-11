@@ -1,5 +1,5 @@
 /* Desktop ranking polish: keep the standard ranking fully visible without horizontal scrolling,
-   while making rows feel lighter and more card-like. Mobile remains unchanged. */
+   while making rows feel lighter and clearly card-like. Mobile remains unchanged. */
 @media (min-width: 769px) {
   .contenedor {
     max-width: 1500px;
@@ -8,14 +8,15 @@
 
   .tabla-scroll {
     overflow-x: hidden;
-    padding: 0 2px 8px;
+    padding: 0 4px 8px;
   }
 
   .tabla-scroll table {
     width: 100%;
     min-width: 0;
     table-layout: fixed;
-    border-spacing: 0 10px;
+    border-collapse: separate;
+    border-spacing: 0 12px;
   }
 
   .tabla-scroll thead th {
@@ -29,6 +30,8 @@
     line-height: 1.28;
     background: rgba(255,255,255,.94);
     vertical-align: middle;
+    border-top: 1px solid rgba(20,86,105,.09);
+    border-bottom: 1px solid rgba(20,86,105,.09);
   }
 
   /* Give the visible default columns sensible proportions so Explicación never sits off-screen. */
@@ -62,29 +65,27 @@
     line-height: 1.3;
   }
 
-  /* Softer rows: rounded card edges, subtle border and shadow instead of large white rectangles. */
+  /* Visibly rounded card ends. */
   .tabla-scroll tbody tr {
-    box-shadow: 0 5px 16px rgba(18,73,91,.08);
-  }
-
-  .tabla-scroll tbody td {
-    border-top: 1px solid rgba(20,86,105,.08);
-    border-bottom: 1px solid rgba(20,86,105,.08);
+    filter: drop-shadow(0 5px 12px rgba(18,73,91,.08));
+    transition: transform .18s ease, filter .18s ease;
   }
 
   .tabla-scroll tbody td:first-child {
-    border-left: 1px solid rgba(20,86,105,.08);
-    border-radius: 16px 0 0 16px;
+    border-left: 1px solid rgba(20,86,105,.09);
+    border-radius: 24px 0 0 24px;
+    padding-left: 14px;
   }
 
   .tabla-scroll tbody td:last-child {
-    border-right: 1px solid rgba(20,86,105,.08);
-    border-radius: 0 16px 16px 0;
+    border-right: 1px solid rgba(20,86,105,.09);
+    border-radius: 0 24px 24px 0;
+    padding-right: 14px;
   }
 
   .tabla-scroll tbody tr:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 9px 22px rgba(18,73,91,.12);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 8px 16px rgba(18,73,91,.13));
   }
 
   .tabla-scroll .enlace-maps {
