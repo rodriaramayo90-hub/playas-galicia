@@ -79,28 +79,14 @@ function obtenerDestinoMaps(playa) {
 }
 
 function crearUrlMaps(playa) {
-  const parametros = new URLSearchParams({
-    api: "1",
-    query: obtenerDestinoMaps(playa)
-  });
-
-  if (playa.googlePlaceId) {
-    parametros.set("query_place_id", playa.googlePlaceId);
-  }
-
+  const parametros = new URLSearchParams({ api: "1", query: obtenerDestinoMaps(playa) });
+  if (playa.googlePlaceId) parametros.set("query_place_id", playa.googlePlaceId);
   return `https://www.google.com/maps/search/?${parametros.toString()}`;
 }
 
 function crearUrlComoLlegar(playa) {
-  const parametros = new URLSearchParams({
-    api: "1",
-    destination: obtenerDestinoMaps(playa)
-  });
-
-  if (playa.googlePlaceId) {
-    parametros.set("destination_place_id", playa.googlePlaceId);
-  }
-
+  const parametros = new URLSearchParams({ api: "1", destination: obtenerDestinoMaps(playa) });
+  if (playa.googlePlaceId) parametros.set("destination_place_id", playa.googlePlaceId);
   return `https://www.google.com/maps/dir/?${parametros.toString()}`;
 }
 
@@ -125,8 +111,35 @@ function configurarMapa(playa) {
   document.getElementById("abrirMapa").href = crearUrlMaps(playa);
 }
 
+async function cargarDescripcionesAprobadas() {
+  const archivos = [1, 2, 3, 4, 5].map(numero =>
+    fetch(new URL(`data/descripciones-seo-${numero}.json?v=1`, URL_BASE_FICHA))
+      .then(respuesta => {
+        if (!respuesta.ok) throw new Error(`No se pudo cargar descripciones-seo-${numero}.json`);
+        return respuesta.json();
+      })
+  );
+  const bloques = await Promise.all(archivos);
+  const mapa = new Map();
+  bloques.forEach(bloque => {
+    (bloque.d || []).forEach(([nombre, municipio, texto]) => {
+      mapa.set(`${nombre}||${municipio}`, texto);
+    });
+  });
+  return mapa;
+}
+
+function aplicarDescripcionAprobada(playa, descripciones) {
+  const clave = `${playa.nombreCatalogo || playa.nombre}||${playa.municipio}`;
+  const texto = descripciones.get(clave);
+  if (texto) playa.descripcion = texto;
+}
+
 function renderizarDatosEstaticos(playa) {
+  const tituloResumen = document.querySelector("#resumen h2");
+  if (tituloResumen) tituloResumen.textContent = `¿Cómo es ${playa.nombre}?`;
   document.getElementById("descripcionPlaya").textContent = valorVisible(playa.descripcion);
+
   renderizarLista("listaCaracteristicas", playa.caracteristicas, etiquetas.caracteristicas);
   renderizarLista("listaServicios", playa.servicios, etiquetas.servicios);
   renderizarLista("listaNormas", playa.normas, etiquetas.normas);
@@ -180,28 +193,34 @@ function renderizarCondiciones(condiciones) {
   document.getElementById("aguaPlaya").textContent = Number.isFinite(condiciones.agua)
     ? `${condiciones.agua.toFixed(1)} °C`
     : NO_DISPONIBLE;
-  document.getElementById("actualizacionCondiciones").textContent = `Consultado: ${new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })}`;
+  document.getElementById("actualizacionCondiciones").textContent =
+    `Consultado: ${new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })}`;
 }
 
 async function iniciarFicha() {
   adaptarEnlacesAlPreview();
   const slug = document.body.dataset.playaSlug;
   try {
-    const respuesta = await fetch(
-  new URL("data/playas-detalle.json?v=4", URL_BASE_FICHA)
-);
+    const [respuesta, descripciones] = await Promise.all([
+      fetch(new URL("data/playas-detalle.json?v=4", URL_BASE_FICHA)),
+      cargarDescripcionesAprobadas()
+    ]);
 
-if (!respuesta.ok) {
-  throw new Error("No se pudieron cargar los datos estáticos.");
-}
+    if (!respuesta.ok) throw new Error("No se pudieron cargar los datos estáticos.");
 
-const catalogo = await respuesta.json();
-const playa = catalogo.playas.find(item => item.slug === slug);
+    const catalogo = await respuesta.json();
+    const playa = catalogo.playas.find(item => item.slug === slug);
     if (!playa) throw new Error("La ficha solicitada no existe.");
+
+    aplicarDescripcionAprobada(playa, descripciones);
     renderizarDatosEstaticos(playa);
 
-    if (!window.HoyTocaPlaya?.obtenerCondicionesPlaya) throw new Error("El módulo meteorológico no está disponible.");
-    const condiciones = await window.HoyTocaPlaya.obtenerCondicionesPlaya(playa.nombreCatalogo, 0, 7, 22, playa.municipio);
+    if (!window.HoyTocaPlaya?.obtenerCondicionesPlaya) {
+      throw new Error("El módulo meteorológico no está disponible.");
+    }
+    const condiciones = await window.HoyTocaPlaya.obtenerCondicionesPlaya(
+      playa.nombreCatalogo, 0, 7, 22, playa.municipio
+    );
     renderizarCondiciones(condiciones);
   } catch (error) {
     console.error(error);
