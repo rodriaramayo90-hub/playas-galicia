@@ -28,6 +28,11 @@ const etiquetas = {
   }
 };
 
+const ALIASES_GOOGLE_MAPS = {
+  "playa-de-sada": "Praia de Sada, Sada, A Coruña, Galicia",
+  "praia-de-compostela": "Compostela, Vilagarcía de Arousa, Pontevedra, Galicia"
+};
+
 function valorVisible(valor) {
   if (valor === null || valor === undefined || valor === "") return NO_DISPONIBLE;
   if (valor === true) return "Sí";
@@ -68,7 +73,9 @@ function renderizarFuentes(fuentes = []) {
 }
 
 function obtenerDestinoMaps(playa) {
-  return playa.destinoMaps || `${playa.nombre}, ${playa.municipio}, Galicia`;
+  return playa.destinoMaps
+    || ALIASES_GOOGLE_MAPS[playa.slug]
+    || `${playa.nombre}, ${playa.municipio}, ${playa.provincia || "Galicia"}, Galicia`;
 }
 
 function crearUrlMaps(playa) {
@@ -76,6 +83,10 @@ function crearUrlMaps(playa) {
     api: "1",
     query: obtenerDestinoMaps(playa)
   });
+
+  if (playa.googlePlaceId) {
+    parametros.set("query_place_id", playa.googlePlaceId);
+  }
 
   return `https://www.google.com/maps/search/?${parametros.toString()}`;
 }
@@ -85,6 +96,10 @@ function crearUrlComoLlegar(playa) {
     api: "1",
     destination: obtenerDestinoMaps(playa)
   });
+
+  if (playa.googlePlaceId) {
+    parametros.set("destination_place_id", playa.googlePlaceId);
+  }
 
   return `https://www.google.com/maps/dir/?${parametros.toString()}`;
 }
