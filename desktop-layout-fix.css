@@ -1,8 +1,8 @@
 /* Compact, aligned layout for the ranking controls.
-   Four-column desktop layout is kept at normal desktop zoom levels (including 120–125%)
+   Four-column desktop layout is kept through common desktop zoom levels
    and only collapses when the effective viewport is genuinely narrow. */
 
-@media (min-width: 1080px) {
+@media (min-width: 900px) {
   main { width:100%; }
 
   .filtros {
@@ -16,26 +16,26 @@
       "dia dia dia dia"
       "horario ubicacion postal buscador"
       "distancia vista vista .";
-    column-gap:14px;
-    row-gap:9px;
-    width:min(calc(100% - 28px),1120px);
-    margin:0 auto 12px;
-    padding:10px 14px 12px;
+    column-gap:12px;
+    row-gap:8px;
+    width:min(calc(100% - 24px),1100px);
+    margin:0 auto 10px;
+    padding:9px 12px 10px;
     box-sizing:border-box;
     align-items:end;
   }
 
   .filtros > .selector-dia { grid-area:dia; margin-bottom:0; }
   .filtros > .grupo-horario { grid-area:horario; }
-  .filtros > .btn-ubicacion { grid-area:ubicacion; margin-bottom:15px; }
-  .filtros > .grupo-filtro:has(#codigoPostal) { grid-area:postal; padding-bottom:15px; }
+  .filtros > .btn-ubicacion { grid-area:ubicacion; margin-bottom:14px; }
+  .filtros > .grupo-filtro:has(#codigoPostal) { grid-area:postal; padding-bottom:14px; }
   .filtros > .grupo-buscador-playa { grid-area:buscador; }
   .filtros > .grupo-filtro:has(#distanciaMaxima) { grid-area:distancia; }
   .filtros > .grupo-filtro:has(#btnVista) { grid-area:vista; }
 }
 
 /* Only genuinely narrow laptop/tablet widths collapse to two columns. */
-@media (min-width:769px) and (max-width:1079px) {
+@media (min-width:769px) and (max-width:899px) {
   main { width:100%; }
 
   .filtros {
@@ -75,8 +75,8 @@
 
   .filtros .etiqueta-grupo,
   .filtros .grupo-filtro > label {
-    font-size:.86rem;
-    line-height:1.15;
+    font-size:.84rem;
+    line-height:1.12;
   }
 
   .filtros .selector-horario {
@@ -89,17 +89,17 @@
 
   .filtros .selector-horario label {
     margin:0;
-    font-size:.74rem;
+    font-size:.72rem;
     white-space:nowrap;
   }
 
   .filtros .selector-horario select {
     width:100%;
     min-width:0;
-    height:36px;
-    padding:6px 6px;
+    height:35px;
+    padding:5px 6px;
     box-sizing:border-box;
-    font-size:.88rem;
+    font-size:.86rem;
   }
 
   .filtros .grupo-horario small,
@@ -107,18 +107,18 @@
     position:static;
     margin:0;
     white-space:normal;
-    font-size:.69rem;
-    line-height:1.15;
+    font-size:.67rem;
+    line-height:1.12;
   }
 
   .filtros > .btn-ubicacion {
     width:100%;
     min-width:0;
-    min-height:36px;
-    padding:7px 9px;
+    min-height:35px;
+    padding:6px 8px;
     box-sizing:border-box;
     align-self:end;
-    font-size:.84rem;
+    font-size:.82rem;
   }
 
   .filtros .grupo-buscador-playa,
@@ -132,7 +132,7 @@
 
   .filtros .buscador-playa-control {
     display:grid;
-    grid-template-columns:minmax(0,1fr) 36px;
+    grid-template-columns:minmax(0,1fr) 35px;
     gap:5px;
   }
 
@@ -141,16 +141,16 @@
   .filtros .input-con-boton > input {
     width:100%;
     min-width:0;
-    height:36px;
-    padding:6px 9px;
+    height:35px;
+    padding:5px 8px;
     box-sizing:border-box;
-    font-size:.88rem;
+    font-size:.86rem;
   }
 
   .filtros .btn-limpiar-busqueda {
-    width:36px;
-    height:36px;
-    font-size:1.15rem;
+    width:35px;
+    height:35px;
+    font-size:1.1rem;
   }
 
   .filtros > .grupo-filtro:has(#distanciaMaxima) .input-con-boton {
@@ -161,11 +161,11 @@
 
   .filtros .btn-buscar,
   .filtros .btn-vista {
-    min-height:36px;
-    padding:6px 10px;
+    min-height:35px;
+    padding:5px 9px;
     box-sizing:border-box;
     white-space:nowrap;
-    font-size:.82rem;
+    font-size:.8rem;
   }
 
   .filtros > .grupo-filtro:has(#btnVista) .input-con-boton {
@@ -182,7 +182,7 @@
 
   .selector-dia { gap:5px; }
   .btn-dia {
-    padding:6px 18px;
-    font-size:.84rem;
+    padding:5px 16px;
+    font-size:.82rem;
   }
 }
