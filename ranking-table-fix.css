@@ -1,0 +1,118 @@
+/* Desktop ranking polish: keep the standard ranking fully visible without horizontal scrolling,
+   while making rows feel lighter and more card-like. Mobile remains unchanged. */
+@media (min-width: 769px) {
+  .contenedor {
+    max-width: 1500px;
+    width: 100%;
+  }
+
+  .tabla-scroll {
+    overflow-x: hidden;
+    padding: 0 2px 8px;
+  }
+
+  .tabla-scroll table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    border-spacing: 0 10px;
+  }
+
+  .tabla-scroll thead th {
+    padding: 12px 8px;
+    font-size: .86rem;
+  }
+
+  .tabla-scroll tbody td {
+    padding: 13px 9px;
+    font-size: .88rem;
+    line-height: 1.28;
+    background: rgba(255,255,255,.94);
+    vertical-align: middle;
+  }
+
+  /* Give the visible default columns sensible proportions so Explicación never sits off-screen. */
+  .tabla-scroll th:nth-child(1),
+  .tabla-scroll td:nth-child(1) { width: 4%; }
+
+  .tabla-scroll th:nth-child(2),
+  .tabla-scroll td:nth-child(2) { width: 20%; }
+
+  .tabla-scroll th:nth-child(3),
+  .tabla-scroll td:nth-child(3) { width: 10%; }
+
+  .tabla-scroll th:nth-child(4),
+  .tabla-scroll td:nth-child(4) { width: 13%; }
+
+  .tabla-scroll th:nth-child(6),
+  .tabla-scroll td:nth-child(6) { width: 11%; }
+
+  .tabla-scroll th:nth-child(11),
+  .tabla-scroll td:nth-child(11) { width: 15%; }
+
+  .tabla-scroll th:nth-child(13),
+  .tabla-scroll td:nth-child(13) {
+    width: 27%;
+    min-width: 0;
+    max-width: none;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    font-size: .84rem;
+    line-height: 1.3;
+  }
+
+  /* Softer rows: rounded card edges, subtle border and shadow instead of large white rectangles. */
+  .tabla-scroll tbody tr {
+    box-shadow: 0 5px 16px rgba(18,73,91,.08);
+  }
+
+  .tabla-scroll tbody td {
+    border-top: 1px solid rgba(20,86,105,.08);
+    border-bottom: 1px solid rgba(20,86,105,.08);
+  }
+
+  .tabla-scroll tbody td:first-child {
+    border-left: 1px solid rgba(20,86,105,.08);
+    border-radius: 16px 0 0 16px;
+  }
+
+  .tabla-scroll tbody td:last-child {
+    border-right: 1px solid rgba(20,86,105,.08);
+    border-radius: 0 16px 16px 0;
+  }
+
+  .tabla-scroll tbody tr:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 9px 22px rgba(18,73,91,.12);
+  }
+
+  .tabla-scroll .enlace-maps {
+    font-size: .68rem;
+    padding: 4px 8px;
+    min-height: 26px;
+  }
+}
+
+/* If details are expanded, allow horizontal scrolling again because all 13 columns cannot remain readable at once. */
+@media (min-width: 769px) {
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll {
+    overflow-x: auto;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll th,
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll td {
+    width: auto;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll th:nth-child(13),
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll td:nth-child(13) {
+    width: 300px;
+    min-width: 300px;
+  }
+}
