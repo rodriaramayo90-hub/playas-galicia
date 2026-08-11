@@ -9,13 +9,13 @@
   .filtros {
     display: grid;
     grid-template-columns:
-      minmax(300px, 1.1fr)
-      minmax(310px, 1.15fr)
-      minmax(170px, .62fr)
-      minmax(190px, .68fr);
+      minmax(300px, 1.08fr)
+      minmax(185px, .68fr)
+      minmax(185px, .68fr)
+      minmax(330px, 1.2fr);
     grid-template-areas:
       "dia dia dia dia"
-      "horario buscador ubicacion postal"
+      "horario ubicacion postal buscador"
       "distancia vista vista .";
     column-gap: 18px;
     row-gap: 14px;
@@ -35,14 +35,11 @@
     grid-area: horario;
   }
 
-  .filtros > .grupo-buscador-playa {
-    grid-area: buscador;
-  }
-
   .filtros > .btn-ubicacion {
     grid-area: ubicacion;
     width: 100%;
     min-height: 40px;
+    margin-bottom: 18px;
     padding: 9px 12px;
     box-sizing: border-box;
     align-self: end;
@@ -50,6 +47,11 @@
 
   .filtros > .grupo-filtro:has(#codigoPostal) {
     grid-area: postal;
+    padding-bottom: 18px;
+  }
+
+  .filtros > .grupo-buscador-playa {
+    grid-area: buscador;
   }
 
   .filtros > .grupo-filtro:has(#distanciaMaxima) {
@@ -74,7 +76,7 @@
     line-height: 1.2;
   }
 
-  /* Horario: etiquetas y selectores perfectamente alineados en una sola línea. */
+  /* Horario: etiquetas y selectores en una sola línea y con la misma altura. */
   .filtros .selector-horario {
     display: grid;
     grid-template-columns: auto minmax(82px, 1fr) auto minmax(82px, 1fr);
@@ -169,15 +171,15 @@
   }
 }
 
-/* Laptop / narrow desktop: use two columns, still aligned and compact. */
+/* Laptop / narrow desktop: same logical order, split into two columns. */
 @media (min-width: 769px) and (max-width: 999px) {
   .filtros {
     display: grid;
     grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
     grid-template-areas:
       "dia dia"
-      "horario buscador"
-      "ubicacion postal"
+      "horario ubicacion"
+      "postal buscador"
       "distancia vista";
     gap: 14px 16px;
     width: min(calc(100% - 20px), 760px);
@@ -189,9 +191,9 @@
 
   .filtros > .selector-dia { grid-area: dia; }
   .filtros > .grupo-horario { grid-area: horario; }
-  .filtros > .grupo-buscador-playa { grid-area: buscador; }
   .filtros > .btn-ubicacion { grid-area: ubicacion; width: 100%; }
   .filtros > .grupo-filtro:has(#codigoPostal) { grid-area: postal; }
+  .filtros > .grupo-buscador-playa { grid-area: buscador; }
   .filtros > .grupo-filtro:has(#distanciaMaxima) { grid-area: distancia; }
   .filtros > .grupo-filtro:has(#btnVista) { grid-area: vista; }
 }
