@@ -288,10 +288,26 @@
     background:transparent !important;
   }
 
+  /* Secondary action: visually subordinate to the beach name. */
   .tabla-scroll .enlace-maps {
-    font-size:.68rem;
-    padding:4px 8px;
-    min-height:26px;
+    min-height:0;
+    margin-top:3px;
+    padding:2px 6px;
+    border-color:rgba(11,114,133,.22);
+    background:rgba(237,247,248,.55);
+    box-shadow:none;
+    color:#46707c;
+    font-size:.56rem;
+    font-weight:600;
+    line-height:1.15;
+    opacity:.82;
+  }
+
+  .tabla-scroll .enlace-maps:hover,
+  .tabla-scroll .enlace-maps:focus-visible {
+    opacity:1;
+    color:#0b7285;
+    background:#edf7f8;
   }
 
   /* Desktop card view: keep the same content but make cards much denser and narrower. */
