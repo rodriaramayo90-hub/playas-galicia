@@ -34,7 +34,6 @@
   .filtros > .grupo-filtro:has(#btnVista) { grid-area:vista; }
 }
 
-/* Only genuinely narrow laptop/tablet widths collapse to two columns. */
 @media (min-width:769px) and (max-width:899px) {
   main { width:100%; }
 
@@ -63,7 +62,6 @@
   .filtros > .grupo-filtro:has(#btnVista) { grid-area:vista; }
 }
 
-/* Shared compact sizing for desktop/tablet. */
 @media (min-width:769px) {
   .filtros .grupo-filtro,
   .filtros .grupo-horario,
@@ -186,7 +184,9 @@
     font-size:.82rem;
   }
 
-  /* Ranking: standard view fits completely in the viewport without horizontal scrolling. */
+  /* ----- Desktop ranking, normal view -----
+     Use CSS grid for the visible seven columns. This intentionally stops relying
+     on table-row border-radius, which Firefox does not render reliably. */
   .contenedor {
     width:100%;
     max-width:1500px;
@@ -194,41 +194,76 @@
 
   .tabla-scroll {
     overflow-x:hidden;
-    padding:0 2px 8px;
+    padding:0 4px 10px;
+  }
+
+  .tabla-scroll table,
+  .tabla-scroll thead,
+  .tabla-scroll tbody {
+    display:block;
+    width:100%;
   }
 
   .tabla-scroll table {
-    width:100%;
     min-width:0;
-    table-layout:fixed;
-    border-spacing:0 10px;
+    border-collapse:separate;
+    border-spacing:0;
+  }
+
+  .tabla-scroll thead tr,
+  .tabla-scroll tbody tr {
+    display:grid;
+    grid-template-columns:4% 20% 10% 13% 11% 15% 27%;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  .tabla-scroll thead tr {
+    background:#0b7285;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 14px rgba(15,75,99,.14);
   }
 
   .tabla-scroll thead th {
+    width:auto !important;
+    min-width:0 !important;
     padding:12px 8px;
     font-size:.86rem;
+    border-radius:0 !important;
+    box-sizing:border-box;
+  }
+
+  .tabla-scroll tbody {
+    padding-top:10px;
+  }
+
+  .tabla-scroll tbody tr {
+    background:#fff !important;
+    border:1px solid rgba(20,86,105,.11);
+    border-radius:22px !important;
+    overflow:hidden;
+    margin-bottom:12px;
+    box-shadow:0 5px 16px rgba(18,73,91,.09) !important;
+    transition:transform .18s ease, box-shadow .18s ease;
   }
 
   .tabla-scroll tbody td {
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
     padding:13px 9px;
     font-size:.88rem;
     line-height:1.28;
-    background:rgba(255,255,255,.94);
+    background:transparent !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
     vertical-align:middle;
-    border-top:1px solid rgba(20,86,105,.08);
-    border-bottom:1px solid rgba(20,86,105,.08);
+    box-sizing:border-box;
   }
 
-  .tabla-scroll th:nth-child(1), .tabla-scroll td:nth-child(1) { width:4%; }
-  .tabla-scroll th:nth-child(2), .tabla-scroll td:nth-child(2) { width:20%; }
-  .tabla-scroll th:nth-child(3), .tabla-scroll td:nth-child(3) { width:10%; }
-  .tabla-scroll th:nth-child(4), .tabla-scroll td:nth-child(4) { width:13%; }
-  .tabla-scroll th:nth-child(6), .tabla-scroll td:nth-child(6) { width:11%; }
-  .tabla-scroll th:nth-child(11), .tabla-scroll td:nth-child(11) { width:15%; }
-  .tabla-scroll th:nth-child(13), .tabla-scroll td:nth-child(13) {
-    width:27%;
-    min-width:0;
-    max-width:none;
+  .tabla-scroll tbody td:nth-child(13) {
     white-space:normal;
     overflow-wrap:anywhere;
     word-break:normal;
@@ -236,23 +271,13 @@
     line-height:1.3;
   }
 
-  .tabla-scroll tbody tr {
-    box-shadow:0 5px 16px rgba(18,73,91,.08);
-  }
-
-  .tabla-scroll tbody td:first-child {
-    border-left:1px solid rgba(20,86,105,.08);
-    border-radius:16px 0 0 16px;
-  }
-
-  .tabla-scroll tbody td:last-child {
-    border-right:1px solid rgba(20,86,105,.08);
-    border-radius:0 16px 16px 0;
-  }
-
   .tabla-scroll tbody tr:hover {
-    transform:translateY(-1px);
-    box-shadow:0 9px 22px rgba(18,73,91,.12);
+    transform:translateY(-2px);
+    box-shadow:0 9px 22px rgba(18,73,91,.14) !important;
+  }
+
+  .tabla-scroll tbody tr:hover td {
+    background:transparent !important;
   }
 
   .tabla-scroll .enlace-maps {
@@ -261,24 +286,64 @@
     min-height:26px;
   }
 
-  /* Full-detail mode keeps horizontal scrolling, because 13 readable columns cannot fit cleanly. */
+  /* Full-detail mode: restore native table layout and horizontal scrolling. */
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll {
     overflow-x:auto;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll table {
+    display:table;
     width:max-content;
     min-width:100%;
+    border-collapse:separate;
+    border-spacing:0 10px;
+    table-layout:fixed;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll thead {
+    display:table-header-group;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody {
+    display:table-row-group;
+    padding-top:0;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll thead tr,
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody tr {
+    display:table-row;
+    background:transparent !important;
+    border:0;
+    border-radius:0 !important;
+    overflow:visible;
+    margin:0;
+    box-shadow:none !important;
+    transform:none;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll th,
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll td {
-    width:auto;
+    display:table-cell;
+    width:auto !important;
+    min-width:0;
+    background:#fff;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll thead th {
+    background:#0b7285;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody td:first-child {
+    border-radius:14px 0 0 14px !important;
+  }
+
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody td:last-child {
+    border-radius:0 14px 14px 0 !important;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll th:nth-child(13),
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll td:nth-child(13) {
-    width:300px;
-    min-width:300px;
+    width:300px !important;
+    min-width:300px !important;
   }
 }
