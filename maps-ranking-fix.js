@@ -23,4 +23,41 @@
   if (window.HoyTocaPlaya) {
     window.HoyTocaPlaya.crearEnlaceGoogleMaps = crearUrlComoLlegar;
   }
+
+  // En escritorio, al pulsar "Buscar" espera a que termine la actualización
+  // y lleva suavemente al usuario a la primera fila visible del ranking.
+  window.addEventListener("DOMContentLoaded", () => {
+    const botonBuscar = document.querySelector(".btn-buscar");
+    const estadoCarga = document.getElementById("estadoCarga");
+    if (!botonBuscar || !estadoCarga) return;
+
+    botonBuscar.addEventListener("click", () => {
+      if (!window.matchMedia("(min-width: 769px)").matches) return;
+
+      const observador = new MutationObserver(() => {
+        const tipo = estadoCarga.dataset.tipo;
+        if (tipo !== "exito" && tipo !== "error") return;
+
+        observador.disconnect();
+        if (tipo !== "exito") return;
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const primeraFila = Array.from(document.querySelectorAll("#ranking tr"))
+              .find(fila => !fila.hidden);
+            const destino = primeraFila || document.querySelector(".tabla-scroll");
+            destino?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+      });
+
+      observador.observe(estadoCarga, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["data-tipo"]
+      });
+    });
+  });
 })();
