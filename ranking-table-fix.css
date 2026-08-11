@@ -8,7 +8,7 @@
 
   .tabla-scroll {
     overflow-x: hidden;
-    padding: 0 4px 8px;
+    padding: 0 10px 10px;
   }
 
   .tabla-scroll table {
@@ -24,23 +24,23 @@
     font-size: .86rem;
   }
 
-  /* Important: the base stylesheet paints tbody tr white. That square background was
-     showing through behind the rounded cells and visually cancelling the rounded corners. */
+  /* Never paint the table row itself: the cells form the card. */
   .tabla-scroll tbody tr {
     background: transparent !important;
     box-shadow: none !important;
-    filter: drop-shadow(0 5px 12px rgba(18,73,91,.08));
-    transition: transform .18s ease, filter .18s ease;
+    filter: none !important;
+    transition: transform .18s ease;
   }
 
   .tabla-scroll tbody td {
     padding: 13px 9px;
     font-size: .88rem;
     line-height: 1.28;
-    background: rgba(255,255,255,.96);
+    background: #ffffff;
+    background-clip: padding-box;
     vertical-align: middle;
-    border-top: 1px solid rgba(20,86,105,.09);
-    border-bottom: 1px solid rgba(20,86,105,.09);
+    border-top: 1px solid rgba(20,86,105,.16);
+    border-bottom: 1px solid rgba(20,86,105,.16);
   }
 
   /* Give the visible default columns sensible proportions so Explicación never sits off-screen. */
@@ -74,23 +74,36 @@
     line-height: 1.3;
   }
 
-  /* Stronger rounded ends so each row reads as a floating horizontal card. */
+  /* The outer cells are clipped as true pill ends. This avoids relying on table-row
+     border-radius behaviour, which is inconsistent between browsers. */
   .tabla-scroll tbody td:first-child {
-    border-left: 1px solid rgba(20,86,105,.09);
-    border-radius: 34px 0 0 34px !important;
-    padding-left: 16px;
+    border-left: 1px solid rgba(20,86,105,.16);
+    border-radius: 999px 0 0 999px !important;
+    overflow: hidden;
+    padding-left: 18px;
+    box-shadow: -5px 5px 14px rgba(18,73,91,.10);
   }
 
   .tabla-scroll tbody td:last-child {
-    border-right: 1px solid rgba(20,86,105,.09);
-    border-radius: 0 34px 34px 0 !important;
-    padding-right: 16px;
+    border-right: 1px solid rgba(20,86,105,.16);
+    border-radius: 0 999px 999px 0 !important;
+    overflow: hidden;
+    padding-right: 18px;
+    box-shadow: 5px 5px 14px rgba(18,73,91,.10);
+  }
+
+  /* Give the centre of the card a soft depth as well, without reintroducing a square row background. */
+  .tabla-scroll tbody td:not(:first-child):not(:last-child) {
+    box-shadow: 0 6px 12px rgba(18,73,91,.055);
   }
 
   .tabla-scroll tbody tr:hover {
     transform: translateY(-2px);
     background: transparent !important;
-    filter: drop-shadow(0 8px 16px rgba(18,73,91,.13));
+  }
+
+  .tabla-scroll tbody tr:hover td {
+    background: #fbfeff;
   }
 
   .tabla-scroll .enlace-maps {
