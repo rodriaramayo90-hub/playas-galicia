@@ -409,19 +409,28 @@
     display:table-cell;
     width:auto !important;
     min-width:0;
-    background:#fff;
+  }
+
+  /* In expanded mode the cells themselves paint the white row-card.
+     !important is necessary because the normal grid view intentionally makes td backgrounds transparent. */
+  body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody td {
+    background:#fff !important;
+    border-top:1px solid rgba(20,86,105,.10) !important;
+    border-bottom:1px solid rgba(20,86,105,.10) !important;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll thead th {
-    background:#0b7285;
+    background:#0b7285 !important;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody td:first-child {
-    border-radius:14px 0 0 14px !important;
+    border-left:1px solid rgba(20,86,105,.10) !important;
+    border-radius:16px 0 0 16px !important;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll tbody td:last-child {
-    border-radius:0 14px 14px 0 !important;
+    border-right:1px solid rgba(20,86,105,.10) !important;
+    border-radius:0 16px 16px 0 !important;
   }
 
   body:has(#btnDetalles[aria-expanded="true"]) .tabla-scroll th:nth-child(13),
