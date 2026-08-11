@@ -261,6 +261,16 @@
     box-sizing:border-box;
   }
 
+  /* Safe centering for normal desktop grid view: do not change td display mode. */
+  body:not(:has(#btnDetalles[aria-expanded="true"])) .tabla-scroll tbody td {
+    align-self:center;
+    text-align:center;
+  }
+
+  body:not(:has(#btnDetalles[aria-expanded="true"])) .tabla-scroll tbody td:nth-child(2) {
+    text-align:left;
+  }
+
   .tabla-scroll tbody td:nth-child(13) {
     white-space:normal;
     overflow-wrap:anywhere;
