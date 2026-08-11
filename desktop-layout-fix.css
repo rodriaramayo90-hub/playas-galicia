@@ -1,3 +1,9 @@
+/* Fix: desktop search marks non-matching table rows with hidden, but desktop layout explicitly sets rows to display:grid/table-row. Respect hidden in every desktop table mode. */
+.tabla-scroll tbody tr[hidden],
+#ranking-mobile .tarjeta-playa[hidden] {
+  display:none !important;
+}
+
 /* Compact, aligned layout for the ranking controls.
    Four-column desktop layout is kept through common desktop zoom levels
    and only collapses when the effective viewport is genuinely narrow. */
