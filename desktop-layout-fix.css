@@ -1,199 +1,109 @@
-/* Compact, aligned desktop layout for the main ranking controls.
-   This file overrides only desktop/tablet positioning; mobile remains untouched. */
+/* Compact, aligned layout for the main ranking controls.
+   Breakpoints are intentionally conservative so browser zoom never clips the panel. */
 
-@media (min-width: 1000px) {
-  main {
-    width: 100%;
-  }
+@media (min-width: 1280px) {
+  main { width: 100%; }
 
   .filtros {
     display: grid;
-    grid-template-columns:
-      minmax(300px, 1.08fr)
-      minmax(185px, .68fr)
-      minmax(185px, .68fr)
-      minmax(330px, 1.2fr);
+    grid-template-columns: minmax(300px,1.08fr) minmax(185px,.68fr) minmax(185px,.68fr) minmax(330px,1.2fr);
     grid-template-areas:
       "dia dia dia dia"
       "horario ubicacion postal buscador"
       "distancia vista vista .";
     column-gap: 18px;
     row-gap: 14px;
-    width: min(calc(100% - 28px), 1180px);
+    width: min(calc(100% - 32px),1180px);
     margin: 0 auto 18px;
     padding: 14px 18px 16px;
     box-sizing: border-box;
     align-items: end;
   }
 
-  .filtros > .selector-dia {
-    grid-area: dia;
-    margin-bottom: 2px;
-  }
-
-  .filtros > .grupo-horario {
-    grid-area: horario;
-  }
-
-  .filtros > .btn-ubicacion {
-    grid-area: ubicacion;
-    width: 100%;
-    min-height: 40px;
-    margin-bottom: 18px;
-    padding: 9px 12px;
-    box-sizing: border-box;
-    align-self: end;
-  }
-
-  .filtros > .grupo-filtro:has(#codigoPostal) {
-    grid-area: postal;
-    padding-bottom: 18px;
-  }
-
-  .filtros > .grupo-buscador-playa {
-    grid-area: buscador;
-  }
-
-  .filtros > .grupo-filtro:has(#distanciaMaxima) {
-    grid-area: distancia;
-  }
-
-  .filtros > .grupo-filtro:has(#btnVista) {
-    grid-area: vista;
-  }
-
-  .filtros .grupo-filtro,
-  .filtros .grupo-horario,
-  .filtros .grupo-buscador-playa {
-    min-width: 0;
-    width: 100%;
-    gap: 5px;
-  }
-
-  .filtros .etiqueta-grupo,
-  .filtros .grupo-filtro > label {
-    font-size: .92rem;
-    line-height: 1.2;
-  }
-
-  /* Horario: etiquetas y selectores en una sola línea y con la misma altura. */
-  .filtros .selector-horario {
-    display: grid;
-    grid-template-columns: auto minmax(82px, 1fr) auto minmax(82px, 1fr);
-    align-items: center;
-    gap: 7px;
-    width: 100%;
-  }
-
-  .filtros .selector-horario label {
-    margin: 0;
-    font-size: .78rem;
-    white-space: nowrap;
-  }
-
-  .filtros .selector-horario select {
-    width: 100%;
-    min-width: 0;
-    height: 40px;
-    padding: 8px 7px;
-    box-sizing: border-box;
-  }
-
-  .filtros .grupo-horario small {
-    position: static;
-    margin: 0;
-    white-space: normal;
-    font-size: .73rem;
-  }
-
-  .filtros .grupo-buscador-playa,
-  .filtros .buscador-playa-control,
-  .filtros .grupo-filtro > input,
-  .filtros .input-con-boton {
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-  }
-
-  .filtros .buscador-playa-control {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 40px;
-    gap: 7px;
-  }
-
-  .filtros .buscador-playa-control input,
-  .filtros .grupo-filtro > input,
-  .filtros .input-con-boton > input {
-    width: 100%;
-    min-width: 0;
-    height: 40px;
-    padding: 8px 10px;
-    box-sizing: border-box;
-  }
-
-  .filtros .btn-limpiar-busqueda {
-    width: 40px;
-    height: 40px;
-  }
-
-  .filtros .grupo-buscador-playa small {
-    font-size: .73rem;
-  }
-
-  .filtros > .grupo-filtro:has(#distanciaMaxima) .input-con-boton {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 7px;
-  }
-
-  .filtros .btn-buscar,
-  .filtros .btn-vista {
-    min-height: 40px;
-    padding: 8px 13px;
-    box-sizing: border-box;
-    white-space: nowrap;
-  }
-
-  .filtros > .grupo-filtro:has(#btnVista) .input-con-boton {
-    display: flex;
-    gap: 7px;
-    width: 100%;
-  }
-
-  .filtros > .grupo-filtro:has(#btnVista) .btn-vista {
-    flex: 0 1 auto;
-    min-width: 145px;
-    font-size: .84rem;
-  }
-
-  .btn-dia {
-    padding: 8px 20px;
-  }
+  .filtros > .selector-dia { grid-area:dia; margin-bottom:2px; }
+  .filtros > .grupo-horario { grid-area:horario; }
+  .filtros > .btn-ubicacion { grid-area:ubicacion; margin-bottom:18px; }
+  .filtros > .grupo-filtro:has(#codigoPostal) { grid-area:postal; padding-bottom:18px; }
+  .filtros > .grupo-buscador-playa { grid-area:buscador; }
+  .filtros > .grupo-filtro:has(#distanciaMaxima) { grid-area:distancia; }
+  .filtros > .grupo-filtro:has(#btnVista) { grid-area:vista; }
 }
 
-/* Laptop / narrow desktop: same logical order, split into two columns. */
-@media (min-width: 769px) and (max-width: 999px) {
+/* At laptop widths, and also when a desktop browser is zoomed (e.g. 120%),
+   switch before the four-column layout can overflow. */
+@media (min-width: 769px) and (max-width: 1279px) {
+  main { width:100%; }
+
   .filtros {
-    display: grid;
-    grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     grid-template-areas:
       "dia dia"
       "horario ubicacion"
       "postal buscador"
       "distancia vista";
-    gap: 14px 16px;
-    width: min(calc(100% - 20px), 760px);
-    margin: 0 auto 18px;
-    padding: 14px 16px 16px;
-    box-sizing: border-box;
-    align-items: end;
+    gap:14px 18px;
+    width:min(calc(100% - 28px),900px);
+    margin:0 auto 18px;
+    padding:14px 18px 16px;
+    box-sizing:border-box;
+    align-items:end;
   }
 
-  .filtros > .selector-dia { grid-area: dia; }
-  .filtros > .grupo-horario { grid-area: horario; }
-  .filtros > .btn-ubicacion { grid-area: ubicacion; width: 100%; }
-  .filtros > .grupo-filtro:has(#codigoPostal) { grid-area: postal; }
-  .filtros > .grupo-buscador-playa { grid-area: buscador; }
-  .filtros > .grupo-filtro:has(#distanciaMaxima) { grid-area: distancia; }
-  .filtros > .grupo-filtro:has(#btnVista) { grid-area: vista; }
+  .filtros > .selector-dia { grid-area:dia; }
+  .filtros > .grupo-horario { grid-area:horario; }
+  .filtros > .btn-ubicacion { grid-area:ubicacion; }
+  .filtros > .grupo-filtro:has(#codigoPostal) { grid-area:postal; }
+  .filtros > .grupo-buscador-playa { grid-area:buscador; }
+  .filtros > .grupo-filtro:has(#distanciaMaxima) { grid-area:distancia; }
+  .filtros > .grupo-filtro:has(#btnVista) { grid-area:vista; }
+}
+
+/* Shared desktop/tablet control sizing. */
+@media (min-width:769px) {
+  .filtros .grupo-filtro,
+  .filtros .grupo-horario,
+  .filtros .grupo-buscador-playa { min-width:0; width:100%; gap:5px; }
+
+  .filtros .etiqueta-grupo,
+  .filtros .grupo-filtro > label { font-size:.92rem; line-height:1.2; }
+
+  .filtros .selector-horario {
+    display:grid;
+    grid-template-columns:auto minmax(72px,1fr) auto minmax(72px,1fr);
+    align-items:center;
+    gap:7px;
+    width:100%;
+  }
+
+  .filtros .selector-horario label { margin:0; font-size:.78rem; white-space:nowrap; }
+  .filtros .selector-horario select { width:100%; min-width:0; height:40px; padding:8px 7px; box-sizing:border-box; }
+  .filtros .grupo-horario small { position:static; margin:0; white-space:normal; font-size:.73rem; }
+
+  .filtros > .btn-ubicacion {
+    width:100%; min-height:40px; padding:9px 12px; box-sizing:border-box; align-self:end;
+  }
+
+  .filtros .grupo-buscador-playa,
+  .filtros .buscador-playa-control,
+  .filtros .grupo-filtro > input,
+  .filtros .input-con-boton { width:100%; max-width:none; box-sizing:border-box; }
+
+  .filtros .buscador-playa-control { display:grid; grid-template-columns:minmax(0,1fr) 40px; gap:7px; }
+
+  .filtros .buscador-playa-control input,
+  .filtros .grupo-filtro > input,
+  .filtros .input-con-boton > input { width:100%; min-width:0; height:40px; padding:8px 10px; box-sizing:border-box; }
+
+  .filtros .btn-limpiar-busqueda { width:40px; height:40px; }
+  .filtros .grupo-buscador-playa small { font-size:.73rem; }
+
+  .filtros > .grupo-filtro:has(#distanciaMaxima) .input-con-boton { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:7px; }
+
+  .filtros .btn-buscar,
+  .filtros .btn-vista { min-height:40px; padding:8px 13px; box-sizing:border-box; white-space:nowrap; }
+
+  .filtros > .grupo-filtro:has(#btnVista) .input-con-boton { display:flex; flex-wrap:wrap; gap:7px; width:100%; }
+  .filtros > .grupo-filtro:has(#btnVista) .btn-vista { flex:1 1 140px; min-width:0; font-size:.84rem; }
+  .btn-dia { padding:8px 20px; }
 }
