@@ -25,11 +25,12 @@
   }
 
   // En escritorio, al pulsar "Buscar" espera a que termine la actualización
-  // y lleva suavemente al usuario a la primera fila visible del ranking.
+  // y desplaza la página hasta el inicio de la tabla, dejando visible el puesto 1.
   window.addEventListener("DOMContentLoaded", () => {
     const botonBuscar = document.querySelector(".btn-buscar");
     const estadoCarga = document.getElementById("estadoCarga");
-    if (!botonBuscar || !estadoCarga) return;
+    const tablaScroll = document.querySelector(".tabla-scroll");
+    if (!botonBuscar || !estadoCarga || !tablaScroll) return;
 
     botonBuscar.addEventListener("click", () => {
       if (!window.matchMedia("(min-width: 769px)").matches) return;
@@ -43,10 +44,17 @@
 
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            const primeraFila = Array.from(document.querySelectorAll("#ranking tr"))
-              .find(fila => !fila.hidden);
-            const destino = primeraFila || document.querySelector(".tabla-scroll");
-            destino?.scrollIntoView({ behavior: "smooth", block: "start" });
+            // La tabla tiene su propio scroll vertical. Lo reiniciamos para que
+            // la primera fila no quede escondida detrás de la cabecera sticky.
+            tablaScroll.scrollTop = 0;
+
+            // Desplazamos solo la página (no una fila dentro del contenedor).
+            const margenSuperior = 12;
+            const destinoY = window.scrollY + tablaScroll.getBoundingClientRect().top - margenSuperior;
+            window.scrollTo({
+              top: Math.max(0, destinoY),
+              behavior: "smooth"
+            });
           });
         });
       });
