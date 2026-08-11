@@ -1,0 +1,110 @@
+/* Desktop-only alignment for the main ranking controls.
+   Kept separate so the mobile layout and existing styles remain untouched. */
+@media (min-width: 1000px) {
+  main {
+    width: 100%;
+  }
+
+  .filtros {
+    display: grid;
+    grid-template-columns:
+      minmax(300px, 1.15fr)
+      minmax(320px, 1.35fr)
+      minmax(150px, .62fr)
+      minmax(190px, .72fr);
+    grid-template-areas:
+      "dia dia dia dia"
+      "horario buscador ubicacion postal"
+      "distancia vista . .";
+    gap: 18px 22px;
+    width: min(100%, 1420px);
+    margin: 0 auto 22px;
+    padding: 20px 24px 24px;
+    box-sizing: border-box;
+    align-items: end;
+  }
+
+  .filtros > .selector-dia {
+    grid-area: dia;
+  }
+
+  .filtros > .grupo-horario {
+    grid-area: horario;
+  }
+
+  .filtros > .grupo-buscador-playa {
+    grid-area: buscador;
+  }
+
+  .filtros > .btn-ubicacion {
+    grid-area: ubicacion;
+    width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+  }
+
+  .filtros > .grupo-filtro:nth-of-type(3) {
+    grid-area: postal;
+  }
+
+  .filtros > .grupo-filtro:nth-of-type(4) {
+    grid-area: distancia;
+  }
+
+  .filtros > .grupo-filtro:nth-of-type(5) {
+    grid-area: vista;
+  }
+
+  .filtros .grupo-filtro,
+  .filtros .grupo-horario,
+  .filtros .grupo-buscador-playa {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .filtros .grupo-buscador-playa,
+  .filtros .buscador-playa-control,
+  .filtros .buscador-playa-control input,
+  .filtros .grupo-filtro > input,
+  .filtros .input-con-boton {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .filtros .buscador-playa-control input,
+  .filtros .grupo-filtro > input,
+  .filtros .input-con-boton > input {
+    min-width: 0;
+  }
+
+  .filtros .grupo-horario small {
+    position: static;
+    margin-top: 1px;
+    white-space: normal;
+  }
+
+  .filtros > .grupo-filtro:nth-of-type(5) .input-con-boton {
+    display: flex;
+    gap: 8px;
+  }
+
+  .filtros > .grupo-filtro:nth-of-type(5) .btn-vista {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 10px;
+    font-size: .88rem;
+  }
+}
+
+/* Intermediate desktop/laptop widths: keep the panel balanced without overflow. */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .filtros {
+    grid-template-columns: minmax(280px, 1fr) minmax(300px, 1fr);
+    grid-template-areas:
+      "dia dia"
+      "horario buscador"
+      "ubicacion postal"
+      "distancia vista";
+  }
+}
