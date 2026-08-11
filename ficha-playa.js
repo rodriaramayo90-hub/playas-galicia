@@ -67,13 +67,26 @@ function renderizarFuentes(fuentes = []) {
   }));
 }
 
+function obtenerDestinoMaps(playa) {
+  return playa.destinoMaps || `${playa.nombre}, ${playa.municipio}, Galicia`;
+}
+
 function crearUrlMaps(playa) {
   const parametros = new URLSearchParams({
     api: "1",
-    query: `${playa.lat},${playa.lon}`
+    query: obtenerDestinoMaps(playa)
   });
 
   return `https://www.google.com/maps/search/?${parametros.toString()}`;
+}
+
+function crearUrlComoLlegar(playa) {
+  const parametros = new URLSearchParams({
+    api: "1",
+    destination: obtenerDestinoMaps(playa)
+  });
+
+  return `https://www.google.com/maps/dir/?${parametros.toString()}`;
 }
 
 function adaptarEnlacesAlPreview() {
@@ -93,9 +106,8 @@ function configurarMapa(playa) {
   const bbox = [playa.lon - margenLon, playa.lat - margenLat, playa.lon + margenLon, playa.lat + margenLat].join(",");
   document.getElementById("mapaPlaya").src = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik&marker=${playa.lat}%2C${playa.lon}`;
   document.getElementById("coordenadasPlaya").textContent = `${playa.lat.toFixed(6)}, ${playa.lon.toFixed(6)}`;
-  const urlMaps = crearUrlMaps(playa);
-  document.getElementById("comoLlegar").href = urlMaps;
-  document.getElementById("abrirMapa").href = urlMaps;
+  document.getElementById("comoLlegar").href = crearUrlComoLlegar(playa);
+  document.getElementById("abrirMapa").href = crearUrlMaps(playa);
 }
 
 function renderizarDatosEstaticos(playa) {
@@ -186,4 +198,3 @@ const playa = catalogo.playas.find(item => item.slug === slug);
 }
 
 iniciarFicha();
-
