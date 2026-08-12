@@ -11,8 +11,8 @@ if (typeof obtenerEstadoAgua === "function") {
   };
 }
 
-// PREVIEW LIMPIO: solo cambia la curva de temperatura, elimina el tope de 84
-// y mantiene decimales internamente para ordenar. No usa observers ni scripts extra.
+// PREVIEW LIMPIO: curva continua de temperatura, categorías coherentes con
+// el puntaje y enteros visibles. No usa observers ni scripts auxiliares.
 puntosTemperatura = function puntosTemperaturaContinua(temp) {
   if (!Number.isFinite(temp)) return 0;
   const puntos = [
@@ -59,6 +59,40 @@ calcularPuntuacion = function calcularPuntuacionContinua(
   puntuacion += puntosAgua(agua);
   puntuacion += puntosOleaje(oleaje);
   return Number(Math.max(0, Math.min(100, puntuacion)).toFixed(2));
+};
+
+// La categoría sigue una jerarquía clara por puntuación:
+// 85–100 Excelente, 70–84 Buen día, 50–69 Aceptable,
+// 35–49 Poco recomendable y 0–34 Mejor evitar.
+// Se conservan las rebajas por nubosidad intensa o viento en contra del
+// algoritmo actual; cuando se aplican, ajustarPuntuacionACategoria mantiene
+// también el puntaje dentro de la categoría para que nunca se invierta el orden.
+obtenerEstado = function obtenerEstadoCoherente(
+  puntos,
+  nubosidad,
+  anguloPlaya,
+  direccionVientoGrados,
+  viento,
+  vientoMaximo,
+  lluvia,
+  temperatura,
+  agua,
+  oleaje
+) {
+  const vientoEnContra = esVientoEnContra(anguloPlaya, direccionVientoGrados, viento);
+
+  if (puntos < 35) return "🔴 Mejor evitar";
+  if (puntos < 50) return "🟠 Poco recomendable";
+
+  if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
+  if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
+  if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
+  if (nubosidad > 60) return "🟡 Aceptable (nublado)";
+  if (vientoEnContra) return "🟡 Aceptable (viento en contra)";
+
+  if (puntos >= 85) return "🟢 Excelente";
+  if (puntos >= 70) return "🟢 Buen día de playa";
+  return "🟡 Aceptable";
 };
 
 ajustarPuntuacionACategoria = function ajustarPuntuacionSinTope84(puntos, estado) {
