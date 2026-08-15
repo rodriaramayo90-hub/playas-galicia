@@ -3,6 +3,19 @@ const URL_BASE_FICHA = typeof URL_RAIZ_RECURSOS !== "undefined" && URL_RAIZ_RECU
   : new URL(".", document.currentScript?.src || window.location?.href || "https://hoytocaplaya.com/");
 const NO_DISPONIBLE = "Información no disponible";
 
+// Mantiene en las fichas la misma descripción de temperatura del agua que el ranking.
+if (typeof obtenerEstadoAgua === "function") {
+  obtenerEstadoAgua = function (agua) {
+    if (!agua) return null;
+    if (agua < 14) return "agua congelada";
+    if (agua < 18) return "agua muy fría";
+    if (agua < 19) return "agua fría";
+    if (agua <= 21) return "agua fría al principio, luego agradable";
+    if (agua <= 25) return "agua agradable";
+    return "agua cálida";
+  };
+}
+
 const etiquetas = {
   caracteristicas: {
     tipo: "🏖️ Tipo de playa", composicion: "◫ Composición", longitud: "↔ Longitud",
@@ -155,6 +168,17 @@ function aplicarFotoSeleccionada(playa, fotos) {
   };
 }
 
+function aplicarAjustesLocales(playa) {
+  if (playa.slug !== "playa-nino-do-corvo") return;
+  playa.marea = {
+    dependencia: "Alta",
+    superficiePleamar: "El arenal se reduce mucho con la marea alta",
+    accesoCondicionado: "Conviene visitarla con margen respecto a la pleamar",
+    riesgoAislamiento: "Bajo si se permanece en la zona de acceso",
+    recomendacion: "Consulta la marea antes de ir: Niño do Corvo es un arenal estrecho y con pleamar queda bastante menos espacio de playa."
+  };
+}
+
 function renderizarDatosEstaticos(playa) {
   const tituloResumen = document.querySelector("#resumen h2");
   if (tituloResumen) tituloResumen.textContent = `¿Cómo es ${playa.nombre}?`;
@@ -231,6 +255,7 @@ async function iniciarFicha() {
     if (!playa) throw new Error("La ficha solicitada no existe.");
     aplicarDescripcionAprobada(playa, descripciones);
     aplicarFotoSeleccionada(playa, fotos);
+    aplicarAjustesLocales(playa);
     renderizarDatosEstaticos(playa);
 
     if (!window.HoyTocaPlaya?.obtenerCondicionesPlaya) throw new Error("El módulo meteorológico no está disponible.");
