@@ -1,0 +1,59 @@
+{
+  "praia-de-baltar-portonovo": {
+    "descripcion": "Playa urbana de Portonovo, resguardada y de arena fina. Su frente litoral está ligado al paseo entre Sanxenxo y Portonovo y conserva un sistema dunar singular en un entorno urbano. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas": {"longitud": "600 m","composicion": "Arena fina","entorno": "Urbano, junto a Portonovo; sistema dunar asociado al arenal","forma": "Arenal amplio y resguardado"},
+    "servicios": {"parking": "Aparcamiento en el entorno de Portonovo","transportePublico": "Sí, entorno urbano de Portonovo"},
+    "bano": {"fondo": "Arena fina","oleajeHabitual": "Generalmente moderado por su carácter resguardado"},
+    "practica": {"temporadaBano": "Verano; Bandera Azul 2026"},
+    "fuentes": [{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9778/baltar?langId=es_ES","nota":"Longitud, tipo de playa y arena."},{"nombre":"Turismo de Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/","nota":"Entorno urbano, sendero litoral y sistema dunar de Baltar."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-canelinas-portonovo": {
+    "descripcion": "Pequeña playa urbana y resguardada en pleno Portonovo, de arena fina y con vistas a la ría de Pontevedra. Forma parte del recorrido litoral Sanxenxo–Portonovo y cuenta con Bandera Azul en 2026.",
+    "caracteristicas": {"longitud":"100 m","composicion":"Arena fina","entorno":"Urbano, en Portonovo; próxima al mirador de A Peixeira","forma":"Pequeña playa resguardada"},
+    "servicios": {"parking":"Aparcamiento en el entorno urbano de Portonovo","transportePublico":"Sí, entorno urbano de Portonovo"},
+    "bano": {"fondo":"Arena fina","oleajeHabitual":"Habitualmente moderado por su situación resguardada"},
+    "practica": {"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes": [{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9755/canelinas?langId=es_ES","nota":"Longitud, tipo de playa y arena."},{"nombre":"Turismo de Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/","nota":"Ubicación en Portonovo y entorno del sendero litoral."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-areas-sanxenxo": {
+    "descripcion":"Uno de los grandes arenales de Sanxenxo, de arena blanca y fina, protegido de los vientos y con un entorno de dunas. Dispone de paseo de madera parcial, acceso adaptado, socorrista, transporte público y aparcamiento según la guía turística municipal. Tiene Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"350 m según Turismo de Galicia","composicion":"Arena blanca y fina","entorno":"Arenal con dunas; pequeña ensenada en el extremo sur","forma":"Arenal amplio"},
+    "servicios":{"parking":"Sí","accesibilidad":"Acceso adaptado","socorrista":"Sí, en temporada de baño","transportePublico":"Sí"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Generalmente moderado; playa protegida de los vientos"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Guía Turismo Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/praia-de-areas/","nota":"Descripción del arenal y servicios."},{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9767/areas?langId=es_ES","nota":"Clasificación oficial de playa y arena."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-paxarinas": {
+    "descripcion":"Pequeña playa resguardada de arena fina entre Portonovo y Montalvo, encajada junto a una costa acantilada y con vistas hacia la boca de la ría de Pontevedra y la isla de Ons. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"100 m","composicion":"Arena fina","entorno":"Costa acantilada entre Paxariñas y punta Cabicastro; vistas a Ons","forma":"Pequeña cala resguardada"},
+    "servicios":{"parking":"Aparcamiento junto al inicio del sendero Paxariñas–Montalvo"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Resguardado, aunque próximo a zona de rompientes en los acantilados de Cabicastro"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9753/paxarinas?langId=es_ES","nota":"Longitud, arena, tipo y Bandera Azul."},{"nombre":"Guía Turismo Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-paxarinas-montalvo/","nota":"Entorno, aparcamiento y vistas."},{"nombre":"Guía Turismo Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-canelas-p-cabicastro/","nota":"Costa acantilada y carácter resguardado."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-bascuas": {
+    "descripcion":"Cala rural de arena fina entre Montalvo y Pragueira, protegida por cantiles de más de diez metros y con vistas a Ons, punta Faxilda y Sálvora. Es la única playa nudista del municipio de Sanxenxo. Cuenta con acceso adaptado, socorrista, transporte público, aparcamiento y Bandera Azul.",
+    "caracteristicas":{"longitud":"210 m según Turismo de Galicia","composicion":"Arena fina","entorno":"Rural, entre acantilados; vistas a Ons y Sálvora","forma":"Cala protegida por cantiles"},
+    "servicios":{"parking":"Sí","accesibilidad":"Acceso adaptado","socorrista":"Sí, en temporada de baño","transportePublico":"Sí"},
+    "normas":{"nudismo":"Sí; es la única playa nudista del municipio según Turismo de Sanxenxo"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Variable; costa atlántica, aunque la cala está protegida por acantilados"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Guía Turismo Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/praia-de-bascuas/","nota":"Entorno, nudismo y servicios."},{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9750/bascuas?langId=es_ES","nota":"Clasificación oficial y arena."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-foxos": {
+    "descripcion":"Arenal abierto de arena fina en el entorno de A Lanzada. Desde su acceso arranca la Ruta Máxica da Lanzada, que recorre un paisaje costero con yacimiento arqueológico, ermita y restos de la antigua fortaleza. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"350 m","composicion":"Arena fina","entorno":"Entorno natural y patrimonial de A Lanzada; inicio de la Ruta Máxica","forma":"Playa abierta"},
+    "servicios":{"parking":"Aparcamiento en el acceso principal de la zona de A Lanzada"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Expuesto; puede presentar oleaje atlántico"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9748/foxos?langId=es_ES","nota":"Longitud, tipo y arena."},{"nombre":"Guía Turismo Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/ruta-maxica-da-lanzada/","nota":"Entorno natural y patrimonial."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-panadeira": {
+    "descripcion":"Pequeña playa urbana y muy resguardada en el núcleo de Sanxenxo, de arena fina y integrada en el paseo litoral que conecta el puerto, Silgar, Baltar y Portonovo. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"80 m","composicion":"Arena fina","entorno":"Urbano, junto al paseo litoral de Sanxenxo","forma":"Pequeña playa resguardada"},
+    "servicios":{"parking":"Aparcamiento urbano en el entorno","transportePublico":"Servicios urbanos de Sanxenxo en las proximidades"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Habitualmente tranquilo por su situación resguardada"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9761/panadeira?langId=es_ES","nota":"Longitud, tipo y arena."},{"nombre":"Guía Turismo Sanxenxo","url":"https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/","nota":"Entorno del paseo litoral."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  }
+}
