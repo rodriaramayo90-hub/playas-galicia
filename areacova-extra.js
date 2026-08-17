@@ -16,6 +16,4 @@ if (typeof playas !== "undefined" && !playas.some(p => p.nombre === "Praia de Ar
   if (window.HoyTocaPlayaIndiceFichas) {
     window.HoyTocaPlayaIndiceFichas["Praia de Areacova||Cangas"] = "praia-de-areacova";
   }
-  // app.js ya puede haber iniciado una primera carga; repetimos para incorporar la nueva playa.
-  if (typeof cargarRanking === "function") cargarRanking();
 }
