@@ -44,6 +44,24 @@ jobs:
           p.write_text(text, encoding='utf-8')
           PY
 
+      - name: Validar catálogo SEO de 180 playas
+        run: |
+          node - <<'NODE'
+          global.window = {};
+          require('./data/indice-fichas.js');
+          const total = Object.keys(window.HoyTocaPlayaIndiceFichas || {}).length;
+          if (total !== 180) throw new Error(`El índice de fichas tiene ${total} playas; se esperaban 180.`);
+          console.log(`Índice validado: ${total} playas.`);
+          NODE
+          python - <<'PY'
+          from pathlib import Path
+          sitemap = Path('sitemap.xml').read_text(encoding='utf-8')
+          total = sitemap.count('<loc>')
+          if total != 181:
+              raise SystemExit(f'El sitemap tiene {total} URLs; se esperaban 181 (portada + 180 playas).')
+          print(f'Sitemap validado: {total} URLs.')
+          PY
+
       - name: Guardar ampliación generada
         run: |
           if git diff --quiet -- playas data/playas-detalle.json data/indice-fichas.js sitemap.xml index.html; then
