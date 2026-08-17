@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "playas-extra.js"
+      - "data/ampliacion-180-detalles-*.json"
       - "scripts/generar-ampliacion-180.mjs"
       - ".github/workflows/generar-ampliacion-180.yml"
 
@@ -71,6 +72,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add playas data/playas-detalle.json data/indice-fichas.js sitemap.xml index.html
-          git commit -m "Generar fichas para catálogo de 180 playas"
+          git commit -m "Generar fichas enriquecidas para catálogo de 180 playas"
           git pull --rebase origin main
           git push
