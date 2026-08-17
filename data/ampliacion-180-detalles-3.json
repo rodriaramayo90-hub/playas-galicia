@@ -1,26 +1,26 @@
 {
   "praia-de-morouzos": {
-    "descripcion":"Gran arenal natural de la ría de Ortigueira, con más de dos kilómetros de longitud, dunas, pinar y una extensa zona intermareal. Forma parte del entorno protegido de la ría de Ortigueira-Mera y cuenta con Bandera Azul en 2026. Con marea baja el paisaje cambia mucho y puede quedar accesible a pie la pequeña isla de San Vicente.",
+    "descripcion":"Gran arenal natural de la ría de Ortigueira, con más de dos kilómetros de longitud, dunas, pinar y una extensa zona intermareal. Forma parte del entorno protegido de la ría de Ortigueira-Mera. Con marea baja el paisaje cambia mucho y puede quedar accesible a pie la pequeña isla de San Vicente.",
     "caracteristicas":{"longitud":"2.100 m","composicion":"Arena fina","entorno":"Sistema dunar, pinar y espacio protegido de la ría de Ortigueira-Mera","forma":"Gran playa abierta"},
     "servicios":{"parking":"Aparcamiento en el entorno del acceso principal"},
     "marea":{"dependencia":"Alta en el paisaje y la anchura del intermareal","superficiePleamar":"La superficie seca se reduce respecto a la gran extensión visible en bajamar","accesoCondicionado":"El acceso a pie hacia la isla de San Vicente depende de la bajamar","riesgoAislamiento":"No permanecer en zonas intermareales aisladas cuando sube la marea","recomendacion":"La bajamar permite apreciar mejor la enorme zona intermareal; controla la subida de la marea si te alejas por la arena."},
     "bano":{"fondo":"Arena fina","oleajeHabitual":"Variable en función de la ría y del viento"},
-    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
-    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9848/morouzos?langId=es_ES","nota":"Longitud, tipo, arena y Bandera Azul."},{"nombre":"Turismo de Galicia · Ría de Ortigueira","url":"https://www.turismo.gal/que-visitar/rias-e-praias/ria-de-ortigueira?langId=es_ES","nota":"Sistema dunar, pinar y valores naturales."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+    "practica":{"temporadaBano":"Verano"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9848/morouzos?langId=es_ES","nota":"Longitud, tipo y arena."},{"nombre":"Turismo de Galicia · Ría de Ortigueira","url":"https://www.turismo.gal/que-visitar/rias-e-praias/ria-de-ortigueira?langId=es_ES","nota":"Sistema dunar, pinar y valores naturales."}]
   },
   "praia-da-concha-espasante": {
-    "descripcion":"Playa de arena fina en Espasante, dentro del municipio de Ortigueira. Junto al arenal existe un área recreativa con duchas, aseos adaptados, socorrismo, aparcamiento, juegos infantiles y otras instalaciones. Tiene Bandera Azul en 2026 y se integra en un entorno de interés geológico y marinero.",
+    "descripcion":"Playa de arena fina en Espasante, dentro del municipio de Ortigueira. Junto al arenal existe un área recreativa con duchas, aseos adaptados, socorrismo, aparcamiento, juegos infantiles y otras instalaciones. Se integra en un entorno de interés geológico y marinero.",
     "caracteristicas":{"longitud":"105 m","composicion":"Arena fina","entorno":"Urbano-marítimo de Espasante; próximo a rutas litorales y elementos del Geoparque Cabo Ortegal","forma":"Playa abierta"},
     "servicios":{"parking":"Sí, en el área recreativa","accesibilidad":"Aseos adaptados en el área recreativa","duchas":"Sí","aseos":"Sí; incluye aseos adaptados","socorrista":"Sí, en temporada de baño"},
     "bano":{"fondo":"Arena fina"},
-    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
-    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/15771/a-concha?langId=es_ES","nota":"Longitud, tipo y arena."},{"nombre":"Turismo de Galicia · Área recreativa A Concha","url":"https://www.turismo.gal/recurso/-/detalle/280381944/a-concha?langId=es_ES","nota":"Duchas, aseos, socorrismo, aparcamiento y equipamientos."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+    "practica":{"temporadaBano":"Verano"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/15771/a-concha?langId=es_ES","nota":"Longitud, tipo y arena."},{"nombre":"Turismo de Galicia · Área recreativa A Concha","url":"https://www.turismo.gal/recurso/-/detalle/280381944/a-concha?langId=es_ES","nota":"Duchas, aseos, socorrismo, aparcamiento y equipamientos."}]
   },
   "praia-da-basteira": {
     "descripcion":"Playa urbana y resguardada de Cariño, de arena blanca y fina y forma de media concha. Tiene un pinar en las proximidades y, aunque está protegida por la ría, puede ser ventosa y presentar oleaje moderado. Es apta tanto para el baño como para deportes acuáticos.",
     "caracteristicas":{"longitud":"500 m","composicion":"Arena blanca y fina","entorno":"Urbano, con pinar próximo","forma":"Media concha"},
     "servicios":{"parking":"Aparcamiento urbano en el entorno"},
-    "normas":{"deportesAcuaticos":"Apta para deportes acuáticos según Turismo de Galicia"},
+    "normas":{"deportesAcuaticos":"Apta para deportes acuáticos"},
     "bano":{"fondo":"Arena fina","oleajeHabitual":"Moderado","corrientes":"Atender al viento y al estado del mar"},
     "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/11414/basteira?langId=es_ES","nota":"Longitud, arena, forma, entorno y condiciones de baño."}]
   },
@@ -41,26 +41,26 @@
     "fuentes":[{"nombre":"Turismo de Cedeira","url":"https://turismo.cedeira.gal/conece-cedeira/praias-de-cedeira/?lang=es","nota":"Longitud, arena, aguas tranquilas, paseo, pinar y servicios próximos."}]
   },
   "praia-de-esmelle": {
-    "descripcion":"Arenal atlántico de Ferrol, de arena blanca y fina y fuerte exposición al oleaje y al viento. Es una playa adecuada para deportes acuáticos y cuenta con aparcamiento, puesto de primeros auxilios/socorrismo y duchas. Tiene Bandera Azul en 2026.",
+    "descripcion":"Arenal atlántico de Ferrol, de arena blanca y fina y fuerte exposición al oleaje y al viento. Es una playa adecuada para deportes acuáticos y cuenta con aparcamiento, puesto de primeros auxilios/socorrismo y duchas.",
     "caracteristicas":{"longitud":"160 m","composicion":"Arena blanca y fina","entorno":"Rural, continuación del sistema litoral de San Xurxo","forma":"Playa abierta"},
     "servicios":{"parking":"Sí","duchas":"Sí","socorrista":"Puesto de primeros auxilios y socorrismo en temporada"},
     "normas":{"deportesAcuaticos":"Buena playa para deportes acuáticos; costa expuesta"},
     "bano":{"fondo":"Arena fina","oleajeHabitual":"Fuerte","corrientes":"Costa expuesta: extremar precauciones con oleaje y viento"},
-    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
-    "fuentes":[{"nombre":"Turismo de Ferrol","url":"https://visitferrol.com/esmelle/","nota":"Longitud, arena, oleaje, deportes y servicios."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+    "practica":{"temporadaBano":"Verano"},
+    "fuentes":[{"nombre":"Turismo de Ferrol","url":"https://visitferrol.com/esmelle/","nota":"Longitud, arena, oleaje, deportes y servicios."}]
   },
   "praia-de-ponzos": {
-    "descripcion":"Gran playa natural de la costa atlántica de Ferrol, de arena blanca y fina y casi 1,4 km de longitud. Es ventosa, con fuerte oleaje y corrientes, muy apreciada para surf, paseo y carrera. En el extremo derecho mirando al mar existe una zona de tradición nudista. Cuenta con Bandera Azul en 2026.",
+    "descripcion":"Gran playa natural de la costa atlántica de Ferrol, de arena blanca y fina y casi 1,4 km de longitud. Es ventosa, con fuerte oleaje y corrientes, muy apreciada para surf, paseo y carrera. En el extremo derecho mirando al mar existe una zona de tradición nudista.",
     "caracteristicas":{"longitud":"≈1.400 m","composicion":"Arena blanca y fina","entorno":"Rural y no urbanizado, de alto valor natural","forma":"Rectilínea"},
-    "servicios":{"parking":"Sí","duchas":"Sí","socorrista":"Puesto de primeros auxilios/socorrismo en temporada","chiringuito":"Quioscos estacionales según Turismo de Ferrol","transportePublico":"Autobús hasta Covas; comprobar horarios"},
+    "servicios":{"parking":"Sí","duchas":"Sí","socorrista":"Puesto de primeros auxilios/socorrismo en temporada","chiringuito":"Quioscos estacionales","transportePublico":"Autobús hasta Covas; comprobar horarios"},
     "normas":{"nudismo":"Zona nudista en el extremo derecho mirando al mar","deportesAcuaticos":"Surf y otros deportes de mar; solo con condiciones y experiencia adecuadas"},
     "bano":{"fondo":"Arena fina","oleajeHabitual":"Fuerte","corrientes":"Puede presentar corrientes fuertes; extremar precauciones"},
-    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
-    "fuentes":[{"nombre":"Turismo de Ferrol","url":"https://visitferrol.com/ponzos/","nota":"Longitud, entorno, oleaje, nudismo y servicios."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+    "practica":{"temporadaBano":"Verano"},
+    "fuentes":[{"nombre":"Turismo de Ferrol","url":"https://visitferrol.com/ponzos/","nota":"Longitud, entorno, oleaje, nudismo y servicios."}]
   },
   "praia-de-santa-comba": {
     "descripcion":"Extenso arenal natural de Ferrol, de arena blanca, fuertes olas y marcado carácter atlántico. Junto a la playa se encuentra la isla y ermita de Santa Comba, que aportan un notable interés paisajístico e histórico. Es una zona habitual para surf y otros deportes acuáticos.",
-    "caracteristicas":{"longitud":"≈1.500 m según Turismo de Ferrol","composicion":"Arena blanca","entorno":"Rural, natural e histórico; junto a la ermita de Santa Comba","forma":"Rectilínea"},
+    "caracteristicas":{"longitud":"≈1.500 m","composicion":"Arena blanca","entorno":"Rural, natural e histórico; junto a la ermita de Santa Comba","forma":"Rectilínea"},
     "servicios":{"parking":"Aparcamiento en ambos extremos","duchas":"Sí","socorrista":"Puesto de primeros auxilios/socorrismo en temporada","transportePublico":"Autobús hasta Covas; comprobar horarios"},
     "normas":{"deportesAcuaticos":"Surf y deportes acuáticos; costa expuesta"},
     "bano":{"fondo":"Arena","oleajeHabitual":"Fuerte","corrientes":"Costa atlántica expuesta; extremar precauciones"},
