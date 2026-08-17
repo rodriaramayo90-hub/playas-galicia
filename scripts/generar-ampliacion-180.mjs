@@ -6,6 +6,9 @@ const ARCHIVO_EXTRA = resolve(RAIZ, "playas-extra.js");
 const PLANTILLA = resolve(RAIZ, "plantillas", "ficha-playa.html");
 const INDICE = resolve(RAIZ, "data", "indice-fichas.js");
 const DETALLE = resolve(RAIZ, "data", "playas-detalle.json");
+const DETALLES_AMPLIACION = [1, 2, 3, 4].map(numero =>
+  resolve(RAIZ, "data", `ampliacion-180-detalles-${numero}.json`)
+);
 const SITEMAP = resolve(RAIZ, "sitemap.xml");
 const DESTINO = resolve(RAIZ, "playas");
 
@@ -20,6 +23,23 @@ function extraerExtras(codigo) {
     throw new Error(`Se esperaban 30 elementos en PLAYAS_EXTRA y se encontraron ${extras?.length ?? 0}.`);
   }
   return extras;
+}
+
+function combinarProfundo(base, ampliacion) {
+  if (!ampliacion || typeof ampliacion !== "object" || Array.isArray(ampliacion)) return ampliacion ?? base;
+  const resultado = { ...base };
+  for (const [clave, valor] of Object.entries(ampliacion)) {
+    const actual = resultado[clave];
+    if (
+      valor && typeof valor === "object" && !Array.isArray(valor) &&
+      actual && typeof actual === "object" && !Array.isArray(actual)
+    ) {
+      resultado[clave] = combinarProfundo(actual, valor);
+    } else {
+      resultado[clave] = valor;
+    }
+  }
+  return resultado;
 }
 
 function escaparHtml(texto) {
@@ -89,7 +109,7 @@ function fichaDesdeExtra(playa) {
       temporadaBano: null,
       fuente: playa.fuenteNombre || null,
       ultimaVerificacion: "17 de agosto de 2026",
-      notaVigencia: "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+      notaVigencia: "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
     },
     fuentes: playa.fuenteUrl ? [{
       nombre: playa.fuenteNombre || "Fuente oficial consultada",
@@ -177,19 +197,29 @@ function leerIndice(contenido) {
   return ventana.HoyTocaPlayaIndiceFichas || {};
 }
 
-const [codigoExtra, plantilla, contenidoIndice, contenidoDetalle, sitemapActual] = await Promise.all([
+const [codigoExtra, plantilla, contenidoIndice, contenidoDetalle, sitemapActual, ...contenidosAmpliacion] = await Promise.all([
   readFile(ARCHIVO_EXTRA, "utf8"),
   readFile(PLANTILLA, "utf8"),
   readFile(INDICE, "utf8"),
   readFile(DETALLE, "utf8"),
-  readFile(SITEMAP, "utf8")
+  readFile(SITEMAP, "utf8"),
+  ...DETALLES_AMPLIACION.map(ruta => readFile(ruta, "utf8"))
 ]);
 
 const extras = extraerExtras(codigoExtra);
 const nuevas = extras.filter(playa => playa.slugFicha !== "praia-de-areacova");
 if (nuevas.length !== 29) throw new Error(`Se esperaban 29 fichas nuevas y se encontraron ${nuevas.length}.`);
 
-const fichas = nuevas.map(fichaDesdeExtra);
+const ampliaciones = Object.assign({}, ...contenidosAmpliacion.map(contenido => JSON.parse(contenido)));
+const slugsAmpliados = Object.keys(ampliaciones);
+if (slugsAmpliados.length !== 29) {
+  throw new Error(`Se esperaban 29 bloques de información ampliada y se encontraron ${slugsAmpliados.length}.`);
+}
+for (const playa of nuevas) {
+  if (!ampliaciones[playa.slugFicha]) throw new Error(`Falta información ampliada para ${playa.slugFicha}.`);
+}
+
+const fichas = nuevas.map(playa => combinarProfundo(fichaDesdeExtra(playa), ampliaciones[playa.slugFicha]));
 for (const ficha of fichas) {
   const carpeta = resolve(DESTINO, ficha.slug);
   await mkdir(carpeta, { recursive: true });
@@ -219,4 +249,4 @@ if (urlsFaltantes.length) {
   await writeFile(SITEMAP, sitemap, "utf8");
 }
 
-console.log(`Generadas ${fichas.length} fichas nuevas. Catálogo estático: ${catalogo.total} fichas + Areacova personalizada.`);
+console.log(`Generadas ${fichas.length} fichas nuevas con información ampliada. Catálogo estático: ${catalogo.total} fichas + Areacova personalizada.`);
