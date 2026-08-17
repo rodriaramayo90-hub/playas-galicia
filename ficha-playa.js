@@ -169,14 +169,23 @@ function aplicarFotoSeleccionada(playa, fotos) {
 }
 
 function aplicarAjustesLocales(playa) {
-  if (playa.slug !== "playa-nino-do-corvo") return;
-  playa.marea = {
-    dependencia: "Alta",
-    superficiePleamar: "El arenal se reduce mucho con la marea alta",
-    accesoCondicionado: "Conviene visitarla con margen respecto a la pleamar",
-    riesgoAislamiento: "Bajo si se permanece en la zona de acceso",
-    recomendacion: "Consulta la marea antes de ir: Niño do Corvo es un arenal estrecho y con pleamar queda bastante menos espacio de playa."
-  };
+  if (playa.slug === "playa-nino-do-corvo") {
+    playa.marea = {
+      dependencia: "Alta",
+      superficiePleamar: "El arenal se reduce mucho con la marea alta",
+      accesoCondicionado: "Conviene visitarla con margen respecto a la pleamar",
+      riesgoAislamiento: "Bajo si se permanece en la zona de acceso",
+      recomendacion: "Consulta la marea antes de ir: Niño do Corvo es un arenal estrecho y con pleamar queda bastante menos espacio de playa."
+    };
+  }
+
+  if (playa.slug === "playa-de-lapaman") {
+    playa.servicios = { ...playa.servicios, chiringuito: "Sí · Solo pago en efectivo" };
+    const avisoAcceso = "El acceso a la playa requiere bajar a pie por una pendiente pronunciada.";
+    if (!playa.descripcion?.includes(avisoAcceso)) {
+      playa.descripcion = `${playa.descripcion || ""} ${avisoAcceso}`.trim();
+    }
+  }
 }
 
 function renderizarDatosEstaticos(playa) {
