@@ -10642,7 +10642,7 @@
       "lat": 42.398722,
       "lon": -8.822528,
       "destinoMaps": "Praia de Baltar, Portonovo, Sanxenxo, Galicia",
-      "descripcion": "Playa urbana de Portonovo, resguardada y de arena fina. Su frente litoral está ligado al paseo entre Sanxenxo y Portonovo y conserva un sistema dunar singular en un entorno urbano. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Playa urbana de Portonovo, resguardada y de arena fina. Su frente litoral está ligado al paseo entre Sanxenxo y Portonovo y conserva un sistema dunar singular en un entorno urbano.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -10687,7 +10687,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -10702,11 +10702,6 @@
           "nombre": "Turismo de Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
           "nota": "Entorno urbano, sendero litoral y sistema dunar de Baltar."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -10719,7 +10714,7 @@
       "lat": 42.391833,
       "lon": -8.825833,
       "destinoMaps": "Praia de Caneliñas, Portonovo, Sanxenxo, Galicia",
-      "descripcion": "Pequeña playa urbana y resguardada en pleno Portonovo, de arena fina y con vistas a la ría de Pontevedra. Forma parte del recorrido litoral Sanxenxo–Portonovo y cuenta con Bandera Azul en 2026.",
+      "descripcion": "Pequeña playa urbana y resguardada en pleno Portonovo, de arena fina y con vistas a la ría de Pontevedra. Forma parte del recorrido litoral Sanxenxo–Portonovo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -10764,7 +10759,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -10779,11 +10774,6 @@
           "nombre": "Turismo de Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
           "nota": "Ubicación en Portonovo y entorno del sendero litoral."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -10796,12 +10786,12 @@
       "lat": 42.394611,
       "lon": -8.778778,
       "destinoMaps": "Praia de Areas, Sanxenxo, Galicia",
-      "descripcion": "Uno de los grandes arenales de Sanxenxo, de arena blanca y fina, protegido de los vientos y con un entorno de dunas. Dispone de paseo de madera parcial, acceso adaptado, socorrista, transporte público y aparcamiento según la guía turística municipal. Tiene Bandera Azul en 2026.",
+      "descripcion": "Uno de los grandes arenales de Sanxenxo, de arena blanca y fina, protegido de los vientos y con un entorno de dunas. Dispone de paseo de madera parcial, acceso adaptado, socorrista, transporte público y aparcamiento.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
         "composicion": "Arena blanca y fina",
-        "longitud": "350 m según Turismo de Galicia",
+        "longitud": "350 m",
         "anchura": null,
         "entorno": "Arenal con dunas; pequeña ensenada en el extremo sur",
         "forma": "Arenal amplio",
@@ -10841,7 +10831,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -10855,12 +10845,7 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9767/areas?langId=es_ES",
-          "nota": "Clasificación oficial de playa y arena."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
+          "nota": "Clasificación de la playa y tipo de arena."
         }
       ]
     },
@@ -10873,7 +10858,7 @@
       "lat": 42.391639,
       "lon": -8.844056,
       "destinoMaps": "Praia de Paxariñas, Sanxenxo, Galicia",
-      "descripcion": "Pequeña playa resguardada de arena fina entre Portonovo y Montalvo, encajada junto a una costa acantilada y con vistas hacia la boca de la ría de Pontevedra y la isla de Ons. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Pequeña playa resguardada de arena fina entre Portonovo y Montalvo, encajada junto a una costa acantilada y con vistas hacia la boca de la ría de Pontevedra y la isla de Ons.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -10918,7 +10903,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -10927,7 +10912,7 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9753/paxarinas?langId=es_ES",
-          "nota": "Longitud, arena, tipo y Bandera Azul."
+          "nota": "Longitud, arena y tipo de playa."
         },
         {
           "nombre": "Guía Turismo Sanxenxo",
@@ -10938,11 +10923,6 @@
           "nombre": "Guía Turismo Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-canelas-p-cabicastro/",
           "nota": "Costa acantilada y carácter resguardado."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -10955,12 +10935,12 @@
       "lat": 42.404139,
       "lon": -8.858139,
       "destinoMaps": "Praia de Bascuas, Sanxenxo, Galicia",
-      "descripcion": "Cala rural de arena fina entre Montalvo y Pragueira, protegida por cantiles de más de diez metros y con vistas a Ons, punta Faxilda y Sálvora. Es la única playa nudista del municipio de Sanxenxo. Cuenta con acceso adaptado, socorrista, transporte público, aparcamiento y Bandera Azul.",
+      "descripcion": "Cala rural de arena fina entre Montalvo y Pragueira, protegida por cantiles de más de diez metros y con vistas a Ons, punta Faxilda y Sálvora. Es la única playa nudista del municipio de Sanxenxo. Cuenta con acceso adaptado, socorrista, transporte público y aparcamiento.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
         "composicion": "Arena fina",
-        "longitud": "210 m según Turismo de Galicia",
+        "longitud": "210 m",
         "anchura": null,
         "entorno": "Rural, entre acantilados; vistas a Ons y Sálvora",
         "forma": "Cala protegida por cantiles",
@@ -10979,7 +10959,7 @@
       },
       "normas": {
         "perros": null,
-        "nudismo": "Sí; es la única playa nudista del municipio según Turismo de Sanxenxo",
+        "nudismo": "Sí; es la única playa nudista del municipio de Sanxenxo",
         "deportesAcuaticos": null,
         "barbacoasFuego": null,
         "accesoVehiculos": null
@@ -11000,7 +10980,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -11014,12 +10994,7 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9750/bascuas?langId=es_ES",
-          "nota": "Clasificación oficial y arena."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
+          "nota": "Clasificación de la playa y tipo de arena."
         }
       ]
     },
@@ -11032,7 +11007,7 @@
       "lat": 42.427139,
       "lon": -8.873667,
       "destinoMaps": "Praia de Foxos, Sanxenxo, Galicia",
-      "descripcion": "Arenal abierto de arena fina en el entorno de A Lanzada. Desde su acceso arranca la Ruta Máxica da Lanzada, que recorre un paisaje costero con yacimiento arqueológico, ermita y restos de la antigua fortaleza. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Arenal abierto de arena fina en el entorno de A Lanzada. Desde su acceso arranca la Ruta Máxica da Lanzada, que recorre un paisaje costero con yacimiento arqueológico, ermita y restos de la antigua fortaleza.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -11077,7 +11052,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -11092,11 +11067,6 @@
           "nombre": "Guía Turismo Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/ruta-maxica-da-lanzada/",
           "nota": "Entorno natural y patrimonial."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -11109,7 +11079,7 @@
       "lat": 42.400722,
       "lon": -8.803889,
       "destinoMaps": "Praia de Panadeira, Sanxenxo, Galicia",
-      "descripcion": "Pequeña playa urbana y muy resguardada en el núcleo de Sanxenxo, de arena fina y integrada en el paseo litoral que conecta el puerto, Silgar, Baltar y Portonovo. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Pequeña playa urbana y muy resguardada en el núcleo de Sanxenxo, de arena fina y integrada en el paseo litoral que conecta el puerto, Silgar, Baltar y Portonovo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -11154,7 +11124,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -11169,11 +11139,6 @@
           "nombre": "Guía Turismo Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
           "nota": "Entorno del paseo litoral."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -11210,8 +11175,8 @@
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
-        "nudismo": "Tradición naturista según el Parque Nacional",
-        "deportesAcuaticos": "Snorkel posible desde la playa; el Parque Nacional destaca la riqueza de vida marina",
+        "nudismo": "Tradición naturista",
+        "deportesAcuaticos": "Buen entorno para snorkel desde la playa y en las zonas rocosas próximas",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
         "accesoVehiculos": "No hay acceso de vehículos particulares a la isla"
       },
@@ -11240,7 +11205,7 @@
         {
           "nombre": "Parque Nacional de las Illas Atlánticas",
           "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
-          "nota": "Descripción oficial de las playas del archipiélago."
+          "nota": "Descripción de las playas del archipiélago."
         },
         {
           "nombre": "Parque Nacional · zonas de snorkel",
@@ -11258,7 +11223,7 @@
       "lat": 42.374694,
       "lon": -8.932889,
       "destinoMaps": "Area dos Cans, Illa de Ons, Bueu, Galicia",
-      "descripcion": "Playa de arena fina en la costa oriental de Ons, con aguas generalmente tranquilas y vistas a la Laxe do Crego, donde se conserva una sepultura antropomorfa. Las zonas rocosas que rodean el arenal son señaladas por el Parque Nacional como uno de los buenos puntos de la isla para observar vida marina con máscara y tubo.",
+      "descripcion": "Playa de arena fina en la costa oriental de Ons, con aguas generalmente tranquilas y vistas a la Laxe do Crego, donde se conserva una sepultura antropomorfa. Las zonas rocosas que rodean el arenal son uno de los buenos puntos de la isla para observar vida marina con máscara y tubo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -11298,7 +11263,7 @@
         "entradaAgua": null,
         "fondo": "Arena fina",
         "oleajeHabitual": "Aguas generalmente tranquilas",
-        "corrientes": "Para snorkel, el Parque recomienda permanecer cerca de la costa",
+        "corrientes": "Para snorkel, conviene permanecer cerca de la costa",
         "ninos": null,
         "profundidad": null
       },
@@ -11312,7 +11277,7 @@
         {
           "nombre": "Parque Nacional de las Illas Atlánticas",
           "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
-          "nota": "Descripción oficial de las playas del archipiélago."
+          "nota": "Descripción de las playas del archipiélago."
         },
         {
           "nombre": "Parque Nacional · zonas de snorkel",
@@ -11355,7 +11320,7 @@
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
         "nudismo": null,
-        "deportesAcuaticos": "Snorkel en las zonas rocosas; mejores condiciones cerca de pleamar según el Parque Nacional",
+        "deportesAcuaticos": "Snorkel en las zonas rocosas; las mejores condiciones suelen darse cerca de pleamar",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
         "accesoVehiculos": "No hay acceso de vehículos particulares a la isla"
       },
@@ -11364,7 +11329,7 @@
         "superficiePleamar": null,
         "accesoCondicionado": null,
         "riesgoAislamiento": null,
-        "recomendacion": "Para observar vida marina en las rocas, el Parque Nacional recomienda acercarse a la pleamar."
+        "recomendacion": "Para observar vida marina en las rocas, conviene acercarse a la pleamar."
       },
       "bano": {
         "entradaAgua": null,
@@ -11384,7 +11349,7 @@
         {
           "nombre": "Parque Nacional de las Illas Atlánticas",
           "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
-          "nota": "Descripción oficial de las playas del archipiélago."
+          "nota": "Descripción de las playas del archipiélago."
         },
         {
           "nombre": "Parque Nacional · zonas de snorkel",
@@ -11461,7 +11426,7 @@
         {
           "nombre": "Parque Nacional de las Illas Atlánticas",
           "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
-          "nota": "Descripción oficial de las playas del archipiélago."
+          "nota": "Descripción de las playas del archipiélago."
         },
         {
           "nombre": "Turismo de Galicia",
@@ -11503,7 +11468,7 @@
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
-        "nudismo": "Tradición naturista según el Parque Nacional",
+        "nudismo": "Tradición naturista",
         "deportesAcuaticos": "Snorkel recomendado en los extremos rocosos",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
         "accesoVehiculos": "No hay acceso de vehículos particulares"
@@ -11533,7 +11498,7 @@
         {
           "nombre": "Parque Nacional de las Illas Atlánticas",
           "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
-          "nota": "Descripción oficial de las playas."
+          "nota": "Descripción de las playas."
         },
         {
           "nombre": "Parque Nacional · zonas de snorkel",
@@ -11566,7 +11531,7 @@
       "lat": 42.216167,
       "lon": -8.902333,
       "destinoMaps": "Praia de Nosa Señora, Illas Cíes, Vigo, Galicia",
-      "descripcion": "Pequeña playa de arena blanca y fina en las Islas Cíes, resguardada del viento del norte y con una zona de descanso sombreada en las proximidades. La zona rocosa al sur del arenal es uno de los puntos destacados del Parque Nacional para practicar snorkel.",
+      "descripcion": "Pequeña playa de arena blanca y fina en las Islas Cíes, resguardada del viento del norte y con una zona de descanso sombreada en las proximidades. La zona rocosa al sur del arenal es uno de los mejores puntos del entorno para practicar snorkel.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -11620,7 +11585,7 @@
         {
           "nombre": "Parque Nacional de las Illas Atlánticas",
           "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
-          "nota": "Descripción oficial de las playas."
+          "nota": "Descripción de las playas."
         },
         {
           "nombre": "Parque Nacional · zonas de snorkel",
@@ -11653,7 +11618,7 @@
       "lat": 43.703528,
       "lon": -7.848333,
       "destinoMaps": "Praia de Morouzos, Ortigueira, Galicia",
-      "descripcion": "Gran arenal natural de la ría de Ortigueira, con más de dos kilómetros de longitud, dunas, pinar y una extensa zona intermareal. Forma parte del entorno protegido de la ría de Ortigueira-Mera y cuenta con Bandera Azul en 2026. Con marea baja el paisaje cambia mucho y puede quedar accesible a pie la pequeña isla de San Vicente.",
+      "descripcion": "Gran arenal natural de la ría de Ortigueira, con más de dos kilómetros de longitud, dunas, pinar y una extensa zona intermareal. Forma parte del entorno protegido de la ría de Ortigueira-Mera. Con marea baja el paisaje cambia mucho y puede quedar accesible a pie la pequeña isla de San Vicente.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -11698,7 +11663,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -11707,17 +11672,12 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9848/morouzos?langId=es_ES",
-          "nota": "Longitud, tipo, arena y Bandera Azul."
+          "nota": "Longitud, tipo y arena."
         },
         {
           "nombre": "Turismo de Galicia · Ría de Ortigueira",
           "url": "https://www.turismo.gal/que-visitar/rias-e-praias/ria-de-ortigueira?langId=es_ES",
           "nota": "Sistema dunar, pinar y valores naturales."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -11730,7 +11690,7 @@
       "lat": 43.719083,
       "lon": -7.809667,
       "destinoMaps": "Praia da Concha, Espasante, Ortigueira, Galicia",
-      "descripcion": "Playa de arena fina en Espasante, dentro del municipio de Ortigueira. Junto al arenal existe un área recreativa con duchas, aseos adaptados, socorrismo, aparcamiento, juegos infantiles y otras instalaciones. Tiene Bandera Azul en 2026 y se integra en un entorno de interés geológico y marinero.",
+      "descripcion": "Playa de arena fina en Espasante, dentro del municipio de Ortigueira. Junto al arenal existe un área recreativa con duchas, aseos adaptados, socorrismo, aparcamiento, juegos infantiles y otras instalaciones. Se integra en un entorno de interés geológico y marinero.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -11775,7 +11735,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -11790,11 +11750,6 @@
           "nombre": "Turismo de Galicia · Área recreativa A Concha",
           "url": "https://www.turismo.gal/recurso/-/detalle/280381944/a-concha?langId=es_ES",
           "nota": "Duchas, aseos, socorrismo, aparcamiento y equipamientos."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -11832,7 +11787,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": "Apta para deportes acuáticos según Turismo de Galicia",
+        "deportesAcuaticos": "Apta para deportes acuáticos",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -12008,7 +11963,7 @@
       "lat": 43.53425,
       "lon": -8.2955,
       "destinoMaps": "Praia de Esmelle, Ferrol, Galicia",
-      "descripcion": "Arenal atlántico de Ferrol, de arena blanca y fina y fuerte exposición al oleaje y al viento. Es una playa adecuada para deportes acuáticos y cuenta con aparcamiento, puesto de primeros auxilios/socorrismo y duchas. Tiene Bandera Azul en 2026.",
+      "descripcion": "Arenal atlántico de Ferrol, de arena blanca y fina y fuerte exposición al oleaje y al viento. Es una playa adecuada para deportes acuáticos y cuenta con aparcamiento, puesto de primeros auxilios/socorrismo y duchas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -12053,7 +12008,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12063,11 +12018,6 @@
           "nombre": "Turismo de Ferrol",
           "url": "https://visitferrol.com/esmelle/",
           "nota": "Longitud, arena, oleaje, deportes y servicios."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -12080,7 +12030,7 @@
       "lat": 43.555583,
       "lon": -8.271389,
       "destinoMaps": "Praia de Ponzos, Ferrol, Galicia",
-      "descripcion": "Gran playa natural de la costa atlántica de Ferrol, de arena blanca y fina y casi 1,4 km de longitud. Es ventosa, con fuerte oleaje y corrientes, muy apreciada para surf, paseo y carrera. En el extremo derecho mirando al mar existe una zona de tradición nudista. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Gran playa natural de la costa atlántica de Ferrol, de arena blanca y fina y casi 1,4 km de longitud. Es ventosa, con fuerte oleaje y corrientes, muy apreciada para surf, paseo y carrera. En el extremo derecho mirando al mar existe una zona de tradición nudista.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -12098,7 +12048,7 @@
         "duchas": "Sí",
         "aseos": null,
         "socorrista": "Puesto de primeros auxilios/socorrismo en temporada",
-        "chiringuito": "Quioscos estacionales según Turismo de Ferrol",
+        "chiringuito": "Quioscos estacionales",
         "restaurantes": null,
         "transportePublico": "Autobús hasta Covas; comprobar horarios"
       },
@@ -12125,7 +12075,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12135,11 +12085,6 @@
           "nombre": "Turismo de Ferrol",
           "url": "https://visitferrol.com/ponzos/",
           "nota": "Longitud, entorno, oleaje, nudismo y servicios."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -12157,7 +12102,7 @@
       "caracteristicas": {
         "tipo": "Playa abierta",
         "composicion": "Arena blanca",
-        "longitud": "≈1.500 m según Turismo de Ferrol",
+        "longitud": "≈1.500 m",
         "anchura": null,
         "entorno": "Rural, natural e histórico; junto a la ermita de Santa Comba",
         "forma": "Rectilínea",
@@ -12219,12 +12164,12 @@
       "lat": 42.481361,
       "lon": -8.893889,
       "destinoMaps": "Praia de Area das Pipas, O Grove, Galicia",
-      "descripcion": "Playa de arena blanca y fina al noroeste de la península de O Grove, en un entorno rural de notable interés paisajístico. Puede ser ventosa y presentar oleaje moderado. Turismo Rías Baixas registra zona de buceo y accesibilidad para personas con movilidad reducida.",
+      "descripcion": "Playa de arena blanca y fina al noroeste de la península de O Grove, en un entorno rural de notable interés paisajístico. Puede ser ventosa y presentar oleaje moderado. Cuenta con zona de buceo y accesibilidad para personas con movilidad reducida.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena fina",
-        "longitud": "400 m según Turismo de Galicia (otras fichas turísticas delimitan un tramo menor)",
+        "longitud": "≈400 m, según el tramo considerado",
         "anchura": null,
         "entorno": "Rural y arbolado, próximo a Mexilloeira",
         "forma": "Arenal resguardado",
@@ -12233,7 +12178,7 @@
       },
       "servicios": {
         "parking": "Aparcamiento en el entorno",
-        "accesibilidad": "Turismo Rías Baixas la señala como accesible para personas con movilidad reducida",
+        "accesibilidad": "Accesible para personas con movilidad reducida",
         "duchas": null,
         "aseos": null,
         "socorrista": null,
@@ -12244,7 +12189,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": "Zona de buceo registrada por Turismo Rías Baixas",
+        "deportesAcuaticos": "Zona de buceo",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -12258,7 +12203,7 @@
       "bano": {
         "entradaAgua": null,
         "fondo": "Arena fina",
-        "oleajeHabitual": "Oleaje moderado según Turismo Rías Baixas",
+        "oleajeHabitual": "Oleaje moderado",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
@@ -12278,7 +12223,7 @@
         {
           "nombre": "Turismo Rías Baixas",
           "url": "https://www.turismoriasbaixas.com/es/search/playa-de-area-das-pipas-o-de-reboledo",
-          "nota": "Entorno, oleaje, calidad sanitaria y zona de buceo."
+          "nota": "Entorno, oleaje, calidad sanitaria, accesibilidad y zona de buceo."
         }
       ]
     },
@@ -12291,7 +12236,7 @@
       "lat": 42.461639,
       "lon": -8.897583,
       "destinoMaps": "Praia de Raeiros, O Grove, Galicia",
-      "descripcion": "Playa rectilínea de arena blanca y fina en San Vicente do Mar, O Grove, en entorno rústico y con vistas destacadas a la isla de Ons. Turismo Rías Baixas la describe como ventosa pero de aguas tranquilas, con calidad sanitaria excelente y zona de buceo.",
+      "descripcion": "Playa rectilínea de arena blanca y fina en San Vicente do Mar, O Grove, en entorno rústico y con vistas destacadas a la isla de Ons. Es ventosa pero tiene aguas generalmente tranquilas, buena calidad sanitaria y zona de buceo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -12316,7 +12261,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": "Zona de buceo registrada por Turismo Rías Baixas",
+        "deportesAcuaticos": "Zona de buceo",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -12330,7 +12275,7 @@
       "bano": {
         "entradaAgua": null,
         "fondo": "Arena fina",
-        "oleajeHabitual": "Aguas tranquilas según Turismo Rías Baixas",
+        "oleajeHabitual": "Aguas generalmente tranquilas",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
@@ -12430,12 +12375,12 @@
       "lat": 42.567944,
       "lon": -8.887083,
       "destinoMaps": "Praia de Area de Secada, A Illa de Arousa, Galicia",
-      "descripcion": "Playa natural de arena fina en el norte de A Illa de Arousa, rodeada de pinar y con una duna móvil protegida. La ficha turística municipal indica unos 420 m de longitud, con 20 m de anchura en bajamar y 10 m en pleamar. Tiene paseo de madera y carril bici, aguas tranquilas y Bandera Azul en 2026. La información turística provincial recoge socorrismo, aseos, duchas y otros servicios de playa.",
+      "descripcion": "Playa natural de arena fina en el norte de A Illa de Arousa, rodeada de pinar y con una duna móvil protegida. Tiene unos 420 m de longitud, con aproximadamente 20 m de anchura en bajamar y 10 m en pleamar. Cuenta con paseo de madera y carril bici, aguas tranquilas, socorrismo estacional, aseos, duchas y otros servicios de playa.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena fina y clara",
-        "longitud": "420 m según Turismo de A Illa de Arousa",
+        "longitud": "420 m",
         "anchura": "≈20 m en bajamar y ≈10 m en pleamar",
         "entorno": "Natural y forestal, con pinar y duna móvil protegida; paseo de madera y carril bici",
         "forma": "Playa resguardada",
@@ -12444,7 +12389,7 @@
       },
       "servicios": {
         "parking": "Zona de aparcamiento en el entorno",
-        "accesibilidad": "Pasarelas/paseo de madera; Turismo Rías Baixas registra infraestructuras adaptadas",
+        "accesibilidad": "Pasarelas y paseo de madera; dispone de infraestructuras adaptadas",
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí, servicio estacional",
@@ -12461,7 +12406,7 @@
       },
       "marea": {
         "dependencia": "Media",
-        "superficiePleamar": "La anchura publicada pasa de unos 20 m en bajamar a unos 10 m en pleamar",
+        "superficiePleamar": "La anchura pasa de unos 20 m en bajamar a unos 10 m en pleamar",
         "accesoCondicionado": "No",
         "riesgoAislamiento": "Bajo en la zona principal",
         "recomendacion": "La playa sigue siendo utilizable con pleamar, pero dispone de bastante menos anchura."
@@ -12475,7 +12420,7 @@
         "profundidad": "Entrada progresiva según el sector; comprobar el estado de la marea"
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12495,11 +12440,6 @@
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/que-facer/faros-e-praias-salvaxes/areais-da-ria-de-arousa?langId=es_ES",
           "nota": "Pinar, pasarela de madera, aguas tranquilas y actividades náuticas."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     },
@@ -12512,12 +12452,12 @@
       "lat": 42.544361,
       "lon": -8.867472,
       "destinoMaps": "Praia de Camaxe, A Illa de Arousa, Galicia",
-      "descripcion": "Playa de unos 600 m en la costa este de A Illa de Arousa, de forma semicircular, arena fina y entorno natural y forestal. La guía turística municipal la describe como tranquila y muy abrigada, con alto valor marisquero y paisajístico. Dispone de aparcamiento, áreas de descanso, camping y chiringuito de verano, y por su entorno pasa la Senda Azul Bao–Xastelas. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Playa de unos 600 m en la costa este de A Illa de Arousa, de forma semicircular, arena fina y entorno natural y forestal. Es tranquila y muy abrigada, con alto valor marisquero y paisajístico. Dispone de aparcamiento, áreas de descanso, camping y chiringuito de verano, y por su entorno pasa la Senda Azul Bao–Xastelas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena fina",
-        "longitud": "600 m según Turismo A Illa de Arousa",
+        "longitud": "600 m",
         "anchura": "≈20 m en bajamar y ≈10 m en pleamar",
         "entorno": "Natural y forestal; alto valor marisquero y paisajístico",
         "forma": "Semicircular",
@@ -12543,7 +12483,7 @@
       },
       "marea": {
         "dependencia": "Media",
-        "superficiePleamar": "La anchura publicada pasa de unos 20 m en bajamar a unos 10 m en pleamar",
+        "superficiePleamar": "La anchura pasa de unos 20 m en bajamar a unos 10 m en pleamar",
         "accesoCondicionado": "No",
         "riesgoAislamiento": "Bajo en la zona principal",
         "recomendacion": "Con pleamar el arenal pierde anchura, aunque mantiene zona útil."
@@ -12557,7 +12497,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12571,17 +12511,12 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/258852417/camaxe?langId=es_ES",
-          "nota": "Clasificación oficial del arenal."
+          "nota": "Clasificación del arenal."
         },
         {
-          "nombre": "A Illa de Arousa · Bandera Azul",
+          "nombre": "A Illa de Arousa · Senda Azul",
           "url": "https://www.ailladearousa.es/turismo/bandeira-azul/",
-          "nota": "Bandera Azul y Senda Bao–Xastelas."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
+          "nota": "Información sobre la Senda Bao–Xastelas."
         }
       ]
     },
@@ -12594,7 +12529,7 @@
       "lat": 42.424167,
       "lon": -8.683083,
       "destinoMaps": "Praia de Cabeceira, Poio, Galicia",
-      "descripcion": "Playa resguardada de arena fina en Campelo, Poio, en el interior de la ría de Pontevedra. Tiene unos 200 metros de longitud y cuenta con Bandera Azul en 2026, lo que la convierte en una opción cómoda para un baño tranquilo cerca de los núcleos de Poio y Pontevedra.",
+      "descripcion": "Playa resguardada de arena fina en Campelo, Poio, en el interior de la ría de Pontevedra. Tiene unos 200 metros de longitud y es una opción cómoda para un baño tranquilo cerca de los núcleos de Poio y Pontevedra.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -12639,7 +12574,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12648,12 +12583,7 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9796/cabeceira?langId=es_ES",
-          "nota": "Longitud, tipo, arena y Bandera Azul."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
+          "nota": "Longitud, tipo y arena."
         }
       ]
     },
@@ -12666,7 +12596,7 @@
       "lat": 42.402889,
       "lon": -8.756639,
       "destinoMaps": "Praia de Xiorto, Poio, Galicia",
-      "descripcion": "Arenal resguardado de arena fina en Poio, de unos 300 metros, situado en la ría de Pontevedra. Su carácter protegido favorece un ambiente más tranquilo que el de las playas atlánticas abiertas. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Arenal resguardado de arena fina en Poio, de unos 300 metros, situado en la ría de Pontevedra. Su carácter protegido favorece un ambiente más tranquilo que el de las playas atlánticas abiertas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
@@ -12711,7 +12641,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12720,12 +12650,7 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9784/xiorto?langId=es_ES",
-          "nota": "Longitud, tipo, arena y Bandera Azul."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
+          "nota": "Longitud, tipo y arena."
         }
       ]
     },
@@ -12738,12 +12663,12 @@
       "lat": 42.632667,
       "lon": -8.7615,
       "destinoMaps": "Praia de Bamio, Vilagarcía de Arousa, Galicia",
-      "descripcion": "Arenal resguardado del núcleo de Bamio, en Vilagarcía de Arousa, con forma de media concha, arena blanca y fina y aguas generalmente tranquilas. Turismo Rías Baixas destaca su entorno rural, la protección frente al viento y el aparcamiento gratuito. Cuenta con Bandera Azul en 2026.",
+      "descripcion": "Arenal resguardado del núcleo de Bamio, en Vilagarcía de Arousa, con forma de media concha, arena blanca y fina y aguas generalmente tranquilas. Tiene un entorno rural, está protegida del viento y dispone de aparcamiento gratuito.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena blanca y fina",
-        "longitud": "≈130–167 m según la delimitación de las fichas turísticas oficiales",
+        "longitud": "≈130–167 m, según el tramo considerado",
         "anchura": null,
         "entorno": "Rural, en Bamio",
         "forma": "Media concha",
@@ -12751,7 +12676,7 @@
         "exposicion": "Nivel de abrigo usado por el ranking: muyAlto"
       },
       "servicios": {
-        "parking": "Sí, gratuito según Turismo Rías Baixas",
+        "parking": "Sí, gratuito",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -12783,7 +12708,7 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": "Verano; Bandera Azul 2026",
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
@@ -12792,17 +12717,12 @@
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/11353/bamio?langId=es_ES",
-          "nota": "Longitud, tipo, arena y Bandera Azul."
+          "nota": "Longitud, tipo y arena."
         },
         {
           "nombre": "Turismo Rías Baixas · O Campanario (Bamio)",
           "url": "https://www.turismoriasbaixas.com/es/search/playa-de-o-campanario",
           "nota": "Forma, entorno, aparcamiento y aguas tranquilas."
-        },
-        {
-          "nombre": "Turismo de Galicia · Banderas Azules 2026",
-          "url": "https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/",
-          "nota": "Distintivo Bandera Azul 2026."
         }
       ]
     }
