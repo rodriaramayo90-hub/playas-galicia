@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - "app.js"
+      - "playas-extra.js"
+      - "scripts/actualizar-pronostico.mjs"
+      - ".github/workflows/actualizar-pronostico.yml"
 
 permissions:
   contents: write
@@ -39,4 +45,3 @@ jobs:
           git add data/pronostico.json
           git commit -m "Actualizar pronóstico compartido"
           git push
-
