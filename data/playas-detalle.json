@@ -10642,27 +10642,27 @@
       "lat": 42.398722,
       "lon": -8.822528,
       "destinoMaps": "Praia de Baltar, Portonovo, Sanxenxo, Galicia",
-      "descripcion": "Playa resguardada junto a Portonovo, uno de los arenales urbanos más conocidos de Sanxenxo.",
+      "descripcion": "Playa urbana de Portonovo, resguardada y de arena fina. Su frente litoral está ligado al paseo entre Sanxenxo y Portonovo y conserva un sistema dunar singular en un entorno urbano.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "600 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Urbano, junto a Portonovo; sistema dunar asociado al arenal",
+        "forma": "Arenal amplio y resguardado",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno de Portonovo",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Sí, entorno urbano de Portonovo"
       },
       "normas": {
         "perros": null,
@@ -10680,23 +10680,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Generalmente moderado por su carácter resguardado",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9778/baltar?langId=es_ES",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nota": "Longitud, tipo de playa y arena."
+        },
+        {
+          "nombre": "Turismo de Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
+          "nota": "Entorno urbano, sendero litoral y sistema dunar de Baltar."
         }
       ]
     },
@@ -10709,27 +10714,27 @@
       "lat": 42.391833,
       "lon": -8.825833,
       "destinoMaps": "Praia de Caneliñas, Portonovo, Sanxenxo, Galicia",
-      "descripcion": "Playa resguardada situada en el núcleo de Portonovo, Sanxenxo.",
+      "descripcion": "Pequeña playa urbana y resguardada en pleno Portonovo, de arena fina y con vistas a la ría de Pontevedra. Forma parte del recorrido litoral Sanxenxo–Portonovo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "100 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Urbano, en Portonovo; próxima al mirador de A Peixeira",
+        "forma": "Pequeña playa resguardada",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno urbano de Portonovo",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Sí, entorno urbano de Portonovo"
       },
       "normas": {
         "perros": null,
@@ -10747,23 +10752,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Habitualmente moderado por su situación resguardada",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9755/canelinas?langId=es_ES",
+          "nota": "Longitud, tipo de playa y arena."
+        },
+        {
+          "nombre": "Turismo de Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
+          "nota": "Ubicación en Portonovo y entorno del sendero litoral."
         }
       ]
     },
@@ -10776,27 +10786,27 @@
       "lat": 42.394611,
       "lon": -8.778778,
       "destinoMaps": "Praia de Areas, Sanxenxo, Galicia",
-      "descripcion": "Amplio arenal de Sanxenxo clasificado como playa abierta.",
+      "descripcion": "Uno de los grandes arenales de Sanxenxo, de arena blanca y fina, protegido de los vientos y con un entorno de dunas. Dispone de paseo de madera parcial, acceso adaptado, socorrista, transporte público y aparcamiento.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "350 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Arenal con dunas; pequeña ensenada en el extremo sur",
+        "forma": "Arenal amplio",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
-        "accesibilidad": null,
+        "parking": "Sí",
+        "accesibilidad": "Acceso adaptado",
         "duchas": null,
         "aseos": null,
-        "socorrista": null,
+        "socorrista": "Sí, en temporada de baño",
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Sí"
       },
       "normas": {
         "perros": null,
@@ -10814,23 +10824,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Generalmente moderado; playa protegida de los vientos",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
+          "nombre": "Guía Turismo Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/praia-de-areas/",
+          "nota": "Descripción del arenal y servicios."
+        },
+        {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9767/areas?langId=es_ES",
+          "nota": "Clasificación de la playa y tipo de arena."
         }
       ]
     },
@@ -10843,20 +10858,20 @@
       "lat": 42.391639,
       "lon": -8.844056,
       "destinoMaps": "Praia de Paxariñas, Sanxenxo, Galicia",
-      "descripcion": "Playa resguardada del litoral de Sanxenxo, entre Portonovo y Montalvo.",
+      "descripcion": "Pequeña playa resguardada de arena fina entre Portonovo y Montalvo, encajada junto a una costa acantilada y con vistas hacia la boca de la ría de Pontevedra y la isla de Ons.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "100 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Costa acantilada entre Paxariñas y punta Cabicastro; vistas a Ons",
+        "forma": "Pequeña cala resguardada",
         "orientacion": "SW",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento junto al inicio del sendero Paxariñas–Montalvo",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -10881,23 +10896,33 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Resguardado, aunque próximo a zona de rompientes en los acantilados de Cabicastro",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9753/paxarinas?langId=es_ES",
+          "nota": "Longitud, arena y tipo de playa."
+        },
+        {
+          "nombre": "Guía Turismo Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-paxarinas-montalvo/",
+          "nota": "Entorno, aparcamiento y vistas."
+        },
+        {
+          "nombre": "Guía Turismo Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-canelas-p-cabicastro/",
+          "nota": "Costa acantilada y carácter resguardado."
         }
       ]
     },
@@ -10910,31 +10935,31 @@
       "lat": 42.404139,
       "lon": -8.858139,
       "destinoMaps": "Praia de Bascuas, Sanxenxo, Galicia",
-      "descripcion": "Arenal abierto del municipio de Sanxenxo, conocido también por su tradición nudista.",
+      "descripcion": "Cala rural de arena fina entre Montalvo y Pragueira, protegida por cantiles de más de diez metros y con vistas a Ons, punta Faxilda y Sálvora. Es la única playa nudista del municipio de Sanxenxo. Cuenta con acceso adaptado, socorrista, transporte público y aparcamiento.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "210 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural, entre acantilados; vistas a Ons y Sálvora",
+        "forma": "Cala protegida por cantiles",
         "orientacion": "W",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
-        "accesibilidad": null,
+        "parking": "Sí",
+        "accesibilidad": "Acceso adaptado",
         "duchas": null,
         "aseos": null,
-        "socorrista": null,
+        "socorrista": "Sí, en temporada de baño",
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Sí"
       },
       "normas": {
         "perros": null,
-        "nudismo": null,
+        "nudismo": "Sí; es la única playa nudista del municipio de Sanxenxo",
         "deportesAcuaticos": null,
         "barbacoasFuego": null,
         "accesoVehiculos": null
@@ -10948,23 +10973,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Variable; costa atlántica, aunque la cala está protegida por acantilados",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
+          "nombre": "Guía Turismo Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/praia-de-bascuas/",
+          "nota": "Entorno, nudismo y servicios."
+        },
+        {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9750/bascuas?langId=es_ES",
+          "nota": "Clasificación de la playa y tipo de arena."
         }
       ]
     },
@@ -10977,20 +11007,20 @@
       "lat": 42.427139,
       "lon": -8.873667,
       "destinoMaps": "Praia de Foxos, Sanxenxo, Galicia",
-      "descripcion": "Playa abierta de Sanxenxo próxima al entorno de A Lanzada.",
+      "descripcion": "Arenal abierto de arena fina en el entorno de A Lanzada. Desde su acceso arranca la Ruta Máxica da Lanzada, que recorre un paisaje costero con yacimiento arqueológico, ermita y restos de la antigua fortaleza.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "350 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Entorno natural y patrimonial de A Lanzada; inicio de la Ruta Máxica",
+        "forma": "Playa abierta",
         "orientacion": "W",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el acceso principal de la zona de A Lanzada",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -11015,23 +11045,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Expuesto; puede presentar oleaje atlántico",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9748/foxos?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        },
+        {
+          "nombre": "Guía Turismo Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/ruta-maxica-da-lanzada/",
+          "nota": "Entorno natural y patrimonial."
         }
       ]
     },
@@ -11044,27 +11079,27 @@
       "lat": 42.400722,
       "lon": -8.803889,
       "destinoMaps": "Praia de Panadeira, Sanxenxo, Galicia",
-      "descripcion": "Pequeña playa urbana y resguardada situada en el núcleo de Sanxenxo.",
+      "descripcion": "Pequeña playa urbana y muy resguardada en el núcleo de Sanxenxo, de arena fina y integrada en el paseo litoral que conecta el puerto, Silgar, Baltar y Portonovo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "80 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Urbano, junto al paseo litoral de Sanxenxo",
+        "forma": "Pequeña playa resguardada",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: muyAlto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento urbano en el entorno",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Servicios urbanos de Sanxenxo en las proximidades"
       },
       "normas": {
         "perros": null,
@@ -11082,23 +11117,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Habitualmente tranquilo por su situación resguardada",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9761/panadeira?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        },
+        {
+          "nombre": "Guía Turismo Sanxenxo",
+          "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
+          "nota": "Entorno del paseo litoral."
         }
       ]
     },
@@ -11111,34 +11151,34 @@
       "lat": 42.390083,
       "lon": -8.925583,
       "destinoMaps": "Praia de Melide, Illa de Ons, Bueu, Galicia",
-      "descripcion": "Arenal de arena fina de la Isla de Ons, dentro del Parque Nacional de las Illas Atlánticas.",
+      "descripcion": "Arenal de arena fina en el norte de la Isla de Ons, dentro del Parque Nacional. Es la playa más alejada del muelle principal, conserva uno de los sistemas dunares mejor preservados de Ons y tiene tradición naturista. Sus aguas frías y el entorno rocoso ofrecen interés para el snorkel.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena fina",
         "longitud": null,
         "anchura": null,
-        "entorno": "Parque Nacional de las Illas Atlánticas de Galicia",
-        "forma": null,
+        "entorno": "Parque Nacional Marítimo-Terrestre de las Illas Atlánticas de Galicia",
+        "forma": "Playa resguardada",
         "orientacion": "E",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": "No accesible en coche; acceso a la isla por transporte marítimo autorizado",
+        "parking": "No accesible en coche; llegada a Ons por transporte marítimo autorizado",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": "Acceso a la isla mediante transporte marítimo autorizado"
+        "transportePublico": "Acceso a Ons mediante transporte marítimo autorizado"
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
-        "nudismo": null,
-        "deportesAcuaticos": null,
+        "nudismo": "Tradición naturista",
+        "deportesAcuaticos": "Buen entorno para snorkel desde la playa y en las zonas rocosas próximas",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
-        "accesoVehiculos": "No hay acceso de vehículos particulares"
+        "accesoVehiculos": "No hay acceso de vehículos particulares a la isla"
       },
       "marea": {
         "dependencia": null,
@@ -11150,22 +11190,27 @@
       "bano": {
         "entradaAgua": null,
         "fondo": "Arena fina",
-        "oleajeHabitual": null,
-        "corrientes": null,
+        "oleajeHabitual": "Variable; playa del norte de Ons",
+        "corrientes": "En snorkel conviene permanecer cerca de la costa y atender a las condiciones del mar",
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Acceso condicionado por la temporada y los servicios marítimos",
         "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interese/playas",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Parque Nacional de las Illas Atlánticas",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
+          "nota": "Descripción de las playas del archipiélago."
+        },
+        {
+          "nombre": "Parque Nacional · zonas de snorkel",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/zona-de-snorkel",
+          "nota": "Información sobre zonas de snorkel y vida marina."
         }
       ]
     },
@@ -11178,34 +11223,34 @@
       "lat": 42.374694,
       "lon": -8.932889,
       "destinoMaps": "Area dos Cans, Illa de Ons, Bueu, Galicia",
-      "descripcion": "Playa de arena fina en la costa oriental de la Isla de Ons, dentro del Parque Nacional.",
+      "descripcion": "Playa de arena fina en la costa oriental de Ons, con aguas generalmente tranquilas y vistas a la Laxe do Crego, donde se conserva una sepultura antropomorfa. Las zonas rocosas que rodean el arenal son uno de los buenos puntos de la isla para observar vida marina con máscara y tubo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena fina",
         "longitud": null,
         "anchura": null,
-        "entorno": "Parque Nacional de las Illas Atlánticas de Galicia",
-        "forma": null,
+        "entorno": "Parque Nacional Marítimo-Terrestre de las Illas Atlánticas de Galicia",
+        "forma": "Playa resguardada",
         "orientacion": "E",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": "No accesible en coche; acceso a la isla por transporte marítimo autorizado",
+        "parking": "No accesible en coche; llegada a Ons por transporte marítimo autorizado",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": "Acceso a la isla mediante transporte marítimo autorizado"
+        "transportePublico": "Acceso a Ons mediante transporte marítimo autorizado"
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Muy buen entorno para snorkel en las zonas rocosas; permanecer cerca de la costa",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
-        "accesoVehiculos": "No hay acceso de vehículos particulares"
+        "accesoVehiculos": "No hay acceso de vehículos particulares a la isla"
       },
       "marea": {
         "dependencia": null,
@@ -11217,22 +11262,27 @@
       "bano": {
         "entradaAgua": null,
         "fondo": "Arena fina",
-        "oleajeHabitual": null,
-        "corrientes": null,
+        "oleajeHabitual": "Aguas generalmente tranquilas",
+        "corrientes": "Para snorkel, conviene permanecer cerca de la costa",
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Acceso condicionado por la temporada y los servicios marítimos",
         "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interese/playas",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Parque Nacional de las Illas Atlánticas",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
+          "nota": "Descripción de las playas del archipiélago."
+        },
+        {
+          "nombre": "Parque Nacional · zonas de snorkel",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/zona-de-snorkel",
+          "nota": "Información sobre zonas de snorkel y vida marina."
         }
       ]
     },
@@ -11245,41 +11295,41 @@
       "lat": 42.369944,
       "lon": -8.93425,
       "destinoMaps": "Praia de Canexol, Illa de Ons, Bueu, Galicia",
-      "descripcion": "Arenal de arena fina de la Isla de Ons, integrado en el Parque Nacional de las Illas Atlánticas.",
+      "descripcion": "Arenal de arena fina junto al núcleo de Canexol, en la Isla de Ons. En el entorno se localizan restos de una antigua factoría romana de salazón y, frente a la playa, el Monte do Castro dos Mouros. Las rocas próximas son una zona interesante para snorkel, especialmente cerca de la pleamar.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
         "composicion": "Arena fina",
-        "longitud": null,
+        "longitud": "310 m",
         "anchura": null,
-        "entorno": "Parque Nacional de las Illas Atlánticas de Galicia",
-        "forma": null,
+        "entorno": "Parque Nacional Marítimo-Terrestre de las Illas Atlánticas de Galicia",
+        "forma": "Playa abierta",
         "orientacion": "E",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": "No accesible en coche; acceso a la isla por transporte marítimo autorizado",
+        "parking": "No accesible en coche; llegada a Ons por transporte marítimo autorizado",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": "Acceso a la isla mediante transporte marítimo autorizado"
+        "transportePublico": "Acceso a Ons mediante transporte marítimo autorizado"
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Snorkel en las zonas rocosas; las mejores condiciones suelen darse cerca de pleamar",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
-        "accesoVehiculos": "No hay acceso de vehículos particulares"
+        "accesoVehiculos": "No hay acceso de vehículos particulares a la isla"
       },
       "marea": {
-        "dependencia": null,
+        "dependencia": "Media para snorkel",
         "superficiePleamar": null,
         "accesoCondicionado": null,
         "riesgoAislamiento": null,
-        "recomendacion": null
+        "recomendacion": "Para observar vida marina en las rocas, conviene acercarse a la pleamar."
       },
       "bano": {
         "entradaAgua": null,
@@ -11290,16 +11340,26 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Acceso condicionado por la temporada y los servicios marítimos",
         "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interese/playas",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Parque Nacional de las Illas Atlánticas",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
+          "nota": "Descripción de las playas del archipiélago."
+        },
+        {
+          "nombre": "Parque Nacional · zonas de snorkel",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/zona-de-snorkel",
+          "nota": "Información sobre zonas de snorkel y vida marina."
+        },
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/recurso/-/detalle/268790142/canexol-illa-de-ons-?langId=es_ES",
+          "nota": "Longitud, tipo y composición del arenal."
         }
       ]
     },
@@ -11312,34 +11372,34 @@
       "lat": 42.377361,
       "lon": -8.931472,
       "destinoMaps": "Praia das Dornas, Illa de Ons, Bueu, Galicia",
-      "descripcion": "Pequeño arenal de la Isla de Ons próximo al núcleo y al muelle principal.",
+      "descripcion": "Pequeño arenal de arena gruesa muy próximo al muelle principal de Ons. Su nombre recuerda las dornas, embarcaciones tradicionales que antiguamente se varaban en esta playa. Es una opción cómoda para combinar el baño con una visita al núcleo principal de la isla.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
         "composicion": "Arena gruesa",
         "longitud": null,
         "anchura": null,
-        "entorno": "Parque Nacional de las Illas Atlánticas de Galicia",
-        "forma": null,
+        "entorno": "Parque Nacional Marítimo-Terrestre de las Illas Atlánticas de Galicia",
+        "forma": "Playa abierta",
         "orientacion": "E",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": "No accesible en coche; acceso a la isla por transporte marítimo autorizado",
+        "parking": "No accesible en coche; llegada a Ons por transporte marítimo autorizado",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": "Acceso a la isla mediante transporte marítimo autorizado"
+        "transportePublico": "Acceso a Ons mediante transporte marítimo autorizado"
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
         "nudismo": null,
         "deportesAcuaticos": null,
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
-        "accesoVehiculos": "No hay acceso de vehículos particulares"
+        "accesoVehiculos": "No hay acceso de vehículos particulares a la isla"
       },
       "marea": {
         "dependencia": null,
@@ -11351,22 +11411,27 @@
       "bano": {
         "entradaAgua": null,
         "fondo": "Arena gruesa",
-        "oleajeHabitual": null,
+        "oleajeHabitual": "Generalmente tranquilo en la costa oriental, sujeto a las condiciones del día",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Acceso condicionado por la temporada y los servicios marítimos",
         "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interese/playas",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Parque Nacional de las Illas Atlánticas",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
+          "nota": "Descripción de las playas del archipiélago."
+        },
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/recurso/-/detalle/11380/as-dornas-illa-de-ons-?langId=es_ES",
+          "nota": "Tipo y composición del arenal."
         }
       ]
     },
@@ -11379,32 +11444,32 @@
       "lat": 42.231056,
       "lon": -8.900583,
       "destinoMaps": "Praia de Figueiras, Illas Cíes, Vigo, Galicia",
-      "descripcion": "Playa de arena fina de las Islas Cíes, dentro del Parque Nacional de las Illas Atlánticas.",
+      "descripcion": "Arenal de arena fina en la isla de Monteagudo, con vistas hacia la Costa da Vela. Tiene tradición naturista y los extremos rocosos son especialmente interesantes para el snorkel. Por su orientación, el arenal recibe sombra antes durante la tarde.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
         "composicion": "Arena fina",
-        "longitud": null,
+        "longitud": "300 m",
         "anchura": null,
-        "entorno": "Parque Nacional de las Illas Atlánticas de Galicia",
-        "forma": null,
+        "entorno": "Parque Nacional Marítimo-Terrestre de las Illas Atlánticas de Galicia",
+        "forma": "Playa abierta",
         "orientacion": "E",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": "No accesible en coche; acceso a la isla por transporte marítimo autorizado",
+        "parking": "No accesible en coche; llegada a Cíes por barco",
         "accesibilidad": null,
         "duchas": null,
-        "aseos": null,
+        "aseos": "Aseos públicos accesibles en la zona del camping y servicios comunes de Cíes",
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": "Acceso a la isla mediante transporte marítimo autorizado"
+        "transportePublico": "Acceso marítimo desde puertos autorizados; en temporada alta se requiere autorización previa de visita"
       },
       "normas": {
         "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
-        "nudismo": null,
-        "deportesAcuaticos": null,
+        "nudismo": "Tradición naturista",
+        "deportesAcuaticos": "Snorkel recomendado en los extremos rocosos",
         "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
         "accesoVehiculos": "No hay acceso de vehículos particulares"
       },
@@ -11424,16 +11489,36 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Acceso condicionado por la temporada y la autorización del Parque",
         "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interese/playas",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Parque Nacional de las Illas Atlánticas",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
+          "nota": "Descripción de las playas."
+        },
+        {
+          "nombre": "Parque Nacional · zonas de snorkel",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/zona-de-snorkel",
+          "nota": "Zonas de snorkel y recomendaciones."
+        },
+        {
+          "nombre": "Parque Nacional · servicios en Cíes",
+          "url": "https://illasatlanticas.gal/es/visita-el-parque/visita-cies/que-servicios-hay",
+          "nota": "Servicios comunes disponibles en las islas Cíes."
+        },
+        {
+          "nombre": "Parque Nacional · acceso a Cíes",
+          "url": "https://illasatlanticas.gal/es/visita-el-parque/visita-cies/como-llegar",
+          "nota": "Acceso marítimo y autorización de visita."
+        },
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/recurso/-/detalle/10481/figueiras-parque-natural-illas-cies-?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
         }
       ]
     },
@@ -11446,34 +11531,193 @@
       "lat": 42.216167,
       "lon": -8.902333,
       "destinoMaps": "Praia de Nosa Señora, Illas Cíes, Vigo, Galicia",
-      "descripcion": "Pequeña playa resguardada de arena fina en las Islas Cíes, protegida del viento del norte.",
+      "descripcion": "Pequeña playa de arena blanca y fina en las Islas Cíes, resguardada del viento del norte y con una zona de descanso sombreada en las proximidades. La zona rocosa al sur del arenal es uno de los mejores puntos del entorno para practicar snorkel.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena fina",
-        "longitud": null,
+        "longitud": "130 m",
         "anchura": null,
-        "entorno": "Parque Nacional de las Illas Atlánticas de Galicia",
-        "forma": null,
+        "entorno": "Parque Nacional Marítimo-Terrestre de las Illas Atlánticas de Galicia",
+        "forma": "Playa resguardada",
         "orientacion": "E",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": "No accesible en coche; acceso a la isla por transporte marítimo autorizado",
+        "parking": "No accesible en coche; llegada a Cíes por barco",
+        "accesibilidad": "El entorno cuenta con pasarela/rampa de madera de acceso al arenal",
+        "duchas": null,
+        "aseos": "Aseos públicos accesibles en la zona del camping y servicios comunes de Cíes",
+        "socorrista": null,
+        "chiringuito": null,
+        "restaurantes": null,
+        "transportePublico": "Acceso marítimo desde puertos autorizados; en temporada alta se requiere autorización previa de visita"
+      },
+      "normas": {
+        "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
+        "nudismo": null,
+        "deportesAcuaticos": "Snorkel recomendado en la zona rocosa situada al sur",
+        "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
+        "accesoVehiculos": "No hay acceso de vehículos particulares"
+      },
+      "marea": {
+        "dependencia": null,
+        "superficiePleamar": null,
+        "accesoCondicionado": null,
+        "riesgoAislamiento": null,
+        "recomendacion": null
+      },
+      "bano": {
+        "entradaAgua": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Más protegido del oleaje por la configuración rocosa y su carácter resguardado",
+        "corrientes": null,
+        "ninos": null,
+        "profundidad": null
+      },
+      "practica": {
+        "temporadaBano": "Acceso condicionado por la temporada y la autorización del Parque",
+        "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
+        "ultimaVerificacion": "17 de agosto de 2026",
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+      },
+      "fuentes": [
+        {
+          "nombre": "Parque Nacional de las Illas Atlánticas",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/playas",
+          "nota": "Descripción de las playas."
+        },
+        {
+          "nombre": "Parque Nacional · zonas de snorkel",
+          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interes/zona-de-snorkel",
+          "nota": "Zonas de snorkel y recomendaciones."
+        },
+        {
+          "nombre": "Parque Nacional · servicios en Cíes",
+          "url": "https://illasatlanticas.gal/es/visita-el-parque/visita-cies/que-servicios-hay",
+          "nota": "Servicios comunes disponibles en las islas Cíes."
+        },
+        {
+          "nombre": "Parque Nacional · acceso a Cíes",
+          "url": "https://illasatlanticas.gal/es/visita-el-parque/visita-cies/como-llegar",
+          "nota": "Acceso marítimo y autorización de visita."
+        },
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/recurso/-/detalle/268739535/carracido-nosa-senora-parque-natural-illas-cies-?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        }
+      ]
+    },
+    {
+      "slug": "praia-de-morouzos",
+      "nombreCatalogo": "Praia de Morouzos",
+      "nombre": "Praia de Morouzos",
+      "municipio": "Ortigueira",
+      "provincia": "A Coruña",
+      "lat": 43.703528,
+      "lon": -7.848333,
+      "destinoMaps": "Praia de Morouzos, Ortigueira, Galicia",
+      "descripcion": "Gran arenal natural de la ría de Ortigueira, con más de dos kilómetros de longitud, dunas, pinar y una extensa zona intermareal. Forma parte del entorno protegido de la ría de Ortigueira-Mera. Con marea baja el paisaje cambia mucho y puede quedar accesible a pie la pequeña isla de San Vicente.",
+      "fotoPrincipal": null,
+      "caracteristicas": {
+        "tipo": "Playa abierta",
+        "composicion": "Arena fina",
+        "longitud": "2.100 m",
+        "anchura": null,
+        "entorno": "Sistema dunar, pinar y espacio protegido de la ría de Ortigueira-Mera",
+        "forma": "Gran playa abierta",
+        "orientacion": "NE",
+        "exposicion": "Nivel de abrigo usado por el ranking: moderado"
+      },
+      "servicios": {
+        "parking": "Aparcamiento en el entorno del acceso principal",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": "Acceso a la isla mediante transporte marítimo autorizado"
+        "transportePublico": null
       },
       "normas": {
-        "perros": "No se permite desembarcar animales domésticos, salvo perros guía",
+        "perros": null,
         "nudismo": null,
         "deportesAcuaticos": null,
-        "barbacoasFuego": "Sujeto a las normas del Parque Nacional",
-        "accesoVehiculos": "No hay acceso de vehículos particulares"
+        "barbacoasFuego": null,
+        "accesoVehiculos": null
+      },
+      "marea": {
+        "dependencia": "Alta en el paisaje y la anchura del intermareal",
+        "superficiePleamar": "La superficie seca se reduce respecto a la gran extensión visible en bajamar",
+        "accesoCondicionado": "El acceso a pie hacia la isla de San Vicente depende de la bajamar",
+        "riesgoAislamiento": "No permanecer en zonas intermareales aisladas cuando sube la marea",
+        "recomendacion": "La bajamar permite apreciar mejor la enorme zona intermareal; controla la subida de la marea si te alejas por la arena."
+      },
+      "bano": {
+        "entradaAgua": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Variable en función de la ría y del viento",
+        "corrientes": null,
+        "ninos": null,
+        "profundidad": null
+      },
+      "practica": {
+        "temporadaBano": "Verano",
+        "fuente": "Turismo de Galicia",
+        "ultimaVerificacion": "17 de agosto de 2026",
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+      },
+      "fuentes": [
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/recurso/-/detalle/9848/morouzos?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        },
+        {
+          "nombre": "Turismo de Galicia · Ría de Ortigueira",
+          "url": "https://www.turismo.gal/que-visitar/rias-e-praias/ria-de-ortigueira?langId=es_ES",
+          "nota": "Sistema dunar, pinar y valores naturales."
+        }
+      ]
+    },
+    {
+      "slug": "praia-da-concha-espasante",
+      "nombreCatalogo": "Praia da Concha (Espasante)",
+      "nombre": "Praia da Concha (Espasante)",
+      "municipio": "Ortigueira",
+      "provincia": "A Coruña",
+      "lat": 43.719083,
+      "lon": -7.809667,
+      "destinoMaps": "Praia da Concha, Espasante, Ortigueira, Galicia",
+      "descripcion": "Playa de arena fina en Espasante, dentro del municipio de Ortigueira. Junto al arenal existe un área recreativa con duchas, aseos adaptados, socorrismo, aparcamiento, juegos infantiles y otras instalaciones. Se integra en un entorno de interés geológico y marinero.",
+      "fotoPrincipal": null,
+      "caracteristicas": {
+        "tipo": "Playa abierta",
+        "composicion": "Arena fina",
+        "longitud": "105 m",
+        "anchura": null,
+        "entorno": "Urbano-marítimo de Espasante; próximo a rutas litorales y elementos del Geoparque Cabo Ortegal",
+        "forma": "Playa abierta",
+        "orientacion": "S",
+        "exposicion": "Nivel de abrigo usado por el ranking: alto"
+      },
+      "servicios": {
+        "parking": "Sí, en el área recreativa",
+        "accesibilidad": "Aseos adaptados en el área recreativa",
+        "duchas": "Sí",
+        "aseos": "Sí; incluye aseos adaptados",
+        "socorrista": "Sí, en temporada de baño",
+        "chiringuito": null,
+        "restaurantes": null,
+        "transportePublico": null
+      },
+      "normas": {
+        "perros": null,
+        "nudismo": null,
+        "deportesAcuaticos": null,
+        "barbacoasFuego": null,
+        "accesoVehiculos": null
       },
       "marea": {
         "dependencia": null,
@@ -11491,150 +11735,21 @@
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
-        "fuente": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-        "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
-      },
-      "fuentes": [
-        {
-          "nombre": "Parque Nacional Marítimo-Terrestre das Illas Atlánticas de Galicia",
-          "url": "https://illasatlanticas.gal/es/tipo-punto-de-interese/playas",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
-        }
-      ]
-    },
-    {
-      "slug": "praia-de-morouzos",
-      "nombreCatalogo": "Praia de Morouzos",
-      "nombre": "Praia de Morouzos",
-      "municipio": "Ortigueira",
-      "provincia": "A Coruña",
-      "lat": 43.703528,
-      "lon": -7.848333,
-      "destinoMaps": "Praia de Morouzos, Ortigueira, Galicia",
-      "descripcion": "Gran arenal de la ría de Ortigueira, con más de dos kilómetros de longitud.",
-      "fotoPrincipal": null,
-      "caracteristicas": {
-        "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
-        "anchura": null,
-        "entorno": null,
-        "forma": null,
-        "orientacion": "NE",
-        "exposicion": "Nivel de abrigo usado por el ranking: moderado"
-      },
-      "servicios": {
-        "parking": null,
-        "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
-        "transportePublico": null
-      },
-      "normas": {
-        "perros": null,
-        "nudismo": null,
-        "deportesAcuaticos": null,
-        "barbacoasFuego": null,
-        "accesoVehiculos": null
-      },
-      "marea": {
-        "dependencia": null,
-        "superficiePleamar": null,
-        "accesoCondicionado": null,
-        "riesgoAislamiento": null,
-        "recomendacion": null
-      },
-      "bano": {
-        "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
-        "ninos": null,
-        "profundidad": null
-      },
-      "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/que-visitar/rias-e-praias/ria-de-ortigueira?langId=es_ES",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
-        }
-      ]
-    },
-    {
-      "slug": "praia-da-concha-espasante",
-      "nombreCatalogo": "Praia da Concha (Espasante)",
-      "nombre": "Praia da Concha (Espasante)",
-      "municipio": "Ortigueira",
-      "provincia": "A Coruña",
-      "lat": 43.719083,
-      "lon": -7.809667,
-      "destinoMaps": "Praia da Concha, Espasante, Ortigueira, Galicia",
-      "descripcion": "Arenal de Espasante, en el municipio de Ortigueira.",
-      "fotoPrincipal": null,
-      "caracteristicas": {
-        "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
-        "anchura": null,
-        "entorno": null,
-        "forma": null,
-        "orientacion": "S",
-        "exposicion": "Nivel de abrigo usado por el ranking: alto"
-      },
-      "servicios": {
-        "parking": null,
-        "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
-        "transportePublico": null
-      },
-      "normas": {
-        "perros": null,
-        "nudismo": null,
-        "deportesAcuaticos": null,
-        "barbacoasFuego": null,
-        "accesoVehiculos": null
-      },
-      "marea": {
-        "dependencia": null,
-        "superficiePleamar": null,
-        "accesoCondicionado": null,
-        "riesgoAislamiento": null,
-        "recomendacion": null
-      },
-      "bano": {
-        "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
-        "ninos": null,
-        "profundidad": null
-      },
-      "practica": {
-        "temporadaBano": null,
-        "fuente": "Turismo de Galicia",
-        "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
-      },
-      "fuentes": [
+          "url": "https://www.turismo.gal/recurso/-/detalle/15771/a-concha?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        },
         {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Turismo de Galicia · Área recreativa A Concha",
+          "url": "https://www.turismo.gal/recurso/-/detalle/280381944/a-concha?langId=es_ES",
+          "nota": "Duchas, aseos, socorrismo, aparcamiento y equipamientos."
         }
       ]
     },
@@ -11647,20 +11762,20 @@
       "lat": 43.732,
       "lon": -7.871556,
       "destinoMaps": "Praia da Basteira, Cariño, Galicia",
-      "descripcion": "Playa resguardada situada junto al núcleo de Cariño.",
+      "descripcion": "Playa urbana y resguardada de Cariño, de arena blanca y fina y forma de media concha. Tiene un pinar en las proximidades y, aunque está protegida por la ría, puede ser ventosa y presentar oleaje moderado. Es apta tanto para el baño como para deportes acuáticos.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "500 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Urbano, con pinar próximo",
+        "forma": "Media concha",
         "orientacion": "SE",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento urbano en el entorno",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -11672,7 +11787,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Apta para deportes acuáticos",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -11685,9 +11800,9 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Moderado",
+        "corrientes": "Atender al viento y al estado del mar",
         "ninos": null,
         "profundidad": null
       },
@@ -11695,13 +11810,13 @@
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/11414/basteira?langId=es_ES",
+          "nota": "Longitud, arena, forma, entorno y condiciones de baño."
         }
       ]
     },
@@ -11714,20 +11829,20 @@
       "lat": 43.642667,
       "lon": -8.072,
       "destinoMaps": "Praia de Vilarrube, Valdoviño, Galicia",
-      "descripcion": "Arenal resguardado de Valdoviño situado en la desembocadura del río das Mestas.",
+      "descripcion": "Largo arenal de la ría de Cedeira, en Valdoviño, situado en la desembocadura del río das Mestas. Su arena blanca y fina, el entorno rural y las aguas generalmente tranquilas hacen que sea una playa apropiada para el baño y actividades suaves de navegación.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "1.420 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural, en la desembocadura del río das Mestas y la ría de Cedeira",
+        "forma": "Ensenada resguardada",
         "orientacion": "NE",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno; existe un área de descanso próxima",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -11739,7 +11854,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Adecuada para navegación y actividades acuáticas tranquilas cuando el mar lo permite",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -11752,8 +11867,8 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Aguas generalmente tranquilas por su situación resguardada",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
@@ -11762,13 +11877,13 @@
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/10200/vilarrube?langId=es_ES",
+          "nota": "Longitud, arena, entorno y carácter resguardado."
         }
       ]
     },
@@ -11781,32 +11896,32 @@
       "lat": 43.659167,
       "lon": -8.056917,
       "destinoMaps": "Praia A Magdalena, Cedeira, Galicia",
-      "descripcion": "Principal playa urbana de Cedeira, situada en el interior de su ría.",
+      "descripcion": "Principal playa urbana de Cedeira, un arenal de aproximadamente 1,3 km en forma de ensenada, de arena blanca y fina y aguas tranquilas. Está bien protegida del viento y junto al paseo marítimo y un pinar con zonas de sombra, mesas y servicios públicos, por lo que resulta cómoda para familias y para actividades como natación o paddle surf.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "≈1.300 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Urbano; paseo marítimo y pinar con zonas de sombra",
+        "forma": "Ensenada",
         "orientacion": "SW",
         "exposicion": "Nivel de abrigo usado por el ranking: muyAlto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento urbano en el entorno",
         "accesibilidad": null,
         "duchas": null,
-        "aseos": null,
+        "aseos": "Aseos públicos próximos en el paseo",
         "socorrista": null,
         "chiringuito": null,
-        "restaurantes": null,
-        "transportePublico": null
+        "restaurantes": "Oferta de hostelería en el núcleo de Cedeira",
+        "transportePublico": "Acceso urbano en Cedeira"
       },
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Adecuada para natación y paddle surf en condiciones normales",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -11819,23 +11934,23 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Aguas generalmente tranquilas y playa protegida del viento",
         "corrientes": null,
-        "ninos": null,
+        "ninos": "Entorno cómodo para familias; vigilar siempre las condiciones del día",
         "profundidad": null
       },
       "practica": {
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Turismo de Cedeira",
+          "url": "https://turismo.cedeira.gal/conece-cedeira/praias-de-cedeira/?lang=es",
+          "nota": "Longitud, arena, aguas tranquilas, paseo, pinar y servicios próximos."
         }
       ]
     },
@@ -11848,24 +11963,24 @@
       "lat": 43.53425,
       "lon": -8.2955,
       "destinoMaps": "Praia de Esmelle, Ferrol, Galicia",
-      "descripcion": "Playa abierta del litoral atlántico de Ferrol.",
+      "descripcion": "Arenal atlántico de Ferrol, de arena blanca y fina y fuerte exposición al oleaje y al viento. Es una playa adecuada para deportes acuáticos y cuenta con aparcamiento, puesto de primeros auxilios/socorrismo y duchas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "160 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural, continuación del sistema litoral de San Xurxo",
+        "forma": "Playa abierta",
         "orientacion": "W",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Sí",
         "accesibilidad": null,
-        "duchas": null,
+        "duchas": "Sí",
         "aseos": null,
-        "socorrista": null,
+        "socorrista": "Puesto de primeros auxilios y socorrismo en temporada",
         "chiringuito": null,
         "restaurantes": null,
         "transportePublico": null
@@ -11873,7 +11988,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Buena playa para deportes acuáticos; costa expuesta",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -11886,23 +12001,23 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Fuerte",
+        "corrientes": "Costa expuesta: extremar precauciones con oleaje y viento",
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Turismo de Ferrol",
+          "url": "https://visitferrol.com/esmelle/",
+          "nota": "Longitud, arena, oleaje, deportes y servicios."
         }
       ]
     },
@@ -11915,32 +12030,32 @@
       "lat": 43.555583,
       "lon": -8.271389,
       "destinoMaps": "Praia de Ponzos, Ferrol, Galicia",
-      "descripcion": "Gran playa abierta de la costa de Ferrol, expuesta al Atlántico.",
+      "descripcion": "Gran playa natural de la costa atlántica de Ferrol, de arena blanca y fina y casi 1,4 km de longitud. Es ventosa, con fuerte oleaje y corrientes, muy apreciada para surf, paseo y carrera. En el extremo derecho mirando al mar existe una zona de tradición nudista.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "≈1.400 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural y no urbanizado, de alto valor natural",
+        "forma": "Rectilínea",
         "orientacion": "NW",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Sí",
         "accesibilidad": null,
-        "duchas": null,
+        "duchas": "Sí",
         "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
+        "socorrista": "Puesto de primeros auxilios/socorrismo en temporada",
+        "chiringuito": "Quioscos estacionales",
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Autobús hasta Covas; comprobar horarios"
       },
       "normas": {
         "perros": null,
-        "nudismo": null,
-        "deportesAcuaticos": null,
+        "nudismo": "Zona nudista en el extremo derecho mirando al mar",
+        "deportesAcuaticos": "Surf y otros deportes de mar; solo con condiciones y experiencia adecuadas",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -11953,23 +12068,23 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Fuerte",
+        "corrientes": "Puede presentar corrientes fuertes; extremar precauciones",
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Turismo de Ferrol",
+          "url": "https://visitferrol.com/ponzos/",
+          "nota": "Longitud, entorno, oleaje, nudismo y servicios."
         }
       ]
     },
@@ -11982,32 +12097,32 @@
       "lat": 43.55575,
       "lon": -8.291139,
       "destinoMaps": "Praia de Santa Comba, Ferrol, Galicia",
-      "descripcion": "Playa abierta y natural del litoral de Ferrol, junto a la ermita de Santa Comba.",
+      "descripcion": "Extenso arenal natural de Ferrol, de arena blanca, fuertes olas y marcado carácter atlántico. Junto a la playa se encuentra la isla y ermita de Santa Comba, que aportan un notable interés paisajístico e histórico. Es una zona habitual para surf y otros deportes acuáticos.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca",
+        "longitud": "≈1.500 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural, natural e histórico; junto a la ermita de Santa Comba",
+        "forma": "Rectilínea",
         "orientacion": "NW",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en ambos extremos",
         "accesibilidad": null,
-        "duchas": null,
+        "duchas": "Sí",
         "aseos": null,
-        "socorrista": null,
+        "socorrista": "Puesto de primeros auxilios/socorrismo en temporada",
         "chiringuito": null,
         "restaurantes": null,
-        "transportePublico": null
+        "transportePublico": "Autobús hasta Covas; comprobar horarios"
       },
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Surf y deportes acuáticos; costa expuesta",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -12020,9 +12135,9 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
+        "fondo": "Arena",
+        "oleajeHabitual": "Fuerte",
+        "corrientes": "Costa atlántica expuesta; extremar precauciones",
         "ninos": null,
         "profundidad": null
       },
@@ -12030,13 +12145,13 @@
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "nombre": "Turismo de Ferrol",
+          "url": "https://visitferrol.com/santa-comba/",
+          "nota": "Longitud, entorno, oleaje, servicios y actividades."
         }
       ]
     },
@@ -12049,21 +12164,21 @@
       "lat": 42.481361,
       "lon": -8.893889,
       "destinoMaps": "Praia de Area das Pipas, O Grove, Galicia",
-      "descripcion": "Playa resguardada de O Grove, en el entorno de San Vicente y la península grovense.",
+      "descripcion": "Playa de arena blanca y fina al noroeste de la península de O Grove, en un entorno rural de notable interés paisajístico. Puede ser ventosa y presentar oleaje moderado. Cuenta con zona de buceo y accesibilidad para personas con movilidad reducida.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "≈400 m, según el tramo considerado",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural y arbolado, próximo a Mexilloeira",
+        "forma": "Arenal resguardado",
         "orientacion": "W",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
-        "accesibilidad": null,
+        "parking": "Aparcamiento en el entorno",
+        "accesibilidad": "Accesible para personas con movilidad reducida",
         "duchas": null,
         "aseos": null,
         "socorrista": null,
@@ -12074,7 +12189,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Zona de buceo",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -12087,8 +12202,8 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Oleaje moderado",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
@@ -12097,13 +12212,18 @@
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9693/area-das-pipas?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        },
+        {
+          "nombre": "Turismo Rías Baixas",
+          "url": "https://www.turismoriasbaixas.com/es/search/playa-de-area-das-pipas-o-de-reboledo",
+          "nota": "Entorno, oleaje, calidad sanitaria, accesibilidad y zona de buceo."
         }
       ]
     },
@@ -12116,20 +12236,20 @@
       "lat": 42.461639,
       "lon": -8.897583,
       "destinoMaps": "Praia de Raeiros, O Grove, Galicia",
-      "descripcion": "Arenal abierto de O Grove con vistas hacia la ría de Arousa y A Lanzada.",
+      "descripcion": "Playa rectilínea de arena blanca y fina en San Vicente do Mar, O Grove, en entorno rústico y con vistas destacadas a la isla de Ons. Es ventosa pero tiene aguas generalmente tranquilas, buena calidad sanitaria y zona de buceo.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "670 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural, próximo a A Lanzada y con vistas hacia la ría de Arousa",
+        "forma": "Playa abierta y rectilínea",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: moderado"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -12141,7 +12261,7 @@
       "normas": {
         "perros": null,
         "nudismo": null,
-        "deportesAcuaticos": null,
+        "deportesAcuaticos": "Zona de buceo",
         "barbacoasFuego": null,
         "accesoVehiculos": null
       },
@@ -12154,8 +12274,8 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Aguas generalmente tranquilas",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
@@ -12164,13 +12284,18 @@
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
+          "nombre": "Turismo Rías Baixas",
+          "url": "https://www.turismoriasbaixas.com/es/search/playa-de-raeiros",
+          "nota": "Longitud, entorno, vistas, aguas tranquilas y zona de buceo."
+        },
+        {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9733/raeiros-paxareiro?langId=es_ES",
+          "nota": "Clasificación general del arenal."
         }
       ]
     },
@@ -12183,154 +12308,20 @@
       "lat": 42.474556,
       "lon": -8.90925,
       "destinoMaps": "Praia da Mexilloeira, O Grove, Galicia",
-      "descripcion": "Playa resguardada del municipio de O Grove.",
-      "fotoPrincipal": null,
-      "caracteristicas": {
-        "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
-        "anchura": null,
-        "entorno": null,
-        "forma": null,
-        "orientacion": "SW",
-        "exposicion": "Nivel de abrigo usado por el ranking: alto"
-      },
-      "servicios": {
-        "parking": null,
-        "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
-        "transportePublico": null
-      },
-      "normas": {
-        "perros": null,
-        "nudismo": null,
-        "deportesAcuaticos": null,
-        "barbacoasFuego": null,
-        "accesoVehiculos": null
-      },
-      "marea": {
-        "dependencia": null,
-        "superficiePleamar": null,
-        "accesoCondicionado": null,
-        "riesgoAislamiento": null,
-        "recomendacion": null
-      },
-      "bano": {
-        "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
-        "ninos": null,
-        "profundidad": null
-      },
-      "practica": {
-        "temporadaBano": null,
-        "fuente": "Turismo de Galicia",
-        "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
-      },
-      "fuentes": [
-        {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
-        }
-      ]
-    },
-    {
-      "slug": "praia-de-area-de-secada-illa-de-arousa",
-      "nombreCatalogo": "Praia de Area de Secada (Illa de Arousa)",
-      "nombre": "Praia de Area de Secada (Illa de Arousa)",
-      "municipio": "A Illa de Arousa",
-      "provincia": "Pontevedra",
-      "lat": 42.567944,
-      "lon": -8.887083,
-      "destinoMaps": "Praia de Area de Secada, A Illa de Arousa, Galicia",
-      "descripcion": "Playa resguardada en A Illa de Arousa, rodeada por el paisaje de la ría de Arousa.",
-      "fotoPrincipal": null,
-      "caracteristicas": {
-        "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
-        "anchura": null,
-        "entorno": null,
-        "forma": null,
-        "orientacion": "W",
-        "exposicion": "Nivel de abrigo usado por el ranking: alto"
-      },
-      "servicios": {
-        "parking": null,
-        "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
-        "transportePublico": null
-      },
-      "normas": {
-        "perros": null,
-        "nudismo": null,
-        "deportesAcuaticos": null,
-        "barbacoasFuego": null,
-        "accesoVehiculos": null
-      },
-      "marea": {
-        "dependencia": null,
-        "superficiePleamar": null,
-        "accesoCondicionado": null,
-        "riesgoAislamiento": null,
-        "recomendacion": null
-      },
-      "bano": {
-        "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
-        "corrientes": null,
-        "ninos": null,
-        "profundidad": null
-      },
-      "practica": {
-        "temporadaBano": null,
-        "fuente": "Turismo de Galicia",
-        "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
-      },
-      "fuentes": [
-        {
-          "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
-        }
-      ]
-    },
-    {
-      "slug": "praia-do-bao-camaxe-illa-de-arousa",
-      "nombreCatalogo": "Praia do Bao / Camaxe (Illa de Arousa)",
-      "nombre": "Praia do Bao / Camaxe (Illa de Arousa)",
-      "municipio": "A Illa de Arousa",
-      "provincia": "Pontevedra",
-      "lat": 42.544361,
-      "lon": -8.867472,
-      "destinoMaps": "Praia de Camaxe, A Illa de Arousa, Galicia",
-      "descripcion": "Arenal resguardado de A Illa de Arousa, identificado en la relación 2026 de Banderas Azules como Bao (Camaxe).",
+      "descripcion": "Largo arenal resguardado de O Grove, de aproximadamente 1,1 km y arena gruesa. Se encuentra en San Vicente do Grove, en un tramo litoral ligado a la Ruta del Mar de Arousa y Ulla del Camino de Santiago y próximo a Area das Pipas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
         "composicion": "Arena gruesa",
-        "longitud": null,
+        "longitud": "1.100 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
-        "orientacion": "SE",
+        "entorno": "Litoral de San Vicente do Grove; Ruta del Mar de Arousa y Ulla",
+        "forma": "Playa resguardada",
+        "orientacion": "SW",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -12356,7 +12347,7 @@
       "bano": {
         "entradaAgua": null,
         "fondo": "Arena gruesa",
-        "oleajeHabitual": null,
+        "oleajeHabitual": "Moderado por su carácter resguardado",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
@@ -12365,13 +12356,167 @@
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9695/mexiloeira?langId=es_ES",
+          "nota": "Longitud, tipo, arena y Camino de Santiago."
+        }
+      ]
+    },
+    {
+      "slug": "praia-de-area-de-secada-illa-de-arousa",
+      "nombreCatalogo": "Praia de Area de Secada (Illa de Arousa)",
+      "nombre": "Praia de Area de Secada (Illa de Arousa)",
+      "municipio": "A Illa de Arousa",
+      "provincia": "Pontevedra",
+      "lat": 42.567944,
+      "lon": -8.887083,
+      "destinoMaps": "Praia de Area de Secada, A Illa de Arousa, Galicia",
+      "descripcion": "Playa natural de arena fina en el norte de A Illa de Arousa, rodeada de pinar y con una duna móvil protegida. Tiene unos 420 m de longitud, con aproximadamente 20 m de anchura en bajamar y 10 m en pleamar. Cuenta con paseo de madera y carril bici, aguas tranquilas, socorrismo estacional, aseos, duchas y otros servicios de playa.",
+      "fotoPrincipal": null,
+      "caracteristicas": {
+        "tipo": "Playa resguardada",
+        "composicion": "Arena fina y clara",
+        "longitud": "420 m",
+        "anchura": "≈20 m en bajamar y ≈10 m en pleamar",
+        "entorno": "Natural y forestal, con pinar y duna móvil protegida; paseo de madera y carril bici",
+        "forma": "Playa resguardada",
+        "orientacion": "W",
+        "exposicion": "Nivel de abrigo usado por el ranking: alto"
+      },
+      "servicios": {
+        "parking": "Zona de aparcamiento en el entorno",
+        "accesibilidad": "Pasarelas y paseo de madera; dispone de infraestructuras adaptadas",
+        "duchas": "Sí",
+        "aseos": "Sí",
+        "socorrista": "Sí, servicio estacional",
+        "chiringuito": "Oferta estacional en el entorno de la playa",
+        "restaurantes": null,
+        "transportePublico": null
+      },
+      "normas": {
+        "perros": null,
+        "nudismo": null,
+        "deportesAcuaticos": "Apta para actividades tranquilas como kayak cuando las condiciones lo permiten",
+        "barbacoasFuego": null,
+        "accesoVehiculos": null
+      },
+      "marea": {
+        "dependencia": "Media",
+        "superficiePleamar": "La anchura pasa de unos 20 m en bajamar a unos 10 m en pleamar",
+        "accesoCondicionado": "No",
+        "riesgoAislamiento": "Bajo en la zona principal",
+        "recomendacion": "La playa sigue siendo utilizable con pleamar, pero dispone de bastante menos anchura."
+      },
+      "bano": {
+        "entradaAgua": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Aguas generalmente tranquilas",
+        "corrientes": null,
+        "ninos": "Aguas tranquilas; mantener la supervisión habitual",
+        "profundidad": "Entrada progresiva según el sector; comprobar el estado de la marea"
+      },
+      "practica": {
+        "temporadaBano": "Verano",
+        "fuente": "Turismo de Galicia",
+        "ultimaVerificacion": "17 de agosto de 2026",
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+      },
+      "fuentes": [
+        {
+          "nombre": "Turismo A Illa de Arousa",
+          "url": "https://www.ailladearousa.es/turismo/praias/",
+          "nota": "Dimensiones, anchura según marea, entorno, paseo y características de Area da Secada."
+        },
+        {
+          "nombre": "Turismo Rías Baixas",
+          "url": "https://www.turismoriasbaixas.com/gl/search/playa-de-area-da-secada",
+          "nota": "Servicios, calidad sanitaria y aguas tranquilas."
+        },
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/que-facer/faros-e-praias-salvaxes/areais-da-ria-de-arousa?langId=es_ES",
+          "nota": "Pinar, pasarela de madera, aguas tranquilas y actividades náuticas."
+        }
+      ]
+    },
+    {
+      "slug": "praia-do-bao-camaxe-illa-de-arousa",
+      "nombreCatalogo": "Praia do Bao / Camaxe (Illa de Arousa)",
+      "nombre": "Praia do Bao / Camaxe (Illa de Arousa)",
+      "municipio": "A Illa de Arousa",
+      "provincia": "Pontevedra",
+      "lat": 42.544361,
+      "lon": -8.867472,
+      "destinoMaps": "Praia de Camaxe, A Illa de Arousa, Galicia",
+      "descripcion": "Playa de unos 600 m en la costa este de A Illa de Arousa, de forma semicircular, arena fina y entorno natural y forestal. Es tranquila y muy abrigada, con alto valor marisquero y paisajístico. Dispone de aparcamiento, áreas de descanso, camping y chiringuito de verano, y por su entorno pasa la Senda Azul Bao–Xastelas.",
+      "fotoPrincipal": null,
+      "caracteristicas": {
+        "tipo": "Playa resguardada",
+        "composicion": "Arena fina",
+        "longitud": "600 m",
+        "anchura": "≈20 m en bajamar y ≈10 m en pleamar",
+        "entorno": "Natural y forestal; alto valor marisquero y paisajístico",
+        "forma": "Semicircular",
+        "orientacion": "SE",
+        "exposicion": "Nivel de abrigo usado por el ranking: alto"
+      },
+      "servicios": {
+        "parking": "Sí",
+        "accesibilidad": null,
+        "duchas": null,
+        "aseos": null,
+        "socorrista": null,
+        "chiringuito": "Chiringuito de verano",
+        "restaurantes": "Oferta estacional y camping en el entorno",
+        "transportePublico": null
+      },
+      "normas": {
+        "perros": null,
+        "nudismo": null,
+        "deportesAcuaticos": "Actividades tranquilas sujetas a las condiciones del mar y a la protección del entorno",
+        "barbacoasFuego": null,
+        "accesoVehiculos": null
+      },
+      "marea": {
+        "dependencia": "Media",
+        "superficiePleamar": "La anchura pasa de unos 20 m en bajamar a unos 10 m en pleamar",
+        "accesoCondicionado": "No",
+        "riesgoAislamiento": "Bajo en la zona principal",
+        "recomendacion": "Con pleamar el arenal pierde anchura, aunque mantiene zona útil."
+      },
+      "bano": {
+        "entradaAgua": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Aguas tranquilas; playa muy abrigada",
+        "corrientes": null,
+        "ninos": "Entorno tranquilo; supervisión habitual",
+        "profundidad": null
+      },
+      "practica": {
+        "temporadaBano": "Verano",
+        "fuente": "Turismo de Galicia",
+        "ultimaVerificacion": "17 de agosto de 2026",
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+      },
+      "fuentes": [
+        {
+          "nombre": "Turismo A Illa de Arousa",
+          "url": "https://www.ailladearousa.es/turismo/praias/",
+          "nota": "Dimensiones, forma, arena, entorno y servicios de Camaxe."
+        },
+        {
+          "nombre": "Turismo de Galicia",
+          "url": "https://www.turismo.gal/recurso/-/detalle/258852417/camaxe?langId=es_ES",
+          "nota": "Clasificación del arenal."
+        },
+        {
+          "nombre": "A Illa de Arousa · Senda Azul",
+          "url": "https://www.ailladearousa.es/turismo/bandeira-azul/",
+          "nota": "Información sobre la Senda Bao–Xastelas."
         }
       ]
     },
@@ -12384,20 +12529,20 @@
       "lat": 42.424167,
       "lon": -8.683083,
       "destinoMaps": "Praia de Cabeceira, Poio, Galicia",
-      "descripcion": "Playa resguardada de Poio, en el interior de la ría de Pontevedra.",
+      "descripcion": "Playa resguardada de arena fina en Campelo, Poio, en el interior de la ría de Pontevedra. Tiene unos 200 metros de longitud y es una opción cómoda para un baño tranquilo cerca de los núcleos de Poio y Pontevedra.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "200 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Interior de la ría de Pontevedra, en Campelo",
+        "forma": "Playa resguardada",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: muyAlto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno urbano de Campelo",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -12422,23 +12567,23 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Habitualmente moderado por su situación resguardada",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9796/cabeceira?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
         }
       ]
     },
@@ -12451,20 +12596,20 @@
       "lat": 42.402889,
       "lon": -8.756639,
       "destinoMaps": "Praia de Xiorto, Poio, Galicia",
-      "descripcion": "Pequeña playa resguardada del municipio de Poio, en la ría de Pontevedra.",
+      "descripcion": "Arenal resguardado de arena fina en Poio, de unos 300 metros, situado en la ría de Pontevedra. Su carácter protegido favorece un ambiente más tranquilo que el de las playas atlánticas abiertas.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena fina",
+        "longitud": "300 m",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Ría de Pontevedra, municipio de Poio",
+        "forma": "Playa resguardada",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Aparcamiento en el entorno",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -12489,23 +12634,23 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Habitualmente moderado por su situación resguardada",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/9784/xiorto?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
         }
       ]
     },
@@ -12518,20 +12663,20 @@
       "lat": 42.632667,
       "lon": -8.7615,
       "destinoMaps": "Praia de Bamio, Vilagarcía de Arousa, Galicia",
-      "descripcion": "Playa resguardada de Vilagarcía de Arousa situada en el fondo de la ría.",
+      "descripcion": "Arenal resguardado del núcleo de Bamio, en Vilagarcía de Arousa, con forma de media concha, arena blanca y fina y aguas generalmente tranquilas. Tiene un entorno rural, está protegida del viento y dispone de aparcamiento gratuito.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa resguardada",
-        "composicion": null,
-        "longitud": null,
+        "composicion": "Arena blanca y fina",
+        "longitud": "≈130–167 m, según el tramo considerado",
         "anchura": null,
-        "entorno": null,
-        "forma": null,
+        "entorno": "Rural, en Bamio",
+        "forma": "Media concha",
         "orientacion": "W",
         "exposicion": "Nivel de abrigo usado por el ranking: muyAlto"
       },
       "servicios": {
-        "parking": null,
+        "parking": "Sí, gratuito",
         "accesibilidad": null,
         "duchas": null,
         "aseos": null,
@@ -12556,23 +12701,28 @@
       },
       "bano": {
         "entradaAgua": null,
-        "fondo": null,
-        "oleajeHabitual": null,
+        "fondo": "Arena fina",
+        "oleajeHabitual": "Aguas tranquilas / oleaje moderado",
         "corrientes": null,
         "ninos": null,
         "profundidad": null
       },
       "practica": {
-        "temporadaBano": null,
+        "temporadaBano": "Verano",
         "fuente": "Turismo de Galicia",
         "ultimaVerificacion": "17 de agosto de 2026",
-        "notaVigencia": "Los datos descriptivos mostrados proceden de la fuente indicada. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
+        "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
         {
           "nombre": "Turismo de Galicia",
-          "url": "https://www.turismo.gal/",
-          "nota": "Ubicación y características generales contrastadas para incorporar esta playa al catálogo."
+          "url": "https://www.turismo.gal/recurso/-/detalle/11353/bamio?langId=es_ES",
+          "nota": "Longitud, tipo y arena."
+        },
+        {
+          "nombre": "Turismo Rías Baixas · O Campanario (Bamio)",
+          "url": "https://www.turismoriasbaixas.com/es/search/playa-de-o-campanario",
+          "nota": "Forma, entorno, aparcamiento y aguas tranquilas."
         }
       ]
     }
