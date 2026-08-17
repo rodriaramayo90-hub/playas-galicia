@@ -1,0 +1,69 @@
+{
+  "praia-de-area-das-pipas": {
+    "descripcion":"Playa de arena blanca y fina al noroeste de la península de O Grove, en un entorno rural de notable interés paisajístico. Puede ser ventosa y presentar oleaje moderado. Turismo Rías Baixas registra zona de buceo y accesibilidad para personas con movilidad reducida.",
+    "caracteristicas":{"longitud":"400 m según Turismo de Galicia (otras fichas turísticas delimitan un tramo menor)","composicion":"Arena fina","entorno":"Rural y arbolado, próximo a Mexilloeira","forma":"Arenal resguardado"},
+    "servicios":{"parking":"Aparcamiento en el entorno","accesibilidad":"Turismo Rías Baixas la señala como accesible para personas con movilidad reducida"},
+    "normas":{"deportesAcuaticos":"Zona de buceo registrada por Turismo Rías Baixas"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Oleaje moderado según Turismo Rías Baixas"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9693/area-das-pipas?langId=es_ES","nota":"Longitud, tipo y arena."},{"nombre":"Turismo Rías Baixas","url":"https://www.turismoriasbaixas.com/es/search/playa-de-area-das-pipas-o-de-reboledo","nota":"Entorno, oleaje, calidad sanitaria y zona de buceo."}]
+  },
+  "praia-de-raeiros-paxareiro": {
+    "descripcion":"Playa rectilínea de arena blanca y fina en San Vicente do Mar, O Grove, en entorno rústico y con vistas destacadas a la isla de Ons. Turismo Rías Baixas la describe como ventosa pero de aguas tranquilas, con calidad sanitaria excelente y zona de buceo.",
+    "caracteristicas":{"longitud":"670 m","composicion":"Arena blanca y fina","entorno":"Rural, próximo a A Lanzada y con vistas hacia la ría de Arousa","forma":"Playa abierta y rectilínea"},
+    "servicios":{"parking":"Aparcamiento en el entorno"},
+    "normas":{"deportesAcuaticos":"Zona de buceo registrada por Turismo Rías Baixas"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Aguas tranquilas según Turismo Rías Baixas"},
+    "fuentes":[{"nombre":"Turismo Rías Baixas","url":"https://www.turismoriasbaixas.com/es/search/playa-de-raeiros","nota":"Longitud, entorno, vistas, aguas tranquilas y zona de buceo."},{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9733/raeiros-paxareiro?langId=es_ES","nota":"Clasificación general del arenal."}]
+  },
+  "praia-da-mexilloeira": {
+    "descripcion":"Largo arenal resguardado de O Grove, de aproximadamente 1,1 km y arena gruesa. Se encuentra en San Vicente do Grove, en un tramo litoral ligado a la Ruta del Mar de Arousa y Ulla del Camino de Santiago y próximo a Area das Pipas.",
+    "caracteristicas":{"longitud":"1.100 m","composicion":"Arena gruesa","entorno":"Litoral de San Vicente do Grove; Ruta del Mar de Arousa y Ulla","forma":"Playa resguardada"},
+    "servicios":{"parking":"Aparcamiento en el entorno"},
+    "bano":{"fondo":"Arena gruesa","oleajeHabitual":"Moderado por su carácter resguardado"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9695/mexiloeira?langId=es_ES","nota":"Longitud, tipo, arena y Camino de Santiago."}]
+  },
+  "praia-de-area-de-secada-illa-de-arousa": {
+    "descripcion":"Playa natural de arena fina en el norte de A Illa de Arousa, rodeada de pinar y con una duna móvil protegida. La ficha turística municipal indica unos 420 m de longitud, con 20 m de anchura en bajamar y 10 m en pleamar. Tiene paseo de madera y carril bici, aguas tranquilas y Bandera Azul en 2026. La información turística provincial recoge socorrismo, aseos, duchas y otros servicios de playa.",
+    "caracteristicas":{"longitud":"420 m según Turismo de A Illa de Arousa","anchura":"≈20 m en bajamar y ≈10 m en pleamar","composicion":"Arena fina y clara","entorno":"Natural y forestal, con pinar y duna móvil protegida; paseo de madera y carril bici","forma":"Playa resguardada"},
+    "servicios":{"parking":"Zona de aparcamiento en el entorno","accesibilidad":"Pasarelas/paseo de madera; Turismo Rías Baixas registra infraestructuras adaptadas","duchas":"Sí","aseos":"Sí","socorrista":"Sí, servicio estacional","chiringuito":"Oferta estacional en el entorno de la playa"},
+    "normas":{"deportesAcuaticos":"Apta para actividades tranquilas como kayak cuando las condiciones lo permiten"},
+    "marea":{"dependencia":"Media","superficiePleamar":"La anchura publicada pasa de unos 20 m en bajamar a unos 10 m en pleamar","accesoCondicionado":"No","riesgoAislamiento":"Bajo en la zona principal","recomendacion":"La playa sigue siendo utilizable con pleamar, pero dispone de bastante menos anchura."},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Aguas generalmente tranquilas","ninos":"Aguas tranquilas; mantener la supervisión habitual","profundidad":"Entrada progresiva según el sector; comprobar el estado de la marea"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo A Illa de Arousa","url":"https://www.ailladearousa.es/turismo/praias/","nota":"Dimensiones, anchura según marea, entorno, paseo y características de Area da Secada."},{"nombre":"Turismo Rías Baixas","url":"https://www.turismoriasbaixas.com/gl/search/playa-de-area-da-secada","nota":"Servicios, calidad sanitaria y aguas tranquilas."},{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/que-facer/faros-e-praias-salvaxes/areais-da-ria-de-arousa?langId=es_ES","nota":"Pinar, pasarela de madera, aguas tranquilas y actividades náuticas."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-do-bao-camaxe-illa-de-arousa": {
+    "descripcion":"Playa de unos 600 m en la costa este de A Illa de Arousa, de forma semicircular, arena fina y entorno natural y forestal. La guía turística municipal la describe como tranquila y muy abrigada, con alto valor marisquero y paisajístico. Dispone de aparcamiento, áreas de descanso, camping y chiringuito de verano, y por su entorno pasa la Senda Azul Bao–Xastelas. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"600 m según Turismo A Illa de Arousa","anchura":"≈20 m en bajamar y ≈10 m en pleamar","composicion":"Arena fina","entorno":"Natural y forestal; alto valor marisquero y paisajístico","forma":"Semicircular"},
+    "servicios":{"parking":"Sí","chiringuito":"Chiringuito de verano","restaurantes":"Oferta estacional y camping en el entorno"},
+    "normas":{"deportesAcuaticos":"Actividades tranquilas sujetas a las condiciones del mar y a la protección del entorno"},
+    "marea":{"dependencia":"Media","superficiePleamar":"La anchura publicada pasa de unos 20 m en bajamar a unos 10 m en pleamar","accesoCondicionado":"No","riesgoAislamiento":"Bajo en la zona principal","recomendacion":"Con pleamar el arenal pierde anchura, aunque mantiene zona útil."},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Aguas tranquilas; playa muy abrigada","ninos":"Entorno tranquilo; supervisión habitual"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo A Illa de Arousa","url":"https://www.ailladearousa.es/turismo/praias/","nota":"Dimensiones, forma, arena, entorno y servicios de Camaxe."},{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/258852417/camaxe?langId=es_ES","nota":"Clasificación oficial del arenal."},{"nombre":"A Illa de Arousa · Bandera Azul","url":"https://www.ailladearousa.es/turismo/bandeira-azul/","nota":"Bandera Azul y Senda Bao–Xastelas."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-cabeceira": {
+    "descripcion":"Playa resguardada de arena fina en Campelo, Poio, en el interior de la ría de Pontevedra. Tiene unos 200 metros de longitud y cuenta con Bandera Azul en 2026, lo que la convierte en una opción cómoda para un baño tranquilo cerca de los núcleos de Poio y Pontevedra.",
+    "caracteristicas":{"longitud":"200 m","composicion":"Arena fina","entorno":"Interior de la ría de Pontevedra, en Campelo","forma":"Playa resguardada"},
+    "servicios":{"parking":"Aparcamiento en el entorno urbano de Campelo"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Habitualmente moderado por su situación resguardada"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9796/cabeceira?langId=es_ES","nota":"Longitud, tipo, arena y Bandera Azul."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-xiorto": {
+    "descripcion":"Arenal resguardado de arena fina en Poio, de unos 300 metros, situado en la ría de Pontevedra. Su carácter protegido favorece un ambiente más tranquilo que el de las playas atlánticas abiertas. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"300 m","composicion":"Arena fina","entorno":"Ría de Pontevedra, municipio de Poio","forma":"Playa resguardada"},
+    "servicios":{"parking":"Aparcamiento en el entorno"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Habitualmente moderado por su situación resguardada"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/9784/xiorto?langId=es_ES","nota":"Longitud, tipo, arena y Bandera Azul."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  },
+  "praia-de-bamio": {
+    "descripcion":"Arenal resguardado del núcleo de Bamio, en Vilagarcía de Arousa, con forma de media concha, arena blanca y fina y aguas generalmente tranquilas. Turismo Rías Baixas destaca su entorno rural, la protección frente al viento y el aparcamiento gratuito. Cuenta con Bandera Azul en 2026.",
+    "caracteristicas":{"longitud":"≈130–167 m según la delimitación de las fichas turísticas oficiales","composicion":"Arena blanca y fina","entorno":"Rural, en Bamio","forma":"Media concha"},
+    "servicios":{"parking":"Sí, gratuito según Turismo Rías Baixas"},
+    "bano":{"fondo":"Arena fina","oleajeHabitual":"Aguas tranquilas / oleaje moderado"},
+    "practica":{"temporadaBano":"Verano; Bandera Azul 2026"},
+    "fuentes":[{"nombre":"Turismo de Galicia","url":"https://www.turismo.gal/recurso/-/detalle/11353/bamio?langId=es_ES","nota":"Longitud, tipo, arena y Bandera Azul."},{"nombre":"Turismo Rías Baixas · O Campanario (Bamio)","url":"https://www.turismoriasbaixas.com/es/search/playa-de-o-campanario","nota":"Forma, entorno, aparcamiento y aguas tranquilas."},{"nombre":"Turismo de Galicia · Banderas Azules 2026","url":"https://blog.turismo.gal/donde-banarse-con-bandera-azul-en-galicia-este-verano/","nota":"Distintivo Bandera Azul 2026."}]
+  }
+}
