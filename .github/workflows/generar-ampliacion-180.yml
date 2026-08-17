@@ -1,0 +1,47 @@
+name: Generar ampliación a 180 playas
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "playas-extra.js"
+      - "scripts/generar-ampliacion-180.mjs"
+      - ".github/workflows/generar-ampliacion-180.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generar-ampliacion-180
+  cancel-in-progress: true
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generar fichas, índice y sitemap
+        run: node scripts/generar-ampliacion-180.mjs
+
+      - name: Guardar ampliación generada
+        run: |
+          if git diff --quiet -- playas data/playas-detalle.json data/indice-fichas.js sitemap.xml; then
+            echo "La ampliación ya está actualizada."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playas data/playas-detalle.json data/indice-fichas.js sitemap.xml
+          git commit -m "Generar fichas para catálogo de 180 playas"
+          git pull --rebase origin main
+          git push
