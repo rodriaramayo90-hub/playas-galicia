@@ -3,18 +3,32 @@ import { dirname, resolve } from "node:path";
 
 const RAIZ = resolve(import.meta.dirname, "..");
 const ARCHIVO_APP = resolve(RAIZ, "app.js");
+const ARCHIVO_EXTRA = resolve(RAIZ, "playas-extra.js");
 const ARCHIVO_SALIDA = resolve(RAIZ, "data", "pronostico.json");
 const TAMANO_LOTE = 50;
 const REINTENTOS = 2;
 
-function extraerPlayas(codigo) {
-  const inicio = codigo.indexOf("const playas = [");
+function extraerArray(codigo, nombreConstante, etiqueta) {
+  const marcador = `const ${nombreConstante} = [`;
+  const inicio = codigo.indexOf(marcador);
   const fin = codigo.indexOf("\n];", inicio);
-  if (inicio < 0 || fin < 0) throw new Error("No se encontró el catálogo de playas en app.js.");
-  const definicion = codigo.slice(inicio + "const playas = ".length, fin + 2);
-  const playas = Function(`"use strict"; return (${definicion});`)();
-  if (!Array.isArray(playas) || playas.length === 0) throw new Error("El catálogo de playas está vacío.");
-  return playas;
+  if (inicio < 0 || fin < 0) throw new Error(`No se encontró ${etiqueta}.`);
+  const definicion = codigo.slice(inicio + `const ${nombreConstante} = `.length, fin + 2);
+  const elementos = Function(`"use strict"; return (${definicion});`)();
+  if (!Array.isArray(elementos)) throw new Error(`${etiqueta} no es un array.`);
+  return elementos;
+}
+
+function unirCatalogos(base, extras) {
+  const resultado = [...base];
+  const claves = new Set(base.map(playa => `${playa.nombre}||${playa.municipio}`));
+  for (const playa of extras) {
+    const clave = `${playa.nombre}||${playa.municipio}`;
+    if (claves.has(clave)) continue;
+    claves.add(clave);
+    resultado.push(playa);
+  }
+  return resultado;
 }
 
 function dividirEnLotes(elementos, tamano) {
@@ -54,13 +68,23 @@ async function consultarLote(lote) {
   return { datosMeteorologicos, datosMaritimos: datosMar };
 }
 
-const codigo = await readFile(ARCHIVO_APP, "utf8");
-const playas = extraerPlayas(codigo);
+const [codigoApp, codigoExtra] = await Promise.all([
+  readFile(ARCHIVO_APP, "utf8"),
+  readFile(ARCHIVO_EXTRA, "utf8")
+]);
+const playasBase = extraerArray(codigoApp, "playas", "el catálogo principal de playas en app.js");
+const playasExtra = extraerArray(codigoExtra, "PLAYAS_EXTRA", "la ampliación de playas en playas-extra.js");
+const playas = unirCatalogos(playasBase, playasExtra);
+
+if (playas.length !== 180) {
+  throw new Error(`Se esperaban 180 playas y se encontraron ${playas.length}. Revisa el catálogo antes de publicar el pronóstico.`);
+}
+
 const respuestas = [];
 for (const lote of dividirEnLotes(playas, TAMANO_LOTE)) respuestas.push(await consultarLote(lote));
 
 const salida = {
-  version: 1,
+  version: 2,
   generadoEn: new Date().toISOString(),
   totalPlayas: playas.length,
   datosMeteorologicos: respuestas.flatMap(respuesta => respuesta.datosMeteorologicos),
@@ -70,4 +94,3 @@ const salida = {
 await mkdir(dirname(ARCHIVO_SALIDA), { recursive: true });
 await writeFile(ARCHIVO_SALIDA, `${JSON.stringify(salida)}\n`, "utf8");
 console.log(`Pronóstico actualizado para ${playas.length} playas: ${ARCHIVO_SALIDA}`);
-
