@@ -87,6 +87,7 @@ window.HoyTocaPlayaIndiceFichas = {
   "Praia de Areabrava||Cangas": "praia-de-areabrava",
   "Praia de Menduíña||Cangas": "praia-de-menduina",
   "Praia de Pinténs||Cangas": "praia-de-pintens",
+  "Praia de Areacova||Cangas": "praia-de-areacova",
   "Praia de Vilariño||Cangas": "praia-de-vilarino",
   "Praia da Xunqueira||Moaña": "praia-da-xunqueira",
   "Praia do Latón||Moaña": "praia-do-laton",
@@ -150,4 +151,3 @@ window.HoyTocaPlayaIndiceFichas = {
   "Praia de Montalvo||Sanxenxo": "praia-de-montalvo",
   "Praia de Canelas||Sanxenxo": "praia-de-canelas"
 };
-
