@@ -19,7 +19,7 @@
   if (!document.querySelector('link[data-hoytoca-mareas="1"]')) {
     const css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = new URL("mareas-ficha.css?v=3", raiz).href;
+    css.href = new URL("mareas-ficha.css?v=4", raiz).href;
     css.dataset.hoytocaMareas = "1";
     document.head.append(css);
   }
@@ -36,7 +36,7 @@
   (async () => {
     try {
       await ejecutarArchivo("ficha-playa-base.js");
-      await ejecutarArchivo("mareas-ficha.js");
+      await ejecutarArchivo("mareas-ficha-v3.js");
     } catch (error) {
       console.error("No se pudo iniciar la ficha de playa.", error);
       const estado = document.getElementById("estadoCondiciones");
