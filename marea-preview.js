@@ -15,54 +15,22 @@
   const configuracion = CONFIG_PREVIEW[slug];
   if (!configuracion) return;
 
-  function fechaMadrid() {
-    const partes = new Intl.DateTimeFormat("en-GB", {
+  function fechaIsoMadrid() {
+    const partes = new Intl.DateTimeFormat("en-CA", {
       timeZone: "Europe/Madrid",
-      day: "2-digit",
+      year: "numeric",
       month: "2-digit",
-      year: "numeric"
+      day: "2-digit"
     }).formatToParts(new Date());
     const mapa = Object.fromEntries(partes.map(parte => [parte.type, parte.value]));
-    return `${mapa.day}/${mapa.month}/${mapa.year}`;
-  }
-
-  function extraerBloquePuerto(nodo) {
-    if (!nodo) return null;
-    if (Array.isArray(nodo)) {
-      for (const elemento of nodo) {
-        const encontrado = extraerBloquePuerto(elemento);
-        if (encontrado) return encontrado;
-      }
-      return null;
-    }
-    if (typeof nodo !== "object") return null;
-    if (Array.isArray(nodo.listaMareas)) return nodo;
-    for (const valor of Object.values(nodo)) {
-      const encontrado = extraerBloquePuerto(valor);
-      if (encontrado) return encontrado;
-    }
-    return null;
-  }
-
-  function clasificarMareas(lista = []) {
-    const pleamares = [];
-    const bajamares = [];
-    lista.forEach(marea => {
-      const hora = marea.hora || (typeof marea.data === "string" ? marea.data.slice(11, 16) : null);
-      if (!hora) return;
-      const tipo = String(marea.tipoMarea || "").toLowerCase();
-      const idTipo = Number(marea.idTipoMarea);
-      if (idTipo === 1 || tipo.includes("preamar") || tipo.includes("pleamar")) pleamares.push(hora);
-      if (idTipo === 0 || tipo.includes("baixamar") || tipo.includes("bajamar")) bajamares.push(hora);
-    });
-    return { pleamares, bajamares };
+    return `${mapa.year}-${mapa.month}-${mapa.day}`;
   }
 
   function prepararPanel() {
     const panel = document.getElementById("marea");
     const lista = document.getElementById("listaMarea");
     const aviso = document.getElementById("recomendacionMarea");
-    if (!panel || !lista || !aviso) return null;
+    if (!panel || !lista || !aviso) return false;
 
     const titulo = panel.querySelector("h2");
     if (titulo) titulo.textContent = "Información de mareas";
@@ -84,38 +52,45 @@
       aviso.insertAdjacentElement("afterend", fuente);
     }
     fuente.innerHTML = `Horarios de hoy: <a href="https://www.meteogalicia.gal/web/predicion/mareas-e-luas" target="_blank" rel="noopener noreferrer">MeteoGalicia · Xunta de Galicia</a> · puerto de referencia ${configuracion.portoReferencia}.`;
-
-    return { lista, aviso, fuente };
+    return true;
   }
 
-  async function cargarMareas() {
-    prepararPanel();
+  function mostrarMareas(mareas = []) {
+    const pleamares = mareas.filter(marea => marea.tipo === "pleamar").map(marea => marea.hora);
+    const bajamares = mareas.filter(marea => marea.tipo === "bajamar").map(marea => marea.hora);
     const pleamar = document.getElementById("mareaPleamar");
     const bajamar = document.getElementById("mareaBajamar");
     if (!pleamar || !bajamar) return;
+    pleamar.textContent = pleamares.length ? pleamares.join(" · ") : "Sin dato";
+    bajamar.textContent = bajamares.length ? bajamares.join(" · ") : "Sin dato";
+    pleamar.classList.remove("dato-cargando-marea");
+    bajamar.classList.remove("dato-cargando-marea");
+  }
 
-    const url = new URL("https://servizos.meteogalicia.gal/mgrss/predicion/mareas/jsonMareas.action");
-    url.searchParams.set("data", fechaMadrid());
-    url.searchParams.set("idPorto", String(configuracion.idPorto));
+  function mostrarNoDisponible() {
+    for (const id of ["mareaPleamar", "mareaBajamar"]) {
+      const elemento = document.getElementById(id);
+      if (!elemento) continue;
+      elemento.textContent = "No disponible";
+      elemento.classList.remove("dato-cargando-marea");
+    }
+  }
 
+  async function cargarMareas() {
+    if (!prepararPanel()) return;
     try {
-      const respuesta = await fetch(url.href, { mode: "cors", cache: "no-store" });
-      if (!respuesta.ok) throw new Error(`MeteoGalicia respondió ${respuesta.status}`);
+      const base = typeof URL_BASE_FICHA !== "undefined" ? URL_BASE_FICHA : new URL(".", window.location.href);
+      const url = new URL("data/mareas.json", base);
+      url.searchParams.set("v", String(Math.floor(Date.now() / 3600000)));
+      const respuesta = await fetch(url.href, { cache: "no-store" });
+      if (!respuesta.ok) throw new Error(`mareas.json respondió ${respuesta.status}`);
       const datos = await respuesta.json();
-      const bloque = extraerBloquePuerto(datos);
-      if (!bloque) throw new Error("Formato de mareas no reconocido");
-      const { pleamares, bajamares } = clasificarMareas(bloque.listaMareas);
-
-      pleamar.textContent = pleamares.length ? pleamares.join(" · ") : "Sin dato";
-      bajamar.textContent = bajamares.length ? bajamares.join(" · ") : "Sin dato";
-      pleamar.classList.remove("dato-cargando-marea");
-      bajamar.classList.remove("dato-cargando-marea");
+      const puerto = datos?.dias?.[fechaIsoMadrid()]?.[String(configuracion.idPorto)];
+      if (!puerto?.mareas?.length) throw new Error("No hay mareas para el puerto de referencia");
+      mostrarMareas(puerto.mareas);
     } catch (error) {
-      console.warn("No se pudieron cargar las mareas de MeteoGalicia en el preview.", error);
-      pleamar.textContent = "No disponible";
-      bajamar.textContent = "No disponible";
-      pleamar.classList.remove("dato-cargando-marea");
-      bajamar.classList.remove("dato-cargando-marea");
+      console.warn("No se pudieron cargar las mareas compartidas.", error);
+      mostrarNoDisponible();
     }
   }
 
