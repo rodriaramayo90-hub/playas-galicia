@@ -15,6 +15,8 @@
     (async () => {
       const rama = "preview-mareas-dinamicas";
       const raizCdn = `https://cdn.jsdelivr.net/gh/rodriaramayo90-hub/playas-galicia@${rama}/`;
+      const previewFicha = "https://htmlpreview.github.io/?https://github.com/rodriaramayo90-hub/playas-galicia/blob/preview-mareas-dinamicas/preview-ficha-mareas.html";
+
       try {
         const respuesta = await fetch(raizCdn + "index.html?v=" + Date.now(), { cache: "no-store" });
         if (!respuesta.ok) throw new Error("No se pudo cargar la portada de prueba");
@@ -23,18 +25,44 @@
 
         const navegacionPreview = `
           <script>
-          document.addEventListener('click', function(evento) {
-            const enlace = evento.target.closest('a[href]');
-            if (!enlace) return;
-            const href = enlace.getAttribute('href') || '';
-            if (/playa-nino-do-corvo/.test(href)) {
-              evento.preventDefault();
-              window.location.href = 'https://htmlpreview.github.io/?https://github.com/rodriaramayo90-hub/playas-galicia/blob/preview-mareas-dinamicas/preview-nino-do-corvo-mareas.html';
-            }
-          });
-          <\/script>`;
-        html = html.replace("</body>", navegacionPreview + "</body>");
+          (function () {
+            const destinoPreviewFicha = ${JSON.stringify(previewFicha)};
 
+            function obtenerSlug(valor) {
+              if (!valor) return null;
+              try {
+                const url = new URL(valor, document.baseURI);
+                const coincidencia = url.pathname.match(/\\/playas\\/([^/]+)\\/?/);
+                return coincidencia ? coincidencia[1] : null;
+              } catch (_) {
+                return null;
+              }
+            }
+
+            function interceptar(evento) {
+              const elemento = evento.target.closest('a[href], [data-ficha-url]');
+              if (!elemento) return;
+              const valor = elemento.dataset && elemento.dataset.fichaUrl
+                ? elemento.dataset.fichaUrl
+                : elemento.getAttribute('href');
+              const slug = obtenerSlug(valor);
+              if (!slug) return;
+
+              evento.preventDefault();
+              evento.stopPropagation();
+              if (typeof evento.stopImmediatePropagation === 'function') evento.stopImmediatePropagation();
+              window.location.href = destinoPreviewFicha + '#' + encodeURIComponent(slug);
+            }
+
+            document.addEventListener('click', interceptar, true);
+            document.addEventListener('keydown', function (evento) {
+              if (evento.key !== 'Enter' && evento.key !== ' ') return;
+              interceptar(evento);
+            }, true);
+          })();
+          <\/script>`;
+
+        html = html.replace("</body>", navegacionPreview + "</body>");
         document.open();
         document.write(html);
         document.close();
