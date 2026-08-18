@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "generadoEn": "2026-08-18T11:30:00Z",
+  "zonaHoraria": "Europe/Madrid",
+  "previewTemporal": true,
+  "fuente": {
+    "nombre": "TuTiempo.net · datos temporales de preview",
+    "url": "https://www.tutiempo.net/mareas/espana/vigo/agosto-2026.html",
+    "nota": "Solo para validar el funcionamiento visual del preview. En producción se sustituirá por MeteoGalicia."
+  },
+  "dias": {
+    "2026-08-18": {
+      "3": {
+        "idPorto": 3,
+        "nombre": "Vigo",
+        "lat": null,
+        "lon": null,
+        "mareas": [
+          { "tipo": "bajamar", "hora": "02:07", "altura": 0.851 },
+          { "tipo": "pleamar", "hora": "08:19", "altura": 3.099 },
+          { "tipo": "bajamar", "hora": "14:20", "altura": 0.98 },
+          { "tipo": "pleamar", "hora": "20:38", "altura": 3.076 }
+        ]
+      }
+    },
+    "2026-08-19": {
+      "3": {
+        "idPorto": 3,
+        "nombre": "Vigo",
+        "lat": null,
+        "lon": null,
+        "mareas": [
+          { "tipo": "bajamar", "hora": "02:46", "altura": 1.104 },
+          { "tipo": "pleamar", "hora": "09:02", "altura": 2.905 },
+          { "tipo": "bajamar", "hora": "15:06", "altura": 1.231 },
+          { "tipo": "pleamar", "hora": "21:24", "altura": 2.807 }
+        ]
+      }
+    }
+  }
+}
