@@ -51,7 +51,7 @@
       fuente.className = "marea-fuente";
       aviso.insertAdjacentElement("afterend", fuente);
     }
-    fuente.innerHTML = `Horarios de hoy: <a href="https://www.meteogalicia.gal/web/predicion/mareas-e-luas" target="_blank" rel="noopener noreferrer">MeteoGalicia · Xunta de Galicia</a> · puerto de referencia ${configuracion.portoReferencia}.`;
+    fuente.innerHTML = `Horarios de hoy: <span id="mareaFuenteNombre">cargando fuente…</span> · puerto de referencia ${configuracion.portoReferencia}.`;
     return true;
   }
 
@@ -65,6 +65,23 @@
     bajamar.textContent = bajamares.length ? bajamares.join(" · ") : "Sin dato";
     pleamar.classList.remove("dato-cargando-marea");
     bajamar.classList.remove("dato-cargando-marea");
+  }
+
+  function mostrarFuente(fuente = {}) {
+    const contenedor = document.getElementById("mareaFuenteNombre");
+    if (!contenedor) return;
+    const nombre = fuente.nombre || "Fuente de mareas";
+    const url = fuente.url || fuente.documentacion;
+    if (url) {
+      const enlace = document.createElement("a");
+      enlace.href = url;
+      enlace.target = "_blank";
+      enlace.rel = "noopener noreferrer";
+      enlace.textContent = nombre;
+      contenedor.replaceChildren(enlace);
+    } else {
+      contenedor.textContent = nombre;
+    }
   }
 
   function mostrarNoDisponible() {
@@ -85,6 +102,7 @@
       const respuesta = await fetch(url.href, { cache: "no-store" });
       if (!respuesta.ok) throw new Error(`mareas.json respondió ${respuesta.status}`);
       const datos = await respuesta.json();
+      mostrarFuente(datos?.fuente);
       const puerto = datos?.dias?.[fechaIsoMadrid()]?.[String(configuracion.idPorto)];
       if (!puerto?.mareas?.length) throw new Error("No hay mareas para el puerto de referencia");
       mostrarMareas(puerto.mareas);
