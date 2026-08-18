@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview completo v3 · Hoy Toca Playa</title>
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:#eef9fd;color:#17364a;display:grid;place-items:center;min-height:100vh}
+    .carga{padding:24px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="carga">Cargando preview completo de Hoy Toca Playa…</div>
+  <script>
+    (async () => {
+      const rama = "preview-mareas-dinamicas";
+      const raizCdn = `https://cdn.jsdelivr.net/gh/rodriaramayo90-hub/playas-galicia@${rama}/`;
+      const previewFicha = "https://htmlpreview.github.io/?https://github.com/rodriaramayo90-hub/playas-galicia/blob/preview-mareas-dinamicas/preview-ficha-mareas.html";
+
+      try {
+        const respuesta = await fetch(raizCdn + "index.html?v=" + Date.now(), { cache: "no-store" });
+        if (!respuesta.ok) throw new Error("No se pudo cargar la portada de prueba");
+        let html = await respuesta.text();
+        html = html.replace("<head>", `<head><base href="${raizCdn}">`);
+
+        const parchePreview = `
+          <script>
+          (function () {
+            const destinoPreviewFicha = ${JSON.stringify(previewFicha)};
+            if (typeof crearEnlaceFicha === 'function') {
+              crearEnlaceFicha = function (slug) {
+                return destinoPreviewFicha + '#' + encodeURIComponent(slug);
+              };
+            }
+
+            document.addEventListener('click', function (evento) {
+              const elemento = evento.target.closest('[data-ficha-url], a[href]');
+              if (!elemento) return;
+              const valor = elemento.dataset && elemento.dataset.fichaUrl
+                ? elemento.dataset.fichaUrl
+                : elemento.getAttribute('href');
+              if (!valor || !valor.includes('preview-ficha-mareas.html')) return;
+              evento.preventDefault();
+              evento.stopPropagation();
+              if (typeof evento.stopImmediatePropagation === 'function') evento.stopImmediatePropagation();
+              window.location.href = valor;
+            }, true);
+          })();
+          <\/script>`;
+
+        html = html.replace("</body>", parchePreview + "</body>");
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (error) {
+        document.body.innerHTML = `<div class="carga"><strong>No se pudo abrir el preview.</strong><br>${error.message}</div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
