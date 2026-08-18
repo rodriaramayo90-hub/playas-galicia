@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview mareas · Niño do Corvo</title>
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:#eef9fd;color:#17364a;display:grid;place-items:center;min-height:100vh}
+    .carga{padding:24px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="carga">Cargando preview completo de Niño do Corvo…</div>
+  <script>
+    (async () => {
+      const base = "https://cdn.jsdelivr.net/gh/rodriaramayo90-hub/playas-galicia@preview-mareas-dinamicas/playas/playa-nino-do-corvo/";
+      try {
+        const respuesta = await fetch(base + "index.html?v=" + Date.now(), { cache: "no-store" });
+        if (!respuesta.ok) throw new Error("No se pudo cargar la ficha de prueba");
+        let html = await respuesta.text();
+        html = html.replace("<head>", `<head><base href="${base}">`);
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (error) {
+        document.body.innerHTML = `<div class="carga"><strong>No se pudo abrir el preview.</strong><br>${error.message}</div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
