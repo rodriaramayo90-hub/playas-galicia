@@ -56,15 +56,62 @@ jobs:
           console.log(`Validado ${fechas[0]}: A Coruña ${coruna.mareas.map(m => `${m.tipo} ${m.hora}`).join(' · ')}`);
           NODE
 
-      - name: Guardar mareas actualizadas
+      - name: Aplicar módulo de mareas a las fichas de prueba
+        if: github.ref_name == 'preview-mareas-dinamicas'
         run: |
-          if git diff --quiet -- data/mareas.json; then
-            echo "Las mareas no cambiaron."
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          paginas = sorted(Path('playas').glob('*/index.html'))
+          if len(paginas) != 180:
+              raise SystemExit(f'Se esperaban 180 fichas y se encontraron {len(paginas)}.')
+
+          for pagina in paginas:
+              html = pagina.read_text(encoding='utf-8')
+              html = html.replace('../../marea-preview.css?v=1', '../../mareas-ficha.css?v=1')
+              html = html.replace('../../marea-preview.js?v=1', '../../mareas-ficha.js?v=1')
+              html = html.replace('<h2>Dependencia de la marea</h2>', '<h2>Información de mareas</h2>')
+
+              if '../../mareas-ficha.css?v=1' not in html:
+                  html, cambios = re.subn(
+                      r'(<link rel="stylesheet" href="\.\./\.\./ficha-playa\.css\?v=[^"]+">)',
+                      r'\1\n  <link rel="stylesheet" href="../../mareas-ficha.css?v=1">',
+                      html,
+                      count=1
+                  )
+                  if cambios != 1:
+                      raise SystemExit(f'No se pudo insertar CSS de mareas en {pagina}.')
+
+              if '../../mareas-ficha.js?v=1' not in html:
+                  html, cambios = re.subn(
+                      r'(<script src="\.\./\.\./ficha-playa\.js\?v=[^"]+"></script>)',
+                      r'\1\n  <script src="../../mareas-ficha.js?v=1"></script>',
+                      html,
+                      count=1
+                  )
+                  if cambios != 1:
+                      raise SystemExit(f'No se pudo insertar JS de mareas en {pagina}.')
+
+              pagina.write_text(html, encoding='utf-8')
+
+          for pagina in paginas:
+              html = pagina.read_text(encoding='utf-8')
+              if '../../mareas-ficha.js?v=1' not in html or '../../mareas-ficha.css?v=1' not in html:
+                  raise SystemExit(f'Validación fallida en {pagina}.')
+
+          print(f'Módulo de mareas aplicado y validado en {len(paginas)} fichas.')
+          PY
+
+      - name: Guardar mareas y fichas actualizadas
+        run: |
+          if git diff --quiet -- data/mareas.json playas; then
+            echo "Las mareas y las fichas no cambiaron."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/mareas.json
-          git commit -m "Actualizar mareas diarias"
+          git add data/mareas.json playas
+          git commit -m "Actualizar mareas y fichas"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
