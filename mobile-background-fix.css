@@ -1,0 +1,29 @@
+/* Fondo de portada en móvil.
+   En pantallas altas, background-size: cover sobre todo el body puede escalar
+   demasiado la imagen y hacer que prácticamente desaparezca. Este fondo fijo
+   se calcula contra el viewport y mantiene la misma imagen visible al hacer scroll. */
+@media (max-width: 768px) {
+  body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    background: transparent;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(
+        rgba(244, 248, 251, 0.82),
+        rgba(244, 248, 251, 0.82)
+      ),
+      url("imagenes/fondo-playa.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
