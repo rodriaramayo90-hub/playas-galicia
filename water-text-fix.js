@@ -37,6 +37,23 @@ puntosTemperatura = function puntosTemperaturaContinua(temp) {
   return 0;
 };
 
+// El abrigo direccional ya reduce la velocidad efectiva cuando el viento llega
+// desde tierra. Por eso la orientación solo penaliza viento que entra por la
+// apertura de la playa: no añade puntos extra por viento offshore y evita así
+// premiar dos veces una misma situación de abrigo.
+puntosOrientacion = function puntosOrientacionSinDobleBonus(
+  anguloPlaya,
+  direccionVientoGrados,
+  viento
+) {
+  if (!Number.isFinite(anguloPlaya) || !Number.isFinite(direccionVientoGrados) || viento <= 15) return 0;
+  const diferencia = diferenciaAngular(anguloPlaya, direccionVientoGrados);
+  const componenteFrontal = Math.cos(diferencia * Math.PI / 180);
+  if (componenteFrontal <= 0) return 0;
+  const intensidad = Math.min(1, (viento - 15) / 15);
+  return Math.round(-5 * componenteFrontal * intensidad);
+};
+
 calcularPuntuacion = function calcularPuntuacionContinua(
   temperaturaMediaPlaya,
   viento,
@@ -116,7 +133,11 @@ if (typeof generarExplicacion === "function") {
     else if (viento <= 25) etiquetaViento = "algo ventoso";
     else etiquetaViento = "ventoso";
 
-    const frases = textoOriginal.replace(/\.$/, "").split(", ").filter(Boolean);
+    const textoNormalizado = textoOriginal.replace(
+      "viento favorable, sopla hacia el mar",
+      "viento de tierra hacia el mar"
+    );
+    const frases = textoNormalizado.replace(/\.$/, "").split(", ").filter(Boolean);
     const etiquetasAnteriores = new Set([
       "poco viento",
       "casi sin viento",
