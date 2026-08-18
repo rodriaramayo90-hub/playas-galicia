@@ -11,14 +11,14 @@ if (typeof obtenerEstadoAgua === "function") {
   };
 }
 
-// PREVIEW LIMPIO: curva continua de temperatura, categorías coherentes con
-// el puntaje y enteros visibles. No usa observers ni scripts auxiliares.
+// Curva continua de temperatura. Mantiene diferencias entre playas sin
+// infravalorar una tarde claramente veraniega: 26–28 °C es el rango óptimo.
 puntosTemperatura = function puntosTemperaturaContinua(temp) {
   if (!Number.isFinite(temp)) return 0;
   const puntos = [
-    [14, -12], [16, -8], [18, -4], [20, 0], [23, 6], [25, 10],
-    [27, 14], [28, 16], [29, 17], [30, 18], [31, 18], [32, 17],
-    [34, 14], [36, 10]
+    [14, -12], [16, -8], [18, -4], [20, 0], [22, 4], [23, 8],
+    [24, 12], [25, 16], [26, 18], [27, 20], [28, 20], [29, 19],
+    [30, 18], [31, 16], [32, 14], [34, 9], [36, 3]
   ];
 
   if (temp <= puntos[0][0]) return puntos[0][1] + (temp - puntos[0][0]) * 2;
@@ -64,9 +64,6 @@ calcularPuntuacion = function calcularPuntuacionContinua(
 // La categoría sigue una jerarquía clara por puntuación:
 // 85–100 Excelente, 70–84 Buen día, 50–69 Aceptable,
 // 35–49 Poco recomendable y 0–34 Mejor evitar.
-// Se conservan las rebajas por nubosidad intensa o viento en contra del
-// algoritmo actual; cuando se aplican, ajustarPuntuacionACategoria mantiene
-// también el puntaje dentro de la categoría para que nunca se invierta el orden.
 obtenerEstado = function obtenerEstadoCoherente(
   puntos,
   nubosidad,
