@@ -59,11 +59,10 @@
 
     const dependencia = valorDisponible(configuracionLocal.dependencia, ficha.marea?.dependencia);
     const riesgo = valorDisponible(configuracionLocal.riesgoAislamiento, ficha.marea?.riesgoAislamiento);
-    const recomendacion = valorDisponible(
+    const recomendacion = [
       configuracionLocal.recomendacion,
-      ficha.marea?.recomendacion,
-      "Consulta los horarios de pleamar y bajamar para planificar tu visita."
-    );
+      ficha.marea?.recomendacion
+    ].find(valor => valor !== null && valor !== undefined && String(valor).trim() !== "") || "";
 
     const titulo = panel.querySelector("h2");
     if (titulo) titulo.textContent = "Información de mareas";
@@ -76,7 +75,13 @@
       <div><dt>Dependencia de la marea</dt><dd class="${dependencia === NO_DISPONIBLE ? "dato-no-disponible" : ""}">${dependencia}</dd></div>
       <div><dt>Riesgo de aislamiento</dt><dd class="${riesgo === NO_DISPONIBLE ? "dato-no-disponible" : ""}">${riesgo}</dd></div>`;
 
-    aviso.textContent = recomendacion;
+    if (recomendacion) {
+      aviso.textContent = recomendacion;
+      aviso.hidden = false;
+    } else {
+      aviso.textContent = "";
+      aviso.hidden = true;
+    }
 
     let fuente = panel.querySelector(".marea-fuente");
     if (!fuente) {
