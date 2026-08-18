@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview ficha · Hoy Toca Playa</title>
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:#eef9fd;color:#17364a;display:grid;place-items:center;min-height:100vh}
+    .carga{padding:24px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="carga">Cargando ficha de prueba…</div>
+  <script>
+    (async () => {
+      const rama = "preview-mareas-dinamicas";
+      const slug = decodeURIComponent((window.location.hash || "").slice(1)).trim();
+      const previewPortada = "https://htmlpreview.github.io/?https://github.com/rodriaramayo90-hub/playas-galicia/blob/preview-mareas-dinamicas/preview-sitio-mareas.html";
+      const previewFicha = "https://htmlpreview.github.io/?https://github.com/rodriaramayo90-hub/playas-galicia/blob/preview-mareas-dinamicas/preview-ficha-mareas.html";
+
+      if (!/^[a-z0-9-]+$/i.test(slug)) {
+        document.body.innerHTML = '<div class="carga"><strong>No se pudo identificar la ficha.</strong></div>';
+        return;
+      }
+
+      const base = `https://cdn.jsdelivr.net/gh/rodriaramayo90-hub/playas-galicia@${rama}/playas/${slug}/`;
+
+      try {
+        const respuesta = await fetch(base + "index.html?v=" + Date.now(), { cache: "no-store" });
+        if (!respuesta.ok) throw new Error("No se pudo cargar la ficha de prueba");
+        let html = await respuesta.text();
+        html = html.replace("<head>", `<head><base href="${base}">`);
+
+        const navegacionPreview = `
+          <script>
+          (function () {
+            const previewPortada = ${JSON.stringify(previewPortada)};
+            const previewFicha = ${JSON.stringify(previewFicha)};
+
+            function slugDesdeUrl(valor) {
+              if (!valor) return null;
+              try {
+                const url = new URL(valor, document.baseURI);
+                const coincidencia = url.pathname.match(/\\/playas\\/([^/]+)\\/?/);
+                return coincidencia ? coincidencia[1] : null;
+              } catch (_) {
+                return null;
+              }
+            }
+
+            document.addEventListener('click', function (evento) {
+              const enlace = evento.target.closest('a[href]');
+              if (!enlace) return;
+              const href = enlace.getAttribute('href') || '';
+              if (/^https?:\\/\\/(www\\.)?google\\./i.test(enlace.href) || /openstreetmap\\.org/i.test(enlace.href) || /meteogalicia\\.gal/i.test(enlace.href) || /commons\\.wikimedia\\.org/i.test(enlace.href)) return;
+
+              const slugDestino = slugDesdeUrl(href);
+              if (slugDestino) {
+                evento.preventDefault();
+                evento.stopPropagation();
+                if (typeof evento.stopImmediatePropagation === 'function') evento.stopImmediatePropagation();
+                window.location.href = previewFicha + '#' + encodeURIComponent(slugDestino);
+                return;
+              }
+
+              if (href === '../../' || href.startsWith('../../#') || href === '/' || href.startsWith('/#')) {
+                evento.preventDefault();
+                evento.stopPropagation();
+                if (typeof evento.stopImmediatePropagation === 'function') evento.stopImmediatePropagation();
+                window.location.href = previewPortada + (href.includes('#') ? href.slice(href.indexOf('#')) : '');
+              }
+            }, true);
+          })();
+          <\/script>`;
+
+        html = html.replace("</body>", navegacionPreview + "</body>");
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (error) {
+        document.body.innerHTML = `<div class="carga"><strong>No se pudo abrir el preview.</strong><br>${error.message}</div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
