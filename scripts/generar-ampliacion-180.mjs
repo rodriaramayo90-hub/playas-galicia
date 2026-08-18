@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const RAIZ = resolve(import.meta.dirname, "..");
@@ -197,6 +197,51 @@ function leerIndice(contenido) {
   return ventana.HoyTocaPlayaIndiceFichas || {};
 }
 
+async function aplicarModuloMareasATodasLasFichas() {
+  const entradas = await readdir(DESTINO, { withFileTypes: true });
+  let total = 0;
+
+  for (const entrada of entradas) {
+    if (!entrada.isDirectory()) continue;
+    const ruta = resolve(DESTINO, entrada.name, "index.html");
+    let html;
+    try {
+      html = await readFile(ruta, "utf8");
+    } catch {
+      continue;
+    }
+
+    html = html
+      .replaceAll('../../marea-preview.css?v=1', '../../mareas-ficha.css?v=1')
+      .replaceAll('../../marea-preview.js?v=1', '../../mareas-ficha.js?v=1')
+      .replaceAll('<h2>Dependencia de la marea</h2>', '<h2>Información de mareas</h2>');
+
+    if (!html.includes('../../mareas-ficha.css?v=1')) {
+      html = html.replace(
+        /(<link rel="stylesheet" href="\.\.\/\.\.\/ficha-playa\.css\?v=[^"]+">)/,
+        '$1\n  <link rel="stylesheet" href="../../mareas-ficha.css?v=1">'
+      );
+    }
+
+    if (!html.includes('../../mareas-ficha.js?v=1')) {
+      html = html.replace(
+        /(<script src="\.\.\/\.\.\/ficha-playa\.js\?v=[^"]+"><\/script>)/,
+        '$1\n  <script src="../../mareas-ficha.js?v=1"></script>'
+      );
+    }
+
+    if (!html.includes('../../mareas-ficha.css?v=1') || !html.includes('../../mareas-ficha.js?v=1')) {
+      throw new Error(`No se pudo activar el módulo de mareas en ${entrada.name}.`);
+    }
+
+    await writeFile(ruta, html, "utf8");
+    total += 1;
+  }
+
+  if (total !== 180) throw new Error(`Se actualizaron ${total} fichas; se esperaban 180.`);
+  return total;
+}
+
 const [codigoExtra, plantilla, contenidoIndice, contenidoDetalle, sitemapActual, ...contenidosAmpliacion] = await Promise.all([
   readFile(ARCHIVO_EXTRA, "utf8"),
   readFile(PLANTILLA, "utf8"),
@@ -249,4 +294,5 @@ if (urlsFaltantes.length) {
   await writeFile(SITEMAP, sitemap, "utf8");
 }
 
-console.log(`Generadas ${fichas.length} fichas nuevas con información ampliada. Catálogo estático: ${catalogo.total} fichas + Areacova personalizada.`);
+const fichasConMareas = await aplicarModuloMareasATodasLasFichas();
+console.log(`Generadas ${fichas.length} fichas nuevas con información ampliada. Catálogo estático: ${catalogo.total} fichas + Areacova personalizada. Mareas activadas en ${fichasConMareas} fichas.`);
