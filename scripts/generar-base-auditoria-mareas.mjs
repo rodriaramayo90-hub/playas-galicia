@@ -1,3 +1,4 @@
+// Genera la base completa de las 180 playas para la auditoría de dependencia de marea.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
