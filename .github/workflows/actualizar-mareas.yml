@@ -5,6 +5,8 @@ on:
     - cron: "17 4 * * *"
   workflow_dispatch:
   push:
+    branches:
+      - preview-mareas-dinamicas
     paths:
       - "scripts/actualizar-mareas.mjs"
       - ".github/workflows/actualizar-mareas.yml"
@@ -13,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: actualizar-mareas
+  group: actualizar-mareas-${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -33,6 +35,26 @@ jobs:
 
       - name: Consultar mareas de MeteoGalicia
         run: node scripts/actualizar-mareas.mjs
+
+      - name: Validar datos generados
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const datos = JSON.parse(await readFile('data/mareas.json', 'utf8'));
+          const fechas = Object.keys(datos.dias || {});
+          if (fechas.length < 2) throw new Error('Faltan los datos de hoy o mañana.');
+          const hoy = datos.dias[fechas[0]];
+          const vigo = hoy?.['3'];
+          const coruna = hoy?.['1'];
+          if (!vigo?.mareas?.length || !coruna?.mareas?.length) {
+            throw new Error('Faltan los puertos de Vigo o A Coruña.');
+          }
+          if (vigo.mareas.length < 3 || coruna.mareas.length < 3) {
+            throw new Error('MeteoGalicia devolvió un número insuficiente de mareas.');
+          }
+          console.log(`Validado ${fechas[0]}: Vigo ${vigo.mareas.map(m => `${m.tipo} ${m.hora}`).join(' · ')}`);
+          console.log(`Validado ${fechas[0]}: A Coruña ${coruna.mareas.map(m => `${m.tipo} ${m.hora}`).join(' · ')}`);
+          NODE
 
       - name: Guardar mareas actualizadas
         run: |
