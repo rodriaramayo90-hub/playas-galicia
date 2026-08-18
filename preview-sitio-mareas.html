@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview completo · Hoy Toca Playa</title>
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:#eef9fd;color:#17364a;display:grid;place-items:center;min-height:100vh}
+    .carga{padding:24px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="carga">Cargando preview completo de Hoy Toca Playa…</div>
+  <script>
+    (async () => {
+      const rama = "preview-mareas-dinamicas";
+      const raizCdn = `https://cdn.jsdelivr.net/gh/rodriaramayo90-hub/playas-galicia@${rama}/`;
+      try {
+        const respuesta = await fetch(raizCdn + "index.html?v=" + Date.now(), { cache: "no-store" });
+        if (!respuesta.ok) throw new Error("No se pudo cargar la portada de prueba");
+        let html = await respuesta.text();
+        html = html.replace("<head>", `<head><base href="${raizCdn}">`);
+
+        const navegacionPreview = `
+          <script>
+          document.addEventListener('click', function(evento) {
+            const enlace = evento.target.closest('a[href]');
+            if (!enlace) return;
+            const href = enlace.getAttribute('href') || '';
+            if (/playa-nino-do-corvo/.test(href)) {
+              evento.preventDefault();
+              window.location.href = 'https://htmlpreview.github.io/?https://github.com/rodriaramayo90-hub/playas-galicia/blob/preview-mareas-dinamicas/preview-nino-do-corvo-mareas.html';
+            }
+          });
+          <\/script>`;
+        html = html.replace("</body>", navegacionPreview + "</body>");
+
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (error) {
+        document.body.innerHTML = `<div class="carga"><strong>No se pudo abrir el preview.</strong><br>${error.message}</div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
