@@ -1,5 +1,6 @@
 name: Aplicar mareas a fichas de prueba
 
+# Flujo temporal de validación: solo se ejecuta en la rama preview-mareas-dinamicas.
 on:
   push:
     branches:
