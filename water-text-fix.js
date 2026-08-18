@@ -37,6 +37,39 @@ puntosTemperatura = function puntosTemperaturaContinua(temp) {
   return 0;
 };
 
+// Curva continua para la temperatura del agua. Evita saltos bruscos de varios
+// puntos por una décima de grado, algo especialmente importante porque la SST
+// es una estimación de modelo y no una medición exacta en la orilla.
+puntosAgua = function puntosAguaContinua(agua) {
+  if (!Number.isFinite(agua)) return 0;
+
+  const puntos = [
+    [14, -6],
+    [15, -5],
+    [16, -4],
+    [17, -2],
+    [18, 0],
+    [19, 2],
+    [20, 4],
+    [21, 5],
+    [22, 6]
+  ];
+
+  if (agua <= puntos[0][0]) return puntos[0][1];
+  if (agua >= puntos[puntos.length - 1][0]) return puntos[puntos.length - 1][1];
+
+  for (let i = 0; i < puntos.length - 1; i += 1) {
+    const [t1, p1] = puntos[i];
+    const [t2, p2] = puntos[i + 1];
+    if (agua >= t1 && agua <= t2) {
+      const proporcion = (agua - t1) / (t2 - t1);
+      return p1 + (p2 - p1) * proporcion;
+    }
+  }
+
+  return 0;
+};
+
 // El abrigo direccional ya reduce la velocidad efectiva cuando el viento llega
 // desde tierra. Por eso la orientación solo penaliza viento que entra por la
 // apertura de la playa: no añade puntos extra por viento offshore y evita así
