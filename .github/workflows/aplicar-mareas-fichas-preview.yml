@@ -1,0 +1,89 @@
+name: Aplicar mareas a fichas de prueba
+
+on:
+  push:
+    branches:
+      - preview-mareas-dinamicas
+    paths:
+      - "mareas-ficha.js"
+      - "mareas-ficha.css"
+      - "plantillas/ficha-playa.html"
+      - ".github/workflows/aplicar-mareas-fichas-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aplicar-mareas-fichas-preview
+  cancel-in-progress: true
+
+jobs:
+  aplicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Añadir módulo de mareas a todas las fichas
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          paginas = sorted(Path('playas').glob('*/index.html'))
+          if len(paginas) != 180:
+              raise SystemExit(f'Se esperaban 180 fichas y se encontraron {len(paginas)}.')
+
+          for pagina in paginas:
+              html = pagina.read_text(encoding='utf-8')
+
+              html = html.replace('../../marea-preview.css?v=1', '../../mareas-ficha.css?v=1')
+              html = html.replace('../../marea-preview.js?v=1', '../../mareas-ficha.js?v=1')
+              html = html.replace('<h2>Dependencia de la marea</h2>', '<h2>Información de mareas</h2>')
+
+              if '../../mareas-ficha.css?v=1' not in html:
+                  html, cambios = re.subn(
+                      r'(<link rel="stylesheet" href="\.\./\.\./ficha-playa\.css\?v=[^"]+">)',
+                      r'\1\n  <link rel="stylesheet" href="../../mareas-ficha.css?v=1">',
+                      html,
+                      count=1
+                  )
+                  if cambios != 1:
+                      raise SystemExit(f'No se pudo insertar CSS de mareas en {pagina}.')
+
+              if '../../mareas-ficha.js?v=1' not in html:
+                  html, cambios = re.subn(
+                      r'(<script src="\.\./\.\./ficha-playa\.js\?v=[^"]+"></script>)',
+                      r'\1\n  <script src="../../mareas-ficha.js?v=1"></script>',
+                      html,
+                      count=1
+                  )
+                  if cambios != 1:
+                      raise SystemExit(f'No se pudo insertar JS de mareas en {pagina}.')
+
+              pagina.write_text(html, encoding='utf-8')
+
+          for pagina in paginas:
+              html = pagina.read_text(encoding='utf-8')
+              if '../../mareas-ficha.js?v=1' not in html or '../../mareas-ficha.css?v=1' not in html:
+                  raise SystemExit(f'Validación fallida en {pagina}.')
+
+          print(f'Módulo de mareas aplicado y validado en {len(paginas)} fichas.')
+          PY
+
+      - name: Guardar fichas de prueba
+        run: |
+          if git diff --quiet -- playas; then
+            echo "Las fichas ya incluyen el módulo de mareas."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playas
+          git commit -m "Añadir mareas dinámicas a las 180 fichas"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
