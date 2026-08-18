@@ -99,6 +99,50 @@ ajustarPuntuacionACategoria = function ajustarPuntuacionSinTope84(puntos, estado
   return puntos;
 };
 
+// Clasificación textual del viento pensada para la experiencia real en playa.
+// Mantiene el cálculo de puntos existente; solo corrige cómo se describe el viento.
+if (typeof generarExplicacion === "function") {
+  const generarExplicacionOriginalViento = generarExplicacion;
+
+  generarExplicacion = function generarExplicacionConVientoCorregido(...args) {
+    const textoOriginal = generarExplicacionOriginalViento(...args);
+    const viento = args[1];
+    if (typeof textoOriginal !== "string" || !Number.isFinite(viento)) return textoOriginal;
+
+    let etiquetaViento;
+    if (viento <= 7) etiquetaViento = "casi sin viento";
+    else if (viento <= 12) etiquetaViento = "brisa suave";
+    else if (viento <= 18) etiquetaViento = "viento moderado";
+    else if (viento <= 25) etiquetaViento = "algo ventoso";
+    else etiquetaViento = "ventoso";
+
+    const frases = textoOriginal.replace(/\.$/, "").split(", ").filter(Boolean);
+    const etiquetasAnteriores = new Set([
+      "poco viento",
+      "casi sin viento",
+      "brisa suave",
+      "viento moderado",
+      "algo ventoso",
+      "ventoso"
+    ]);
+
+    const frasesLimpias = frases.filter(frase => !etiquetasAnteriores.has(frase));
+    const frasesLluvia = new Set([
+      "sin lluvia prevista",
+      "probabilidad muy baja de lluvia",
+      "posibilidad de lluvia",
+      "riesgo moderado de lluvia",
+      "riesgo alto de lluvia"
+    ]);
+
+    const indiceLluvia = frasesLimpias.findIndex(frase => frasesLluvia.has(frase));
+    if (indiceLluvia >= 0) frasesLimpias.splice(indiceLluvia, 0, etiquetaViento);
+    else frasesLimpias.push(etiquetaViento);
+
+    return frasesLimpias.join(", ") + ".";
+  };
+}
+
 function redondearPuntajesVisiblesPreview() {
   document.querySelectorAll("#ranking tr td:nth-child(12)").forEach(celda => {
     const valor = Number(celda.textContent.trim().replace(",", "."));
