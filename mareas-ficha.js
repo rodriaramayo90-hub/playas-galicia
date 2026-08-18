@@ -121,9 +121,11 @@
   async function cargarMareas() {
     if (!prepararPanel()) return;
     try {
-      const base = typeof URL_BASE_FICHA !== "undefined"
-        ? URL_BASE_FICHA
-        : new URL("../../", document.currentScript?.src || window.location.href);
+      const base = window.URL_RAIZ_RECURSOS
+        ? new URL(window.URL_RAIZ_RECURSOS)
+        : (typeof URL_BASE_FICHA !== "undefined"
+          ? URL_BASE_FICHA
+          : new URL("../../", document.currentScript?.src || window.location.href));
       const url = new URL("data/mareas.json", base);
       url.searchParams.set("v", String(Math.floor(Date.now() / 3600000)));
       const respuesta = await fetch(url.href, { cache: "no-store" });
