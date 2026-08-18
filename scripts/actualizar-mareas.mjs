@@ -1,3 +1,4 @@
+// Actualización de prueba: fuerza la validación completa del flujo de mareas.
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
