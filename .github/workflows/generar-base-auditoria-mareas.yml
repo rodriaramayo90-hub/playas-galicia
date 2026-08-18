@@ -1,0 +1,35 @@
+name: Generar base auditoría mareas
+
+on:
+  push:
+    branches:
+      - auditoria-mareas-180
+    paths:
+      - 'scripts/generar-base-auditoria-mareas.mjs'
+      - '.github/workflows/generar-base-auditoria-mareas.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: auditoria-mareas-180
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/generar-base-auditoria-mareas.mjs
+      - name: Guardar base
+        run: |
+          if git diff --quiet -- data/auditoria-mareas-base.csv; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/auditoria-mareas-base.csv
+          git commit -m "Generar base de auditoría de mareas"
+          git pull --rebase origin auditoria-mareas-180
+          git push origin HEAD:auditoria-mareas-180
