@@ -51,18 +51,45 @@
       .sort((a, b) => a.distancia - b.distancia)[0]?.puerto || null;
   }
 
-  function prepararPanel() {
+  async function cargarConfiguracionAuditoria(base) {
+    try {
+      const url = new URL("data/dependencia-mareas-v3.json", base);
+      url.searchParams.set("v", "3");
+      const respuesta = await fetch(url.href, { cache: "no-store" });
+      if (!respuesta.ok) throw new Error(`dependencia-mareas-v3.json respondió ${respuesta.status}`);
+      const datos = await respuesta.json();
+      const fila = (datos?.d || []).find(item => item?.[0] === slug);
+      if (!fila) return null;
+      return {
+        dependencia: fila[1] ?? null,
+        riesgoAislamiento: fila[2] ?? null,
+        recomendacion: fila[3] ?? null
+      };
+    } catch (error) {
+      console.warn("No se pudo cargar la auditoría V3 de dependencia de marea.", error);
+      return null;
+    }
+  }
+
+  function prepararPanel(configuracionAuditoria) {
     const panel = document.getElementById("marea");
     const lista = document.getElementById("listaMarea");
     const aviso = document.getElementById("recomendacionMarea");
     if (!panel || !lista || !aviso) return false;
 
-    const dependencia = valorDisponible(configuracionLocal.dependencia, ficha.marea?.dependencia);
-    const riesgo = valorDisponible(configuracionLocal.riesgoAislamiento, ficha.marea?.riesgoAislamiento);
-    const recomendacion = [
-      configuracionLocal.recomendacion,
-      ficha.marea?.recomendacion
-    ].find(valor => valor !== null && valor !== undefined && String(valor).trim() !== "") || "";
+    const tieneAuditoria = Boolean(configuracionAuditoria);
+    const dependencia = tieneAuditoria
+      ? valorDisponible(configuracionAuditoria.dependencia)
+      : valorDisponible(configuracionLocal.dependencia, ficha.marea?.dependencia);
+    const riesgo = tieneAuditoria
+      ? valorDisponible(configuracionAuditoria.riesgoAislamiento)
+      : valorDisponible(configuracionLocal.riesgoAislamiento, ficha.marea?.riesgoAislamiento);
+    const recomendacion = tieneAuditoria
+      ? (configuracionAuditoria.recomendacion || "")
+      : [
+          configuracionLocal.recomendacion,
+          ficha.marea?.recomendacion
+        ].find(valor => valor !== null && valor !== undefined && String(valor).trim() !== "") || "";
 
     const titulo = panel.querySelector("h2");
     if (titulo) titulo.textContent = "Información de mareas";
@@ -124,11 +151,13 @@
   }
 
   async function cargarMareas() {
-    if (!prepararPanel()) return;
+    const base = window.URL_RAIZ_RECURSOS
+      ? new URL(window.URL_RAIZ_RECURSOS)
+      : new URL("../../", window.location.href);
+    const configuracionAuditoria = await cargarConfiguracionAuditoria(base);
+    if (!prepararPanel(configuracionAuditoria)) return;
+
     try {
-      const base = window.URL_RAIZ_RECURSOS
-        ? new URL(window.URL_RAIZ_RECURSOS)
-        : new URL("../../", window.location.href);
       const url = new URL("data/mareas.json", base);
       url.searchParams.set("v", String(Date.now()));
       const respuesta = await fetch(url.href, { cache: "no-store" });
