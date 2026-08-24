@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generadoEn": "2026-08-23T04:51:57.289Z",
+  "generadoEn": "2026-08-24T04:59:47.219Z",
   "zonaHoraria": "Europe/Madrid",
   "fuente": {
     "nombre": "MeteoGalicia · Xunta de Galicia",
@@ -8,400 +8,6 @@
     "documentacion": "https://meteo-estaticos.xunta.gal/datosred/infoweb/meteo/docs/rss/JSON_Mareas_gl.pdf"
   },
   "dias": {
-    "2026-08-23": {
-      "1": {
-        "idPorto": 1,
-        "nombre": "A Coruña",
-        "lat": 43.35,
-        "lon": -8.383333,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:46",
-            "altura": 2.7
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:52",
-            "altura": 1.7
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:12",
-            "altura": 3
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:37",
-            "altura": 1.5
-          }
-        ]
-      },
-      "3": {
-        "idPorto": 3,
-        "nombre": "Vigo",
-        "lat": 42.233334,
-        "lon": -8.716667,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:28",
-            "altura": 2.6
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:33",
-            "altura": 1.6
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "13:51",
-            "altura": 2.9
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:19",
-            "altura": 1.5
-          }
-        ]
-      },
-      "4": {
-        "idPorto": 4,
-        "nombre": "Vilagarcía",
-        "lat": 42.583332,
-        "lon": -8.766667,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:32",
-            "altura": 2.6
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:38",
-            "altura": 1.6
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "13:57",
-            "altura": 2.8
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:23",
-            "altura": 1.4
-          }
-        ]
-      },
-      "6": {
-        "idPorto": 6,
-        "nombre": "Ría de Foz",
-        "lat": 43.566666,
-        "lon": -7.233333,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:52",
-            "altura": 2.8
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:57",
-            "altura": 1.8
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:15",
-            "altura": 3.1
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:39",
-            "altura": 1.6
-          }
-        ]
-      },
-      "7": {
-        "idPorto": 7,
-        "nombre": "Corcubión",
-        "lat": 42.95,
-        "lon": -9.2,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:39",
-            "altura": 2.6
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:44",
-            "altura": 1.6
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:02",
-            "altura": 2.9
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:28",
-            "altura": 1.4
-          }
-        ]
-      },
-      "8": {
-        "idPorto": 8,
-        "nombre": "Ría de Camariñas",
-        "lat": 43.13333,
-        "lon": -9.183333,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:39",
-            "altura": 2.7
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:46",
-            "altura": 1.7
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:04",
-            "altura": 2.9
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:31",
-            "altura": 1.5
-          }
-        ]
-      },
-      "9": {
-        "idPorto": 9,
-        "nombre": "Ría de Corme",
-        "lat": 43.233334,
-        "lon": -9,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:41",
-            "altura": 2.7
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:46",
-            "altura": 1.7
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:06",
-            "altura": 2.9
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:31",
-            "altura": 1.5
-          }
-        ]
-      },
-      "10": {
-        "idPorto": 10,
-        "nombre": "A Guarda",
-        "lat": 41.9,
-        "lon": -8.883333,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:38",
-            "altura": 2.2
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:41",
-            "altura": 1.5
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:06",
-            "altura": 2.5
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:34",
-            "altura": 1.3
-          }
-        ]
-      },
-      "11": {
-        "idPorto": 11,
-        "nombre": "Ribeira",
-        "lat": 42.55,
-        "lon": -8.983333,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:35",
-            "altura": 2.6
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:42",
-            "altura": 1.6
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:02",
-            "altura": 2.8
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:24",
-            "altura": 1.4
-          }
-        ]
-      },
-      "12": {
-        "idPorto": 12,
-        "nombre": "Muros",
-        "lat": 42.766666,
-        "lon": -9.05,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:37",
-            "altura": 2.6
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:42",
-            "altura": 1.6
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:00",
-            "altura": 2.8
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:24",
-            "altura": 1.4
-          }
-        ]
-      },
-      "13": {
-        "idPorto": 13,
-        "nombre": "Pontevedra",
-        "lat": 42.433334,
-        "lon": -8.65,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:30",
-            "altura": 2.6
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:35",
-            "altura": 1.6
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "13:53",
-            "altura": 2.8
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:20",
-            "altura": 1.4
-          }
-        ]
-      },
-      "14": {
-        "idPorto": 14,
-        "nombre": "Ferrol Porto Exterior",
-        "lat": 43.462776,
-        "lon": -8.325556,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:48",
-            "altura": 2.7
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:53",
-            "altura": 1.7
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:13",
-            "altura": 3
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:37",
-            "altura": 1.5
-          }
-        ]
-      },
-      "15": {
-        "idPorto": 15,
-        "nombre": "Marín",
-        "lat": 42.406113,
-        "lon": -8.691111,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:29",
-            "altura": 2.5
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:35",
-            "altura": 1.5
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "13:54",
-            "altura": 2.7
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:21",
-            "altura": 1.4
-          }
-        ]
-      },
-      "16": {
-        "idPorto": 16,
-        "nombre": "Ferrol",
-        "lat": 43.476112,
-        "lon": -8.248333,
-        "mareas": [
-          {
-            "tipo": "pleamar",
-            "hora": "01:50",
-            "altura": 2.7
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "07:56",
-            "altura": 1.7
-          },
-          {
-            "tipo": "pleamar",
-            "hora": "14:15",
-            "altura": 3
-          },
-          {
-            "tipo": "bajamar",
-            "hora": "20:39",
-            "altura": 1.5
-          }
-        ]
-      }
-    },
     "2026-08-24": {
       "1": {
         "idPorto": 1,
@@ -792,6 +398,400 @@
             "tipo": "bajamar",
             "hora": "21:28",
             "altura": 1.3
+          }
+        ]
+      }
+    },
+    "2026-08-25": {
+      "1": {
+        "idPorto": 1,
+        "nombre": "A Coruña",
+        "lat": 43.35,
+        "lon": -8.383333,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:36",
+            "altura": 3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:34",
+            "altura": 1.3
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:47",
+            "altura": 3.4
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "22:03",
+            "altura": 1.1
+          }
+        ]
+      },
+      "3": {
+        "idPorto": 3,
+        "nombre": "Vigo",
+        "lat": 42.233334,
+        "lon": -8.716667,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:15",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:13",
+            "altura": 1.3
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:25",
+            "altura": 3.2
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:43",
+            "altura": 1.1
+          }
+        ]
+      },
+      "4": {
+        "idPorto": 4,
+        "nombre": "Vilagarcía",
+        "lat": 42.583332,
+        "lon": -8.766667,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:21",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:18",
+            "altura": 1.2
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:30",
+            "altura": 3.2
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:48",
+            "altura": 1
+          }
+        ]
+      },
+      "6": {
+        "idPorto": 6,
+        "nombre": "Ría de Foz",
+        "lat": 43.566666,
+        "lon": -7.233333,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:41",
+            "altura": 3.2
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:39",
+            "altura": 1.4
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:50",
+            "altura": 3.5
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "22:06",
+            "altura": 1.2
+          }
+        ]
+      },
+      "7": {
+        "idPorto": 7,
+        "nombre": "Corcubión",
+        "lat": 42.95,
+        "lon": -9.2,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:27",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:26",
+            "altura": 1.2
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:37",
+            "altura": 3.3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:55",
+            "altura": 1
+          }
+        ]
+      },
+      "8": {
+        "idPorto": 8,
+        "nombre": "Ría de Camariñas",
+        "lat": 43.13333,
+        "lon": -9.183333,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:27",
+            "altura": 3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:26",
+            "altura": 1.3
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:37",
+            "altura": 3.3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:55",
+            "altura": 1.1
+          }
+        ]
+      },
+      "9": {
+        "idPorto": 9,
+        "nombre": "Ría de Corme",
+        "lat": 43.233334,
+        "lon": -9,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:32",
+            "altura": 3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:30",
+            "altura": 1.3
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:41",
+            "altura": 3.3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:57",
+            "altura": 1.1
+          }
+        ]
+      },
+      "10": {
+        "idPorto": 10,
+        "nombre": "A Guarda",
+        "lat": 41.9,
+        "lon": -8.883333,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:21",
+            "altura": 2.6
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:18",
+            "altura": 1.1
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:30",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:49",
+            "altura": 0.9
+          }
+        ]
+      },
+      "11": {
+        "idPorto": 11,
+        "nombre": "Ribeira",
+        "lat": 42.55,
+        "lon": -8.983333,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:25",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:21",
+            "altura": 1.2
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:33",
+            "altura": 3.2
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:53",
+            "altura": 1
+          }
+        ]
+      },
+      "12": {
+        "idPorto": 12,
+        "nombre": "Muros",
+        "lat": 42.766666,
+        "lon": -9.05,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:25",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:21",
+            "altura": 1.2
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:33",
+            "altura": 3.3
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:53",
+            "altura": 1
+          }
+        ]
+      },
+      "13": {
+        "idPorto": 13,
+        "nombre": "Pontevedra",
+        "lat": 42.433334,
+        "lon": -8.65,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:19",
+            "altura": 2.9
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:15",
+            "altura": 1.2
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:28",
+            "altura": 3.2
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:46",
+            "altura": 1
+          }
+        ]
+      },
+      "14": {
+        "idPorto": 14,
+        "nombre": "Ferrol Porto Exterior",
+        "lat": 43.462776,
+        "lon": -8.325556,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:37",
+            "altura": 3.1
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:35",
+            "altura": 1.3
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:48",
+            "altura": 3.4
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "22:03",
+            "altura": 1.1
+          }
+        ]
+      },
+      "15": {
+        "idPorto": 15,
+        "nombre": "Marín",
+        "lat": 42.406113,
+        "lon": -8.691111,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:17",
+            "altura": 2.8
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:15",
+            "altura": 1.2
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:28",
+            "altura": 3.1
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "21:45",
+            "altura": 1
+          }
+        ]
+      },
+      "16": {
+        "idPorto": 16,
+        "nombre": "Ferrol",
+        "lat": 43.476112,
+        "lon": -8.248333,
+        "mareas": [
+          {
+            "tipo": "pleamar",
+            "hora": "03:39",
+            "altura": 3.1
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "09:38",
+            "altura": 1.3
+          },
+          {
+            "tipo": "pleamar",
+            "hora": "15:50",
+            "altura": 3.4
+          },
+          {
+            "tipo": "bajamar",
+            "hora": "22:06",
+            "altura": 1.1
           }
         ]
       }
