@@ -14,6 +14,12 @@
     "Restaurantes cercanos": "Sí · Restaurante Rodas · Restaurante Tapería Illas Cíes · Bar Restaurante Serafín · Bocatería Begoña"
   };
 
+  const SOCORRISTA_POR_PLAYA = {
+    "playa-de-rodas-islas-cies": "Sí · En temporada de verano",
+    "praia-de-figueiras-islas-cies": "Sí · En temporada de verano",
+    "praia-de-nosa-senora-islas-cies": "No"
+  };
+
   const FUENTE_RESTAURANTES = "https://www.piratasdenabia.com/islas-cies/restaurantes/";
 
   function actualizarServicios() {
@@ -24,6 +30,12 @@
       const etiqueta = fila.querySelector("dt")?.textContent || "";
       const valor = fila.querySelector("dd");
       if (!valor) return;
+
+      if (etiqueta.includes("Socorrista")) {
+        valor.textContent = SOCORRISTA_POR_PLAYA[slug];
+        valor.classList.remove("dato-no-disponible");
+        return;
+      }
 
       for (const [clave, texto] of Object.entries(SERVICIOS)) {
         if (!etiqueta.includes(clave)) continue;
