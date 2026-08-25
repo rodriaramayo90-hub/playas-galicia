@@ -22,6 +22,7 @@
 
   (async () => {
     try {
+      await ejecutarArchivo("fotos-propias.js");
       await ejecutarArchivo("ficha-playa-base.js");
       await ejecutarArchivo("mareas-ficha.js");
     } catch (error) {
