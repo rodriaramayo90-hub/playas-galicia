@@ -102,6 +102,12 @@
       <div><dt>Dependencia de la marea</dt><dd class="${dependencia === NO_DISPONIBLE ? "dato-no-disponible" : ""}">${dependencia}</dd></div>
       <div><dt>Riesgo de aislamiento</dt><dd class="${riesgo === NO_DISPONIBLE ? "dato-no-disponible" : ""}">${riesgo}</dd></div>`;
 
+    // Los valores de marea usan el color principal de texto para mantener
+    // suficiente contraste tanto en modo claro como en modo oscuro.
+    lista.querySelectorAll("dd").forEach(elemento => {
+      elemento.style.color = "var(--texto)";
+    });
+
     if (recomendacion) {
       aviso.textContent = recomendacion;
       aviso.hidden = false;

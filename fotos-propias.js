@@ -14,9 +14,17 @@
     }
   };
 
-  const foto = fotosPropias[document.body?.dataset?.playaSlug];
+  const slugActual = document.body?.dataset?.playaSlug;
+  const foto = fotosPropias[slugActual];
   const contenedor = document.getElementById("fotoPrincipal");
   if (!foto || !contenedor) return;
+
+  if (slugActual === "playa-de-rodas-islas-cies") {
+    contenedor.style.aspectRatio = "3 / 4";
+    contenedor.style.minHeight = "0";
+    contenedor.style.maxHeight = "520px";
+    contenedor.style.alignSelf = "start";
+  }
 
   const url = new URL(foto.archivo, window.URL_RAIZ_RECURSOS || window.location.href).href;
 
