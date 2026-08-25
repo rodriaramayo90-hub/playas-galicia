@@ -24,6 +24,7 @@
     try {
       await ejecutarArchivo("fotos-propias.js");
       await ejecutarArchivo("ficha-playa-base.js");
+      await ejecutarArchivo("cies-servicios.js");
       await ejecutarArchivo("mareas-ficha.js");
     } catch (error) {
       console.error("No se pudo iniciar la ficha de playa.", error);
