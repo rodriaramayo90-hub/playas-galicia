@@ -20,6 +20,12 @@
     "praia-de-nosa-senora-islas-cies": "No"
   };
 
+  const NUDISMO_POR_PLAYA = {
+    "playa-de-rodas-islas-cies": "No",
+    "praia-de-nosa-senora-islas-cies": "No",
+    "praia-de-figueiras-islas-cies": "Sí · Playa de tradición nudista, aunque no existe una regulación específica."
+  };
+
   const FUENTE_RESTAURANTES = "https://www.piratasdenabia.com/islas-cies/restaurantes/";
 
   function actualizarServicios() {
@@ -44,6 +50,17 @@
         break;
       }
     });
+
+    const listaNormas = document.getElementById("listaNormas");
+    if (listaNormas?.children.length) {
+      listaNormas.querySelectorAll("div").forEach(fila => {
+        const etiqueta = fila.querySelector("dt")?.textContent || "";
+        const valor = fila.querySelector("dd");
+        if (!valor || !etiqueta.toLowerCase().includes("nudismo")) return;
+        valor.textContent = NUDISMO_POR_PLAYA[slug];
+        valor.classList.remove("dato-no-disponible");
+      });
+    }
 
     const fuentes = document.getElementById("fuentesConsultadas");
     if (fuentes && !fuentes.querySelector(`a[href="${FUENTE_RESTAURANTES}"]`)) {
