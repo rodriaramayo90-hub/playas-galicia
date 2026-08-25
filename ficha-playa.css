@@ -132,11 +132,32 @@ a { color: inherit; }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root { --texto: #d8eef7; --texto-suave: #a9c0cb; --fondo: #142c3a; --panel: rgba(8, 20, 27, .94); --borde: #304b59; --sombra: 0 12px 32px rgba(0,0,0,.24); }
+  :root {
+    --turquesa: #39c7d8;
+    --turquesa-claro: #153a45;
+    --texto: #d8eef7;
+    --texto-suave: #a9c0cb;
+    --fondo: #142c3a;
+    --panel: rgba(8, 20, 27, .94);
+    --borde: #304b59;
+    --sombra: 0 12px 32px rgba(0,0,0,.24);
+  }
+
   body { background: linear-gradient(180deg, #18394b, #102530 460px); }
   .ficha-header { background: rgba(8,20,27,.95); }
   .anillo-puntuacion, .boton-secundario { background: #0f2935; }
+  .boton-primario { background: linear-gradient(135deg, #0b8798, #0b7285); }
+  .boton-secundario { border-color: #5f8795; }
   .aviso-neutro { background: #152f3b; }
   .foto-principal { background: linear-gradient(145deg, #194b5b, #4d3d1d); }
-}
 
+  .hero-titulo h1,
+  .condiciones-cabecera h2,
+  .panel-ficha h2,
+  .metricas dd,
+  .anillo-puntuacion,
+  .foto-placeholder strong,
+  .fuentes-bloque h3 {
+    color: #dff3fb;
+  }
+}
