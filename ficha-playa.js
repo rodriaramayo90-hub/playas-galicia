@@ -103,6 +103,11 @@
   (async () => {
     try {
       await ejecutarArchivo("fotos-propias.js");
+      // La portada aplica en water-text-fix.js la versión vigente de la
+      // puntuación (curvas continuas de temperatura/agua y orientación).
+      // Cargamos exactamente el mismo ajuste antes de calcular la ficha para
+      // que, con el mismo día y horario, el puntaje sea idéntico al ranking.
+      await ejecutarArchivo("water-text-fix.js");
       await ejecutarArchivo("ficha-playa-base.js");
       await ejecutarArchivo("cies-servicios.js");
       await ejecutarArchivo("mareas-ficha.js");
