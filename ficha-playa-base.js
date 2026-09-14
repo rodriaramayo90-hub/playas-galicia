@@ -254,7 +254,7 @@ async function iniciarFicha() {
   const slug = document.body.dataset.playaSlug;
   try {
     const [respuesta, descripciones, fotos] = await Promise.all([
-      fetch(new URL("data/playas-detalle.json?v=4", URL_BASE_FICHA)),
+      fetch(new URL("data/playas-detalle.json?v=5", URL_BASE_FICHA)),
       cargarDescripcionesAprobadas(),
       cargarFotosSeleccionadas()
     ]);
