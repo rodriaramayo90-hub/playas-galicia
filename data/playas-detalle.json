@@ -12097,7 +12097,7 @@
       "lat": 43.55575,
       "lon": -8.291139,
       "destinoMaps": "Praia de Santa Comba, Ferrol, Galicia",
-      "descripcion": "Extenso arenal natural de Ferrol, de arena blanca, fuertes olas y marcado carácter atlántico. Junto a la playa se encuentra la isla y ermita de Santa Comba, que aportan un notable interés paisajístico e histórico. Es una zona habitual para surf y otros deportes acuáticos.",
+      "descripcion": "La Playa de Santa Comba, también conocida como Praia de Santa Comba, es un extenso arenal natural de Ferrol, en Galicia, de arena blanca, fuerte oleaje y marcado carácter atlántico. Junto a la playa se encuentran la isla y la ermita de Santa Comba, que aportan un notable interés paisajístico e histórico. Es una zona habitual para surf y otros deportes acuáticos.",
       "fotoPrincipal": null,
       "caracteristicas": {
         "tipo": "Playa abierta",
@@ -12111,20 +12111,20 @@
       },
       "servicios": {
         "parking": "Aparcamiento en ambos extremos",
-        "accesibilidad": null,
+        "accesibilidad": "No adaptada",
         "duchas": "Sí",
-        "aseos": null,
+        "aseos": "No",
         "socorrista": "Puesto de primeros auxilios/socorrismo en temporada",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "No",
+        "restaurantes": "Sí, en las parroquias cercanas (Covas o San Xurxo)",
         "transportePublico": "Autobús hasta Covas; comprobar horarios"
       },
       "normas": {
-        "perros": null,
-        "nudismo": null,
+        "perros": "Permitidos solo fuera de la temporada de baño",
+        "nudismo": "No",
         "deportesAcuaticos": "Surf y deportes acuáticos; costa expuesta",
-        "barbacoasFuego": null,
-        "accesoVehiculos": null
+        "barbacoasFuego": "Prohibido",
+        "accesoVehiculos": "No permitido hasta la arena"
       },
       "marea": {
         "dependencia": null,
@@ -12144,7 +12144,7 @@
       "practica": {
         "temporadaBano": null,
         "fuente": "Turismo de Galicia",
-        "ultimaVerificacion": "17 de agosto de 2026",
+        "ultimaVerificacion": "14 de septiembre de 2026",
         "notaVigencia": "Los datos descriptivos mostrados proceden de las fuentes indicadas. Los servicios estacionales y las normas locales pueden cambiar; conviene confirmarlos antes de desplazarse."
       },
       "fuentes": [
