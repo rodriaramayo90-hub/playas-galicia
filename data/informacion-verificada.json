@@ -1000,6 +1000,182 @@
       "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
       "nombre": "MITECO · Normas del Parque Nacional",
       "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "servicios": {
+          "accesibilidad": "Sí · Acceso para personas con movilidad reducida",
+          "duchas": "Sí",
+          "socorrista": "Sí · Servicio de salvamento y socorrismo en temporada de baño"
+        }
+      },
+      "url": "https://turismopoio.com/que-ver/naturaleza-y-ocio/las-20-playas-de-poio/",
+      "nombre": "Turismo de Poio · Playas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Las Conchas, en Ramón Encinas 7, junto a la playa"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/las-conchas-49758em.html",
+      "nombre": "Páxinas Galegas · Restaurante Las Conchas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "servicios": {
+          "accesibilidad": "Sí · Acceso para personas con movilidad reducida",
+          "duchas": "Sí",
+          "socorrista": "Sí · En temporada de baño",
+          "restaurantes": "Sí · Establecimientos en las proximidades"
+        }
+      },
+      "url": "https://turismopoio.com/que-ver/naturaleza-y-ocio/las-20-playas-de-poio/",
+      "nombre": "Turismo de Poio · Playas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-canelinas-portonovo",
+      "values": {
+        "servicios": {
+          "accesibilidad": "Sí · Pasarela y sillas anfibias",
+          "duchas": "Sí",
+          "aseos": "Sí · Públicos",
+          "socorrista": "Sí · En temporada de baño",
+          "chiringuito": "Sí · Dos indicados en la guía turística",
+          "restaurantes": "Sí · Restaurantes y bares en el entorno"
+        },
+        "normas": {
+          "deportesAcuaticos": "Zona de baño balizada y separada del fondeo; alquiler de patinetes"
+        }
+      },
+      "url": "https://sanxenxo.com/listing/playa-de-canelinas/",
+      "nombre": "Guía turística de Sanxenxo · Caneliñas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-vilarrube",
+      "values": {
+        "servicios": {
+          "duchas": "Sí",
+          "aseos": "Sí"
+        },
+        "bano": {
+          "oleajeHabitual": "Aguas habitualmente tranquilas"
+        }
+      },
+      "url": "https://www.spain.info/es/playa/villarrube/",
+      "nombre": "Turespaña · Villarrube",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-vilarrube",
+      "values": {
+        "servicios": {
+          "accesibilidad": "Sí · Pasarelas de madera; aseos adaptados en verano",
+          "socorrista": "Sí · En temporada de verano",
+          "transportePublico": "Sí · Autobús interurbano a unos 500 m"
+        }
+      },
+      "url": "https://www.inspain.org/es/a-coru%C3%B1a/valdovino/playas/villarrube/",
+      "nombre": "InSpain · Guía de Vilarrube",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-da-basteira",
+      "values": {
+        "servicios": {
+          "duchas": "Sí · También lavapiés"
+        }
+      },
+      "url": "https://www.visitacarino.gal/playas/es",
+      "nombre": "Turismo de Cariño · Playas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-das-polas",
+      "values": {
+        "servicios": {
+          "parking": "Sí",
+          "accesibilidad": "Sí · Acceso para personas con movilidad reducida",
+          "duchas": "Sí",
+          "aseos": "Sí",
+          "socorrista": "Sí · Vigilancia en temporada alta"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/playas-foz-2414ep_115ay.html",
+      "nombre": "Páxinas Galegas · Playa de Polas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-paxarinas",
+      "values": {
+        "servicios": {
+          "accesibilidad": "Acceso por escaleras; adaptación no confirmada",
+          "duchas": "Sí · Según la guía de Turespaña",
+          "aseos": "Sí",
+          "chiringuito": "Sí · En la parte posterior del arenal"
+        },
+        "caracteristicas": {
+          "anchura": "40 m"
+        }
+      },
+      "url": "https://www.spain.info/es/playa/paxarinas/",
+      "nombre": "Turespaña · Paxariñas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-panadeira",
+      "values": {
+        "servicios": {
+          "duchas": "Sí",
+          "aseos": "Sí"
+        },
+        "caracteristicas": {
+          "anchura": "20 m"
+        },
+        "normas": {
+          "accesoVehiculos": "Acceso final a pie"
+        }
+      },
+      "url": "https://www.spain.info/es/playa/panadeira/",
+      "nombre": "Turespaña · Panadeira",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-area-das-pipas",
+      "values": {
+        "servicios": {
+          "duchas": "Sí",
+          "aseos": "Sí"
+        },
+        "caracteristicas": {
+          "anchura": "45 m"
+        }
+      },
+      "url": "https://www.spain.info/es/playa/area-das-pipas/",
+      "nombre": "Turespaña · Area das Pipas",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-da-mexilloeira",
+      "values": {
+        "caracteristicas": {
+          "anchura": "60 m"
+        },
+        "normas": {
+          "accesoVehiculos": "Acceso a pie y en coche al entorno",
+          "deportesAcuaticos": "Zona de práctica de surf indicada en la guía de Turespaña"
+        }
+      },
+      "url": "https://www.spain.info/es/playa/mexilloeira/",
+      "nombre": "Turespaña · Mexilloeira",
+      "fecha": "2026-09-15"
     }
   ]
 }
