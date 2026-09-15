@@ -1,0 +1,582 @@
+[
+  {
+    "slug": "praia-de-bastiagueiro",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · La Barra de Basti, junto al aparcamiento"
+  },
+  {
+    "slug": "praia-da-ermida",
+    "campo": "caracteristicas.forma",
+    "valor": "Media concha"
+  },
+  {
+    "slug": "praia-de-arou",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Mar de Arou"
+  },
+  {
+    "slug": "praia-do-ezaro",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Mar e Terra, junto a la playa"
+  },
+  {
+    "slug": "praia-de-vilar",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Aldea Praia O Vilar, junto a la playa"
+  },
+  {
+    "slug": "praia-de-vilar",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Aldea Praia O Vilar"
+  },
+  {
+    "slug": "praia-de-coroso",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Punta de Coroso"
+  },
+  {
+    "slug": "praia-de-coroso",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · La Playa, frente a Coroso"
+  },
+  {
+    "slug": "praia-de-cabio",
+    "campo": "caracteristicas.forma",
+    "valor": "Ensenada"
+  },
+  {
+    "slug": "praia-de-cabio",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Bo-Cabio, junto al arenal"
+  },
+  {
+    "slug": "praia-de-cabio",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bar Lombiña, junto a Cabío"
+  },
+  {
+    "slug": "praia-da-lombina",
+    "campo": "caracteristicas.forma",
+    "valor": "Ensenada"
+  },
+  {
+    "slug": "praia-da-lombina",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bar Lombiña, junto a la playa"
+  },
+  {
+    "slug": "praia-de-carregueiros",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Jañan"
+  },
+  {
+    "slug": "praia-de-barrana",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · La UBI, junto a la playa"
+  },
+  {
+    "slug": "praia-de-manons",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Lagarto Beach Bar"
+  },
+  {
+    "slug": "praia-de-manons",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Lagarto Beach Bar, en Chancela-Mañóns"
+  },
+  {
+    "slug": "praia-de-tanxil",
+    "campo": "caracteristicas.tipo",
+    "valor": "Playa resguardada"
+  },
+  {
+    "slug": "praia-de-tanxil",
+    "campo": "caracteristicas.forma",
+    "valor": "Rectilínea"
+  },
+  {
+    "slug": "praia-de-tanxil",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · PéNaAuga, bar-restaurante frente a la playa"
+  },
+  {
+    "slug": "praia-de-tanxil",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Restaurante Tanxil, junto al acceso"
+  },
+  {
+    "slug": "praia-de-ornanda",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Arenal - O Carrocho, en las proximidades"
+  },
+  {
+    "slug": "praia-de-ornanda",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Arenal - O Carrocho"
+  },
+  {
+    "slug": "praia-das-furnas",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · As Furnas Chiringo Surf"
+  },
+  {
+    "slug": "praia-das-furnas",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · As Furnas Chiringo Surf, junto a la playa"
+  },
+  {
+    "slug": "praia-de-xilloi",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Parrillada Los Árboles; temporada primavera-verano"
+  },
+  {
+    "slug": "praia-de-area",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Burguer Area y Kenia; en verano"
+  },
+  {
+    "slug": "praia-de-area",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en los chiringuitos de la playa"
+  },
+  {
+    "slug": "praia-de-esteiro",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Esteiro Surf, en verano"
+  },
+  {
+    "slug": "praia-do-torno",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Playa A Serea"
+  },
+  {
+    "slug": "praia-de-cubelas",
+    "campo": "caracteristicas.tipo",
+    "valor": "Playa resguardada"
+  },
+  {
+    "slug": "praia-de-cubelas",
+    "campo": "caracteristicas.forma",
+    "valor": "Tómbolo"
+  },
+  {
+    "slug": "praia-da-marosa",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · O Rincón a Pé de Praia, en verano"
+  },
+  {
+    "slug": "praia-da-marosa",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · O Rincón a Pé de Praia"
+  },
+  {
+    "slug": "praia-da-rapadoira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Ollomol Playa"
+  },
+  {
+    "slug": "praia-de-altar",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Bartolo"
+  },
+  {
+    "slug": "praia-de-altar",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en Bartolo"
+  },
+  {
+    "slug": "praia-dos-castros",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Os Castros"
+  },
+  {
+    "slug": "praia-dos-castros",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en Os Castros, frente a la playa"
+  },
+  {
+    "slug": "praia-de-patos",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · El Rompeolas, en el aparcamiento"
+  },
+  {
+    "slug": "praia-de-patos",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bocadillos y pizzas en El Rompeolas"
+  },
+  {
+    "slug": "praia-da-madorra",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · A Madorra"
+  },
+  {
+    "slug": "praia-da-madorra",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en A Madorra"
+  },
+  {
+    "slug": "praia-de-santa-marta",
+    "campo": "servicios.chiringuito",
+    "valor": "No en el verano de 2026"
+  },
+  {
+    "slug": "praia-de-fortinon",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Bar Playa Fortiñon, de Semana Santa a septiembre"
+  },
+  {
+    "slug": "praia-de-fortinon",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Tapas y bocadillos en Bar Playa Fortiñon"
+  },
+  {
+    "slug": "praia-de-cesantes",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Brisa Chiringo"
+  },
+  {
+    "slug": "praia-de-cesantes",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en Brisa Chiringo"
+  },
+  {
+    "slug": "praia-de-rodeira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · La Jaima de Rodeira"
+  },
+  {
+    "slug": "praia-de-areamilla",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Chiringo Areamilla"
+  },
+  {
+    "slug": "praia-de-nerga",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · O Gran Sol y Mini Bar"
+  },
+  {
+    "slug": "praia-de-nerga",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · O Gran Sol, junto a la playa"
+  },
+  {
+    "slug": "praia-de-areabrava",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Borjan o Vikingo"
+  },
+  {
+    "slug": "praia-de-areabrava",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en Borjan o Vikingo"
+  },
+  {
+    "slug": "praia-de-aguete",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · O Chiringuito de Aguete"
+  },
+  {
+    "slug": "praia-de-aguete",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · O Rincón de Poty, junto a la playa"
+  },
+  {
+    "slug": "praia-de-loira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · A Figueira"
+  },
+  {
+    "slug": "praia-de-loira",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · A Figueira, a pie de playa"
+  },
+  {
+    "slug": "praia-de-portomaior",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Portomaior"
+  },
+  {
+    "slug": "praia-de-portomaior",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Carmela Portomaior"
+  },
+  {
+    "slug": "praia-de-loureiro",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Restaurante Loureiro, a pie de playa"
+  },
+  {
+    "slug": "praia-de-pragueira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Bico Beach"
+  },
+  {
+    "slug": "praia-de-pragueira",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bico Beach ofrece comidas"
+  },
+  {
+    "slug": "playa-de-langosteira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Arroás"
+  },
+  {
+    "slug": "playa-de-o-rostro",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Bruma du Rostro"
+  },
+  {
+    "slug": "playa-de-o-rostro",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bruma du Rostro, en el entorno de la playa"
+  },
+  {
+    "slug": "playa-de-sada",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · El Chiringuito"
+  },
+  {
+    "slug": "playa-de-mera",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Hostelería en el entorno de la playa"
+  },
+  {
+    "slug": "playa-de-sabon",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · A Cheminea"
+  },
+  {
+    "slug": "playa-de-sabon",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bocadillos y pinchos en A Cheminea"
+  },
+  {
+    "slug": "praia-da-ladeira-dunas-de-corrubedo",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Ladeira Beach"
+  },
+  {
+    "slug": "praia-da-ladeira-dunas-de-corrubedo",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en Ladeira Beach"
+  },
+  {
+    "slug": "praia-borna",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · El Chiringuito"
+  },
+  {
+    "slug": "praia-borna",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Comidas en El Chiringuito, en la playa"
+  },
+  {
+    "slug": "playa-de-limens",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · O Chiringuito de Ana, en verano"
+  },
+  {
+    "slug": "playa-de-limens",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Bocadillos y comidas frías en O Chiringuito de Ana"
+  },
+  {
+    "slug": "playa-de-lapaman",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Arrieiro, junto a la playa"
+  },
+  {
+    "slug": "playa-de-mogor",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Kaos, en verano"
+  },
+  {
+    "slug": "playa-de-rodas-islas-cies",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Restaurante Rodas, junto al muelle"
+  },
+  {
+    "slug": "praia-de-compostela",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Namasté; Chocolate abre en verano"
+  },
+  {
+    "slug": "praia-da-frouxeira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · La Caseta de la Playa"
+  },
+  {
+    "slug": "praia-de-llas",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Bico Praia"
+  },
+  {
+    "slug": "praia-de-llas",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Tapas en Bico Praia"
+  },
+  {
+    "slug": "praia-de-nemina",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · NemiñArea Saburil, con terraza hacia la playa"
+  },
+  {
+    "slug": "praia-de-barra",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Chiringuito Playa de Barra"
+  },
+  {
+    "slug": "praia-de-silgar",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Castaño Playas"
+  },
+  {
+    "slug": "praia-de-silgar",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Castaño Playas ofrece comidas"
+  },
+  {
+    "slug": "praia-de-montalvo",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Castaño Playas"
+  },
+  {
+    "slug": "praia-de-montalvo",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Castaño Playas ofrece comidas"
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "campo": "servicios.accesibilidad",
+    "valor": "Sí · Pasarela y sillas anfibias"
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "campo": "servicios.duchas",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "campo": "servicios.aseos",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "campo": "servicios.socorrista",
+    "valor": "Sí · En temporada"
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Dos chiringuitos"
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Paiclá Beach Bar, tapas y bocadillos"
+  },
+  {
+    "slug": "praia-de-areas-sanxenxo",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · El Hula-Hula y Mera Mera"
+  },
+  {
+    "slug": "praia-de-areas-sanxenxo",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Restaurantes y bares en el entorno"
+  },
+  {
+    "slug": "praia-de-areas-sanxenxo",
+    "campo": "marea.accesoCondicionado",
+    "valor": "El paso a la Cala dos Mortos es con marea baja"
+  },
+  {
+    "slug": "praia-de-areas-sanxenxo",
+    "campo": "marea.recomendacion",
+    "valor": "Planifica la vuelta desde Cala dos Mortos antes de que suba la marea"
+  },
+  {
+    "slug": "praia-de-bascuas",
+    "campo": "servicios.duchas",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-bascuas",
+    "campo": "servicios.aseos",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-foxos",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · Foxos Beach, en verano"
+  },
+  {
+    "slug": "praia-de-foxos",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Foxos Beach, en verano"
+  },
+  {
+    "slug": "praia-de-panadeira",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Restaurante Playa Panadeira"
+  },
+  {
+    "slug": "praia-de-morouzos",
+    "campo": "servicios.duchas",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-morouzos",
+    "campo": "servicios.aseos",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-raeiros-paxareiro",
+    "campo": "servicios.aseos",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-raeiros-paxareiro",
+    "campo": "servicios.socorrista",
+    "valor": "Sí · En temporada"
+  },
+  {
+    "slug": "praia-de-raeiros-paxareiro",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · A pie de playa"
+  },
+  {
+    "slug": "praia-de-raeiros-paxareiro",
+    "campo": "servicios.restaurantes",
+    "valor": "Sí · Establecimientos de hostelería en el entorno"
+  },
+  {
+    "slug": "praia-de-raeiros-paxareiro",
+    "campo": "bano.corrientes",
+    "valor": "Puede haber resaca con determinadas mareas; atender a la señalización"
+  },
+  {
+    "slug": "praia-do-bao-camaxe-illa-de-arousa",
+    "campo": "servicios.duchas",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-do-bao-camaxe-illa-de-arousa",
+    "campo": "servicios.aseos",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-cabeceira",
+    "campo": "servicios.chiringuito",
+    "valor": "Sí · El Chiringo Cabeceira"
+  },
+  {
+    "slug": "praia-de-bamio",
+    "campo": "servicios.duchas",
+    "valor": "Sí"
+  },
+  {
+    "slug": "praia-de-bamio",
+    "campo": "servicios.aseos",
+    "valor": "Sí"
+  }
+]

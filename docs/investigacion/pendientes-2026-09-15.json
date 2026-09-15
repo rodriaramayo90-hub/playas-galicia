@@ -1,0 +1,5113 @@
+[
+  {
+    "slug": "praia-de-bastiagueiro",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-santa-cristina",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-santa-cruz",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-oza",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-matadoiro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-barranan",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-valcovo-area-grande",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-salseiras-caion",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-baldaio",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-razo",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-seaia",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area-maior",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-seiruga-esteiro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-ninons",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-balares",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-ermida",
+    "pendientes": {
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-osmo",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-laxe",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-soesto",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-traba",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-camelle",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-arou",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-reira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-trece-area-de-trece",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-pedrosa",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-lago",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-lourido",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-moreira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-espineirido",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-cruz",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-quenxe",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-estorde",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-gures",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-ezaro",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-vilar",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-coroso",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-touro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-cabio",
+    "pendientes": {
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-lombina",
+    "pendientes": {
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-carregueiros",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-barrana",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-manons",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-tanxil",
+    "pendientes": {
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-ornanda",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-das-furnas",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "composicion",
+        "longitud",
+        "anchura",
+        "entorno",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "parking",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "fondo",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-xilloi",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-arealonga",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-vidreiro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-abrela",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-seiramar",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-esteiro",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-lago",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-muinelo",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-torno",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-cubelas",
+    "pendientes": {
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-marosa",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-portelo",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-ril",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-rapadoira",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-peizas",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-das-polas",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura",
+        "entorno",
+        "forma"
+      ],
+      "servicios": [
+        "parking",
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "fondo",
+        "oleajeHabitual",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-altar",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-dos-castros",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-das-illas",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-america",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-panxon",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-patos",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-madorra",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-ladeira",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-santa-marta",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-barbeira",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-cuncheira",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area-grande",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-muino",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-fedorento",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-fortinon",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-canido",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-fontaina",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-toralla",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-cesantes",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-arealonga-redondela",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-rodeira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-areamilla",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-nerga",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-areabrava",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-menduina",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-pintens",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-vilarino",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-xunqueira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-laton",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-aguete",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-loira",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-santo",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-portomaior",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area-de-bon",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-tuia-tulla",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-loureiro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-major",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-pragueira",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-la-magdalena",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-langosteira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-mar-de-fora",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-o-rostro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-talon",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-arnela",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-sardineiro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-a-ribeira-o-corbeiro",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-mino",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-perbes",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-sada",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-mera",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-sabon",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-orzan",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "las-lapas",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area-maior-muros",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "san-francisco-louro",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "carnota",
+    "pendientes": {
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-san-xurxo",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "sonreiras",
+    "pendientes": {
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "riesgoAislamiento"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-ladeira-dunas-de-corrubedo",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-samil",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-vao",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-nino-do-corvo",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-do-con",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-borna",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-vino",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-limens",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-lapaman",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-mogor",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-portocelo",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-rodas-islas-cies",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-compostela",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-san-amaro",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "playa-de-riazor",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-doninos",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-frouxeira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-pantin",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-das-catedrais",
+    "pendientes": {
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "bano": [
+        "corrientes",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-llas",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-covas",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-nemina",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-larino",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-aguieira",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-barra",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma"
+      ],
+      "servicios": [
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-melide",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-silgar",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-lanzada",
+    "pendientes": {
+      "caracteristicas": [
+        "tipo",
+        "forma",
+        "exposicion"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-montalvo",
+    "pendientes": {
+      "caracteristicas": [
+        "forma",
+        "exposicion"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-canelas",
+    "pendientes": {
+      "caracteristicas": [
+        "forma"
+      ],
+      "normas": [
+        "barbacoasFuego"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-baltar-portonovo",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-canelinas-portonovo",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-areas-sanxenxo",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "duchas",
+        "aseos"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "riesgoAislamiento"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-paxarinas",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-bascuas",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-foxos",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-panadeira",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-melide-isla-de-ons",
+    "pendientes": {
+      "caracteristicas": [
+        "longitud",
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "area-dos-cans-isla-de-ons",
+    "pendientes": {
+      "caracteristicas": [
+        "longitud",
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "nudismo"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-canexol-isla-de-ons",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "nudismo"
+      ],
+      "marea": [
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento"
+      ],
+      "bano": [
+        "entradaAgua",
+        "oleajeHabitual",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-das-dornas-isla-de-ons",
+    "pendientes": {
+      "caracteristicas": [
+        "longitud",
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "nudismo",
+        "deportesAcuaticos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-figueiras-islas-cies",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "oleajeHabitual",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-nosa-senora-islas-cies",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "duchas",
+        "socorrista",
+        "chiringuito",
+        "restaurantes"
+      ],
+      "normas": [
+        "nudismo"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-morouzos",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-concha-espasante",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "oleajeHabitual",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-basteira",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-vilarrube",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-a-magdalena-cedeira",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "socorrista",
+        "chiringuito"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-esmelle",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "aseos",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-ponzos",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "aseos",
+        "restaurantes"
+      ],
+      "normas": [
+        "perros",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-santa-comba",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area-das-pipas",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-raeiros-paxareiro",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-da-mexilloeira",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-area-de-secada-illa-de-arousa",
+    "pendientes": {
+      "servicios": [
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes"
+      ]
+    }
+  },
+  {
+    "slug": "praia-do-bao-camaxe-illa-de-arousa",
+    "pendientes": {
+      "servicios": [
+        "accesibilidad",
+        "socorrista",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-cabeceira",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-xiorto",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "duchas",
+        "aseos",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  },
+  {
+    "slug": "praia-de-bamio",
+    "pendientes": {
+      "caracteristicas": [
+        "anchura"
+      ],
+      "servicios": [
+        "accesibilidad",
+        "socorrista",
+        "chiringuito",
+        "restaurantes",
+        "transportePublico"
+      ],
+      "normas": [
+        "perros",
+        "nudismo",
+        "deportesAcuaticos",
+        "barbacoasFuego",
+        "accesoVehiculos"
+      ],
+      "marea": [
+        "dependencia",
+        "superficiePleamar",
+        "accesoCondicionado",
+        "riesgoAislamiento",
+        "recomendacion"
+      ],
+      "bano": [
+        "entradaAgua",
+        "corrientes",
+        "ninos",
+        "profundidad"
+      ]
+    }
+  }
+]

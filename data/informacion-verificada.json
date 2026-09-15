@@ -1,0 +1,1005 @@
+{
+  "version": 1,
+  "fecha": "2026-09-15",
+  "actualizaciones": [
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos de Rianxo",
+      "slug": "praia-de-tanxil",
+      "url": "https://www.paxinasgalegas.es/restaurantes-rianxo-461ep_73ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · PéNaAuga, bar-restaurante frente a la playa",
+          "restaurantes": "Sí · Restaurante Tanxil, junto al acceso"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Galicia · Tanxil",
+      "slug": "praia-de-tanxil",
+      "url": "https://www.turismo.gal/recurso/-/detalle/9908/tanxil?ctre=15&langId=es_ES&tp=3",
+      "values": {
+        "caracteristicas": {
+          "forma": "Rectilínea",
+          "tipo": "Playa resguardada"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Quincemil · apertura en junio de 2026",
+      "slug": "praia-de-bastiagueiro",
+      "url": "https://www.elespanol.com/quincemil/vivir/gastrocoruna/20260612/bastiagueiro-oleiros-coruna-moda-abre-nuevo-chiringuito-frente-mar-vinculado-surf/1003744284055_0.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · La Barra de Basti, junto al aparcamiento"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Concello de Oleiros · playas",
+      "slug": "playa-de-mera",
+      "url": "https://www.turismoleiros.org/en/sightseeing/beaches",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Hostelería en el entorno de la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Cangas",
+      "slug": "praia-de-areamilla",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Chiringo Areamilla"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Cangas",
+      "slug": "praia-de-areabrava",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Borjan o Vikingo",
+          "restaurantes": "Sí · Comidas en Borjan o Vikingo"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Cangas",
+      "slug": "praia-de-rodeira",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · La Jaima de Rodeira"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Cangas",
+      "slug": "praia-de-nerga",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · O Gran Sol y Mini Bar",
+          "restaurantes": "Sí · O Gran Sol, junto a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Cangas",
+      "slug": "playa-de-limens",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · O Chiringuito de Ana, en verano",
+          "restaurantes": "Sí · Bocadillos y comidas frías en O Chiringuito de Ana"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Cangas",
+      "slug": "praia-de-barra",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Chiringuito Playa de Barra"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Marín",
+      "slug": "praia-de-aguete",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-marin-2571ep_279ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · O Chiringuito de Aguete",
+          "restaurantes": "Sí · O Rincón de Poty, junto a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Marín",
+      "slug": "praia-de-loira",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-marin-2571ep_279ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · A Figueira",
+          "restaurantes": "Sí · A Figueira, a pie de playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Marín",
+      "slug": "playa-de-mogor",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-marin-2571ep_279ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Kaos, en verano"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Vigo",
+      "slug": "praia-de-fortinon",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-vigo-2571ep_310ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Bar Playa Fortiñon, de Semana Santa a septiembre",
+          "restaurantes": "Sí · Tapas y bocadillos en Bar Playa Fortiñon"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Bo-Cabio · web del establecimiento",
+      "slug": "praia-de-cabio",
+      "url": "https://bo-cabio.es/",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Bo-Cabio, junto al arenal"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Bar Lombiña · web del restaurante",
+      "slug": "praia-de-cabio",
+      "url": "https://lombinacabio.es/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Bar Lombiña, junto a Cabío"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Bar Lombiña · web del restaurante",
+      "slug": "praia-da-lombina",
+      "url": "https://lombinacabio.es/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Bar Lombiña, junto a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "La UBI · web del restaurante",
+      "slug": "praia-de-barrana",
+      "url": "https://ubiboiro.com/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · La UBI, junto a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Lagarto · web del establecimiento",
+      "slug": "praia-de-manons",
+      "url": "https://lagarto.gal/",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Lagarto Beach Bar",
+          "restaurantes": "Sí · Lagarto Beach Bar, en Chancela-Mañóns"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "As Furnas Chiringo Surf · web del establecimiento",
+      "slug": "praia-das-furnas",
+      "url": "https://asfurnaschiringosurf.com/",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · As Furnas Chiringo Surf",
+          "restaurantes": "Sí · As Furnas Chiringo Surf, junto a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Concello do Vicedo · Los Árboles",
+      "slug": "praia-de-xilloi",
+      "url": "https://turismo.concellodovicedo.org/es/project/parrillada-los-arboles/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Parrillada Los Árboles; temporada primavera-verano"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Mar e Terra · perfil del restaurante",
+      "slug": "praia-do-ezaro",
+      "url": "https://www.facebook.com/MareTerraEzaro/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Mar e Terra, junto a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Punta de Coroso · perfil del establecimiento",
+      "slug": "praia-de-coroso",
+      "url": "https://www.facebook.com/ChirinPuntaDeCoroso/",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Punta de Coroso"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "El Chiringuito · perfil del establecimiento",
+      "slug": "praia-borna",
+      "url": "https://www.instagram.com/elchiringuitoborna/?hl=en",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · El Chiringuito",
+          "restaurantes": "Sí · Comidas en El Chiringuito, en la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Restaurante Loureiro · web oficial",
+      "slug": "praia-de-loureiro",
+      "url": "https://www.restauranteloureiro.es/restaurante-menus-calidad-bueu.aspx",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Restaurante Loureiro, a pie de playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Restaurante Rodas · web oficial",
+      "slug": "playa-de-rodas-islas-cies",
+      "url": "https://restauranterodas.es/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Restaurante Rodas, junto al muelle"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "O Camiño dos Faros · NemiñArea",
+      "slug": "praia-de-nemina",
+      "url": "https://www.caminodosfaros.com/restaurantes/restaurante-neminarea-saburil/",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · NemiñArea Saburil, con terraza hacia la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · Foxos Beach",
+      "slug": "praia-de-foxos",
+      "url": "https://www.paxinasgalegas.es/foxos-beach-552158em.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Foxos Beach, en verano"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Galicia · restaurante",
+      "slug": "praia-de-panadeira",
+      "url": "https://www.turismo.gal/recurso/-/detalle/265343805/restaurante-playa-panadeira-?ctre=142&langId=es_ES&tp=24",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Restaurante Playa Panadeira"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "La Voz de Galicia · junio de 2026",
+      "slug": "praia-de-santa-marta",
+      "url": "https://www.lavozdegalicia.es/noticia/vigo/2026/06/19/playa-santa-marta-baiona-pierde-chiringuito-verano/00031781882383468688464.htm",
+      "values": {
+        "servicios": {
+          "chiringuito": "No en el verano de 2026"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Sanxenxo · Baltar",
+      "slug": "praia-de-baltar-portonovo",
+      "url": "https://sanxenxo.com/listing/playa-de-baltar/",
+      "values": {
+        "servicios": {
+          "accesibilidad": "Sí · Pasarela y sillas anfibias",
+          "aseos": "Sí",
+          "chiringuito": "Sí · Dos chiringuitos",
+          "duchas": "Sí",
+          "socorrista": "Sí · En temporada"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turespaña · inventario de servicios",
+      "slug": "praia-de-morouzos",
+      "url": "https://www.spain.info/es/playa/morouzos/",
+      "values": {
+        "servicios": {
+          "aseos": "Sí",
+          "duchas": "Sí"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turespaña · inventario de servicios",
+      "slug": "praia-de-bamio",
+      "url": "https://www.spain.info/es/playa/bamio/",
+      "values": {
+        "servicios": {
+          "aseos": "Sí",
+          "duchas": "Sí"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turespaña · inventario de servicios",
+      "slug": "praia-de-bascuas",
+      "url": "https://www.spain.info/es/playa/bascuas/",
+      "values": {
+        "servicios": {
+          "aseos": "Sí",
+          "duchas": "Sí"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Concello de Cervo · Cubelas",
+      "slug": "praia-de-cubelas",
+      "url": "https://www.concellodecervo.com/es/turismo/playas-y-calas/playa-de-cubelas",
+      "values": {
+        "caracteristicas": {
+          "forma": "Tómbolo",
+          "tipo": "Playa resguardada"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turespaña · Mexilloeira",
+      "slug": "praia-da-mexilloeira",
+      "url": "https://www.spain.info/es/playa/mexilloeira/",
+      "values": {
+        "caracteristicas": {
+          "forma": "Dos sectores: rectilíneo y en concha"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Mancomunidade do Salnés · Raeiros",
+      "slug": "praia-de-raeiros-paxareiro",
+      "url": "https://www.destinosalnes.com/es/ogrove-playa-raeiros/",
+      "values": {
+        "bano": {
+          "corrientes": "Puede haber resaca con determinadas mareas; atender a la señalización"
+        },
+        "servicios": {
+          "aseos": "Sí",
+          "chiringuito": "Sí · A pie de playa",
+          "restaurantes": "Sí · Establecimientos de hostelería en el entorno",
+          "socorrista": "Sí · En temporada"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Sanxenxo · Areas",
+      "slug": "praia-de-areas-sanxenxo",
+      "url": "https://sanxenxo.com/listing/playa-areas/",
+      "values": {
+        "marea": {
+          "accesoCondicionado": "El paso a la Cala dos Mortos es con marea baja",
+          "recomendacion": "Planifica la vuelta desde Cala dos Mortos antes de que suba la marea"
+        },
+        "servicios": {
+          "restaurantes": "Sí · Restaurantes y bares en el entorno"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "A Illa de Arousa · guía de Camaxe",
+      "slug": "praia-do-bao-camaxe-illa-de-arousa",
+      "url": "https://www.ailladearousa.com/playas/playa-de-camaxe/",
+      "values": {
+        "marea": {
+          "superficiePleamar": "El arenal se estrecha al subir la marea"
+        },
+        "servicios": {
+          "aseos": "Sí",
+          "duchas": "Sí"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Galicia · Cabeceira",
+      "slug": "praia-de-cabeceira",
+      "url": "https://www.turismo.gal/recurso/-/detalle/9796/cabeceira?ctre=15&langId=es_ES&tp=3",
+      "values": {
+        "caracteristicas": {
+          "forma": "Media concha"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Galicia · Xiorto",
+      "slug": "praia-de-xiorto",
+      "url": "https://www.turismo.gal/recurso/-/detalle/9784/xiorto?ctre=15&langId=es_ES&tp=3",
+      "values": {
+        "caracteristicas": {
+          "forma": "Rectilínea"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Concello de Ponteceso · A Hermida",
+      "slug": "praia-da-ermida",
+      "url": "https://www.ponteceso.net/ca/turismo/index.php?lug=70&mod=int&tip=9",
+      "values": {
+        "caracteristicas": {
+          "forma": "Media concha"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Galicia · Cabío-Lombiña",
+      "slug": "praia-da-lombina",
+      "url": "https://www.turismo.gal/recurso/-/detalle/9914/cabio-lombina?ctre=15&langId=es_ES&tp=3",
+      "values": {
+        "caracteristicas": {
+          "forma": "Ensenada"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Turismo de Galicia · Cabío-Lombiña",
+      "slug": "praia-de-cabio",
+      "url": "https://www.turismo.gal/recurso/-/detalle/9914/cabio-lombina?ctre=15&langId=es_ES&tp=3",
+      "values": {
+        "caracteristicas": {
+          "forma": "Ensenada"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "playa-de-sabon",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-arteixo-2571ep_5ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · A Cheminea",
+          "restaurantes": "Sí · Bocadillos y pinchos en A Cheminea"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-carregueiros",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-boiro-2571ep_11ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Jañan"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-arou",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-camari%C3%B1as-2571ep_16ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Mar de Arou"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "playa-de-langosteira",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-fisterra-2571ep_38ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Arroás"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "playa-de-o-rostro",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-fisterra-2571ep_38ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Bruma du Rostro",
+          "restaurantes": "Sí · Bruma du Rostro, en el entorno de la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-ornanda",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-o-porto-do-son-2571ep_72ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Arenal - O Carrocho, en las proximidades",
+          "restaurantes": "Sí · Arenal - O Carrocho"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-vilar",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribeira-2571ep_74ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Aldea Praia O Vilar, junto a la playa",
+          "restaurantes": "Sí · Aldea Praia O Vilar"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-da-ladeira-dunas-de-corrubedo",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribeira-2571ep_74ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Ladeira Beach",
+          "restaurantes": "Sí · Comidas en Ladeira Beach"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-coroso",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribeira-2571ep_74ay.html",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · La Playa, frente a Coroso"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "playa-de-sada",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sada-2571ep_76ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · El Chiringuito"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-da-frouxeira",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-valdovi%C3%B1o-2571ep_89ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · La Caseta de la Playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-altar",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-barreiros-2571ep_100ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Bartolo",
+          "restaurantes": "Sí · Comidas en Bartolo"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-da-marosa",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-burela-2571ep_104ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · O Rincón a Pé de Praia, en verano",
+          "restaurantes": "Sí · O Rincón a Pé de Praia"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-do-torno",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cervo-2571ep_109ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Playa A Serea"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-dos-castros",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribadeo-2571ep_145ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Os Castros",
+          "restaurantes": "Sí · Comidas en Os Castros, frente a la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · directorio local",
+      "slug": "praia-de-esteiro",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-xove-2571ep_161ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Esteiro Surf, en verano"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-de-llas",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-foz-2571ep_115ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Bico Praia",
+          "restaurantes": "Sí · Tapas en Bico Praia"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-da-rapadoira",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-foz-2571ep_115ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Ollomol Playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-da-madorra",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-panxon-2571ep_1230di.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · A Madorra",
+          "restaurantes": "Sí · Comidas en A Madorra"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-de-patos",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-panxon-2571ep_1230di.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · El Rompeolas, en el aparcamiento",
+          "restaurantes": "Sí · Bocadillos y pizzas en El Rompeolas"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-de-area",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-viveiro-2571ep_159ay.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Burguer Area y Kenia; en verano",
+          "restaurantes": "Sí · Comidas en los chiringuitos de la playa"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-de-portomaior",
+      "url": "https://www.paxinasgalegas.es/portomaior-718950em.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Portomaior"
+        }
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "nombre": "Páxinas Galegas · establecimientos",
+      "slug": "praia-de-cesantes",
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cesantes-2571ep_1237di.html",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Brisa Chiringo",
+          "restaurantes": "Sí · Comidas en Brisa Chiringo"
+        }
+      }
+    },
+    {
+      "slug": "praia-de-pragueira",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Bico Beach",
+          "restaurantes": "Sí · Bico Beach ofrece comidas"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-montalvo",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Castaño Playas",
+          "restaurantes": "Sí · Castaño Playas ofrece comidas"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-silgar",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Castaño Playas",
+          "restaurantes": "Sí · Castaño Playas ofrece comidas"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-canelas",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Canelas Beach",
+          "restaurantes": "Sí · Canelas Beach ofrece comidas"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-areas-sanxenxo",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · El Hula-Hula y Mera Mera"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-foxos",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Foxos Beach, en verano"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-baltar-portonovo",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Paiclá Beach Bar, tapas y bocadillos"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · El Chiringo Cabeceira"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-poio-2571ep_291ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-compostela",
+      "values": {
+        "servicios": {
+          "chiringuito": "Sí · Namasté; Chocolate abre en verano"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-vilagarcia-de-arousa-2571ep_313ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "playa-de-lapaman",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Arrieiro, junto a la playa"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-bueu-2571ep_258ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-portomaior",
+      "values": {
+        "servicios": {
+          "restaurantes": "Sí · Carmela Portomaior"
+        }
+      },
+      "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-bueu-2571ep_258ay.html",
+      "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "playa-de-rodas-islas-cies",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-melide-isla-de-ons",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "area-dos-cans-isla-de-ons",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-canexol-isla-de-ons",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-das-dornas-isla-de-ons",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-figueiras-islas-cies",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-nosa-senora-islas-cies",
+      "values": {
+        "normas": {
+          "perros": "No · Excepto perros guía",
+          "barbacoasFuego": "Prohibidos",
+          "accesoVehiculos": "Sin vehículos a motor, salvo sillas de movilidad"
+        }
+      },
+      "url": "https://www.miteco.gob.es/es/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/islas-atlanticas/guia-visitante/recomendaciones.html",
+      "nombre": "MITECO · Normas del Parque Nacional",
+      "fecha": "2026-09-15"
+    }
+  ]
+}

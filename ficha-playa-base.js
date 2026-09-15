@@ -249,19 +249,47 @@ function renderizarCondiciones(condiciones) {
     `Consultado: ${new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })}`;
 }
 
+// Completa únicamente huecos y conserva las revisiones manuales posteriores.
+function aplicarInformacionVerificada(playa, investigacion) {
+  for (const actualizacion of investigacion?.actualizaciones || []) {
+    if (actualizacion.slug !== playa.slug) continue;
+    const campos = [];
+    for (const [grupo, valores] of Object.entries(actualizacion.values)) {
+      playa[grupo] ||= {};
+      for (const [campo, valor] of Object.entries(valores)) {
+        const anterior = playa[grupo][campo];
+        if (anterior == null || anterior === "" || anterior === NO_DISPONIBLE) {
+          playa[grupo][campo] = valor;
+        }
+        if (playa[grupo][campo] === valor) campos.push(`${grupo}.${campo}`);
+      }
+    }
+    if (!campos.length) continue;
+    playa.fuentes ||= [];
+    const nota = `Consulta ${actualizacion.fecha} · ${campos.join(", ")}. La apertura de establecimientos puede variar por temporada.`;
+    if (!playa.fuentes.some(f => f.url === actualizacion.url && f.nota === nota)) {
+      playa.fuentes.push({ nombre: actualizacion.nombre, url: actualizacion.url, nota });
+    }
+  }
+  return playa;
+}
+
 async function iniciarFicha() {
   adaptarEnlacesAlPreview();
   const slug = document.body.dataset.playaSlug;
   try {
-    const [respuesta, descripciones, fotos] = await Promise.all([
-      fetch(new URL("data/playas-detalle.json?v=5", URL_BASE_FICHA)),
+    const [respuesta, descripciones, fotos, investigacion] = await Promise.all([
+      fetch(new URL("data/playas-detalle.json?v=6", URL_BASE_FICHA)),
       cargarDescripcionesAprobadas(),
-      cargarFotosSeleccionadas()
+      cargarFotosSeleccionadas(),
+      fetch(new URL("data/informacion-verificada.json?v=1", URL_BASE_FICHA))
+        .then(r => r.ok ? r.json() : null).catch(() => null)
     ]);
     if (!respuesta.ok) throw new Error("No se pudieron cargar los datos estáticos.");
     const catalogo = await respuesta.json();
     const playa = catalogo.playas.find(item => item.slug === slug);
     if (!playa) throw new Error("La ficha solicitada no existe.");
+    aplicarInformacionVerificada(playa, investigacion);
     aplicarDescripcionAprobada(playa, descripciones);
     aplicarFotoSeleccionada(playa, fotos);
     aplicarAjustesLocales(playa);
