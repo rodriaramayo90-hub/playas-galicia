@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fecha": "2026-09-15",
+  "fecha": "2026-09-16",
   "actualizaciones": [
     {
       "fecha": "2026-09-15",
@@ -1176,6 +1176,852 @@
       "url": "https://www.spain.info/es/playa/mexilloeira/",
       "nombre": "Turespaña · Mexilloeira",
       "fecha": "2026-09-15"
+    },
+    {
+      "slug": "praia-de-baltar-portonovo",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/sanxenxo/playas/baltar/",
+      "nombre": "InSpain · baltar",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-canelinas-portonovo",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/sanxenxo/playas/canelinas/",
+      "nombre": "InSpain · canelinas",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-areas-sanxenxo",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/sanxenxo/playas/areas/",
+      "nombre": "InSpain · areas",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-paxarinas",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/sanxenxo/playas/paxarinas/",
+      "nombre": "InSpain · paxarinas",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-foxos",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/sanxenxo/playas/foxos/",
+      "nombre": "InSpain · foxos",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/poio/playas/cabeceira/",
+      "nombre": "InSpain · cabeceira",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-area-das-pipas",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/o-grove/playas/area-das-pipas/",
+      "nombre": "InSpain · area-das-pipas",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-bamio",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/vilagarcia-de-arousa/playas/bamio/",
+      "nombre": "InSpain · bamio",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "normas": {
+          "nudismo": "No"
+        },
+        "servicios": {
+          "transportePublico": "Bus Pontevedra–Portonovo a 500 m"
+        }
+      },
+      "url": "https://www.inspain.org/es/pontevedra/poio/playas/xiorto/",
+      "nombre": "InSpain · Xiorto",
+      "fecha": "2026-09-16"
+    },
+    {
+      "slug": "praia-das-furnas",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-das-polas",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-das-polas",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-rodeira",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-areamilla",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-nerga",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-areabrava",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-menduina",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-pintens",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-vilarino",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-major",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-pragueira",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-vino",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "playa-de-limens",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-barra",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-melide",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
+      "nombre": "Concello de Cangas · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-silgar",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-montalvo",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-canelas",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-baltar-portonovo",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-baltar-portonovo",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-baltar-portonovo",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-canelinas-portonovo",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-canelinas-portonovo",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-areas-sanxenxo",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-areas-sanxenxo",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-areas-sanxenxo",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-paxarinas",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-paxarinas",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-paxarinas",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-bascuas",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-bascuas",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-bascuas",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-foxos",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-foxos",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-foxos",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-de-panadeira",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-panadeira",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido"
+        }
+      },
+      "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
+      "nombre": "Concello de Sanxenxo · Ordenanza de playas",
+      "fecha": "2026-09-16",
+      "nota": "Las celebraciones excepcionalmente autorizadas se rigen por sus permisos específicos."
+    },
+    {
+      "slug": "praia-das-dornas-isla-de-ons",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-morouzos",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-morouzos",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-da-concha-espasante",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-da-concha-espasante",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-da-basteira",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-vilarrube",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-a-magdalena-cedeira",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-esmelle",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-ponzos",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-area-das-pipas",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-raeiros-paxareiro",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-area-de-secada-illa-de-arousa",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-do-bao-camaxe-illa-de-arousa",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "normas": {
+          "perros": "No del 1/6 al 30/9; salvo perros guía"
+        }
+      },
+      "url": "https://www.lineaverdepoio.com/documentacion/ordenanzas/REGULAMENTO%20ANIMALES%20EN%20CAUTIV%20Y%20DOMES.pdf",
+      "nombre": "Concello de Poio · Reglamento de animales, artículo 13",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-cabeceira",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido sin autorización"
+        }
+      },
+      "url": "https://concellopoio.gal/permisoscacharelas2025/",
+      "nombre": "Concello de Poio · Condiciones para hogueras y barbacoas",
+      "fecha": "2026-09-16",
+      "nota": "El aviso municipal prohíbe asadores en espacios públicos y limita las hogueras a permisos y lugares habilitados. No se ha localizado una autorización específica para Xiorto o Cabeceira."
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "normas": {
+          "perros": "No del 1/6 al 30/9; salvo perros guía"
+        }
+      },
+      "url": "https://www.lineaverdepoio.com/documentacion/ordenanzas/REGULAMENTO%20ANIMALES%20EN%20CAUTIV%20Y%20DOMES.pdf",
+      "nombre": "Concello de Poio · Reglamento de animales, artículo 13",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-xiorto",
+      "values": {
+        "normas": {
+          "barbacoasFuego": "Prohibido sin autorización"
+        }
+      },
+      "url": "https://concellopoio.gal/permisoscacharelas2025/",
+      "nombre": "Concello de Poio · Condiciones para hogueras y barbacoas",
+      "fecha": "2026-09-16",
+      "nota": "El aviso municipal prohíbe asadores en espacios públicos y limita las hogueras a permisos y lugares habilitados. No se ha localizado una autorización específica para Xiorto o Cabeceira."
+    },
+    {
+      "slug": "praia-de-bamio",
+      "values": {
+        "normas": {
+          "accesoVehiculos": "Prohibido en la arena salvo autorización"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762#a33",
+      "nombre": "BOE · Ley de Costas, artículo 33.5",
+      "fecha": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "slug": "praia-de-bamio",
+      "values": {
+        "normas": {
+          "deportesAcuaticos": "Vela/motor: fuera del baño balizado"
+        }
+      },
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-10345#a73",
+      "nombre": "BOE · Reglamento de Costas, artículo 73",
+      "fecha": "2026-09-16",
+      "nota": "Norma general de navegación; no confirma una zona deportiva ni un permiso específico de paddle surf o kayak."
     }
   ]
 }
