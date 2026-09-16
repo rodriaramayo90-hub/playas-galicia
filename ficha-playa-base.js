@@ -266,7 +266,7 @@ function aplicarInformacionVerificada(playa, investigacion) {
     }
     if (!campos.length) continue;
     playa.fuentes ||= [];
-    const nota = `Consulta ${actualizacion.fecha} · ${campos.join(", ")}. La apertura de establecimientos puede variar por temporada.`;
+    const nota = `Consulta ${actualizacion.fecha} · ${campos.join(", ")}.${actualizacion.nota ? ` ${actualizacion.nota}` : ""}`;
     if (!playa.fuentes.some(f => f.url === actualizacion.url && f.nota === nota)) {
       playa.fuentes.push({ nombre: actualizacion.nombre, url: actualizacion.url, nota });
     }
