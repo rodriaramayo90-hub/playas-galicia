@@ -22,3 +22,14 @@ test('Tanxil incluye establecimientos y conserva perros como pendiente',()=>{
 test('La ausencia del suplemento no impide cargar la ficha',()=>{
  const beach={slug:'otra',servicios:{chiringuito:null}};assert.equal(apply(beach,null),beach);assert.equal(beach.servicios.chiringuito,null);
 });
+test('Xiorto tiene normas concisas y conserva las excepciones verificadas',()=>{
+ const beach=structuredClone(data.playas.find(b=>b.slug==='praia-de-xiorto'));
+ apply(beach,research);
+ for(const value of Object.values(beach.normas)){assert(value);assert(value.length<80);}
+ assert.match(beach.normas.perros,/1\/6 al 30\/9/);
+ assert.match(beach.normas.perros,/guía/);
+ assert.equal(beach.normas.nudismo,'No');
+ assert.match(beach.normas.accesoVehiculos,/autorización/);
+ assert.match(beach.normas.deportesAcuaticos,/balizado/);
+ assert(beach.fuentes.some(f=>f.nota.includes('no confirma una zona deportiva')));
+});
