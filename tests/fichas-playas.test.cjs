@@ -10,15 +10,17 @@ const indexHtml = readFileSync(resolve(raiz, "index.html"), "utf8");
 const indiceJs = readFileSync(resolve(raiz, "data", "indice-fichas.js"), "utf8");
 const indice = JSON.parse(indiceJs.replace(/^window\.HoyTocaPlayaIndiceFichas\s*=\s*/, "").replace(/;\s*$/, ""));
 const total = catalogo.playas.length;
+const slugsCatalogo = new Set(catalogo.playas.map(playa => playa.slug));
+const slugsIndiceHuerfanos = [...new Set(Object.values(indice).filter(slug => !slugsCatalogo.has(slug)))];
+const carpetas = readdirSync(resolve(raiz, "playas"), { withFileTypes: true }).filter(item => item.isDirectory()).map(item => item.name);
+const carpetasHuerfanas = carpetas.filter(slug => !slugsCatalogo.has(slug));
 
 assert.ok(total >= 179, `El catálogo no puede retroceder por debajo de 179 playas; contiene ${total}.`);
 assert.equal(catalogo.total, total, "catalogo.total debe coincidir con el número real de playas.");
-assert.equal(Object.keys(indice).length, total, "El índice debe enlazar todas las fichas.");
-assert.equal(
-  readdirSync(resolve(raiz, "playas"), { withFileTypes: true }).filter(item => item.isDirectory()).length,
-  total,
-  "Debe existir una carpeta por cada ficha del catálogo."
-);
+assert.deepEqual(slugsIndiceHuerfanos, [], `El índice contiene slugs huérfanos: ${slugsIndiceHuerfanos.join(", ")}`);
+assert.deepEqual(carpetasHuerfanas, [], `Existen carpetas de fichas huérfanas: ${carpetasHuerfanas.join(", ")}`);
+assert.equal(Object.keys(indice).length, total, "El índice debe enlazar exactamente todas las fichas.");
+assert.equal(carpetas.length, total, "Debe existir exactamente una carpeta por cada ficha del catálogo.");
 assert.match(indexHtml, /data\/indice-fichas\.js/, "La portada debe cargar el índice antes de app.js.");
 assert.match(indexHtml, /SEO_DIRECTORIO_PLAYAS_INICIO/, "La portada debe incluir un directorio HTML rastreable.");
 assert.match(indexHtml, /horaInicioSeleccionada=11;horaFinSeleccionada=20;/,
