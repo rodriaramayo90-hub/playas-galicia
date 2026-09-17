@@ -29,7 +29,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios materiales y humanos",
-        "chiringuito": null,
+        "chiringuito": "Sí · La Barra de Basti, junto al aparcamiento",
         "restaurantes": "Sí · restauración en las inmediaciones",
         "transportePublico": "Sí · Interurbano a 50 m"
       },
@@ -71,6 +71,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Quincemil · apertura en junio de 2026",
+          "url": "https://www.elespanol.com/quincemil/vivir/gastrocoruna/20260612/bastiagueiro-oleiros-coruna-moda-abre-nuevo-chiringuito-frente-mar-vinculado-surf/1003744284055_0.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -1104,7 +1109,7 @@
         "longitud": "200 m",
         "anchura": "50 metros",
         "entorno": "Montaña",
-        "forma": null,
+        "forma": "Media concha",
         "orientacion": "S",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
@@ -1156,6 +1161,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Concello de Ponteceso · A Hermida",
+          "url": "https://www.ponteceso.net/ca/turismo/index.php?lug=70&mod=int&tip=9",
+          "nota": "Consulta 2026-09-15 · caracteristicas.forma. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -1520,7 +1530,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Julio y agosto de 12:00 a 20:00 hrs.",
-        "chiringuito": null,
+        "chiringuito": "Sí · Mar de Arou",
         "restaurantes": null,
         "transportePublico": "No"
       },
@@ -1562,6 +1572,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-camari%C3%B1as-2571ep_16ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2318,7 +2333,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Mar e Terra, junto a la playa",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -2359,6 +2374,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Mar e Terra · perfil del restaurante",
+          "url": "https://www.facebook.com/MareTerraEzaro/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2388,8 +2408,8 @@
         "duchas": "No",
         "aseos": "No",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Aldea Praia O Vilar, junto a la playa",
+        "restaurantes": "Sí · Aldea Praia O Vilar",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -2430,6 +2450,11 @@
           "nombre": "Turismo de Galicia · Parque Natural de Corrubedo",
           "url": "https://www.turismo.gal/que-facer/experiencias-en-plena-natureza/unha-duna-mobil-unica?langId=es_ES",
           "nota": "Accesos, itinerarios accesibles y normas del espacio protegido."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribeira-2571ep_74ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2459,8 +2484,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Punta de Coroso",
+        "restaurantes": "Sí · La Playa, frente a Coroso",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -2501,6 +2526,16 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Punta de Coroso · perfil del establecimiento",
+          "url": "https://www.facebook.com/ChirinPuntaDeCoroso/",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribeira-2571ep_74ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2586,7 +2621,7 @@
         "longitud": "600 m",
         "anchura": "15 metros",
         "entorno": "Semiurbana",
-        "forma": null,
+        "forma": "Ensenada",
         "orientacion": "SE",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
@@ -2596,8 +2631,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Bo-Cabio, junto al arenal",
+        "restaurantes": "Sí · Bar Lombiña, junto a Cabío",
         "transportePublico": "Sí · Interurbano a 3 Km"
       },
       "normas": {
@@ -2638,6 +2673,21 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Bo-Cabio · web del establecimiento",
+          "url": "https://bo-cabio.es/",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Bar Lombiña · web del restaurante",
+          "url": "https://lombinacabio.es/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Turismo de Galicia · Cabío-Lombiña",
+          "url": "https://www.turismo.gal/recurso/-/detalle/9914/cabio-lombina?ctre=15&langId=es_ES&tp=3",
+          "nota": "Consulta 2026-09-15 · caracteristicas.forma. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2657,7 +2707,7 @@
         "longitud": "600 m",
         "anchura": "20 metros",
         "entorno": "Semiurbana",
-        "forma": null,
+        "forma": "Ensenada",
         "orientacion": "SW",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
@@ -2668,7 +2718,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Bar Lombiña, junto a la playa",
         "transportePublico": "Sí · Interurbano a 3 Km"
       },
       "normas": {
@@ -2709,6 +2759,16 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Bar Lombiña · web del restaurante",
+          "url": "https://lombinacabio.es/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Turismo de Galicia · Cabío-Lombiña",
+          "url": "https://www.turismo.gal/recurso/-/detalle/9914/cabio-lombina?ctre=15&langId=es_ES&tp=3",
+          "nota": "Consulta 2026-09-15 · caracteristicas.forma. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2738,7 +2798,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
+        "chiringuito": "Sí · Jañan",
         "restaurantes": null,
         "transportePublico": "Sí · Urbano"
       },
@@ -2775,6 +2835,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-boiro-2571ep_11ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2805,7 +2870,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · La UBI, junto a la playa",
         "transportePublico": "Sí · Interurbano a 300 m"
       },
       "normas": {
@@ -2841,6 +2906,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "La UBI · web del restaurante",
+          "url": "https://ubiboiro.com/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2870,8 +2940,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Lagarto Beach Bar",
+        "restaurantes": "Sí · Lagarto Beach Bar, en Chancela-Mañóns",
         "transportePublico": "Sí · Urbano"
       },
       "normas": {
@@ -2907,6 +2977,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Lagarto · web del establecimiento",
+          "url": "https://lagarto.gal/",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -2921,12 +2996,12 @@
       "descripcion": "Playa con elevado grado de ocupación debido al buen equipamiento que presenta. Regenerada en 2008.",
       "fotoPrincipal": null,
       "caracteristicas": {
-        "tipo": null,
+        "tipo": "Playa resguardada",
         "composicion": "Arena",
         "longitud": "220 metros",
         "anchura": "50 metros",
         "entorno": "Semiurbana",
-        "forma": null,
+        "forma": "Rectilínea",
         "orientacion": "SW",
         "exposicion": "Nivel de abrigo usado por el ranking: muyAlto"
       },
@@ -2936,8 +3011,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · PéNaAuga, bar-restaurante frente a la playa",
+        "restaurantes": "Sí · Restaurante Tanxil, junto al acceso",
         "transportePublico": "Sí · Interurbano, Rianxo - Padrón a 300 m"
       },
       "normas": {
@@ -2973,6 +3048,16 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos de Rianxo",
+          "url": "https://www.paxinasgalegas.es/restaurantes-rianxo-461ep_73ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Turismo de Galicia · Tanxil",
+          "url": "https://www.turismo.gal/recurso/-/detalle/9908/tanxil?ctre=15&langId=es_ES&tp=3",
+          "nota": "Consulta 2026-09-15 · caracteristicas.forma, caracteristicas.tipo. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3002,8 +3087,8 @@
         "duchas": "Sí",
         "aseos": "No",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Arenal - O Carrocho, en las proximidades",
+        "restaurantes": "Sí · Arenal - O Carrocho",
         "transportePublico": "Sí · Interurbano, Noia - Riveira a 0,5 Km"
       },
       "normas": {
@@ -3039,6 +3124,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-o-porto-do-son-2571ep_72ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3068,8 +3158,8 @@
         "duchas": null,
         "aseos": null,
         "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · As Furnas Chiringo Surf",
+        "restaurantes": "Sí · As Furnas Chiringo Surf, junto a la playa",
         "transportePublico": null
       },
       "normas": {
@@ -3105,6 +3195,11 @@
           "nombre": "Concello de Porto do Son · Praia das Furnas",
           "url": "https://portodoson.gal/turismo/rutas-e-experiencias/son-eterno/praia-das-furnas/",
           "nota": "Ficha turística municipal con descripción, coordenadas, precauciones de baño, surf y pasarela accesible."
+        },
+        {
+          "nombre": "As Furnas Chiringo Surf · web del establecimiento",
+          "url": "https://asfurnaschiringosurf.com/",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3135,7 +3230,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Parrillada Los Árboles; temporada primavera-verano",
         "transportePublico": "Sí · Interurbano, Vivero - Ferrol a 3 Km"
       },
       "normas": {
@@ -3176,6 +3271,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Concello do Vicedo · Los Árboles",
+          "url": "https://turismo.concellodovicedo.org/es/project/parrillada-los-arboles/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3408,8 +3508,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Burguer Area y Kenia; en verano",
+        "restaurantes": "Sí · Comidas en los chiringuitos de la playa",
         "transportePublico": "Sí · Urbano"
       },
       "normas": {
@@ -3455,6 +3555,11 @@
           "nombre": "Concello de Viveiro · ordenanza de policía y buen gobierno",
           "url": "https://www.viveiro.es/backoffice/file/odenanza-policia-y-buen-gobierno-2757.pdf",
           "nota": "El artículo 15 prohíbe la estancia y circulación de animales por las playas del término municipal."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-viveiro-2571ep_159ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3555,7 +3660,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
+        "chiringuito": "Sí · Esteiro Surf, en verano",
         "restaurantes": null,
         "transportePublico": "No"
       },
@@ -3597,6 +3702,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-xove-2571ep_161ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3758,7 +3868,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
+        "chiringuito": "Sí · Playa A Serea",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano, Burela - San Ciprián"
       },
@@ -3800,6 +3910,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cervo-2571ep_109ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3814,12 +3929,12 @@
       "descripcion": "Playa urbana con gran afluencia y oleaje moderado",
       "fotoPrincipal": null,
       "caracteristicas": {
-        "tipo": null,
+        "tipo": "Playa resguardada",
         "composicion": "Arena",
         "longitud": "250 metros",
         "anchura": "20 metros",
         "entorno": "Urbana",
-        "forma": null,
+        "forma": "Tómbolo",
         "orientacion": "NE",
         "exposicion": "Nivel de abrigo usado por el ranking: alto"
       },
@@ -3866,6 +3981,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Concello de Cervo · Cubelas",
+          "url": "https://www.concellodecervo.com/es/turismo/playas-y-calas/playa-de-cubelas",
+          "nota": "Consulta 2026-09-15 · caracteristicas.forma, caracteristicas.tipo. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -3895,8 +4015,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · O Rincón a Pé de Praia, en verano",
+        "restaurantes": "Sí · O Rincón a Pé de Praia",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -3937,6 +4057,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-burela-2571ep_104ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -4103,7 +4228,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
+        "chiringuito": "Sí · Ollomol Playa",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano"
       },
@@ -4145,6 +4270,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-foz-2571ep_115ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -4311,8 +4441,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Bartolo",
+        "restaurantes": "Sí · Comidas en Bartolo",
         "transportePublico": "Sí · Interurbano a 4 km."
       },
       "normas": {
@@ -4348,6 +4478,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-barreiros-2571ep_100ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -4377,8 +4512,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Os Castros",
+        "restaurantes": "Sí · Comidas en Os Castros, frente a la playa",
         "transportePublico": "Sí · Interurbano a 1,5 km, bus playa"
       },
       "normas": {
@@ -4424,6 +4559,11 @@
           "nombre": "Concello de Ribadeo · ordenanza de uso de las playas",
           "url": "https://www.ribadeo.gal/wp-content/uploads/Ordenanza-praias.pdf",
           "nota": "El artículo 24 prohíbe perros en playas y zonas de baño durante Semana Santa y del 15 de mayo al 15 de septiembre, con excepciones expresas."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribadeo-2571ep_145ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -4661,8 +4801,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · El Rompeolas, en el aparcamiento",
+        "restaurantes": "Sí · Bocadillos y pizzas en El Rompeolas",
         "transportePublico": "Sí · Interurbano (Vigo - Baiona a 0,5 Km)"
       },
       "normas": {
@@ -4698,6 +4838,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-panxon-2571ep_1230di.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -4727,8 +4872,8 @@
         "duchas": "Sí",
         "aseos": "No",
         "socorrista": "No",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · A Madorra",
+        "restaurantes": "Sí · Comidas en A Madorra",
         "transportePublico": "Sí · Interurbano (Vigo - Baiona a 0,1 Km)"
       },
       "normas": {
@@ -4764,6 +4909,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-panxon-2571ep_1230di.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -4864,7 +5014,7 @@
         "duchas": "Sí",
         "aseos": "No",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
+        "chiringuito": "No en el verano de 2026",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano (Vigo - Baiona a 0,1 Km)"
       },
@@ -4906,6 +5056,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "La Voz de Galicia · junio de 2026",
+          "url": "https://www.lavozdegalicia.es/noticia/vigo/2026/06/19/playa-santa-marta-baiona-pierde-chiringuito-verano/00031781882383468688464.htm",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -5285,8 +5440,8 @@
         "duchas": "Sí",
         "aseos": "No",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Bar Playa Fortiñon, de Semana Santa a septiembre",
+        "restaurantes": "Sí · Tapas y bocadillos en Bar Playa Fortiñon",
         "transportePublico": "Sí · Interurbano (Vigo - Baiona)"
       },
       "normas": {
@@ -5332,6 +5487,11 @@
           "nombre": "Concello de Vigo · ordenanza de protección y tenencia de animales",
           "url": "https://hoxe.vigo.org/pdf/medioambiente/ordenanzaanimais.pdf",
           "nota": "El artículo 11 prohíbe la circulación o permanencia de perros y otros animales en las playas del 1 de junio al 30 de septiembre."
+        },
+        {
+          "nombre": "Páxinas Galegas · Vigo",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-vigo-2571ep_310ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -5594,8 +5754,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Brisa Chiringo",
+        "restaurantes": "Sí · Comidas en Brisa Chiringo",
         "transportePublico": "Sí · Interurbano (Pontevedra - Vigo a 0,5 Km)"
       },
       "normas": {
@@ -5636,6 +5796,11 @@
           "nombre": "Turismo de Galicia · playas para perros",
           "url": "https://blog.turismo.gal/praias-para-cans-en-galicia/",
           "nota": "Artículo publicado en 2018; conviene confirmar la vigencia con el ayuntamiento antes de desplazarse."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cesantes-2571ep_1237di.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -5736,7 +5901,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
+        "chiringuito": "Sí · La Jaima de Rodeira",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano (Pontevedra - Cangas)"
       },
@@ -5778,6 +5943,11 @@
           "nombre": "Concello de Cangas · ordenanza de uso de las playas",
           "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
           "nota": "La ordenanza municipal prohíbe la presencia de animales en las playas; las excepciones habilitadas por el Concello son A Chimenea y Laxielas."
+        },
+        {
+          "nombre": "Páxinas Galegas · Cangas",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -5807,7 +5977,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
+        "chiringuito": "Sí · Chiringo Areamilla",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano (Pontevedra - Cangas a 1 Km)"
       },
@@ -5849,6 +6019,11 @@
           "nombre": "Concello de Cangas · ordenanza de uso de las playas",
           "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
           "nota": "La ordenanza municipal prohíbe la presencia de animales en las playas; las excepciones habilitadas por el Concello son A Chimenea y Laxielas."
+        },
+        {
+          "nombre": "Páxinas Galegas · Cangas",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -5878,8 +6053,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · O Gran Sol y Mini Bar",
+        "restaurantes": "Sí · O Gran Sol, junto a la playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - Cangas a 5 Km)"
       },
       "normas": {
@@ -5920,6 +6095,11 @@
           "nombre": "Concello de Cangas · ordenanza de uso de las playas",
           "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
           "nota": "La ordenanza municipal prohíbe la presencia de animales en las playas; las excepciones habilitadas por el Concello son A Chimenea y Laxielas."
+        },
+        {
+          "nombre": "Páxinas Galegas · Cangas",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -5949,8 +6129,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Borjan o Vikingo",
+        "restaurantes": "Sí · Comidas en Borjan o Vikingo",
         "transportePublico": "Sí · Interurbano (Pontevedra - Cangas a 5 Km)"
       },
       "normas": {
@@ -5991,6 +6171,11 @@
           "nombre": "Concello de Cangas · ordenanza de uso de las playas",
           "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
           "nota": "La ordenanza municipal prohíbe la presencia de animales en las playas; las excepciones habilitadas por el Concello son A Chimenea y Laxielas."
+        },
+        {
+          "nombre": "Páxinas Galegas · Cangas",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -6375,8 +6560,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · O Chiringuito de Aguete",
+        "restaurantes": "Sí · O Rincón de Poty, junto a la playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - Bueu a 0,6 Km)"
       },
       "normas": {
@@ -6422,6 +6607,11 @@
           "nombre": "Concello de Marín · regulación de perros en las playas",
           "url": "https://www.concellodemarin.es/goberno-local-propora-cans-poidan-accede-praia-ribeira-veran/",
           "nota": "Información municipal publicada en abril de 2026 que resume los horarios de la ordenanza vigente."
+        },
+        {
+          "nombre": "Páxinas Galegas · Marín",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-marin-2571ep_279ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -6451,8 +6641,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · A Figueira",
+        "restaurantes": "Sí · A Figueira, a pie de playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - Bueu a 0,7 Km)"
       },
       "normas": {
@@ -6498,6 +6688,11 @@
           "nombre": "Concello de Marín · regulación de perros en las playas",
           "url": "https://www.concellodemarin.es/goberno-local-propora-cans-poidan-accede-praia-ribeira-veran/",
           "nota": "Información municipal publicada en abril de 2026 que resume los horarios de la ordenanza vigente."
+        },
+        {
+          "nombre": "Páxinas Galegas · Marín",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-marin-2571ep_279ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -6598,8 +6793,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Portomaior",
+        "restaurantes": "Sí · Carmela Portomaior",
         "transportePublico": "Sí · Interurbano (Pontevedra - Bueu)"
       },
       "normas": {
@@ -6645,6 +6840,16 @@
           "nombre": "Concello de Bueu · ordenanza de uso de las playas",
           "url": "https://concellodebueu.gal/wp-content/uploads/2017/12/Ordenanza_Municipal_Reguladora_Uso_Disfrute_Praias.pdf",
           "nota": "Ordenanza publicada que prohíbe animales en playas y zonas de baño. En mayo de 2026 se aprobó inicialmente una modificación todavía sujeta a tramitación."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/portomaior-718950em.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-bueu-2571ep_258ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -6822,7 +7027,7 @@
         "aseos": "No",
         "socorrista": "No",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Restaurante Loureiro, a pie de playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - Bueu)"
       },
       "normas": {
@@ -6863,6 +7068,11 @@
           "nombre": "Concello de Bueu · ordenanza de uso de las playas",
           "url": "https://concellodebueu.gal/wp-content/uploads/2017/12/Ordenanza_Municipal_Reguladora_Uso_Disfrute_Praias.pdf",
           "nota": "Ordenanza publicada que prohíbe animales en playas y zonas de baño. En mayo de 2026 se aprobó inicialmente una modificación todavía sujeta a tramitación."
+        },
+        {
+          "nombre": "Restaurante Loureiro · web oficial",
+          "url": "https://www.restauranteloureiro.es/restaurante-menus-calidad-bueu.aspx",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -6968,8 +7178,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Bico Beach",
+        "restaurantes": "Sí · Bico Beach ofrece comidas",
         "transportePublico": "Sí · Interurbano (Pontevedra - O Grove a 0,2 Km)"
       },
       "normas": {
@@ -7015,6 +7225,11 @@
           "nombre": "Concello de Sanxenxo · Ordenanza de playas",
           "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
           "nota": "Normas sobre presencia de animales y zonas ambientalmente sensibles."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -7110,7 +7325,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
+        "chiringuito": "Sí · Arroás",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano"
       },
@@ -7147,6 +7362,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-fisterra-2571ep_38ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -7247,8 +7467,8 @@
         "duchas": "No",
         "aseos": "No",
         "socorrista": "No",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Bruma du Rostro",
+        "restaurantes": "Sí · Bruma du Rostro, en el entorno de la playa",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -7284,6 +7504,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-fisterra-2571ep_38ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -7719,7 +7944,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
+        "chiringuito": "Sí · El Chiringuito",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano a 15 m"
       },
@@ -7756,6 +7981,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sada-2571ep_76ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -7786,7 +8016,7 @@
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Hostelería en el entorno de la playa",
         "transportePublico": "Sí · Interurbano a 100 m."
       },
       "normas": {
@@ -7827,6 +8057,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Concello de Oleiros · playas",
+          "url": "https://www.turismoleiros.org/en/sightseeing/beaches",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -7856,8 +8091,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí, en temporada de verano",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · A Cheminea",
+        "restaurantes": "Sí · Bocadillos y pinchos en A Cheminea",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -7913,6 +8148,11 @@
           "nombre": "Concello de Arteixo · ordenanza de playas 2025",
           "url": "https://arteixo.org/wp-content/uploads/2020/12/Publicacion-BOP-Aprobacion-definitiva-modificacion.pdf",
           "nota": "El artículo 18 prohíbe animales domésticos en las playas del 1 de junio al 30 de septiembre, sin excepción horaria, salvo espacios específicos habilitados."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-arteixo-2571ep_5ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -8474,8 +8714,8 @@
         "duchas": "No",
         "aseos": "No",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Ladeira Beach",
+        "restaurantes": "Sí · Comidas en Ladeira Beach",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -8516,6 +8756,11 @@
           "nombre": "Turismo de Galicia · Parque Natural de Corrubedo",
           "url": "https://www.turismo.gal/que-facer/experiencias-en-plena-natureza/unha-duna-mobil-unica?langId=es_ES",
           "nota": "Accesos, itinerarios accesibles y normas del espacio protegido."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-ribeira-2571ep_74ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -8839,8 +9084,8 @@
         "duchas": "Sí",
         "aseos": "No",
         "socorrista": "Sí",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · El Chiringuito",
+        "restaurantes": "Sí · Comidas en El Chiringuito, en la playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - Moaña a 2 Km)"
       },
       "normas": {
@@ -8881,6 +9126,11 @@
           "nombre": "Concello de Moaña · ordenanza de animales",
           "url": "https://concellodemoana.org/wp-content/uploads/bsk-pdf-manager/ordenanza_de_animais_domsticos_e_salvaxes_en_cautivide_e_cans_perigosos_272.pdf",
           "nota": "El artículo 35 prohíbe animales domésticos en las playas y espacios públicos de acceso del 1 de junio al 30 de septiembre."
+        },
+        {
+          "nombre": "El Chiringuito · perfil del establecimiento",
+          "url": "https://www.instagram.com/elchiringuitoborna/?hl=en",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -8981,8 +9231,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · O Chiringuito de Ana, en verano",
+        "restaurantes": "Sí · Bocadillos y comidas frías en O Chiringuito de Ana",
         "transportePublico": "Sí · Interurbano (Pontevedra - Cangas a 3 Km)"
       },
       "normas": {
@@ -9023,6 +9273,11 @@
           "nombre": "Concello de Cangas · ordenanza de uso de las playas",
           "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
           "nota": "La ordenanza municipal prohíbe la presencia de animales en las playas; las excepciones habilitadas por el Concello son A Chimenea y Laxielas."
+        },
+        {
+          "nombre": "Páxinas Galegas · Cangas",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -9053,7 +9308,7 @@
         "aseos": "No",
         "socorrista": "No",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Arrieiro, junto a la playa",
         "transportePublico": "Sí · Interurbano (Pontevedra - Bueu)"
       },
       "normas": {
@@ -9094,6 +9349,11 @@
           "nombre": "Concello de Marín · regulación de perros en las playas",
           "url": "https://www.concellodemarin.es/goberno-local-propora-cans-poidan-accede-praia-ribeira-veran/",
           "nota": "Información municipal publicada en abril de 2026 que resume los horarios de la ordenanza vigente."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-bueu-2571ep_258ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -9123,7 +9383,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
+        "chiringuito": "Sí · Kaos, en verano",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano (Pontevedra - Marín a 3 Km)"
       },
@@ -9170,6 +9430,11 @@
           "nombre": "Concello de Marín · regulación de perros en las playas",
           "url": "https://www.concellodemarin.es/goberno-local-propora-cans-poidan-accede-praia-ribeira-veran/",
           "nota": "Información municipal publicada en abril de 2026 que resume los horarios de la ordenanza vigente."
+        },
+        {
+          "nombre": "Páxinas Galegas · Marín",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-marin-2571ep_279ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -9276,7 +9541,7 @@
         "aseos": "No",
         "socorrista": "Sí",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Restaurante Rodas, junto al muelle",
         "transportePublico": "Acceso marítimo mediante navieras autorizadas"
       },
       "normas": {
@@ -9327,6 +9592,11 @@
           "nombre": "Concello de Vigo · ordenanza de protección y tenencia de animales",
           "url": "https://hoxe.vigo.org/pdf/medioambiente/ordenanzaanimais.pdf",
           "nota": "El artículo 11 prohíbe la circulación o permanencia de perros y otros animales en las playas del 1 de junio al 30 de septiembre."
+        },
+        {
+          "nombre": "Restaurante Rodas · web oficial",
+          "url": "https://restauranterodas.es/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -9356,7 +9626,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
+        "chiringuito": "Sí · Namasté; Chocolate abre en verano",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano (Vilagarcía - Catoira)"
       },
@@ -9398,6 +9668,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-vilagarcia-de-arousa-2571ep_313ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -9665,7 +9940,7 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Medios humanos",
-        "chiringuito": null,
+        "chiringuito": "Sí · La Caseta de la Playa",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano a 0 Km"
       },
@@ -9702,6 +9977,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "Páxinas Galegas · directorio local",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-valdovi%C3%B1o-2571ep_89ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -9878,8 +10158,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Bico Praia",
+        "restaurantes": "Sí · Tapas en Bico Praia",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -9920,6 +10200,11 @@
           "nombre": "Playas gallegas con bandera azul en 2026",
           "url": "https://abertos.xunta.gal/es/catalogo/cultura-ocio-deporte/-/dataset/0697/playas-gallegas-con-bandera-azul-2026",
           "nota": "Datos abiertos 2026 sobre ubicación, longitud, tipo de playa y arena de 118 arenales gallegos con Bandera Azul."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-foz-2571ep_115ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10021,7 +10306,7 @@
         "aseos": "No",
         "socorrista": "No",
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · NemiñArea Saburil, con terraza hacia la playa",
         "transportePublico": "Sí · Interurbano"
       },
       "normas": {
@@ -10057,6 +10342,11 @@
           "nombre": "Guía de Playas de España",
           "url": "https://datos.gob.es/es/catalogo/e0dat0002-guia-de-playas-de-espana",
           "nota": "Inventario de servicios y características publicado en 2018; el servicio ArcGIS indica última edición de datos el 25/09/2024. Los servicios estacionales pueden cambiar y deben confirmarse localmente."
+        },
+        {
+          "nombre": "O Camiño dos Faros · NemiñArea",
+          "url": "https://www.caminodosfaros.com/restaurantes/restaurante-neminarea-saburil/",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10218,7 +10508,7 @@
         "duchas": "No",
         "aseos": "No",
         "socorrista": "No",
-        "chiringuito": null,
+        "chiringuito": "Sí · Chiringuito Playa de Barra",
         "restaurantes": null,
         "transportePublico": "Sí · Interurbano (Pontevedra - Cangas a 6 Km)"
       },
@@ -10260,6 +10550,11 @@
           "nombre": "Concello de Cangas · ordenanza de uso de las playas",
           "url": "https://cangas.gal/sites/default/files/2019-12/ordenanza_praias.pdf",
           "nota": "La ordenanza municipal prohíbe la presencia de animales en las playas; las excepciones habilitadas por el Concello son A Chimenea y Laxielas."
+        },
+        {
+          "nombre": "Páxinas Galegas · Cangas",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-cangas-de-morrazo-2571ep_262ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10360,8 +10655,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Castaño Playas",
+        "restaurantes": "Sí · Castaño Playas ofrece comidas",
         "transportePublico": "Sí · Interurbano (Pontevedra - Portonovo a 0,1 Km)"
       },
       "normas": {
@@ -10407,6 +10702,11 @@
           "nombre": "Concello de Sanxenxo · Ordenanza de playas",
           "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
           "nota": "Normas sobre presencia de animales y zonas ambientalmente sensibles."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10507,8 +10807,8 @@
         "duchas": "Sí",
         "aseos": "Sí",
         "socorrista": "Sí · Temporada estival. Medios humanos y materiales",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Castaño Playas",
+        "restaurantes": "Sí · Castaño Playas ofrece comidas",
         "transportePublico": "Sí · Interurbano (Pontevedra - O Grove a 0,2 Km)"
       },
       "normas": {
@@ -10554,6 +10854,11 @@
           "nombre": "Concello de Sanxenxo · Ordenanza de playas",
           "url": "https://sanxenxo.es/attachments/article/4158/ORDENANZA%20DE%20PLAYAS%202021.pdf",
           "nota": "Normas sobre presencia de animales y zonas ambientalmente sensibles."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10656,12 +10961,12 @@
       },
       "servicios": {
         "parking": "Aparcamiento en el entorno de Portonovo",
-        "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
+        "accesibilidad": "Sí · Pasarela y sillas anfibias",
+        "duchas": "Sí",
+        "aseos": "Sí",
+        "socorrista": "Sí · En temporada",
+        "chiringuito": "Sí · Dos chiringuitos",
+        "restaurantes": "Sí · Paiclá Beach Bar, tapas y bocadillos",
         "transportePublico": "Sí, entorno urbano de Portonovo"
       },
       "normas": {
@@ -10702,6 +11007,16 @@
           "nombre": "Turismo de Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
           "nota": "Entorno urbano, sendero litoral y sistema dunar de Baltar."
+        },
+        {
+          "nombre": "Turismo de Sanxenxo · Baltar",
+          "url": "https://sanxenxo.com/listing/playa-de-baltar/",
+          "nota": "Consulta 2026-09-15 · servicios.accesibilidad, servicios.aseos, servicios.chiringuito, servicios.duchas, servicios.socorrista. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10804,8 +11119,8 @@
         "duchas": null,
         "aseos": null,
         "socorrista": "Sí, en temporada de baño",
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · El Hula-Hula y Mera Mera",
+        "restaurantes": "Sí · Restaurantes y bares en el entorno",
         "transportePublico": "Sí"
       },
       "normas": {
@@ -10818,9 +11133,9 @@
       "marea": {
         "dependencia": null,
         "superficiePleamar": null,
-        "accesoCondicionado": null,
+        "accesoCondicionado": "El paso a la Cala dos Mortos es con marea baja",
         "riesgoAislamiento": null,
-        "recomendacion": null
+        "recomendacion": "Planifica la vuelta desde Cala dos Mortos antes de que suba la marea"
       },
       "bano": {
         "entradaAgua": null,
@@ -10846,6 +11161,16 @@
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9767/areas?langId=es_ES",
           "nota": "Clasificación de la playa y tipo de arena."
+        },
+        {
+          "nombre": "Turismo de Sanxenxo · Areas",
+          "url": "https://sanxenxo.com/listing/playa-areas/",
+          "nota": "Consulta 2026-09-15 · marea.accesoCondicionado, marea.recomendacion, servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -10950,8 +11275,8 @@
       "servicios": {
         "parking": "Sí",
         "accesibilidad": "Acceso adaptado",
-        "duchas": null,
-        "aseos": null,
+        "duchas": "Sí",
+        "aseos": "Sí",
         "socorrista": "Sí, en temporada de baño",
         "chiringuito": null,
         "restaurantes": null,
@@ -10995,6 +11320,11 @@
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9750/bascuas?langId=es_ES",
           "nota": "Clasificación de la playa y tipo de arena."
+        },
+        {
+          "nombre": "Turespaña · inventario de servicios",
+          "url": "https://www.spain.info/es/playa/bascuas/",
+          "nota": "Consulta 2026-09-15 · servicios.aseos, servicios.duchas. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -11025,8 +11355,8 @@
         "duchas": null,
         "aseos": null,
         "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
+        "chiringuito": "Sí · Foxos Beach, en verano",
+        "restaurantes": "Sí · Foxos Beach, en verano",
         "transportePublico": null
       },
       "normas": {
@@ -11067,6 +11397,16 @@
           "nombre": "Guía Turismo Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/ruta-maxica-da-lanzada/",
           "nota": "Entorno natural y patrimonial."
+        },
+        {
+          "nombre": "Páxinas Galegas · Foxos Beach",
+          "url": "https://www.paxinasgalegas.es/foxos-beach-552158em.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-sanxenxo-2571ep_304ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -11098,7 +11438,7 @@
         "aseos": null,
         "socorrista": null,
         "chiringuito": null,
-        "restaurantes": null,
+        "restaurantes": "Sí · Restaurante Playa Panadeira",
         "transportePublico": "Servicios urbanos de Sanxenxo en las proximidades"
       },
       "normas": {
@@ -11139,6 +11479,11 @@
           "nombre": "Guía Turismo Sanxenxo",
           "url": "https://guiaturismo.turismodesanxenxo.com/sendeiro-litoral-sanxenxo-portonovo/",
           "nota": "Entorno del paseo litoral."
+        },
+        {
+          "nombre": "Turismo de Galicia · restaurante",
+          "url": "https://www.turismo.gal/recurso/-/detalle/265343805/restaurante-playa-panadeira-?ctre=142&langId=es_ES&tp=24",
+          "nota": "Consulta 2026-09-15 · servicios.restaurantes. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -11633,8 +11978,8 @@
       "servicios": {
         "parking": "Aparcamiento en el entorno del acceso principal",
         "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
+        "duchas": "Sí",
+        "aseos": "Sí",
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
@@ -11678,6 +12023,11 @@
           "nombre": "Turismo de Galicia · Ría de Ortigueira",
           "url": "https://www.turismo.gal/que-visitar/rias-e-praias/ria-de-ortigueira?langId=es_ES",
           "nota": "Sistema dunar, pinar y valores naturales."
+        },
+        {
+          "nombre": "Turespaña · inventario de servicios",
+          "url": "https://www.spain.info/es/playa/morouzos/",
+          "nota": "Consulta 2026-09-15 · servicios.aseos, servicios.duchas. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -12252,10 +12602,10 @@
         "parking": "Aparcamiento en el entorno",
         "accesibilidad": null,
         "duchas": null,
-        "aseos": null,
-        "socorrista": null,
-        "chiringuito": null,
-        "restaurantes": null,
+        "aseos": "Sí",
+        "socorrista": "Sí · En temporada",
+        "chiringuito": "Sí · A pie de playa",
+        "restaurantes": "Sí · Establecimientos de hostelería en el entorno",
         "transportePublico": null
       },
       "normas": {
@@ -12276,7 +12626,7 @@
         "entradaAgua": null,
         "fondo": "Arena fina",
         "oleajeHabitual": "Aguas generalmente tranquilas",
-        "corrientes": null,
+        "corrientes": "Puede haber resaca con determinadas mareas; atender a la señalización",
         "ninos": null,
         "profundidad": null
       },
@@ -12296,6 +12646,11 @@
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9733/raeiros-paxareiro?langId=es_ES",
           "nota": "Clasificación general del arenal."
+        },
+        {
+          "nombre": "Mancomunidade do Salnés · Raeiros",
+          "url": "https://www.destinosalnes.com/es/ogrove-playa-raeiros/",
+          "nota": "Consulta 2026-09-15 · bano.corrientes, servicios.aseos, servicios.chiringuito, servicios.restaurantes, servicios.socorrista. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -12467,8 +12822,8 @@
       "servicios": {
         "parking": "Sí",
         "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
+        "duchas": "Sí",
+        "aseos": "Sí",
         "socorrista": null,
         "chiringuito": "Chiringuito de verano",
         "restaurantes": "Oferta estacional y camping en el entorno",
@@ -12517,6 +12872,11 @@
           "nombre": "A Illa de Arousa · Senda Azul",
           "url": "https://www.ailladearousa.es/turismo/bandeira-azul/",
           "nota": "Información sobre la Senda Bao–Xastelas."
+        },
+        {
+          "nombre": "A Illa de Arousa · guía de Camaxe",
+          "url": "https://www.ailladearousa.com/playas/playa-de-camaxe/",
+          "nota": "Consulta 2026-09-15 · servicios.aseos, servicios.duchas. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -12547,7 +12907,7 @@
         "duchas": null,
         "aseos": null,
         "socorrista": null,
-        "chiringuito": null,
+        "chiringuito": "Sí · El Chiringo Cabeceira",
         "restaurantes": null,
         "transportePublico": null
       },
@@ -12584,6 +12944,11 @@
           "nombre": "Turismo de Galicia",
           "url": "https://www.turismo.gal/recurso/-/detalle/9796/cabeceira?langId=es_ES",
           "nota": "Longitud, tipo y arena."
+        },
+        {
+          "nombre": "Páxinas Galegas · establecimientos junto a la playa",
+          "url": "https://www.paxinasgalegas.es/chiringuitos-y-terrazas-poio-2571ep_291ay.html",
+          "nota": "Consulta 2026-09-15 · servicios.chiringuito. La apertura de establecimientos puede variar por temporada."
         }
       ]
     },
@@ -12678,8 +13043,8 @@
       "servicios": {
         "parking": "Sí, gratuito",
         "accesibilidad": null,
-        "duchas": null,
-        "aseos": null,
+        "duchas": "Sí",
+        "aseos": "Sí",
         "socorrista": null,
         "chiringuito": null,
         "restaurantes": null,
@@ -12723,6 +13088,11 @@
           "nombre": "Turismo Rías Baixas · O Campanario (Bamio)",
           "url": "https://www.turismoriasbaixas.com/es/search/playa-de-o-campanario",
           "nota": "Forma, entorno, aparcamiento y aguas tranquilas."
+        },
+        {
+          "nombre": "Turespaña · inventario de servicios",
+          "url": "https://www.spain.info/es/playa/bamio/",
+          "nota": "Consulta 2026-09-15 · servicios.aseos, servicios.duchas. La apertura de establecimientos puede variar por temporada."
         }
       ]
     }

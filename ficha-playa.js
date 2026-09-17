@@ -1,6 +1,16 @@
 (() => {
   const scriptActual = document.currentScript?.src || "";
-  const raiz = new URL(".", scriptActual || window.location.href);
+  // HTMLPreview ejecuta los scripts en línea: currentScript.src puede estar vacío.
+  // La URL original identifica la rama cuyos recursos debe cargar la ficha.
+  function obtenerRaizFicha() {
+    if (window.location.hostname === "htmlpreview.github.io") {
+      const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];
+      const coincidencia = fuente.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/blob\/([^/]+)\//);
+      if (coincidencia) return new URL(`https://raw.githubusercontent.com/${coincidencia[1]}/${coincidencia[2]}/`);
+    }
+    return new URL(".", scriptActual || window.location.href);
+  }
+  const raiz = obtenerRaizFicha();
   window.URL_RAIZ_RECURSOS = raiz.href;
 
   function leerEntero(parametros, nombre) {
