@@ -27,6 +27,8 @@ assert.equal(carpetas.length, total + fichasEspeciales.size,
   "Debe existir una carpeta por cada ficha del catálogo y cada ficha especial.");
 for (const slug of fichasEspeciales) {
   assert.ok(existsSync(resolve(raiz, "playas", slug, "index.html")), `Falta la ficha especial ${slug}.`);
+  assert.ok(sitemap.includes(`<loc>https://hoytocaplaya.com/playas/${slug}/</loc>`),
+    `El sitemap no incluye la ficha especial ${slug}.`);
 }
 assert.match(indexHtml, /data\/indice-fichas\.js/, "La portada debe cargar el índice antes de app.js.");
 assert.match(indexHtml, /SEO_DIRECTORIO_PLAYAS_INICIO/, "La portada debe incluir un directorio HTML rastreable.");
@@ -87,6 +89,6 @@ for (const playa of catalogo.playas) {
   assert.ok(sitemap.includes(`<loc>${canonical}</loc>`), `El sitemap no incluye ${playa.slug}.`);
 }
 
-assert.equal((sitemap.match(/<loc>/g) || []).length, total + 1,
-  "El sitemap debe incluir la portada y todas las fichas del catálogo base.");
-console.log(`OK: ${total} fichas base + ${fichasEspeciales.size} especial(es), con SEO, directorio e interlinking.`);
+assert.equal((sitemap.match(/<loc>/g) || []).length, total + fichasEspeciales.size + 1,
+  "El sitemap debe incluir la portada, todas las fichas del catálogo base y las fichas especiales.");
+console.log(`OK: ${total} fichas base + ${fichasEspeciales.size} especial(es), con SEO, sitemap, directorio e interlinking.`);
