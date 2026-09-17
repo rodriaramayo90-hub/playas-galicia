@@ -130,33 +130,16 @@ function insertarOReemplazar(html, id, contenido, marcadorInsercion) {
   return html.slice(0, posicionMarcador) + `${bloque}\n` + html.slice(posicionMarcador);
 }
 
-function renderizarDirectorio(playas) {
-  const porProvincia = new Map();
-  for (const playa of playas) {
-    const provincia = playa.provincia || "Galicia";
-    if (!porProvincia.has(provincia)) porProvincia.set(provincia, []);
-    porProvincia.get(provincia).push(playa);
-  }
-  const provincias = [...porProvincia.keys()].sort((a, b) => a.localeCompare(b, "es"));
-  const grupos = provincias.map(provincia => {
-    const lista = porProvincia.get(provincia)
-      .sort((a, b) => {
-        const municipio = String(a.municipio || "").localeCompare(String(b.municipio || ""), "es");
-        return municipio || nombrePlaya(a).localeCompare(nombrePlaya(b), "es");
-      })
-      .map(playa => `<li><a href="playas/${escaparHtml(playa.slug)}/">${escaparHtml(nombrePlaya(playa))}</a> <small>· ${escaparHtml(playa.municipio || provincia)}</small></li>`)
-      .join("");
-    return `<section class="directorio-provincia"><h3>Playas de ${escaparHtml(provincia)}</h3><ul>${lista}</ul></section>`;
-  }).join("");
-
-  return `<section id="directorio-playas" class="seo-directorio-playas" aria-labelledby="tituloDirectorioPlayas">
-  <h2 id="tituloDirectorioPlayas">Guía de playas de Galicia</h2>
-  <p>Consulta la ficha de cada arenal para ver su previsión, oleaje, temperatura del agua, servicios, normas y ubicación.</p>
-  <details>
-    <summary>Ver las ${playas.length} playas disponibles</summary>
-    <div class="directorio-playas-contenido">${grupos}</div>
-  </details>
-</section>`;
+function eliminarBloqueMarcado(html, id) {
+  const inicio = `<!-- SEO_${id}_INICIO -->`;
+  const fin = `<!-- SEO_${id}_FIN -->`;
+  const posicionInicio = html.indexOf(inicio);
+  if (posicionInicio < 0) return html;
+  const posicionFin = html.indexOf(fin, posicionInicio);
+  if (posicionFin < 0) throw new Error(`Falta el cierre del bloque ${id}.`);
+  const despues = posicionFin + fin.length;
+  const saltoFinal = html.slice(despues).startsWith("\n") ? 1 : 0;
+  return html.slice(0, posicionInicio) + html.slice(despues + saltoFinal);
 }
 
 function renderizarCercanas(playa, cercanas) {
@@ -192,10 +175,10 @@ if (!Array.isArray(catalogo.playas) || catalogo.playas.length < 179) {
 }
 
 let indexHtml = await readFile(RUTA_INDEX, "utf8");
-indexHtml = insertarOReemplazar(indexHtml, "DIRECTORIO_PLAYAS", renderizarDirectorio(catalogo.playas), "</main>");
+indexHtml = eliminarBloqueMarcado(indexHtml, "DIRECTORIO_PLAYAS");
 indexHtml = indexHtml.replace(
-  "<noscript>Necesitas activar JavaScript para consultar el ranking actualizado.</noscript>",
-  "<noscript>El ranking meteorológico necesita JavaScript para actualizarse, pero puedes consultar todas las fichas de playas en el directorio incluido en esta página.</noscript>"
+  "<noscript>El ranking meteorológico necesita JavaScript para actualizarse, pero puedes consultar todas las fichas de playas en el directorio incluido en esta página.</noscript>",
+  "<noscript>El ranking inicial está disponible en esta página. Activa JavaScript para usar filtros, horarios y actualizaciones interactivas.</noscript>"
 );
 await writeFile(RUTA_INDEX, indexHtml, "utf8");
 
@@ -216,4 +199,4 @@ const appOriginal = await readFile(RUTA_APP, "utf8");
 const appActualizado = canonicalizarEnlacesDelRanking(appOriginal);
 if (appActualizado !== appOriginal) await writeFile(RUTA_APP, appActualizado, "utf8");
 
-console.log(`Arquitectura SEO actualizada: directorio de ${catalogo.playas.length} playas, ${modificadas} fichas reforzadas y enlaces canónicos en el ranking.`);
+console.log(`Arquitectura SEO actualizada: directorio visible eliminado, ${modificadas} fichas reforzadas y enlaces canónicos en el ranking.`);
