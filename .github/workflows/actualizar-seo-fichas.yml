@@ -1,0 +1,71 @@
+name: Actualizar SEO prerenderizado de fichas
+
+on:
+  schedule:
+    - cron: "15 7 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/incrustar-seo-fichas.mjs"
+      - "data/descripciones-seo-*.json"
+      - "data/informacion-verificada.json"
+      - "data/playas-detalle.json"
+      - ".github/workflows/actualizar-seo-fichas.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-seo-fichas
+  cancel-in-progress: true
+
+jobs:
+  prerenderizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Incrustar contenido SEO y previsión base
+        run: node scripts/incrustar-seo-fichas.mjs
+
+      - name: Validar que no se pierdan fichas
+        run: |
+          TOTAL_CATALOGO=$(node -e "const d=require('./data/playas-detalle.json'); process.stdout.write(String(d.playas.length))")
+          TOTAL_CARPETAS=$(find playas -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          echo "Catálogo: $TOTAL_CATALOGO | carpetas: $TOTAL_CARPETAS"
+          if [ "$TOTAL_CARPETAS" -lt "$TOTAL_CATALOGO" ]; then
+            echo "Faltan fichas respecto al catálogo"
+            exit 1
+          fi
+
+      - name: Validar HTML prerenderizado
+        run: |
+          grep -q 'id="descripcionPlaya">' playas/playa-de-riazor/index.html
+          if grep -q 'id="descripcionPlaya">Información no disponible<' playas/playa-de-riazor/index.html; then
+            echo "Riazor sigue sin descripción prerenderizada"
+            exit 1
+          fi
+          if grep -q 'id="temperaturaPlaya">–<' playas/playa-de-riazor/index.html; then
+            echo "Riazor sigue sin previsión prerenderizada"
+            exit 1
+          fi
+          grep -q '<link rel="canonical" href="https://hoytocaplaya.com/playas/playa-de-riazor/">' playas/playa-de-riazor/index.html
+
+      - name: Publicar cambios generados
+        run: |
+          if git diff --quiet -- playas; then
+            echo "No hay cambios SEO que publicar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playas
+          git commit -m "Actualizar SEO prerenderizado de fichas"
+          git push
