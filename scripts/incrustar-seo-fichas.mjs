@@ -186,10 +186,14 @@ function construirInstantanea(meteo, mar, generadoEn) {
   return { temperatura, viento, lluvia, oleaje, agua, fecha, horaGenerado };
 }
 
+function textoMetrica(valor, sufijo, prefijo = "") {
+  return valor === null ? NO_DISPONIBLE : `${prefijo}${valor}${sufijo}`;
+}
+
 function enriquecerHtml(html, playa, instantanea) {
   html = reemplazarContenido(
     html,
-    /<h2>Descripción<\/h2><p id="descripcionPlaya">[\s\S]*?<\/p>/,
+    /<h2>(?:Descripción|¿Cómo es [^<]+\?)<\/h2><p id="descripcionPlaya">[\s\S]*?<\/p>/,
     `<h2>¿Cómo es ${escaparHtml(playa.nombre)}?</h2><p id="descripcionPlaya">${escaparHtml(valorVisible(playa.descripcion))}</p>`,
     "la descripción"
   );
@@ -209,19 +213,25 @@ function enriquecerHtml(html, playa, instantanea) {
     const oleaje = formatearNumero(instantanea.oleaje);
     const agua = formatearNumero(instantanea.agua);
     const actualizado = instantanea.horaGenerado ? `Previsión ${instantanea.horaGenerado}` : "Previsión de hoy";
-    html = html.replace('<span id="actualizacionCondiciones">Actualizando…</span>', `<span id="actualizacionCondiciones">${actualizado}</span>`);
-    html = html.replace('class="condiciones-cargando" role="status" aria-live="polite">Consultando las condiciones actuales…</div>', 'class="condiciones-cargando" role="status" aria-live="polite">Previsión base disponible; calculando la valoración de Hoy Toca Playa…</div>');
-    html = html.replace('<div id="condicionesContenido" hidden>', '<div id="condicionesContenido">');
-    html = html.replace('<strong id="estadoPlaya">Información no disponible</strong>', '<strong id="estadoPlaya">Valoración en curso</strong>');
-    html = html.replace('<dd id="temperaturaPlaya">–</dd>', `<dd id="temperaturaPlaya">${temperatura ? `${temperatura} °C` : NO_DISPONIBLE}</dd>`);
-    html = html.replace('<dd id="vientoPlaya">–</dd>', `<dd id="vientoPlaya">${viento ? `${viento} km/h` : NO_DISPONIBLE}</dd>`);
-    html = html.replace('<dd id="lluviaPlaya">–</dd>', `<dd id="lluviaPlaya">${lluvia ? `hasta ${lluvia}%` : NO_DISPONIBLE}</dd>`);
-    html = html.replace('<dd id="oleajePlaya">–</dd>', `<dd id="oleajePlaya">${oleaje ? `${oleaje} m` : NO_DISPONIBLE}</dd>`);
-    html = html.replace('<dd id="aguaPlaya">–</dd>', `<dd id="aguaPlaya">${agua ? `${agua} °C` : NO_DISPONIBLE}</dd>`);
+
+    html = reemplazarContenido(html, /<span id="actualizacionCondiciones">[\s\S]*?<\/span>/, `<span id="actualizacionCondiciones">${actualizado}</span>`, "la hora de actualización");
+    html = reemplazarContenido(
+      html,
+      /<div id="estadoCondiciones" class="condiciones-cargando" role="status" aria-live="polite">[\s\S]*?<\/div>/,
+      '<div id="estadoCondiciones" class="condiciones-cargando" role="status" aria-live="polite">Previsión base disponible; calculando la valoración de Hoy Toca Playa…</div>',
+      "el estado de las condiciones"
+    );
+    html = reemplazarContenido(html, /<div id="condicionesContenido"(?: hidden)?>/, '<div id="condicionesContenido">', "el contenedor de condiciones");
+    html = reemplazarContenido(html, /<strong id="estadoPlaya">[\s\S]*?<\/strong>/, '<strong id="estadoPlaya">Valoración en curso</strong>', "el estado de la playa");
+    html = reemplazarContenido(html, /<dd id="temperaturaPlaya">[\s\S]*?<\/dd>/, `<dd id="temperaturaPlaya">${textoMetrica(temperatura, " °C")}</dd>`, "la temperatura");
+    html = reemplazarContenido(html, /<dd id="vientoPlaya">[\s\S]*?<\/dd>/, `<dd id="vientoPlaya">${textoMetrica(viento, " km/h")}</dd>`, "el viento");
+    html = reemplazarContenido(html, /<dd id="lluviaPlaya">[\s\S]*?<\/dd>/, `<dd id="lluviaPlaya">${textoMetrica(lluvia, "%", "hasta ")}</dd>`, "la lluvia");
+    html = reemplazarContenido(html, /<dd id="oleajePlaya">[\s\S]*?<\/dd>/, `<dd id="oleajePlaya">${textoMetrica(oleaje, " m")}</dd>`, "el oleaje");
+    html = reemplazarContenido(html, /<dd id="aguaPlaya">[\s\S]*?<\/dd>/, `<dd id="aguaPlaya">${textoMetrica(agua, " °C")}</dd>`, "la temperatura del agua");
   }
 
   html = html.replace(
-    '<noscript>Necesitas activar JavaScript para consultar las condiciones meteorológicas de esta playa.</noscript>',
+    /<noscript>[\s\S]*?<\/noscript>/,
     '<noscript>La ficha incluye una previsión base y la información práctica disponible. Activa JavaScript para ver la puntuación y la valoración completa del ranking.</noscript>'
   );
   return html;
