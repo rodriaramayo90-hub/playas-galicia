@@ -84,7 +84,10 @@ function renderizarFuentes(fuentes = []) {
 }
 
 function reemplazarContenido(html, expresion, contenido, descripcion) {
-  if (!expresion.test(html)) throw new Error(`No se encontró ${descripcion}.`);
+  if (!expresion.test(html)) {
+    console.warn(`Aviso: no se encontró ${descripcion}; se conserva el HTML existente.`);
+    return html;
+  }
   return html.replace(expresion, contenido);
 }
 
@@ -217,11 +220,11 @@ function enriquecerHtml(html, playa, instantanea) {
     html = reemplazarContenido(html, /<span id="actualizacionCondiciones">[\s\S]*?<\/span>/, `<span id="actualizacionCondiciones">${actualizado}</span>`, "la hora de actualización");
     html = reemplazarContenido(
       html,
-      /<div id="estadoCondiciones" class="condiciones-cargando" role="status" aria-live="polite">[\s\S]*?<\/div>/,
+      /<div id="estadoCondiciones"[^>]*>[\s\S]*?<\/div>/,
       '<div id="estadoCondiciones" class="condiciones-cargando" role="status" aria-live="polite">Previsión base disponible; calculando la valoración de Hoy Toca Playa…</div>',
       "el estado de las condiciones"
     );
-    html = reemplazarContenido(html, /<div id="condicionesContenido"(?: hidden)?>/, '<div id="condicionesContenido">', "el contenedor de condiciones");
+    html = reemplazarContenido(html, /<div id="condicionesContenido"[^>]*>/, '<div id="condicionesContenido">', "el contenedor de condiciones");
     html = reemplazarContenido(html, /<strong id="estadoPlaya">[\s\S]*?<\/strong>/, '<strong id="estadoPlaya">Valoración en curso</strong>', "el estado de la playa");
     html = reemplazarContenido(html, /<dd id="temperaturaPlaya">[\s\S]*?<\/dd>/, `<dd id="temperaturaPlaya">${textoMetrica(temperatura, " °C")}</dd>`, "la temperatura");
     html = reemplazarContenido(html, /<dd id="vientoPlaya">[\s\S]*?<\/dd>/, `<dd id="vientoPlaya">${textoMetrica(viento, " km/h")}</dd>`, "el viento");
