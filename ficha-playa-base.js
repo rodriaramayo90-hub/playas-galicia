@@ -1,3 +1,10 @@
+(function redirigirIndexHtmlACanonica() {
+  if (window.location.hostname === "htmlpreview.github.io") return;
+  if (!/\/index\.html$/i.test(window.location.pathname)) return;
+  const rutaCanonica = window.location.pathname.replace(/index\.html$/i, "");
+  window.location.replace(`${rutaCanonica}${window.location.search}${window.location.hash}`);
+})();
+
 const URL_BASE_FICHA = typeof URL_RAIZ_RECURSOS !== "undefined" && URL_RAIZ_RECURSOS
   ? new URL(URL_RAIZ_RECURSOS)
   : new URL(".", document.currentScript?.src || window.location?.href || "https://hoytocaplaya.com/");
