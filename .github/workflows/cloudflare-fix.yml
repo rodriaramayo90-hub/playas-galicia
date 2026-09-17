@@ -1,0 +1,165 @@
+name: Cloudflare redirect fixer
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/cloudflare-fix.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  fix-cloudflare:
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      DOMAIN: hoytocaplaya.com
+    steps:
+      - name: Check Cloudflare token
+        id: token
+        shell: bash
+        run: |
+          if [ -z "$CF_TOKEN" ]; then
+            echo "Cloudflare token secret is not configured yet. Skipping safely."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Locate Cloudflare zone
+        if: steps.token.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones?name=$DOMAIN&status=active" > zone.json
+
+          ZONE_ID="$(jq -r '.result[0].id // empty' zone.json)"
+          if [ -z "$ZONE_ID" ]; then
+            echo "Could not find an active Cloudflare zone for $DOMAIN"
+            jq '{success, errors, messages}' zone.json
+            exit 1
+          fi
+
+          echo "ZONE_ID=$ZONE_ID" >> "$GITHUB_ENV"
+          echo "Found zone for $DOMAIN."
+
+      - name: Inspect and proxy only apex/www web records
+        if: steps.token.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" > dns.json
+
+          echo "Web records before change:"
+          jq -r --arg d "$DOMAIN" '
+            .result[]
+            | select((.name == $d or .name == ("www." + $d)) and (.type == "A" or .type == "AAAA" or .type == "CNAME"))
+            | [.type, .name, .content, ("proxied=" + (.proxied|tostring)), ("proxiable=" + (.proxiable|tostring))]
+            | @tsv' dns.json
+
+          mapfile -t RECORDS < <(jq -c --arg d "$DOMAIN" '
+            .result[]
+            | select((.name == $d or .name == ("www." + $d)) and (.type == "A" or .type == "AAAA" or .type == "CNAME"))' dns.json)
+
+          if [ "${#RECORDS[@]}" -eq 0 ]; then
+            echo "No apex/www A, AAAA or CNAME records found. Nothing changed."
+            exit 1
+          fi
+
+          for rec in "${RECORDS[@]}"; do
+            id="$(jq -r '.id' <<<"$rec")"
+            type="$(jq -r '.type' <<<"$rec")"
+            name="$(jq -r '.name' <<<"$rec")"
+            proxied="$(jq -r '.proxied' <<<"$rec")"
+            proxiable="$(jq -r '.proxiable' <<<"$rec")"
+
+            if [ "$proxiable" = "true" ] && [ "$proxied" != "true" ]; then
+              echo "Enabling Cloudflare proxy for $type $name"
+              curl -fsS -X PATCH \
+                -H "Authorization: Bearer $CF_TOKEN" \
+                -H "Content-Type: application/json" \
+                --data '{"proxied":true}' \
+                "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$id" \
+                | jq -e '.success == true' >/dev/null
+            else
+              echo "Leaving $type $name unchanged (proxied=$proxied, proxiable=$proxiable)"
+            fi
+          done
+
+          curl -fsS \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" > dns-after.json
+
+          echo "Web records after change:"
+          jq -r --arg d "$DOMAIN" '
+            .result[]
+            | select((.name == $d or .name == ("www." + $d)) and (.type == "A" or .type == "AAAA" or .type == "CNAME"))
+            | [.type, .name, .content, ("proxied=" + (.proxied|tostring))]
+            | @tsv' dns-after.json
+
+      - name: Inspect existing Single Redirect rule
+        if: steps.token.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          HTTP_CODE="$(curl -sS -o redirects.json -w '%{http_code}' \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/rulesets/phases/http_request_dynamic_redirect/entrypoint")"
+
+          echo "Redirect rules API status: $HTTP_CODE"
+          if [ "$HTTP_CODE" = "200" ]; then
+            jq -r '.result.rules[]? | [(.description // ""), ("enabled=" + ((.enabled // true)|tostring)), (.expression // ""), (.action // "")] | @tsv' redirects.json
+          else
+            jq '{success, errors, messages}' redirects.json || true
+          fi
+
+      - name: Verify index.html redirect through Cloudflare edge
+        if: steps.token.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          NS="$(dig +short NS "$DOMAIN" | head -n1)"
+          if [ -z "$NS" ]; then
+            echo "Could not resolve authoritative nameserver."
+            exit 1
+          fi
+
+          EDGE_IP="$(dig +short @"$NS" "$DOMAIN" A | head -n1)"
+          if [ -z "$EDGE_IP" ]; then
+            echo "Could not resolve an IPv4 address from the authoritative nameserver."
+            exit 1
+          fi
+
+          echo "Testing through authoritative edge IP: $EDGE_IP"
+          URL="https://$DOMAIN/playas/playa-de-riazor/index.html"
+          HEADERS="$(mktemp)"
+          STATUS="$(curl -sS --max-time 30 --resolve "$DOMAIN:443:$EDGE_IP" -o /dev/null -D "$HEADERS" -w '%{http_code}' "$URL")"
+          LOCATION="$(awk 'BEGIN{IGNORECASE=1} /^location:/ {sub(/^location:[[:space:]]*/, ""); sub(/\r$/, ""); print; exit}' "$HEADERS")"
+
+          echo "HTTP status: $STATUS"
+          echo "Location: ${LOCATION:-<none>}"
+
+          if [ "$STATUS" != "301" ]; then
+            echo "Expected 301 but received $STATUS."
+            exit 1
+          fi
+
+          case "$LOCATION" in
+            "https://$DOMAIN/playas/playa-de-riazor/"|"/playas/playa-de-riazor/")
+              echo "SUCCESS: server-side 301 is working correctly."
+              ;;
+            *)
+              echo "301 exists, but Location is not the expected clean URL."
+              exit 1
+              ;;
+          esac
