@@ -2613,14 +2613,14 @@ function obtenerEstado(puntos, nubosidad, anguloPlaya, direccionVientoGrados, vi
     agua >= 18 &&
     oleaje < 0.4 &&
     !vientoEnContra;
-  if (puntos < 35) return "🔴 Mejor evitar";
+  if (puntos < 35) return "🔴 Mejor evitar esta playa hoy";
   if (puntos < 50) return "🟠 Poco recomendable";
   if (vientoEnContra && nubosidad > 80) return "🟡 Aceptable (muy nublado y viento en contra)";
   if (vientoEnContra && nubosidad > 60) return "🟡 Aceptable (nublado y viento en contra)";
   if (nubosidad > 80) return "🟡 Aceptable (muy nublado)";
   if (nubosidad > 60) return "🟡 Aceptable (nublado)";
   if (vientoEnContra) return puntos >= 70 ? "🟡 Aceptable (viento en contra)" : "🟡 Aceptable";
-  if (condicionesExcelentes) return "🟢 Excelente";
+  if (condicionesExcelentes) return "🟢 Excelente día de playa";
   if (puntos >= 70) return "🟢 Buen día de playa";
   return "🟡 Aceptable";
 }

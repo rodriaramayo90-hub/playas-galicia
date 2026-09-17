@@ -7,12 +7,14 @@ on:
   push:
     paths:
       - "scripts/incrustar-seo-fichas.mjs"
+      - "scripts/prerenderizar-ranking-portada.mjs"
       - "scripts/mejorar-arquitectura-seo.mjs"
       - "scripts/generar-fichas-playas.mjs"
       - "tests/fichas-playas.test.cjs"
       - "data/descripciones-seo-*.json"
       - "data/informacion-verificada.json"
       - "data/playas-detalle.json"
+      - "data/pronostico.json"
       - ".github/workflows/actualizar-seo-fichas.yml"
 
 permissions:
@@ -37,6 +39,9 @@ jobs:
 
       - name: Incrustar contenido SEO y previsión base
         run: node scripts/incrustar-seo-fichas.mjs
+
+      - name: Prerenderizar ranking completo de portada
+        run: node scripts/prerenderizar-ranking-portada.mjs
 
       - name: Mejorar arquitectura de enlaces SEO
         run: node scripts/mejorar-arquitectura-seo.mjs
@@ -65,6 +70,11 @@ jobs:
           grep -q '<link rel="canonical" href="https://hoytocaplaya.com/playas/playa-de-riazor/">' playas/playa-de-riazor/index.html
           grep -q 'SEO_PLAYAS_CERCANAS_INICIO' playas/playa-de-riazor/index.html
           grep -q 'SEO_DIRECTORIO_PLAYAS_INICIO' index.html
+          grep -q 'SEO_RANKING_PRERENDER_TABLA_INICIO' index.html
+          grep -q 'SEO_RANKING_PRERENDER_MOBILE_INICIO' index.html
+          grep -q '/100</small>' index.html
+          grep -Eq 'Excelente día de playa|Buen día de playa|Aceptable|Poco recomendable|Mejor evitar esta playa hoy' index.html
+          grep -q 'class="col-explicacion"' index.html
           grep -q 'const rutaCanonica = `playas/${slug}/`' app.js
 
       - name: Ejecutar tests SEO de fichas
@@ -79,5 +89,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add playas index.html app.js
-          git commit -m "Actualizar arquitectura SEO e interlinking"
+          git commit -m "Actualizar ranking y arquitectura SEO"
           git push
