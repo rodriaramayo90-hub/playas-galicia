@@ -6,15 +6,10 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "app.js"
-      - "plantillas/ficha-playa.html"
-      - "scripts/generar-fichas-playas.mjs"
-      - "scripts/construir-catalogo-fichas.mjs"
       - "scripts/incrustar-seo-fichas.mjs"
       - "data/descripciones-seo-*.json"
       - "data/informacion-verificada.json"
-      - "data/playas-detalle-curado.json"
-      - "data/fuentes-playas.json"
+      - "data/playas-detalle.json"
       - ".github/workflows/actualizar-seo-fichas.yml"
 
 permissions:
@@ -37,11 +32,18 @@ jobs:
         with:
           node-version: 22
 
-      - name: Regenerar fichas y sitemap
-        run: node scripts/generar-fichas-playas.mjs
-
       - name: Incrustar contenido SEO y previsión base
         run: node scripts/incrustar-seo-fichas.mjs
+
+      - name: Validar que no se pierdan fichas
+        run: |
+          TOTAL_CATALOGO=$(node -e "const d=require('./data/playas-detalle.json'); process.stdout.write(String(d.playas.length))")
+          TOTAL_CARPETAS=$(find playas -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          echo "Catálogo: $TOTAL_CATALOGO | carpetas: $TOTAL_CARPETAS"
+          if [ "$TOTAL_CARPETAS" -lt "$TOTAL_CATALOGO" ]; then
+            echo "Faltan fichas respecto al catálogo"
+            exit 1
+          fi
 
       - name: Validar HTML prerenderizado
         run: |
@@ -58,12 +60,12 @@ jobs:
 
       - name: Publicar cambios generados
         run: |
-          if git diff --quiet -- playas sitemap.xml data/playas-detalle.json data/indice-fichas.js; then
+          if git diff --quiet -- playas; then
             echo "No hay cambios SEO que publicar."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add playas sitemap.xml data/playas-detalle.json data/indice-fichas.js
+          git add playas
           git commit -m "Actualizar SEO prerenderizado de fichas"
           git push
