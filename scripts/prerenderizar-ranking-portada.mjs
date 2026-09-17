@@ -4,6 +4,7 @@ import vm from "node:vm";
 
 const RAIZ = resolve(import.meta.dirname, "..");
 const RUTA_APP = resolve(RAIZ, "app.js");
+const RUTA_EXTRA = resolve(RAIZ, "playas-extra.js");
 const RUTA_INDEX = resolve(RAIZ, "index.html");
 const RUTA_PRONOSTICO = resolve(RAIZ, "data", "pronostico.json");
 const RUTA_INDICE = resolve(RAIZ, "data", "indice-fichas.js");
@@ -56,7 +57,7 @@ function enriquecerEtiquetasApp(codigo) {
   return actualizado;
 }
 
-function crearSandbox(appSource, indiceFichas) {
+function crearSandbox(appSource, extraSource, indiceFichas) {
   const sandbox = {
     console,
     URL,
@@ -84,6 +85,7 @@ function crearSandbox(appSource, indiceFichas) {
   };
   vm.createContext(sandbox);
   vm.runInContext(appSource, sandbox, { filename: "app.js" });
+  vm.runInContext(extraSource, sandbox, { filename: "playas-extra.js" });
   return sandbox;
 }
 
@@ -176,8 +178,9 @@ function actualizarMensajeEstado(html, generadoEn) {
   );
 }
 
-const [appOriginal, indexOriginal, pronostico, indiceCodigo] = await Promise.all([
+const [appOriginal, extraSource, indexOriginal, pronostico, indiceCodigo] = await Promise.all([
   readFile(RUTA_APP, "utf8"),
+  readFile(RUTA_EXTRA, "utf8"),
   readFile(RUTA_INDEX, "utf8"),
   readFile(RUTA_PRONOSTICO, "utf8").then(JSON.parse),
   readFile(RUTA_INDICE, "utf8")
@@ -193,9 +196,9 @@ if (appActualizado !== appOriginal) {
 }
 
 const indiceFichas = parsearIndice(indiceCodigo);
-const sandbox = crearSandbox(appActualizado, indiceFichas);
+const sandbox = crearSandbox(appActualizado, extraSource, indiceFichas);
 const playas = sandbox.window.HoyTocaPlaya?.playas;
-if (!Array.isArray(playas) || playas.length === 0) throw new Error("No se pudo cargar el catálogo del ranking desde app.js.");
+if (!Array.isArray(playas) || playas.length === 0) throw new Error("No se pudo cargar el catálogo completo del ranking.");
 if (pronostico.datosMeteorologicos.length !== playas.length || pronostico.datosMaritimos.length !== playas.length) {
   throw new Error(`El pronóstico (${pronostico.datosMeteorologicos.length}/${pronostico.datosMaritimos.length}) no coincide con las ${playas.length} playas del ranking.`);
 }
