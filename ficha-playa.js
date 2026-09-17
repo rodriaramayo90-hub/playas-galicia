@@ -1,4 +1,10 @@
 (() => {
+  if (window.location.hostname !== "htmlpreview.github.io" && /\/index\.html$/i.test(window.location.pathname)) {
+    const rutaCanonica = window.location.pathname.replace(/index\.html$/i, "");
+    window.location.replace(`${rutaCanonica}${window.location.search}${window.location.hash}`);
+    return;
+  }
+
   const scriptActual = document.currentScript?.src || "";
   // HTMLPreview ejecuta los scripts en línea: currentScript.src puede estar vacío.
   // La URL original identifica la rama cuyos recursos debe cargar la ficha.
