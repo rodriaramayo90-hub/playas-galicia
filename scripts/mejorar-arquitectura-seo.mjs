@@ -16,8 +16,73 @@ function escaparHtml(valor) {
     .replaceAll("'", "&#39;");
 }
 
+function jsonSeguro(valor, pretty = false) {
+  return JSON.stringify(valor, null, pretty ? 2 : 0)
+    .replaceAll("<", "\\u003c")
+    .replaceAll(">", "\\u003e")
+    .replaceAll("&", "\\u0026");
+}
+
 function nombrePlaya(playa) {
   return playa.nombre || playa.nombreCatalogo || playa.slug;
+}
+
+function descripcionMeta(playa) {
+  return `Consulta el tiempo, la puntuación, el viento, la lluvia, el oleaje, el agua y la información práctica de ${nombrePlaya(playa)}, en ${playa.municipio}.`;
+}
+
+function datosEstructurados(playa) {
+  const nombre = nombrePlaya(playa);
+  const canonical = `https://hoytocaplaya.com/playas/${playa.slug}/`;
+  const descripcion = descripcionMeta(playa);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    name: `${nombre} | Hoy Toca Playa`,
+    description: descripcion,
+    url: canonical,
+    inLanguage: "es-ES",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Hoy Toca Playa", item: "https://hoytocaplaya.com/" },
+        { "@type": "ListItem", position: 2, name: "Playas", item: "https://hoytocaplaya.com/#ranking-mobile" },
+        { "@type": "ListItem", position: 3, name: nombre, item: canonical }
+      ]
+    },
+    mainEntity: {
+      "@type": "Place",
+      name: nombre,
+      description: descripcion,
+      ...(playa.fotoPrincipal?.url ? { image: playa.fotoPrincipal.url } : {}),
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: playa.municipio,
+        addressRegion: playa.provincia,
+        addressCountry: "ES"
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: playa.lat,
+        longitude: playa.lon
+      }
+    }
+  };
+}
+
+function asegurarDatosSeo(html, playa) {
+  if (!html.includes('<script type="application/ld+json">')) {
+    const bloque = `  <script type="application/ld+json">\n${jsonSeguro(datosEstructurados(playa), true)}\n  </script>\n`;
+    if (!html.includes("</head>")) throw new Error(`No se encontró </head> en ${playa.slug}.`);
+    html = html.replace("</head>", `${bloque}</head>`);
+  }
+  if (!html.includes("window.HoyTocaPlayaFicha =")) {
+    const bloque = `<script>window.HoyTocaPlayaFicha = ${jsonSeguro(playa)};</script>\n`;
+    const marcador = html.includes("<script src=\"../../app.js") ? "<script src=\"../../app.js" : "</body>";
+    if (marcador === "</body>") html = html.replace("</body>", `${bloque}</body>`);
+    else html = html.replace(marcador, `${bloque}${marcador}`);
+  }
+  return html;
 }
 
 function radianes(grados) {
@@ -139,7 +204,8 @@ for (const playa of catalogo.playas) {
   const ruta = resolve(RAIZ, "playas", playa.slug, "index.html");
   const original = await readFile(ruta, "utf8");
   const cercanas = obtenerCercanas(playa, catalogo.playas);
-  const actualizado = insertarOReemplazar(original, "PLAYAS_CERCANAS", renderizarCercanas(playa, cercanas), '<section id="ubicacion"');
+  let actualizado = asegurarDatosSeo(original, playa);
+  actualizado = insertarOReemplazar(actualizado, "PLAYAS_CERCANAS", renderizarCercanas(playa, cercanas), '<section id="ubicacion"');
   if (actualizado !== original) {
     await writeFile(ruta, actualizado, "utf8");
     modificadas += 1;
@@ -150,4 +216,4 @@ const appOriginal = await readFile(RUTA_APP, "utf8");
 const appActualizado = canonicalizarEnlacesDelRanking(appOriginal);
 if (appActualizado !== appOriginal) await writeFile(RUTA_APP, appActualizado, "utf8");
 
-console.log(`Arquitectura SEO actualizada: directorio de ${catalogo.playas.length} playas, ${modificadas} fichas con enlaces cercanos y enlaces canónicos en el ranking.`);
+console.log(`Arquitectura SEO actualizada: directorio de ${catalogo.playas.length} playas, ${modificadas} fichas reforzadas y enlaces canónicos en el ranking.`);
