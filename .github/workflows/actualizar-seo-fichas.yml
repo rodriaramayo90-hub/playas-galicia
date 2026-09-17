@@ -69,12 +69,16 @@ jobs:
           fi
           grep -q '<link rel="canonical" href="https://hoytocaplaya.com/playas/playa-de-riazor/">' playas/playa-de-riazor/index.html
           grep -q 'SEO_PLAYAS_CERCANAS_INICIO' playas/playa-de-riazor/index.html
-          grep -q 'SEO_DIRECTORIO_PLAYAS_INICIO' index.html
+          if grep -q 'SEO_DIRECTORIO_PLAYAS_INICIO' index.html || grep -q 'Guía de playas de Galicia' index.html; then
+            echo "La portada contiene el directorio SEO visible que debe permanecer eliminado"
+            exit 1
+          fi
           grep -q 'SEO_RANKING_PRERENDER_TABLA_INICIO' index.html
           grep -q 'SEO_RANKING_PRERENDER_MOBILE_INICIO' index.html
           grep -q '/100</small>' index.html
           grep -Eq 'Excelente día de playa|Buen día de playa|Aceptable|Poco recomendable|Mejor evitar esta playa hoy' index.html
           grep -q 'class="col-explicacion"' index.html
+          grep -q 'class="enlace-ficha-playa"' index.html
           grep -q 'const rutaCanonica = `playas/${slug}/`' app.js
 
       - name: Ejecutar tests SEO de fichas

@@ -31,7 +31,14 @@ for (const slug of fichasEspeciales) {
     `El sitemap no incluye la ficha especial ${slug}.`);
 }
 assert.match(indexHtml, /data\/indice-fichas\.js/, "La portada debe cargar el índice antes de app.js.");
-assert.match(indexHtml, /SEO_DIRECTORIO_PLAYAS_INICIO/, "La portada debe incluir un directorio HTML rastreable.");
+assert.ok(!indexHtml.includes("SEO_DIRECTORIO_PLAYAS_INICIO"),
+  "La portada no debe incluir un directorio SEO separado del ranking principal.");
+assert.ok(!indexHtml.includes("Guía de playas de Galicia"),
+  "La portada no debe mostrar una segunda lista/directorio de playas debajo del ranking.");
+assert.match(indexHtml, /SEO_RANKING_PRERENDER_TABLA_INICIO/,
+  "La portada debe conservar el ranking principal prerenderizado.");
+assert.match(indexHtml, /class="enlace-ficha-playa"/,
+  "El ranking principal debe conservar enlaces rastreables a las fichas de playa.");
 assert.match(indexHtml, /horaInicioSeleccionada=11;horaFinSeleccionada=20;/,
   "El horario inicial visible debe ser 11:00–20:00.");
 assert.match(app, /data-ficha-url=/, "Las tarjetas del ranking deben enlazar la ficha completa.");
@@ -91,4 +98,4 @@ for (const playa of catalogo.playas) {
 
 assert.equal((sitemap.match(/<loc>/g) || []).length, total + fichasEspeciales.size + 1,
   "El sitemap debe incluir la portada, todas las fichas del catálogo base y las fichas especiales.");
-console.log(`OK: ${total} fichas base + ${fichasEspeciales.size} especial(es), con SEO, sitemap, directorio e interlinking.`);
+console.log(`OK: ${total} fichas base + ${fichasEspeciales.size} especial(es), con SEO, sitemap e interlinking sin directorio duplicado en portada.`);
