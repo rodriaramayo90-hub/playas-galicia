@@ -7,6 +7,9 @@ on:
   push:
     paths:
       - "scripts/incrustar-seo-fichas.mjs"
+      - "scripts/mejorar-arquitectura-seo.mjs"
+      - "scripts/generar-fichas-playas.mjs"
+      - "tests/fichas-playas.test.cjs"
       - "data/descripciones-seo-*.json"
       - "data/informacion-verificada.json"
       - "data/playas-detalle.json"
@@ -35,6 +38,9 @@ jobs:
       - name: Incrustar contenido SEO y previsión base
         run: node scripts/incrustar-seo-fichas.mjs
 
+      - name: Mejorar arquitectura de enlaces SEO
+        run: node scripts/mejorar-arquitectura-seo.mjs
+
       - name: Validar que no se pierdan fichas
         run: |
           TOTAL_CATALOGO=$(node -e "const d=require('./data/playas-detalle.json'); process.stdout.write(String(d.playas.length))")
@@ -45,7 +51,7 @@ jobs:
             exit 1
           fi
 
-      - name: Validar HTML prerenderizado
+      - name: Validar HTML prerenderizado y enlazado
         run: |
           grep -q 'id="descripcionPlaya">' playas/playa-de-riazor/index.html
           if grep -q 'id="descripcionPlaya">Información no disponible<' playas/playa-de-riazor/index.html; then
@@ -57,15 +63,21 @@ jobs:
             exit 1
           fi
           grep -q '<link rel="canonical" href="https://hoytocaplaya.com/playas/playa-de-riazor/">' playas/playa-de-riazor/index.html
+          grep -q 'SEO_PLAYAS_CERCANAS_INICIO' playas/playa-de-riazor/index.html
+          grep -q 'SEO_DIRECTORIO_PLAYAS_INICIO' index.html
+          grep -q 'const rutaCanonica = `playas/${slug}/`' app.js
+
+      - name: Ejecutar tests SEO de fichas
+        run: node tests/fichas-playas.test.cjs
 
       - name: Publicar cambios generados
         run: |
-          if git diff --quiet -- playas; then
+          if git diff --quiet -- playas index.html app.js; then
             echo "No hay cambios SEO que publicar."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add playas
-          git commit -m "Actualizar SEO prerenderizado de fichas"
+          git add playas index.html app.js
+          git commit -m "Actualizar arquitectura SEO e interlinking"
           git push

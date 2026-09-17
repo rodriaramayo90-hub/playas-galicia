@@ -2822,12 +2822,13 @@ function crearEnlaceGoogleMaps(playa) {
 }
 
 function crearEnlaceFicha(slug) {
-  const ruta = `playas/${slug}/index.html`;
-  if (typeof window === "undefined" || window.location?.hostname !== "htmlpreview.github.io") return ruta;
+  const rutaCanonica = `playas/${slug}/`;
+  if (typeof window === "undefined" || window.location?.hostname !== "htmlpreview.github.io") return rutaCanonica;
+  const rutaPreview = `playas/${slug}/index.html`;
   const fuente = decodeURIComponent(window.location.search.slice(1)).split("#")[0];
-  if (!fuente.includes("github.com/") || !fuente.endsWith("/index.html")) return ruta;
+  if (!fuente.includes("github.com/") || !fuente.endsWith("/index.html")) return rutaPreview;
   const raizFuente = fuente.slice(0, fuente.lastIndexOf("/") + 1);
-  return `${window.location.origin}${window.location.pathname}?${raizFuente}${ruta}`;
+  return `${window.location.origin}${window.location.pathname}?${raizFuente}${rutaPreview}`;
 }
 
 async function cargarRankingInterno() {

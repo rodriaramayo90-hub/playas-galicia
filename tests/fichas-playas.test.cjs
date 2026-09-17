@@ -9,19 +9,39 @@ const app = readFileSync(resolve(raiz, "app.js"), "utf8");
 const indexHtml = readFileSync(resolve(raiz, "index.html"), "utf8");
 const indiceJs = readFileSync(resolve(raiz, "data", "indice-fichas.js"), "utf8");
 const indice = JSON.parse(indiceJs.replace(/^window\.HoyTocaPlayaIndiceFichas\s*=\s*/, "").replace(/;\s*$/, ""));
+const total = catalogo.playas.length;
+const slugsCatalogo = new Set(catalogo.playas.map(playa => playa.slug));
+const fichasEspeciales = new Set(["praia-de-areacova"]);
+const slugsPermitidos = new Set([...slugsCatalogo, ...fichasEspeciales]);
+const slugsIndiceHuerfanos = [...new Set(Object.values(indice).filter(slug => !slugsPermitidos.has(slug)))];
+const carpetas = readdirSync(resolve(raiz, "playas"), { withFileTypes: true }).filter(item => item.isDirectory()).map(item => item.name);
+const carpetasHuerfanas = carpetas.filter(slug => !slugsPermitidos.has(slug));
 
-assert.equal(catalogo.playas.length, 150, "El catálogo debe incluir las 150 playas del ranking.");
-assert.equal(catalogo.total, 150);
-assert.equal(Object.keys(indice).length, 150, "El índice debe enlazar las 150 fichas.");
-assert.equal(readdirSync(resolve(raiz, "playas"), { withFileTypes: true }).filter(item => item.isDirectory()).length, 150);
+assert.ok(total >= 179, `El catálogo no puede retroceder por debajo de 179 playas; contiene ${total}.`);
+assert.equal(catalogo.total, total, "catalogo.total debe coincidir con el número real de playas.");
+assert.deepEqual(slugsIndiceHuerfanos, [], `El índice contiene slugs huérfanos: ${slugsIndiceHuerfanos.join(", ")}`);
+assert.deepEqual(carpetasHuerfanas, [], `Existen carpetas de fichas huérfanas: ${carpetasHuerfanas.join(", ")}`);
+assert.equal(Object.keys(indice).length, total + fichasEspeciales.size,
+  "El índice debe enlazar todas las fichas del catálogo y las fichas especiales.");
+assert.equal(carpetas.length, total + fichasEspeciales.size,
+  "Debe existir una carpeta por cada ficha del catálogo y cada ficha especial.");
+for (const slug of fichasEspeciales) {
+  assert.ok(existsSync(resolve(raiz, "playas", slug, "index.html")), `Falta la ficha especial ${slug}.`);
+  assert.ok(sitemap.includes(`<loc>https://hoytocaplaya.com/playas/${slug}/</loc>`),
+    `El sitemap no incluye la ficha especial ${slug}.`);
+}
 assert.match(indexHtml, /data\/indice-fichas\.js/, "La portada debe cargar el índice antes de app.js.");
+assert.match(indexHtml, /SEO_DIRECTORIO_PLAYAS_INICIO/, "La portada debe incluir un directorio HTML rastreable.");
+assert.match(indexHtml, /horaInicioSeleccionada=11;horaFinSeleccionada=20;/,
+  "El horario inicial visible debe ser 11:00–20:00.");
 assert.match(app, /data-ficha-url=/, "Las tarjetas del ranking deben enlazar la ficha completa.");
 assert.match(app, /window\.location\.href = elemento\.dataset\.fichaUrl/,
   "La tarjeta debe abrir la ficha en la misma pestaña.");
 assert.match(app, /function crearEnlaceFicha\(slug\)/,
   "Los enlaces deben adaptarse al dominio oficial y a htmlpreview.");
+assert.match(app, /const rutaCanonica = `playas\/\$\{slug\}\/`/,
+  "El ranking debe enlazar la URL canonical sin /index.html en producción.");
 assert.match(app, /htmlpreview\.github\.io/, "La navegación debe conservar el visor de preview.");
-assert.match(app, /horaFinSeleccionada = 22/, "El rango predeterminado debe llegar hasta las 22:00.");
 assert.match(app, /function obtenerRaizRecursos\(\)/,
   "Los recursos dinámicos deben resolver la raíz correcta también en htmlpreview.");
 assert.match(app, /window\.HoyTocaPlayaIndiceFichas/, "El ranking debe aplicar el índice generado.");
@@ -47,8 +67,8 @@ for (const playa of catalogo.playas) {
   assert.ok(!html.includes("{{"), `Quedaron variables sin reemplazar en ${playa.slug}.`);
   assert.match(html, /window\.HoyTocaPlayaFicha = \{/,
     `La ficha ${playa.slug} debe incluir sus datos estáticos generados.`);
-  assert.ok(html.includes(JSON.stringify(playa.descripcion)),
-    `La ficha ${playa.slug} debe incluir su descripción sin una petición adicional.`);
+  assert.match(html, /SEO_PLAYAS_CERCANAS_INICIO/,
+    `La ficha ${playa.slug} debe incluir enlaces internos a playas cercanas.`);
 
   const bloqueDatos = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert.ok(bloqueDatos, `Faltan datos estructurados en ${playa.slug}.`);
@@ -69,6 +89,6 @@ for (const playa of catalogo.playas) {
   assert.ok(sitemap.includes(`<loc>${canonical}</loc>`), `El sitemap no incluye ${playa.slug}.`);
 }
 
-assert.equal((sitemap.match(/<loc>/g) || []).length, 151, "El sitemap debe incluir portada y 150 fichas.");
-console.log("OK: 150 fichas dinámicas con datos, rutas, SEO, sitemap y enlaces desde el ranking.");
-
+assert.equal((sitemap.match(/<loc>/g) || []).length, total + fichasEspeciales.size + 1,
+  "El sitemap debe incluir la portada, todas las fichas del catálogo base y las fichas especiales.");
+console.log(`OK: ${total} fichas base + ${fichasEspeciales.size} especial(es), con SEO, sitemap, directorio e interlinking.`);

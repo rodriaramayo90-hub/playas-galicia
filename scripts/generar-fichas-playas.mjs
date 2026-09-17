@@ -6,6 +6,7 @@ const RAIZ = resolve(import.meta.dirname, "..");
 const PLANTILLA = resolve(RAIZ, "plantillas", "ficha-playa.html");
 const DESTINO = resolve(RAIZ, "playas");
 const INDICE = resolve(RAIZ, "data", "indice-fichas.js");
+const CATALOGO = resolve(RAIZ, "data", "playas-detalle.json");
 
 function escaparHtml(texto) {
   return String(texto)
@@ -100,11 +101,23 @@ ${urls.map(url => `  <url>
 `;
 }
 
-const [plantilla, catalogo] = await Promise.all([
+const [plantilla, catalogoActualTexto, catalogo] = await Promise.all([
   readFile(PLANTILLA, "utf8"),
-  construirCatalogo()
+  readFile(CATALOGO, "utf8"),
+  construirCatalogo({ escribir: false })
 ]);
 if (!Array.isArray(catalogo.playas) || catalogo.playas.length === 0) throw new Error("No hay fichas para generar.");
+
+const catalogoActual = JSON.parse(catalogoActualTexto);
+const playasActuales = Array.isArray(catalogoActual.playas) ? catalogoActual.playas : [];
+const slugsNuevos = new Set(catalogo.playas.map(playa => playa.slug));
+const slugsPerdidos = playasActuales.map(playa => playa.slug).filter(slug => !slugsNuevos.has(slug));
+if (catalogo.playas.length < playasActuales.length || slugsPerdidos.length > 0) {
+  throw new Error(
+    `Generación bloqueada para evitar pérdida SEO: el catálogo actual tiene ${playasActuales.length} fichas y el generador produciría ${catalogo.playas.length}. ` +
+    `Slugs que desaparecerían: ${slugsPerdidos.slice(0, 20).join(", ") || "ninguno"}. Actualiza primero la fuente del catálogo.`
+  );
+}
 
 await rm(DESTINO, { recursive: true, force: true });
 for (const playa of catalogo.playas) {
@@ -112,8 +125,8 @@ for (const playa of catalogo.playas) {
   await mkdir(carpeta, { recursive: true });
   await writeFile(resolve(carpeta, "index.html"), completarPlantilla(plantilla, playa), "utf8");
 }
+await writeFile(CATALOGO, `${JSON.stringify(catalogo, null, 2)}\n`, "utf8");
 await writeFile(resolve(RAIZ, "sitemap.xml"), generarSitemap(catalogo.playas), "utf8");
 const indice = Object.fromEntries(catalogo.playas.map(playa => [`${playa.nombreCatalogo}||${playa.municipio}`, playa.slug]));
 await writeFile(INDICE, `window.HoyTocaPlayaIndiceFichas = ${JSON.stringify(indice, null, 2)};\n`, "utf8");
 console.log(`Generadas ${catalogo.playas.length} fichas y sitemap.xml.`);
-
