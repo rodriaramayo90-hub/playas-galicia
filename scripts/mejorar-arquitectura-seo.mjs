@@ -144,7 +144,7 @@ function eliminarBloqueMarcado(html, id) {
 
 function renderizarCercanas(playa, cercanas) {
   const elementos = cercanas.map(({ playa: cercana, distancia }) =>
-    `<li><a href="../${escaparHtml(cercana.slug)}/">${escaparHtml(nombrePlaya(cercana))}</a><small>${escaparHtml(cercana.municipio || "Galicia")} · ${distancia.toFixed(1).replace(".", ",")} km en línea recta</small></li>`
+    `<li><a href="../${escaparHtml(cercana.slug)}/">${escaparHtml(nombrePlaya(cercana))}</a><small>${escaparHtml(cercana.municipio || "Galicia")} · a ${distancia.toFixed(1).replace(".", ",")} km</small></li>`
   ).join("");
   return `<section id="playas-cercanas" class="panel-ficha" aria-labelledby="tituloPlayasCercanas">
   <h2 id="tituloPlayasCercanas">Playas cercanas a ${escaparHtml(nombrePlaya(playa))}</h2>
