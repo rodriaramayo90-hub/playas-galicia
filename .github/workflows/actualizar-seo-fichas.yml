@@ -8,6 +8,8 @@ on:
     paths:
       - "scripts/incrustar-seo-fichas.mjs"
       - "scripts/mejorar-arquitectura-seo.mjs"
+      - "scripts/generar-fichas-playas.mjs"
+      - "tests/fichas-playas.test.cjs"
       - "data/descripciones-seo-*.json"
       - "data/informacion-verificada.json"
       - "data/playas-detalle.json"
@@ -64,6 +66,9 @@ jobs:
           grep -q 'SEO_PLAYAS_CERCANAS_INICIO' playas/playa-de-riazor/index.html
           grep -q 'SEO_DIRECTORIO_PLAYAS_INICIO' index.html
           grep -q 'const rutaCanonica = `playas/${slug}/`' app.js
+
+      - name: Ejecutar tests SEO de fichas
+        run: node tests/fichas-playas.test.cjs
 
       - name: Publicar cambios generados
         run: |
